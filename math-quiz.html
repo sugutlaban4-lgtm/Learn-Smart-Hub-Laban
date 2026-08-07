@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mathematics Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>📝 Mathematics Quiz</h1>
+<h2 id="score">Score: 0</h2>
+<p>Test your Mathematics knowledge.</p>
+
+<p><strong>Question 1</strong></p>
+
+<p>What is 12 × 8?</p>
+
+<button>80</button>
+<button>96</button>
+<button>108</button>
+
+<br><br>
+<button onclick="submitQuiz()">
+📊 Submit Quiz
+</button>
+<button onclick="window.location='mathematics.html'">
+⬅ Back to Mathematics
+</button>
+
+<body>
+
+<h1>📝 Mathematics Quiz</h1>
+
+<p>Test your Mathematics knowledge.</p>
+
+<h3>Question 1</h3>
+<p>What is 12 × 8?</p>
+
+<button onclick="checkAnswer(80)">80</button>
+<button onclick="checkAnswer(96)">96</button>
+<button onclick="checkAnswer(108)">108</button>
+function submitQuiz() {
+
+    alert("Your final score is: " + score);
+
+}
+<h3>Question 2</h3>
+<p>Solve: 25 + 15</p>
+
+<button>30</button>
+<button>40</button>
+<button>50</button>
+
+<br><br>
+
+<button onclick="window.location='mathematics.html'">
+⬅ Back to Mathematics
+</button>
+
+<script>
+
+let score = 0;
+
+function checkAnswer(answer) {
+
+    if(answer === 96) {
+        score++;
+        document.getElementById("score").innerHTML = "Score: " + score;
+        alert("✅ Correct answer!");
+    } 
+    else {
+        alert("❌ Wrong answer. Try again!");
+    }
+
+}
+function submitQuiz() {
+
+    alert("Your final score is: " + score);
+
+}
+</script></body></body>
+</html>

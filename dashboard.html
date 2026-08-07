@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Learn Smart Hub Dashboard</title>
-</head>
+<link rel="stylesheet" href="css/style.css"></head>
 
 <body>
 
@@ -13,11 +13,21 @@
 <p>Email: <span id="studentEmail"></span></p>
 
 <h3>My Learning</h3>
-<button>Mathematics</button>
-<button>Science</button>
-<button>Past Papers</button>
+<button onclick="window.location='mathematics.html'">📘 Mathematics</button>
 
-<script type="module" src="dashboard.js"></script>
+<button onclick="window.location='science.html'">🔬 Science</button>
+
+<button onclick="window.location='pastpapers.html'">📄 Past Papers</button>
+
+<button onclick="window.location='notes.html'">📚 Notes</button>
+
+<button onclick="window.location='videos.html'">🎥 Video Lessons</button>
+
+<button onclick="window.location='profile.html'">👤 My Profile</button>
+
+<button onclick="logout()">🚪 Logout</button>
+
+<script type="module" src="js/dashboard.js"></script></script>
 
 </body>
 </html>

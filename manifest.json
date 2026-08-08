@@ -1,0 +1,10 @@
+{
+  "name": "Learn Smart Hub",
+  "short_name": "Learn Smart Hub",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1565c0",
+  "description": "Learning resources, notes, past papers, videos and quizzes.",
+  "icons": []
+}

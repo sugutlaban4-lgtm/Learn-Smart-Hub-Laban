@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learn Smart Hub - Science Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<h1>🔬 Science Quiz</h1>
+
+<p>Test your Science knowledge.</p>
+
+<h2 id="score">Score: 0/10</h2>
+
+<hr>
+
+<h3>Question 1</h3>
+<p>Which organ pumps blood around the human body?</p>
+
+<button onclick="checkAnswer(1, 'Heart', 'Heart')">Heart</button>
+<button onclick="checkAnswer(1, 'Lungs', 'Heart')">Lungs</button>
+<button onclick="checkAnswer(1, 'Kidney', 'Heart')">Kidney</button>
+
+<hr>
+
+<h3>Question 2</h3>
+<p>Which gas do humans need for respiration?</p>
+
+<button onclick="checkAnswer(2, 'Oxygen', 'Oxygen')">Oxygen</button>
+<button onclick="checkAnswer(2, 'Nitrogen', 'Oxygen')">Nitrogen</button>
+<button onclick="checkAnswer(2, 'Carbon dioxide', 'Oxygen')">Carbon dioxide</button>
+
+<hr>
+
+<h3>Question 3</h3>
+<p>What is the boiling point of water at sea level?</p>
+
+<button onclick="checkAnswer(3, '50°C', '100°C')">50°C</button>
+<button onclick="checkAnswer(3, '100°C', '100°C')">100°C</button>
+<button onclick="checkAnswer(3, '150°C', '100°C')">150°C</button>
+
+<hr>
+
+<h3>Question 4</h3>
+<p>Which planet is known as the Red Planet?</p>
+
+<button onclick="checkAnswer(4, 'Earth', 'Mars')">Earth</button>
+<button onclick="checkAnswer(4, 'Mars', 'Mars')">Mars</button>
+<button onclick="checkAnswer(4, 'Venus', 'Mars')">Venus</button>
+
+<hr>
+
+<h3>Question 5</h3>
+<p>What is the basic unit of life?</p>
+
+<button onclick="checkAnswer(5, 'Cell', 'Cell')">Cell</button>
+<button onclick="checkAnswer(5, 'Tissue', 'Cell')">Tissue</button>
+<button onclick="checkAnswer(5, 'Organ', 'Cell')">Organ</button>
+
+<hr>
+
+<h3>Question 6</h3>
+<p>Which force pulls objects towards Earth?</p>
+
+<button onclick="checkAnswer(6, 'Magnetism', 'Gravity')">Magnetism</button>
+<button onclick="checkAnswer(6, 'Gravity', 'Gravity')">Gravity</button>
+<button onclick="checkAnswer(6, 'Friction', 'Gravity')">Friction</button>
+
+<hr>
+
+<h3>Question 7</h3>
+<p>Which part of a plant absorbs water from the soil?</p>
+
+<button onclick="checkAnswer(7, 'Roots', 'Roots')">Roots</button>
+<button onclick="checkAnswer(7, 'Leaves', 'Roots')">Leaves</button>
+<button onclick="checkAnswer(7, 'Flowers', 'Roots')">Flowers</button>
+
+<hr>
+
+<h3>Question 8</h3>
+<p>What is the chemical symbol for oxygen?</p>
+
+<button onclick="checkAnswer(8, 'O', 'O')">O</button>
+<button onclick="checkAnswer(8, 'H', 'O')">H</button>
+<button onclick="checkAnswer(8, 'C', 'O')">C</button>
+
+<hr>
+
+<h3>Question 9</h3>
+<p>Which instrument is used to measure temperature?</p>
+
+<button onclick="checkAnswer(9, 'Barometer', 'Thermometer')">Barometer</button>
+<button onclick="checkAnswer(9, 'Thermometer', 'Thermometer')">Thermometer</button>
+<button onclick="checkAnswer(9, 'Ammeter', 'Thermometer')">Ammeter</button>
+
+<hr>
+
+<h3>Question 10</h3>
+<p>Which form of energy is stored in food?</p>
+
+<button onclick="checkAnswer(10, 'Chemical energy', 'Chemical energy')">Chemical energy</button>
+<button onclick="checkAnswer(10, 'Sound energy', 'Chemical energy')">Sound energy</button>
+<button onclick="checkAnswer(10, 'Light energy', 'Chemical energy')">Light energy</button>
+
+<hr>
+
+<button onclick="submitQuiz()">📊 Submit Quiz</button>
+
+<div id="result" style="
+    display:none;
+    margin:20px;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    background:#e8f0ff;
+">
+
+    <h2>🎉 Quiz Complete!</h2>
+
+    <h3 id="finalScore"></h3>
+
+    <p id="message"></p>
+
+    <button onclick="restartQuiz()">🔄 Try Again</button>
+
+</div>
+
+<br><br>
+
+<button onclick="window.location='science.html'">
+    ⬅ Back to Science
+</button>
+
+<script>
+
+let score = 0;
+let answered = [];
+
+function checkAnswer(question, selectedAnswer, correctAnswer) {
+
+    if (answered.includes(question)) {
+        alert("⚠️ You already answered this question.");
+        return;
+    }
+
+    answered.push(question);
+
+    if (selectedAnswer === correctAnswer) {
+
+        score++;
+
+        document.getElementById("score").innerText =
+            "Score: " + score + "/10";
+
+        alert("✅ Correct answer!");
+
+    } else {
+
+        alert("❌ Wrong answer.");
+
+    }
+}
+
+function submitQuiz() {
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("finalScore").innerText =
+        "Your Score: " + score + "/10";
+
+    if (score >= 8) {
+
+        document.getElementById("message").innerText =
+            "🌟 Excellent work! Keep it up!";
+
+    } else if (score >= 5) {
+
+        document.getElementById("message").innerText =
+            "👍 Good work! Keep practicing!";
+
+    } else {
+
+        document.getElementById("message").innerText =
+            "📚 Keep practicing. You can improve!";
+
+    }
+}
+
+function restartQuiz() {
+
+    location.reload();
+
+}
+
+</script>
+
+</body>
+</html>

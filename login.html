@@ -1,32 +1,218 @@
+
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Learn Smart Hub Login</title>
-</head><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Learn Smart Hub</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f4f8ff;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #1565c0;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .signup {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .signup a {
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
 
 <body>
 
-<h1>Student Login</h1>
+<div class="login-box">
 
-<p>Login to access your learning resources</p>
+    <h1>📚 Learn Smart Hub</h1>
 
-<input type="email" id="loginEmail">
+    <p class="subtitle">Login to continue learning</p>
 
-<br><br>
+    <form id="loginForm">
 
-<input type="password" id="loginPassword">
+        <label for="email">Email</label>
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+        >
 
-<br><br>
+        <label for="password">Password</label>
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+        >
 
-<button onclick="loginUser()">Login</button>
+        <button type="submit">🔐 Login</button>
 
-<p>
-Don't have an account?
-<p>
+    </form>
 
-<a href="signup.html">Create account</a>
-</p>
-</p>
+    <p id="message"></p>
 
-<script type="module" src="js/auth.js"></script></body>
+    <div class="signup">
+        Don't have an account?
+        <a href="signup.html">Create Account</a>
+    </div>
+
+</div>
+
+<!-- Firebase -->
+<script type="module">
+
+    import { initializeApp } from
+    "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+    import {
+        getAuth,
+        signInWithEmailAndPassword
+    } from
+    "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+    // YOUR FIREBASE CONFIGURATION
+    const firebaseConfig = {
+
+        apiKey: "AIzaSyCTRqYqGMzqq6zvCiDijNSYdRwhqxVlXPo",
+        authDomain: "learn-smart-hub-laban.firebaseapp.com",
+        projectId:"learn-smart-hub-laban",
+        storageBucket: "learn-smart-hub-laban.firebasestorage.app",
+        messagingSenderId: "707789494610",
+        appId: "1:707789494610:web:ee7f3f9a6fddbc913e028b" 
+
+    };
+
+
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+
+    const loginForm = document.getElementById("loginForm");
+
+    const message = document.getElementById("message");
+
+
+    loginForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
+
+        message.textContent = "Logging in...";
+
+
+        try {
+
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            message.textContent =
+                "✅ Login successful!";
+
+            // Change this if your dashboard has another filename
+            window.location.href = "dashboard.html";
+
+        } catch (error) {
+
+            console.error(error);
+
+            message.textContent =
+                "❌ Login failed: " + error.message;
+
+        }
+
+    });
+
+</script>
+
+</body>
 </html>
+```

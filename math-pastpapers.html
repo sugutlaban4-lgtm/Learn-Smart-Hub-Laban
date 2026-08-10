@@ -1,40 +1,126 @@
-<body><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mathematics Past Papers - Learn Smart Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f8ff;
+            color: #1a237e;
+        }
+
+        header {
+            background: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: #1565c0;
+        }
+
+        .button {
+            display: inline-block;
+            background: #1565c0;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background: #0d47a1;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 23px;
+            }
+
+            .card {
+                padding: 20px 15px;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📄 Mathematics Past Papers</h1>
+</header>
 
 <div class="container">
 
-<h1>📄 Mathematics Past Papers</h1>
-
-<p>Practice with examination papers and improve your skills.</p>
-
-<div class="card">.card {
-    background: #ffffff;
-    border: 2px solid #2563EB;
-}s
-
-.container h1 {
-    color: #2563EB;
-}
-    <h2>2026 Grade 10 Core Mathematics</h2>
-    <p>Term 2 Paper</p>
-
-<a href="Resources/Mathematics/2026-GRADE-10-CORE-MATHEMATICS-T2-TEACHER.CO_.KE_.pdf" target="_blank">
-    <button>📖 Open Paper</button>
-</a>
-        <button>📖 Open Paper</button>
+    <a href="mathematics.html" class="back">
+        ← Back to Mathematics
     </a>
-</div>
 
-<div class="card">
-    <h2>More Papers Coming Soon</h2>
-    <p>More Mathematics revision papers will be added here.</p>
-</div>
+    <div class="card">
+        <h2>📄 2026 Grade 10 Core Mathematics</h2>
+        <p>Term 2 Mathematics Paper</p>
 
-<br>
+        <a
+            href="Resources/Mathematics/2026-GRADE-10-CORE-MATHEMATICS-T2-TEACHER.CO_.KE_.pdf"
+            target="_blank"
+            class="button">
+            📖 Open Paper
+        </a>
+    </div>
 
-<button onclick="window.location='mathematics.html'">
-⬅ Back to Mathematics
-</button>
+    <div class="card">
+        <h2>📚 More Papers Coming Soon</h2>
+        <p>More Mathematics past papers will be added here.</p>
+    </div>
 
 </div>
 
 </body>
+</html>

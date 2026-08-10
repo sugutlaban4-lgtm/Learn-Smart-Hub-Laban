@@ -202,22 +202,7 @@ function submitQuiz() {
     );
 }
 
-    document.getElementById("result").style.display = "block";
-
-    document.getElementById("finalScore").innerText =
-        "Your Score: " + score + "/10";
-
-    if (score >= 8) {
-        document.getElementById("message").innerText =
-            "🌟 Excellent work! Keep it up!";
-    } else if (score >= 5) {
-        document.getElementById("message").innerText =
-            "👍 Good work! Keep practicing!";
-    } else {
-        document.getElementById("message").innerText =
-            "📚 Keep practicing. You can do better!";
-    }
-}
+  
 function restartQuiz() {
 
     location.reload();

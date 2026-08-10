@@ -165,6 +165,58 @@ function submitQuiz() {
         document.getElementById("message").innerText =
             "📚 Keep practicing. You can do better!";
     }
+
+    // SAVE QUIZ PROGRESS
+    const previousCompleted =
+        Number(localStorage.getItem("quizzesCompleted")) || 0;
+
+    const previousBest =
+        Number(localStorage.getItem("bestQuizScore")) || 0;
+
+    const previousTotal =
+        Number(localStorage.getItem("totalQuizScore")) || 0;
+
+    const newCompleted = previousCompleted + 1;
+    const newTotal = previousTotal + score;
+
+    const newBest = Math.max(previousBest, score);
+
+    localStorage.setItem(
+        "quizzesCompleted",
+        newCompleted
+    );
+
+    localStorage.setItem(
+        "bestQuizScore",
+        newBest
+    );
+
+    localStorage.setItem(
+        "totalQuizScore",
+        newTotal
+    );
+
+    localStorage.setItem(
+        "averageQuizScore",
+        (newTotal / newCompleted).toFixed(1)
+    );
+}
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("finalScore").innerText =
+        "Your Score: " + score + "/10";
+
+    if (score >= 8) {
+        document.getElementById("message").innerText =
+            "🌟 Excellent work! Keep it up!";
+    } else if (score >= 5) {
+        document.getElementById("message").innerText =
+            "👍 Good work! Keep practicing!";
+    } else {
+        document.getElementById("message").innerText =
+            "📚 Keep practicing. You can do better!";
+    }
 }
 function restartQuiz() {
 

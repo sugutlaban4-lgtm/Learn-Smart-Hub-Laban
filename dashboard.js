@@ -96,3 +96,36 @@ searchInput.addEventListener("keydown", (event) => {
     }
 
 });
+// QUIZ PROGRESS
+
+const quizzesCompleted =
+    Number(localStorage.getItem("quizzesCompleted")) || 0;
+
+const bestQuizScore =
+    Number(localStorage.getItem("bestQuizScore")) || 0;
+
+const averageQuizScore =
+    Number(localStorage.getItem("averageQuizScore")) || 0;
+
+const completedElement =
+    document.getElementById("quizzesCompleted");
+
+const bestElement =
+    document.getElementById("bestQuizScore");
+
+const averageElement =
+    document.getElementById("averageQuizScore");
+
+if (completedElement) {
+    completedElement.textContent = quizzesCompleted;
+}
+
+if (bestElement) {
+    bestElement.textContent =
+        (bestQuizScore * 10) + "%";
+}
+
+if (averageElement) {
+    averageElement.textContent =
+        (averageQuizScore * 10).toFixed(0) + "%";
+}

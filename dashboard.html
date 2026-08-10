@@ -1,210 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Learn Smart Hub - Dashboard</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
-<body class="dashboard-page">
+<body>
 
-    <div class="dashboard-container">
+<div class="dashboard-container">
 
-        <!-- HEADER -->
-        <header class="dashboard-header">
+    <!-- HEADER -->
+    <header class="dashboard-header">
 
-            <div class="brand-icon">🎓</div>
+        <div class="brand-icon">🎓</div>
 
-            <h1>Learn Smart Hub</h1>
+        <h1>Learn Smart Hub</h1>
 
-            <p class="tagline">
-                Your smart learning centre
-            </p>
+        <p class="tagline">
+            Your smart learning centre
+        </p>
 
-        </header>
-
-
-        <!-- WELCOME -->
-        <section class="welcome-card">
-
-            <h2>
-                👋 Welcome, <span id="studentName">Student</span>
-            </h2>
-
-            <p>
-                <strong>Email:</strong>
-                <span id="studentEmail"></span>
-            </p>
-
-            <p class="welcome-text">
-                Choose a learning area below and start studying.
-            </p>
-
-        </section>
+    </header>
 
 
+    <!-- WELCOME -->
+    <section class="welcome-card">
 
-        <!-- LEARNING --><!-- SEARCH -->
-<section class="search-section">
+        <h2>
+            👋 Welcome, <span id="studentName">Student</span>
+        </h2>
 
-    <h2>🔎 Search Learn Smart Hub</h2>
+        <p>
+            <strong>Email:</strong>
+            <span id="studentEmail"></span>
+        </p>
 
-    <div class="search-box">
-        <input
-            type="text"
-            id="resourceSearch"
-            placeholder="Search notes, papers, videos..."
-            autocomplete="off"
-        >
+        <p class="welcome-text">
+            Choose a learning area below and start studying.
+        </p>
 
-        <button id="searchButton">
-            Search
-        </button>
-    </div>
-
-    <p id="searchMessage" class="search-message"></p>
-
-</section>
-        <section class="learning-section">
-
-            <h2>📚 My Learning</h2>
-
-            <div class="learning-grid">
-
-                <button
-                    class="learning-card"
-                    onclick="window.location='mathematics.html'">
-
-                    <span class="card-icon">📘</span>
-
-                    <span class="card-title">
-                        Mathematics
-                    </span>
-
-                    <span class="card-description">
-                        Notes, papers, videos and quizzes
-                    </span>
-
-                </button>
+    </section>
 
 
-                <button
-                    class="learning-card"
-                    onclick="window.location='science.html'">
+    <!-- SEARCH -->
+    <section class="search-section">
 
-                    <span class="card-icon">🔬</span>
+        <h2>🔎 Search Learn Smart Hub</h2>
 
-                    <span class="card-title">
-                        Science
-                    </span>
+        <div class="search-box">
 
-                    <span class="card-description">
-                        Biology, Chemistry and Physics
-                    </span>
+            <input
+                type="text"
+                id="resourceSearch"
+                placeholder="Search notes, papers, videos..."
+                autocomplete="off"
+            >
 
-                </button>
+            <button id="searchButton">
+                Search
+            </button>
 
+        </div>
 
-                <button
-                    class="learning-card"
-                    onclick="window.location='pastpapers.html'">
+        <p id="searchMessage" class="search-message"></p>
 
-                    <span class="card-icon">📄</span>
-
-                    <span class="card-title">
-                        Past Papers
-                    </span>
-
-                    <span class="card-description">
-                        Practice examination papers
-                    </span>
-
-                </button>
+    </section>
 
 
-                <button
-                    class="learning-card"
-                    onclick="window.location='notes.html'">
+    <!-- LEARNING -->
+    <section class="learning-section">
 
-                    <span class="card-icon">📚</span>
+        <h2>📚 My Learning</h2>
 
-                    <span class="card-title">
-                        Study Notes
-                    </span>
+        <div class="learning-grid">
 
-                    <span class="card-description">
-                        Revision notes and resources
-                    </span>
+            <button
+                class="learning-card"
+                onclick="window.location='mathematics.html'">
 
-                </button>
+                <span class="card-icon">📘</span>
+
+                <span class="card-title">
+                    Mathematics
+                </span>
+
+                <span class="card-description">
+                    Notes, papers, videos and quizzes
+                </span>
+
+            </button>
 
 
-                <button
-                    class="learning-card"
-                    onclick="window.location='videos.html'">
+            <button
+                class="learning-card"
+                onclick="window.location='science.html'">
 
-                    <span class="card-icon">🎥</span>
+                <span class="card-icon">🔬</span>
 
-                    <span class="card-title">
-                        Video Lessons
-                    </span>
+                <span class="card-title">
+                    Science
+                </span>
 
-                    <span class="card-description">
-                        Learn through video lessons
-                    </span>
+                <span class="card-description">
+                    Biology, Chemistry and Physics
+                </span>
 
-                </button>
+            </button>
+
+
+            <button
+                class="learning-card"
+                onclick="window.location='pastpapers.html'">
+
+                <span class="card-icon">📄</span>
+
+                <span class="card-title">
+                    Past Papers
+                </span>
+
+                <span class="card-description">
+                    Practice examination papers
+                </span>
+
+            </button>
+
+
+            <button
+                class="learning-card"
+                onclick="window.location='notes.html'">
+
+                <span class="card-icon">📚</span>
+
+                <span class="card-title">
+                    Study Notes
+                </span>
+
+                <span class="card-description">
+                    Revision notes and resources
+                </span>
+
+            </button>
+
+
+            <button
+                class="learning-card"
+                onclick="window.location='videos.html'">
+
+                <span class="card-icon">🎥</span>
+
+                <span class="card-title">
+                    Video Lessons
+                </span>
+
+                <span class="card-description">
+                    Learn through video lessons
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUIZ PROGRESS -->
+    <section class="quiz-progress-section">
+
+        <h2>📊 Your Quiz Progress</h2>
+
+        <div class="quiz-progress-grid">
+
+            <div class="progress-card">
+
+                <span class="progress-icon">📝</span>
+
+                <span class="progress-title">
+                    Quizzes Completed
+                </span>
+
+                <strong id="quizzesCompleted">
+                    0
+                </strong>
 
             </div>
 
-        </section>
+
+            <div class="progress-card">
+
+                <span class="progress-icon">🏆</span>
+
+                <span class="progress-title">
+                    Best Score
+                </span>
+
+                <strong id="bestQuizScore">
+                    0%
+                </strong>
+
+            </div>
 
 
-        <!-- ACCOUNT -->
-        <section class="account-section">
+            <div class="progress-card">
 
-            <h2>👤 My Account</h2>
+                <span class="progress-icon">🎯</span>
 
-            <button
-                class="account-button"
-                onclick="window.location='profile.html'">
+                <span class="progress-title">
+                    Average Score
+                </span>
 
-                👤 My Profile
+                <strong id="averageQuizScore">
+                    0%
+                </strong>
 
-            </button>
+            </div>
 
-            <button
-                class="logout-button"
-                onclick="window.location='login.html'">
+        </div>
 
-                🚪 Logout
-
-            </button>
-
-        </section>
+    </section>
 
 
-        <!-- FOOTER -->
-        <footer class="dashboard-footer">
+    <!-- ACCOUNT -->
+    <section class="account-section">
 
-            <p>
-                © 2026 Learn Smart Hub
-            </p>
+        <h2>👤 My Account</h2>
 
-            <p>
-                Learn • Practice • Succeed
-            </p>
+        <button
+            class="account-button"
+            onclick="window.location='profile.html'">
 
-        </footer>
+            👤 My Profile
 
-    </div>
+        </button>
 
 
- <script type="module" src="dashboard.js"></script>
+        <button
+            class="logout-button"
+            onclick="window.location='login.html'">
+
+            🚪 Logout
+
+        </button>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="dashboard-footer">
+
+        <p>
+            © 2026 Learn Smart Hub
+        </p>
+
+        <p>
+            Learn • Practice • Succeed
+        </p>
+
+    </footer>
+
+</div>
+
+
+<script type="module" src="dashboard.js"></script>
 
 </body>
 

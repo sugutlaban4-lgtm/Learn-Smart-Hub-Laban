@@ -1,60 +1,184 @@
-* {
-  box-sizing: border-box;
+/* ================================
+   LEARN SMART HUB DASHBOARD
+   ================================ */
+
+.dashboard-page {
+    background: linear-gradient(135deg, #eef5ff, #f8fbff);
+    padding: 20px 15px 40px;
 }
 
-html, body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f8ff;
-  color: #1a237e;
-  padding: 20px;
-  text-align: center;
-}
-
-h1 {
-  font-size: clamp(28px, 7vw, 42px);
-  margin: 15px 0;
-}
-
-h2 {
-  font-size: clamp(22px, 6vw, 32px);
-}
-
-h3 {
-  font-size: clamp(20px, 5vw, 28px);
-}
-
-p {
-  font-size: clamp(16px, 4.5vw, 20px);
-}
-
-button {
-  width: min(92%, 500px);
-  min-height: 52px;
-  margin: 8px auto;
-  padding: 14px 18px;
-  font-size: clamp(17px, 4.5vw, 21px);
-  font-weight: bold;
-  border: none;
-  border-radius: 12px;
-  background: #1565c0;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-@media (min-width: 700px) {
-  body {
-    max-width: 900px;
+.dashboard-container {
+    width: min(100%, 1050px);
     margin: 0 auto;
-    padding: 40px;
-  }
+}
+
+/* Header */
+
+.dashboard-header {
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    color: white;
+    padding: 35px 20px;
+    border-radius: 22px;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 25px rgba(13, 71, 161, 0.2);
+}
+
+.dashboard-header h1 {
+    color: white;
+    margin: 5px 0;
+}
+
+.dashboard-header p {
+    color: #e3f2fd;
+}
+
+.brand-icon {
+    font-size: 48px;
+}
+
+/* Welcome card */
+
+.welcome-card {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.welcome-card h2 {
+    margin-top: 0;
+}
+
+.welcome-text {
+    margin-bottom: 0;
+}
+
+/* Learning section */
+
+.learning-section {
+    margin-bottom: 30px;
+}
+
+.learning-section > h2,
+.account-section > h2 {
+    text-align: left;
+    margin-left: 5px;
+}
+
+/* Learning cards */
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.learning-card {
+    width: 100%;
+    min-height: 180px;
+    margin: 0;
+    padding: 22px 18px;
+    border-radius: 18px;
+    background: white;
+    color: #172554;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.learning-card:hover {
+    background: #f8fbff;
+    color: #0d47a1;
+}
+
+.card-icon {
+    font-size: 42px;
+}
+
+.card-title {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.card-description {
+    font-size: 14px;
+    font-weight: normal;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* Account */
+
+.account-section {
+    margin-top: 25px;
+}
+
+.account-button,
+.logout-button {
+    width: min(100%, 520px);
+}
+
+.account-button {
+    background: #1565c0;
+}
+
+.logout-button {
+    background: #64748b;
+}
+
+.logout-button:hover {
+    background: #475569;
+}
+
+/* Footer */
+
+.dashboard-footer {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #dbe4f0;
+}
+
+.dashboard-footer p {
+    font-size: 14px;
+    margin: 5px;
+    color: #64748b;
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-card {
+        min-height: 145px;
+    }
+
+    .dashboard-header {
+        padding: 28px 15px;
+    }
+
+    .brand-icon {
+        font-size: 40px;
+    }
+}
+
+/* Larger screens */
+
+@media (min-width: 900px) {
+
+    .learning-card {
+        min-height: 200px;
+    }
+
+    .card-icon {
+        font-size: 48px;
+    }
+
 }

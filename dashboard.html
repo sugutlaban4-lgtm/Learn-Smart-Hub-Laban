@@ -1,32 +1,190 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Learn Smart Hub Dashboard</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css"></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<body>
+    <title>Learn Smart Hub - Dashboard</title>
 
-<h1>Learn Smart Hub</h1>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-<h2>Welcome, <span id="studentName">Student</span></h2>
+<body class="dashboard-page">
 
-<p>Email: <span id="studentEmail"></span></p>
+    <div class="dashboard-container">
 
-<h3>My Learning</h3>
-<button onclick="window.location='mathematics.html'">📘 Mathematics</button>
+        <!-- HEADER -->
+        <header class="dashboard-header">
 
-<button onclick="window.location='science.html'">🔬 Science</button>
+            <div class="brand-icon">🎓</div>
 
-<button onclick="window.location='pastpapers.html'">📄 Past Papers</button>
+            <h1>Learn Smart Hub</h1>
 
-<button onclick="window.location='notes.html'">📚 Notes</button>
+            <p class="tagline">
+                Your smart learning centre
+            </p>
 
-<button onclick="window.location='videos.html'">🎥 Video Lessons</button>
+        </header>
 
-<button onclick="window.location='profile.html'">👤 My Profile</button>
 
-<button onclick="window.location='login.html'">🚪 Logout</button>
-<script type="module" src="js/dashboard.js"></script>
+        <!-- WELCOME -->
+        <section class="welcome-card">
+
+            <h2>
+                👋 Welcome, <span id="studentName">Student</span>
+            </h2>
+
+            <p>
+                <strong>Email:</strong>
+                <span id="studentEmail"></span>
+            </p>
+
+            <p class="welcome-text">
+                Choose a learning area below and start studying.
+            </p>
+
+        </section>
+
+
+        <!-- LEARNING -->
+        <section class="learning-section">
+
+            <h2>📚 My Learning</h2>
+
+            <div class="learning-grid">
+
+                <button
+                    class="learning-card"
+                    onclick="window.location='mathematics.html'">
+
+                    <span class="card-icon">📘</span>
+
+                    <span class="card-title">
+                        Mathematics
+                    </span>
+
+                    <span class="card-description">
+                        Notes, papers, videos and quizzes
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="learning-card"
+                    onclick="window.location='science.html'">
+
+                    <span class="card-icon">🔬</span>
+
+                    <span class="card-title">
+                        Science
+                    </span>
+
+                    <span class="card-description">
+                        Biology, Chemistry and Physics
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="learning-card"
+                    onclick="window.location='pastpapers.html'">
+
+                    <span class="card-icon">📄</span>
+
+                    <span class="card-title">
+                        Past Papers
+                    </span>
+
+                    <span class="card-description">
+                        Practice examination papers
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="learning-card"
+                    onclick="window.location='notes.html'">
+
+                    <span class="card-icon">📚</span>
+
+                    <span class="card-title">
+                        Study Notes
+                    </span>
+
+                    <span class="card-description">
+                        Revision notes and resources
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="learning-card"
+                    onclick="window.location='videos.html'">
+
+                    <span class="card-icon">🎥</span>
+
+                    <span class="card-title">
+                        Video Lessons
+                    </span>
+
+                    <span class="card-description">
+                        Learn through video lessons
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACCOUNT -->
+        <section class="account-section">
+
+            <h2>👤 My Account</h2>
+
+            <button
+                class="account-button"
+                onclick="window.location='profile.html'">
+
+                👤 My Profile
+
+            </button>
+
+            <button
+                class="logout-button"
+                onclick="window.location='login.html'">
+
+                🚪 Logout
+
+            </button>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="dashboard-footer">
+
+            <p>
+                © 2026 Learn Smart Hub
+            </p>
+
+            <p>
+                Learn • Practice • Succeed
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <script type="module" src="js/dashboard.js"></script>
 
 </body>
+
 </html>

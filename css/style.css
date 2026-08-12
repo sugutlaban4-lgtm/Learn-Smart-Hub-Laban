@@ -475,4 +475,156 @@ body > button:hover {
         font-size: 48px;
     }
 }
-```
+
+/* ================================
+   MODERN SUBJECT PAGES
+================================ */
+
+.subject-page {
+    min-height: 100vh;
+    padding: 25px 15px 45px;
+}
+
+.subject-container {
+    width: min(100%, 1000px);
+    margin: 0 auto;
+}
+
+.subject-header {
+    text-align: center;
+    background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5);
+    color: white;
+    padding: 40px 20px;
+    border-radius: 26px;
+    margin-bottom: 30px;
+    box-shadow: 0 14px 32px rgba(13, 71, 161, 0.22);
+}
+
+.subject-icon {
+    font-size: 55px;
+    margin-bottom: 8px;
+}
+
+.subject-header h1 {
+    margin: 5px 0;
+    color: white;
+    font-size: 34px;
+}
+
+.subject-header p {
+    margin: 8px 0 0;
+    color: #e3f2fd;
+    font-size: 16px;
+}
+
+.subject-section {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+.subject-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #0d47a1;
+}
+
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.subject-card {
+    min-height: 180px;
+    padding: 22px 18px;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    background: #f8fbff;
+    color: #172554;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.subject-card:hover {
+    transform: translateY(-5px);
+    background: white;
+    border-color: #90caf9;
+    box-shadow: 0 12px 25px rgba(13, 71, 161, 0.14);
+}
+
+.subject-card-icon {
+    font-size: 42px;
+}
+
+.subject-card-title {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.subject-card-description {
+    font-size: 14px;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.back-button {
+    display: block;
+    width: min(100%, 500px);
+    min-height: 52px;
+    margin: 25px auto 0;
+    border: none;
+    border-radius: 14px;
+    background: #64748b;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.back-button:hover {
+    background: #475569;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 650px) {
+
+    .subject-page {
+        padding: 15px 10px 35px;
+    }
+
+    .subject-header {
+        padding: 32px 18px;
+        border-radius: 22px;
+    }
+
+    .subject-icon {
+        font-size: 45px;
+    }
+
+    .subject-header h1 {
+        font-size: 28px;
+    }
+
+    .subject-section {
+        padding: 20px 15px;
+        border-radius: 18px;
+    }
+
+    .subject-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .subject-card {
+        min-height: 145px;
+    }
+}

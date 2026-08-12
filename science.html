@@ -6,39 +6,86 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="subject-page">
 
-<h1>🔬 Science</h1>
+<div class="subject-container">
 
-<p>Welcome to the Science learning section.</p>
+    <!-- HEADER -->
+    <header class="subject-header">
+        <div class="subject-icon">🔬</div>
+        <h1>Science</h1>
+        <p>Explore Biology, Chemistry and Physics.</p>
+    </header>
 
-<hr>
+    <!-- RESOURCES -->
+    <section class="subject-section">
 
-<h2>📚 Science Notes</h2>
-<button onclick="window.location='science-notes.html'">
-    Open Notes
-</button>
+        <h2>📚 Science Resources</h2>
 
-<h2>📄 Science Past Papers</h2>
-<button onclick="window.location='science-pastpapers.html'">
-    Open Past Papers
-</button>
+        <div class="subject-grid">
 
-<h2>🎥 Science Video Lessons</h2>
-<button onclick="window.location='science-videos.html'">
-    Watch Lessons
-</button>
+            <button
+                class="subject-card"
+                onclick="window.location='science-notes.html'">
 
-<h2>📝 Science Quiz</h2>
-<button onclick="window.location='science-quiz.html'">
-    Take Quiz
-</button>
+                <span class="subject-card-icon">📘</span>
+                <span class="subject-card-title">Science Notes</span>
+                <span class="subject-card-description">
+                    Study notes for revision and learning
+                </span>
 
-<br><br>
+            </button>
 
-<button onclick="window.location='dashboard.html'">
-    ⬅ Back to Dashboard
-</button>
+            <button
+                class="subject-card"
+                onclick="window.location='science-pastpapers.html'">
+
+                <span class="subject-card-icon">📄</span>
+                <span class="subject-card-title">Past Papers</span>
+                <span class="subject-card-description">
+                    Practice with examination papers
+                </span>
+
+            </button>
+
+            <button
+                class="subject-card"
+                onclick="window.location='science-videos.html'">
+
+                <span class="subject-card-icon">🎥</span>
+                <span class="subject-card-title">Video Lessons</span>
+                <span class="subject-card-description">
+                    Learn Science through video lessons
+                </span>
+
+            </button>
+
+            <button
+                class="subject-card"
+                onclick="window.location='science-quiz.html'">
+
+                <span class="subject-card-icon">📝</span>
+                <span class="subject-card-title">Science Quiz</span>
+                <span class="subject-card-description">
+                    Test your Science knowledge
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- BACK -->
+    <button
+        class="back-button"
+        onclick="window.location='dashboard.html'">
+
+        ⬅ Back to Dashboard
+
+    </button>
+
+</div>
 
 </body>
 </html>

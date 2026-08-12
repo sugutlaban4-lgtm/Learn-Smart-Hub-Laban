@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
+
 
 <title>Learn Smart Hub - Premium Resources</title>
 
@@ -9,11 +11,13 @@
 
 <link rel="stylesheet" href="css/style.css">
 
+
 </head>
 
 <body class="subject-page">
 
 <div class="subject-container">
+
 
 <header class="subject-header">
 
@@ -36,7 +40,7 @@
 
         <button
             class="subject-card"
-            onclick="alert('Premium access requires a successful payment.')">
+            onclick="openPremiumResource('papers')">
 
             <span class="subject-card-icon">📄</span>
 
@@ -53,7 +57,7 @@
 
         <button
             class="subject-card"
-            onclick="alert('Premium access requires a successful payment.')">
+            onclick="openPremiumResource('notes')">
 
             <span class="subject-card-icon">📚</span>
 
@@ -70,7 +74,7 @@
 
         <button
             class="subject-card"
-            onclick="alert('Premium access requires a successful payment.')">
+            onclick="openPremiumResource('quizzes')">
 
             <span class="subject-card-icon">🎯</span>
 
@@ -87,7 +91,7 @@
 
         <button
             class="subject-card"
-            onclick="alert('Premium access requires a successful payment.')">
+            onclick="openPremiumResource('videos')">
 
             <span class="subject-card-icon">🎥</span>
 
@@ -110,11 +114,15 @@
 
     <h2>💳 Choose Your Premium Plan</h2>
 
+    <p id="selectedPlan">
+        No Premium plan selected.
+    </p>
+
     <div class="subject-grid">
 
         <button
             class="subject-card"
-            onclick="alert('Weekly Premium selected. M-Pesa payment will be connected next.')">
+            onclick="selectPremiumPlan('weekly', 50)">
 
             <span class="subject-card-icon">📅</span>
 
@@ -131,7 +139,7 @@
 
         <button
             class="subject-card"
-            onclick="alert('Monthly Premium selected. M-Pesa payment will be connected next.')">
+            onclick="selectPremiumPlan('monthly', 150)">
 
             <span class="subject-card-icon">🗓️</span>
 
@@ -148,7 +156,7 @@
 
         <button
             class="subject-card"
-            onclick="alert('Term Premium selected. M-Pesa payment will be connected next.')">
+            onclick="selectPremiumPlan('term', 400)">
 
             <span class="subject-card-icon">🏆</span>
 
@@ -169,11 +177,14 @@
 
 <section class="subject-section">
 
-    <h2>📱 M-Pesa Premium Access</h2>
+    <h2>📱 Premium Access Status</h2>
 
-    <p>
-        Select a premium plan above. M-Pesa payment integration
-        will be connected after the premium system is tested.
+    <p id="premiumStatus">
+        Checking Premium status...
+    </p>
+
+    <p id="premiumPlan">
+        Checking your plan...
     </p>
 
     <p>
@@ -192,7 +203,10 @@
 
 </button>
 
+
 </div>
+
+<script type="module" src="premium.js"></script>
 
 </body>
 </html>

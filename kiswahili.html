@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,65 +7,72 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="subject-page">
 
-<div class="dashboard-container">
+<div class="subject-container">
 
-    <header class="dashboard-header">
-        <div class="brand-icon">🇰🇪</div>
+    <!-- HEADER -->
+    <header class="subject-header">
+        <div class="subject-icon">🇰🇪</div>
         <h1>Kiswahili</h1>
-        <p class="tagline">Learn • Practice • Succeed</p>
+        <p>Jifunze, jizoeze na uboreshe Kiswahili chako.</p>
     </header>
 
-    <section class="welcome-card">
-        <h2>📘 Masomo ya Kiswahili</h2>
-        <p>Jifunze Kiswahili kupitia maelezo, mitihani, video na nyenzo za marudio.</p>
-    </section>
-
-    <section class="learning-section">
+    <!-- RESOURCES -->
+    <section class="subject-section">
 
         <h2>📚 Rasilimali za Kiswahili</h2>
 
-        <div class="learning-grid">
+        <div class="subject-grid">
 
-            <button class="learning-card"
+            <button
+                class="subject-card"
                 onclick="window.location='kiswahili-notes.html'">
-                <span class="card-icon">📚</span>
-                <span class="card-title">Kiswahili Notes</span>
-                <span class="card-description">Maelezo na nyenzo za marudio</span>
+
+                <span class="subject-card-icon">📘</span>
+                <span class="subject-card-title">Kiswahili Notes</span>
+                <span class="subject-card-description">
+                    Maelezo na nyenzo za marudio
+                </span>
+
             </button>
 
-            <button class="learning-card"
+            <button
+                class="subject-card"
                 onclick="window.location='kiswahili-pastpapers.html'">
-                <span class="card-icon">📄</span>
-                <span class="card-title">Past Papers</span>
-                <span class="card-description">Jizoeze mitihani mbalimbali</span>
+
+                <span class="subject-card-icon">📄</span>
+                <span class="subject-card-title">Past Papers</span>
+                <span class="subject-card-description">
+                    Jizoeze mitihani mbalimbali
+                </span>
+
             </button>
 
-            <button class="learning-card"
+            <button
+                class="subject-card"
                 onclick="window.location='kiswahili-videos.html'">
-                <span class="card-icon">🎥</span>
-                <span class="card-title">Video Lessons</span>
-                <span class="card-description">Jifunze kupitia video</span>
+
+                <span class="subject-card-icon">🎥</span>
+                <span class="subject-card-title">Video Lessons</span>
+                <span class="subject-card-description">
+                    Jifunze kupitia video
+                </span>
+
             </button>
 
         </div>
 
     </section>
 
-    <section class="account-section">
+    <!-- BACK -->
+    <button
+        class="back-button"
+        onclick="window.location='dashboard.html'">
 
-        <button class="account-button"
-            onclick="window.location='dashboard.html'">
-            🏠 Rudi kwenye Dashboard
-        </button>
+        🏠 Rudi kwenye Dashboard
 
-    </section>
-
-    <footer class="dashboard-footer">
-        <p>© 2026 Learn Smart Hub</p>
-        <p>Learn • Practice • Succeed</p>
-    </footer>
+    </button>
 
 </div>
 

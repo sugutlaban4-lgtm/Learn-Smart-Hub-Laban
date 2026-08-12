@@ -1,129 +1,324 @@
+```css
 /* ================================
-   LEARN SMART HUB DASHBOARD
-   ================================ */
+   LEARN SMART HUB
+   MODERN EDUCATION THEME
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef5ff, #f8fbff);
+    color: #172554;
+}
+
+/* ================================
+   DASHBOARD
+================================ */
 
 .dashboard-page {
-    background: linear-gradient(135deg, #eef5ff, #f8fbff);
-    padding: 20px 15px 40px;
+    min-height: 100vh;
+    padding: 25px 15px 45px;
 }
 
 .dashboard-container {
-    width: min(100%, 1050px);
+    width: min(100%, 1100px);
     margin: 0 auto;
 }
 
-/* Header */
+/* ================================
+   HEADER
+================================ */
 
 .dashboard-header {
-    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5);
     color: white;
-    padding: 35px 20px;
-    border-radius: 22px;
-    margin-bottom: 22px;
-    box-shadow: 0 10px 25px rgba(13, 71, 161, 0.2);
+    padding: 42px 25px;
+    border-radius: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 15px 35px rgba(13, 71, 161, 0.25);
 }
 
-.dashboard-header h1 {
-    color: white;
-    margin: 5px 0;
-}
-
-.dashboard-header p {
-    color: #e3f2fd;
+.dashboard-header::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    right: -60px;
+    top: -70px;
 }
 
 .brand-icon {
-    font-size: 48px;
+    font-size: 55px;
+    margin-bottom: 8px;
 }
 
-/* Welcome card */
+.dashboard-header h1 {
+    margin: 5px 0;
+    color: white;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.dashboard-header .tagline {
+    margin: 8px 0 0;
+    color: #e3f2fd;
+    font-size: 16px;
+}
+
+/* ================================
+   WELCOME CARD
+================================ */
 
 .welcome-card {
     background: white;
-    padding: 25px 20px;
-    border-radius: 20px;
+    padding: 26px;
+    border-radius: 22px;
     margin-bottom: 28px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
 }
 
 .welcome-card h2 {
     margin-top: 0;
+    margin-bottom: 12px;
+    color: #0d47a1;
+}
+
+.welcome-card p {
+    color: #475569;
 }
 
 .welcome-text {
     margin-bottom: 0;
 }
 
-/* Learning section */
+/* ================================
+   SEARCH
+================================ */
+
+.search-section {
+    background: white;
+    padding: 24px;
+    margin: 25px 0 30px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+.search-section h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #0d47a1;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-box input {
+    flex: 1;
+    min-height: 52px;
+    padding: 13px 17px;
+    border: 2px solid #dbe4f0;
+    border-radius: 14px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.search-box input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.1);
+}
+
+.search-box button {
+    min-height: 52px;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 14px;
+    background: #1565c0;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.search-box button:hover {
+    background: #0d47a1;
+    transform: translateY(-2px);
+}
+
+.search-message {
+    margin: 12px 0 0;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* ================================
+   LEARNING SECTION
+================================ */
 
 .learning-section {
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 .learning-section > h2,
 .account-section > h2 {
-    text-align: left;
-    margin-left: 5px;
+    margin: 0 0 18px 5px;
+    color: #0d47a1;
 }
 
-/* Learning cards */
+/* ================================
+   LEARNING CARDS
+================================ */
 
 .learning-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 18px;
 }
 
 .learning-card {
     width: 100%;
-    min-height: 180px;
-    margin: 0;
-    padding: 22px 18px;
-    border-radius: 18px;
+    min-height: 185px;
+    padding: 22px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
     background: white;
     color: #172554;
-    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 7px 20px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.learning-card:hover {
+    transform: translateY(-6px);
+    border-color: #90caf9;
+    box-shadow: 0 14px 28px rgba(13, 71, 161, 0.15);
+}
+
+.card-icon {
+    font-size: 44px;
+}
+
+.card-title {
+    font-size: 19px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.card-description {
+    font-size: 13px;
+    font-weight: normal;
+    color: #64748b;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* ================================
+   QUIZ PROGRESS
+================================ */
+
+.quiz-progress-section {
+    margin: 32px 0;
+    padding: 26px 22px;
+    background: white;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+.quiz-progress-section h2 {
+    margin: 0 0 20px;
+    color: #0d47a1;
+}
+
+.quiz-progress-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.progress-card {
+    min-height: 155px;
+    padding: 20px;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #f8fbff, #eef5ff);
+    border: 1px solid #dbeafe;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    text-align: center;
 }
 
-.learning-card:hover {
-    background: #f8fbff;
+.progress-icon {
+    font-size: 36px;
+}
+
+.progress-title {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.progress-card strong {
+    font-size: 30px;
     color: #0d47a1;
 }
 
-.card-icon {
-    font-size: 42px;
-}
-
-.card-title {
-    font-size: 21px;
-    font-weight: 800;
-}
-
-.card-description {
-    font-size: 14px;
-    font-weight: normal;
-    color: #64748b;
-    line-height: 1.4;
-}
-
-/* Account */
+/* ================================
+   ACCOUNT
+================================ */
 
 .account-section {
-    margin-top: 25px;
+    margin-top: 30px;
 }
 
 .account-button,
 .logout-button {
+    display: block;
     width: min(100%, 520px);
+    min-height: 52px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .account-button {
     background: #1565c0;
+}
+
+.account-button:hover {
+    background: #0d47a1;
+    transform: translateY(-2px);
 }
 
 .logout-button {
@@ -132,126 +327,29 @@
 
 .logout-button:hover {
     background: #475569;
+    transform: translateY(-2px);
 }
 
-/* Footer */
+/* ================================
+   FOOTER
+================================ */
 
 .dashboard-footer {
-    margin-top: 35px;
-    padding-top: 20px;
+    margin-top: 38px;
+    padding-top: 22px;
     border-top: 1px solid #dbe4f0;
+    text-align: center;
 }
 
 .dashboard-footer p {
-    font-size: 14px;
     margin: 5px;
     color: #64748b;
+    font-size: 14px;
 }
 
-/* Mobile */
-
-@media (max-width: 650px) {
-
-    .learning-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .learning-card {
-        min-height: 145px;
-    }
-
-    .dashboard-header {
-        padding: 28px 15px;
-    }
-
-    .brand-icon {
-        font-size: 40px;
-    }
-}
-
-/* Larger screens */
-
-@media (min-width: 900px) {
-
-    .learning-card {
-        min-height: 200px;
-    }
-
-    .card-icon {
-        font-size: 48px;
-    }
-
-}
-/* SEARCH BAR */
-
-.search-section {
-    width: min(92%, 900px);
-    margin: 25px auto;
-    padding: 20px;
-    text-align: center;
-}
-
-.search-section h2 {
-    margin-bottom: 15px;
-}
-
-.search-box {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-}
-
-.search-box input {
-    flex: 1;
-    max-width: 650px;
-    min-height: 50px;
-    padding: 12px 16px;
-    border: 2px solid #ddd;
-    border-radius: 12px;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-.search-box button {
-    min-height: 50px;
-    padding: 12px 22px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.search-message {
-    margin-top: 10px;
-    font-size: 15px;
-}
-
-@media (max-width: 650px) {
-
-    .search-box {
-        flex-direction: column;
-    }
-
-    .search-box input,
-    .search-box button {
-        width: 100%;
-        max-width: none;
-    }
-
-}
 /* ================================
    GENERAL LEARNING PAGES
-   ================================ */
-
-body {
-    margin: 0;
-    padding: 30px 20px;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #eef5ff, #f8fbff);
-    color: #172554;
-    text-align: center;
-}
+================================ */
 
 body > h1 {
     margin-top: 20px;
@@ -279,7 +377,7 @@ body > button {
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
-    transition: transform 0.2s, background 0.2s;
+    transition: 0.2s ease;
 }
 
 body > button:hover {
@@ -287,7 +385,63 @@ body > button:hover {
     transform: translateY(-2px);
 }
 
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 850px) {
+
+    .learning-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 650px) {
+
+    .dashboard-page {
+        padding: 15px 10px 35px;
+    }
+
+    .dashboard-header {
+        padding: 32px 18px;
+        border-radius: 22px;
+    }
+
+    .brand-icon {
+        font-size: 45px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 28px;
+    }
+
+    .welcome-card,
+    .search-section,
+    .quiz-progress-section {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-card {
+        min-height: 145px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box input,
+    .search-box button {
+        width: 100%;
+    }
+
+    .quiz-progress-grid {
+        grid-template-columns: 1fr;
+    }
 
     body {
         padding: 25px 15px;
@@ -305,63 +459,20 @@ body > button:hover {
         width: 100%;
         font-size: 17px;
     }
-
-}/* ================================
-   QUIZ PROGRESS
-   ================================ */
-
-.quiz-progress-section {
-    margin: 30px 0;
-    padding: 25px 20px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
 }
 
-.quiz-progress-section h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    text-align: left;
-}
+/* ================================
+   LARGE SCREENS
+================================ */
 
-.quiz-progress-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-}
+@media (min-width: 1100px) {
 
-.progress-card {
-    min-height: 150px;
-    padding: 20px;
-    border-radius: 16px;
-    background: #f8fbff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-align: center;
-}
-
-.progress-icon {
-    font-size: 35px;
-}
-
-.progress-title {
-    font-size: 15px;
-    color: #64748b;
-    font-weight: 600;
-}
-
-.progress-card strong {
-    font-size: 28px;
-    color: #0d47a1;
-}
-
-@media (max-width: 650px) {
-
-    .quiz-progress-grid {
-        grid-template-columns: 1fr;
+    .learning-card {
+        min-height: 200px;
     }
 
+    .card-icon {
+        font-size: 48px;
+    }
 }
+```

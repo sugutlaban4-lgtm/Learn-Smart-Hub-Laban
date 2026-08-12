@@ -1,28 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Learn Smart Hub - Video Lessons</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+    <title>Learn Smart Hub - Video Lessons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="subject-page">
 
-<h1>🎥 Video Lessons</h1>
+<div class="subject-container">
 
-<p>Choose a subject to watch video lessons:</p>
+    <header class="subject-header">
+        <div class="subject-icon">🎥</div>
+        <h1>Video Lessons</h1>
+        <p>Learn through engaging video lessons and visual explanations.</p>
+    </header>
 
-<button onclick="window.location='math-videos.html'">
-  📘 Mathematics Videos
-</button>
+    <section class="subject-section">
 
-<button onclick="window.location='science-videos.html'">
-  🔬 Science Videos
-</button>
+        <h2>🎬 Choose a Subject</h2>
 
-<button onclick="window.location='dashboard.html'">
-  ⬅ Back to Dashboard
-</button>
+        <div class="subject-grid">
+
+            <button
+                class="subject-card"
+                onclick="window.location='math-videos.html'">
+
+                <span class="subject-card-icon">📘</span>
+                <span class="subject-card-title">Mathematics</span>
+                <span class="subject-card-description">
+                    Mathematics video lessons and tutorials
+                </span>
+
+            </button>
+
+            <button
+                class="subject-card"
+                onclick="window.location='science-videos.html'">
+
+                <span class="subject-card-icon">🔬</span>
+                <span class="subject-card-title">Science</span>
+                <span class="subject-card-description">
+                    Science video lessons and explanations
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <button
+        class="back-button"
+        onclick="window.location='dashboard.html'">
+
+        🏠 Back to Dashboard
+
+    </button>
+
+</div>
 
 </body>
 </html>

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
 <head>
     <title>Learn Smart Hub - Mathematics</title>
@@ -7,23 +7,98 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="subject-page">
 
-<h1>📘 Mathematics</h1>
+<div class="subject-container">
 
-<p>Choose what you want to study:</p>
+    <!-- HEADER -->
+    <header class="subject-header">
+        <div class="subject-icon">📐</div>
+        <h1>Mathematics</h1>
+        <p>Learn, practise and master Mathematics.</p>
+    </header>
 
-<button onclick="window.location='math-notes.html'">📚 Notes</button> <br><br>
+    <!-- RESOURCES -->
+    <section class="subject-section">
 
-<button onclick="window.location='math-pastpapers.html'">📄 Past Papers</button> <br><br>
+        <h2>📚 Mathematics Resources</h2>
 
-<button onclick="window.location='math-revisionpapers.html'">📚 Revision Papers</button> <br><br>
+        <div class="subject-grid">
 
-<button onclick="window.location='math-videos.html'">🎥 Video Lessons</button> <br><br>
+            <button
+                class="subject-card"
+                onclick="window.location='math-notes.html'">
 
-<button onclick="window.location='math-quiz.html'">📝 Quiz</button> <br><br>
+                <span class="subject-card-icon">📘</span>
+                <span class="subject-card-title">Mathematics Notes</span>
+                <span class="subject-card-description">
+                    Study notes and revision materials
+                </span>
 
-<button onclick="window.location='dashboard.html'">⬅ Back to Dashboard</button>
+            </button>
+
+            <button
+                class="subject-card"
+                onclick="window.location='math-pastpapers.html'">
+
+                <span class="subject-card-icon">📄</span>
+                <span class="subject-card-title">Past Papers</span>
+                <span class="subject-card-description">
+                    Practise with examination papers
+                </span>
+
+            </button>
+
+            <button
+                class="subject-card"
+                onclick="window.location='math-revisionpapers.html'">
+
+                <span class="subject-card-icon">📚</span>
+                <span class="subject-card-title">Revision Papers</span>
+                <span class="subject-card-description">
+                    Strengthen your Mathematics skills
+                </span>
+
+            </button>
+
+            <button
+                class="subject-card"
+                onclick="window.location='math-videos.html'">
+
+                <span class="subject-card-icon">🎥</span>
+                <span class="subject-card-title">Video Lessons</span>
+                <span class="subject-card-description">
+                    Learn Mathematics through videos
+                </span>
+
+            </button>
+
+            <button
+                class="subject-card"
+                onclick="window.location='math-quiz.html'">
+
+                <span class="subject-card-icon">📝</span>
+                <span class="subject-card-title">Mathematics Quiz</span>
+                <span class="subject-card-description">
+                    Test your knowledge and track your progress
+                </span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- BACK -->
+    <button
+        class="back-button"
+        onclick="window.location='dashboard.html'">
+
+        ⬅ Back to Dashboard
+
+    </button>
+
+</div>
 
 </body>
 </html>

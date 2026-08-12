@@ -15,7 +15,7 @@ const db = getFirestore();
 
 onAuthStateChanged(auth, async (user) => {
 
-```
+
 const statusElement =
     document.getElementById("premiumStatus");
 
@@ -61,23 +61,47 @@ try {
             data.plan || "none";
 
 
-        if (status === "active") {
+  if (status === "active") {
 
-            statusElement.textContent =
-                "⭐ Premium Status: Active";
+    statusElement.textContent =
+        "⭐ Premium Status: Active";
 
-            planElement.textContent =
-                "Plan: " + plan;
+} else {
 
-        } else {
+    statusElement.textContent =
+        "🔒 Premium Status: Inactive";
 
-            statusElement.textContent =
-                "🔒 Premium Status: Inactive";
+}
 
-            planElement.textContent =
-                "Plan: None";
+if (plan !== "none") {
 
-        }
+    const selectedPlan =
+        document.getElementById("selectedPlan");
+
+    const formattedPlan =
+        plan.charAt(0).toUpperCase() +
+        plan.slice(1);
+
+    if (selectedPlan) {
+
+        selectedPlan.textContent =
+            "Selected: " +
+            formattedPlan +
+            " Premium — KSh " +
+            data.price +
+            ". Payment verification is still required.";
+
+    }
+
+    planElement.textContent =
+        "Plan: " + formattedPlan;
+
+} else {
+
+    planElement.textContent =
+        "Plan: None";
+
+}
 
     } else {
 

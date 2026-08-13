@@ -1,212 +1,480 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
 
 <head>
 
+    <title>Learn Smart Hub - Premium</title>
 
-<title>Learn Smart Hub - Premium Resources</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
 
-<link rel="stylesheet" href="css/style.css">
+    <style>
 
+        .premium-hero {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .premium-hero-icon {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .premium-hero h1 {
+            margin-bottom: 8px;
+        }
+
+        .premium-hero p {
+            color: #666;
+        }
+
+        .premium-plans {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(220px, 1fr)
+            );
+            gap: 18px;
+        }
+
+        .premium-plan-card {
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .premium-plan-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .premium-plan-card.selected {
+            border-color: #1976d2;
+            box-shadow:
+                0 0 0 3px rgba(25, 118, 210, 0.12);
+        }
+
+        .premium-price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1976d2;
+            margin: 12px 0;
+        }
+
+        .selected-plan-box {
+            background: #f1f7ff;
+            border: 2px solid #1976d2;
+            border-radius: 15px;
+            padding: 22px;
+            margin-top: 20px;
+        }
+
+        .selected-plan-box h3 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+
+        .payment-box {
+            background: white;
+            border-radius: 15px;
+            padding: 24px;
+            margin-top: 20px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
+
+        .payment-box h3 {
+            margin-top: 0;
+        }
+
+        .payment-input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            margin: 10px 0 15px;
+        }
+
+        .payment-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #1976d2;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .payment-button:disabled {
+            background: #999;
+            cursor: not-allowed;
+        }
+
+        .payment-note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        .payment-message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .premium-status-box {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        @media (max-width: 600px) {
+
+            .premium-plans {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
 
 </head>
+
 
 <body class="subject-page">
 
 <div class="subject-container">
 
 
-<header class="subject-header">
+    <!-- PREMIUM HEADER -->
 
-    <div class="subject-icon">⭐</div>
+    <header class="subject-header premium-hero">
 
-    <h1>Premium Resources</h1>
+        <div class="premium-hero-icon">
+            ⭐
+        </div>
 
-    <p>
-        Unlock premium learning materials and revision resources.
-    </p>
+        <h1>
+            Premium Learning
+        </h1>
 
-</header>
+        <p>
+            Unlock premium revision materials,
+            notes, quizzes and video lessons.
+        </p>
 
+    </header>
 
-<section class="subject-section">
 
-    <h2>🌟 Premium Learning</h2>
+    <!-- PREMIUM RESOURCES -->
 
-    <div class="subject-grid">
+    <section class="subject-section">
 
-        <button
-            class="subject-card"
-            onclick="openPremiumResource('papers')">
+        <h2>
+            🌟 Premium Resources
+        </h2>
 
-            <span class="subject-card-icon">📄</span>
+        <div class="subject-grid">
 
-            <span class="subject-card-title">
-                Premium Revision Papers
-            </span>
+            <button
+                class="subject-card"
+                onclick="openPremiumResource('papers')"
+            >
 
-            <span class="subject-card-description">
-                Access selected high-quality revision papers.
-            </span>
+                <span class="subject-card-icon">
+                    📄
+                </span>
 
-        </button>
+                <span class="subject-card-title">
+                    Premium Revision Papers
+                </span>
 
+                <span class="subject-card-description">
+                    Access selected high-quality revision papers.
+                </span>
 
-        <button
-            class="subject-card"
-            onclick="openPremiumResource('notes')">
+            </button>
 
-            <span class="subject-card-icon">📚</span>
 
-            <span class="subject-card-title">
-                Premium Notes
-            </span>
+            <button
+                class="subject-card"
+                onclick="openPremiumResource('notes')"
+            >
 
-            <span class="subject-card-description">
-                Detailed notes designed for serious revision.
-            </span>
+                <span class="subject-card-icon">
+                    📚
+                </span>
 
-        </button>
+                <span class="subject-card-title">
+                    Premium Notes
+                </span>
 
+                <span class="subject-card-description">
+                    Detailed notes designed for serious revision.
+                </span>
 
-        <button
-            class="subject-card"
-            onclick="openPremiumResource('quizzes')">
+            </button>
 
-            <span class="subject-card-icon">🎯</span>
 
-            <span class="subject-card-title">
-                Premium Quizzes
-            </span>
+            <button
+                class="subject-card"
+                onclick="openPremiumResource('quizzes')"
+            >
 
-            <span class="subject-card-description">
-                Challenge yourself with additional quizzes.
-            </span>
+                <span class="subject-card-icon">
+                    🎯
+                </span>
 
-        </button>
+                <span class="subject-card-title">
+                    Premium Quizzes
+                </span>
 
+                <span class="subject-card-description">
+                    Challenge yourself with additional quizzes.
+                </span>
 
-        <button
-            class="subject-card"
-            onclick="openPremiumResource('videos')">
+            </button>
 
-            <span class="subject-card-icon">🎥</span>
 
-            <span class="subject-card-title">
-                Premium Video Lessons
-            </span>
+            <button
+                class="subject-card"
+                onclick="openPremiumResource('videos')"
+            >
 
-            <span class="subject-card-description">
-                Extra lessons and detailed explanations.
-            </span>
+                <span class="subject-card-icon">
+                    🎥
+                </span>
 
-        </button>
+                <span class="subject-card-title">
+                    Premium Video Lessons
+                </span>
 
-    </div>
+                <span class="subject-card-description">
+                    Extra lessons and detailed explanations.
+                </span>
 
-</section>
+            </button>
 
+        </div>
 
-<section class="subject-section">
+    </section>
 
-    <h2>💳 Choose Your Premium Plan</h2>
 
-    <p id="selectedPlan">
-        No Premium plan selected.
-    </p>
+    <!-- PLANS -->
 
-    <div class="subject-grid">
+    <section class="subject-section">
 
-        <button
-            class="subject-card"
-            onclick="selectPremiumPlan('weekly', 50)">
+        <h2>
+            💳 Choose Your Premium Plan
+        </h2>
 
-            <span class="subject-card-icon">📅</span>
+        <div class="premium-plans">
 
-            <span class="subject-card-title">
-                Weekly Premium
-            </span>
 
-            <span class="subject-card-description">
-                KSh 50 — Premium access for 7 days.
-            </span>
+            <button
+                id="weeklyPlan"
+                class="subject-card premium-plan-card"
+                onclick="selectPremiumPlan('weekly', 50)"
+            >
 
-        </button>
+                <span class="subject-card-icon">
+                    📅
+                </span>
 
+                <span class="subject-card-title">
+                    Weekly Premium
+                </span>
 
-        <button
-            class="subject-card"
-            onclick="selectPremiumPlan('monthly', 150)">
+                <div class="premium-price">
+                    KSh 50
+                </div>
 
-            <span class="subject-card-icon">🗓️</span>
+                <span class="subject-card-description">
+                    Premium access for 7 days.
+                </span>
 
-            <span class="subject-card-title">
-                Monthly Premium
-            </span>
+            </button>
 
-            <span class="subject-card-description">
-                KSh 150 — Premium access for 30 days.
-            </span>
 
-        </button>
+            <button
+                id="monthlyPlan"
+                class="subject-card premium-plan-card"
+                onclick="selectPremiumPlan('monthly', 150)"
+            >
 
+                <span class="subject-card-icon">
+                    🗓️
+                </span>
 
-        <button
-            class="subject-card"
-            onclick="selectPremiumPlan('term', 400)">
+                <span class="subject-card-title">
+                    Monthly Premium
+                </span>
 
-            <span class="subject-card-icon">🏆</span>
+                <div class="premium-price">
+                    KSh 150
+                </div>
 
-            <span class="subject-card-title">
-                Term Premium
-            </span>
+                <span class="subject-card-description">
+                    Premium access for 30 days.
+                </span>
 
-            <span class="subject-card-description">
-                KSh 400 — Premium access for the school term.
-            </span>
+            </button>
 
-        </button>
 
-    </div>
+            <button
+                id="termPlan"
+                class="subject-card premium-plan-card"
+                onclick="selectPremiumPlan('term', 400)"
+            >
 
-</section>
+                <span class="subject-card-icon">
+                    🏆
+                </span>
 
+                <span class="subject-card-title">
+                    Term Premium
+                </span>
 
-<section class="subject-section">
+                <div class="premium-price">
+                    KSh 400
+                </div>
 
-    <h2>📱 Premium Access Status</h2>
+                <span class="subject-card-description">
+                    Premium access for the school term.
+                </span>
 
-    <p id="premiumStatus">
-        Checking Premium status...
-    </p>
+            </button>
 
-    <p id="premiumPlan">
-        Checking your plan...
-    </p>
+        </div>
 
-    <p>
-        🔒 Premium materials will only be unlocked after
-        successful payment verification.
-    </p>
 
-</section>
+        <!-- SELECTED PLAN -->
 
+        <div
+            id="selectedPlanBox"
+            class="selected-plan-box"
+        >
 
-<button
-    class="back-button"
-    onclick="window.location='dashboard.html'">
+            <h3>
+                ⭐ Selected Premium Plan
+            </h3>
 
-    🏠 Back to Dashboard
+            <p id="selectedPlan">
+                No Premium plan selected.
+            </p>
 
-</button>
+        </div>
+
+    </section>
+
+
+    <!-- PAYMENT -->
+
+    <section class="subject-section">
+
+        <div class="payment-box">
+
+            <h3>
+                📱 M-Pesa Payment
+            </h3>
+
+            <p>
+                Enter the M-Pesa number you want to use
+                for your Premium payment.
+            </p>
+
+            <label for="mpesaPhone">
+                M-Pesa Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="mpesaPhone"
+                class="payment-input"
+                placeholder="e.g. 2547XXXXXXXX"
+                autocomplete="tel"
+            >
+
+            <button
+                id="payPremiumButton"
+                class="payment-button"
+                disabled
+            >
+                💳 Continue to Payment
+            </button>
+
+            <p
+                id="paymentMessage"
+                class="payment-message"
+            >
+                Select a Premium plan first.
+            </p>
+
+            <p class="payment-note">
+                🔒 Your Premium access will only become
+                active after the payment is successfully
+                verified.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATUS -->
+
+    <section class="subject-section">
+
+        <h2>
+            📱 Your Premium Status
+        </h2>
+
+        <div class="premium-status-box">
+
+            <p id="premiumStatus">
+                Checking Premium status...
+            </p>
+
+            <p id="premiumPlan">
+                Checking your plan...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- BACK -->
+
+    <button
+        class="back-button"
+        onclick="window.location='dashboard.html'"
+    >
+
+        🏠 Back to Dashboard
+
+    </button>
 
 
 </div>
 
-<script type="module" src="premium.js"></script>
+
+<script
+    type="module"
+    src="premium.js"
+></script>
 
 </body>
+
 </html>
+

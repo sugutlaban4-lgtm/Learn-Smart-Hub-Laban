@@ -445,11 +445,10 @@ if (paymentButton) {
 // ================================
 
 window.openPremiumResource =
-function (resource) {
+async function (resource) {
 
     const user =
         auth.currentUser;
-
 
     if (!user) {
 
@@ -461,9 +460,74 @@ function (resource) {
 
     }
 
+    try {
 
-    alert(
-        "🔒 This Premium resource will unlock after successful payment verification."
-    );
+        const premiumRef =
+            doc(
+                db,
+                "premium_access",
+                user.uid
+            );
+
+        const premiumSnap =
+            await getDoc(premiumRef);
+
+        if (
+            !premiumSnap.exists() ||
+            premiumSnap.data().status !== "active"
+        ) {
+
+            alert(
+                "🔒 This Premium resource is locked. Complete your Premium payment first."
+            );
+
+            return;
+
+        }
+
+        const resources = {
+
+            papers:
+                "pastpapers.html",
+
+            notes:
+                "notes.html",
+
+            quizzes:
+                "quiz.html",
+
+            videos:
+                "videos.html"
+
+        };
+
+        const destination =
+            resources[resource];
+
+        if (!destination) {
+
+            alert(
+                "Premium resource not found."
+            );
+
+            return;
+
+        }
+
+        window.location.href =
+            destination;
+
+    } catch (error) {
+
+        console.error(
+            "Premium resource access error:",
+            error
+        );
+
+        alert(
+            "Unable to verify Premium access. Please try again."
+        );
+
+    }
 
 };

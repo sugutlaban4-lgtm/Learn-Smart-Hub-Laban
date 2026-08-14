@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learn Smart Hub - Physics Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .quiz-header {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .quiz-header h1 {
+            margin-top: 0;
+        }
+
+        .quiz-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: #f4f7fb;
+            padding: 15px 10px;
+            border-radius: 12px;
+        }
+
+        .stat-card strong {
+            display: block;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .progress-container {
+            margin-top: 20px;
+            background: #e5e7eb;
+            height: 12px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: #7c3aed;
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .question-card h3 {
+            margin-top: 0;
+        }
+
+        .answer-button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 2px solid #dbe2ea;
+            border-radius: 12px;
+            background: white;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: left;
+            transition: 0.2s;
+        }
+
+        .answer-button:hover {
+            transform: translateY(-1px);
+            border-color: #7c3aed;
+        }
+
+        .answer-button.correct {
+            background: #dcfce7;
+            border-color: #16a34a;
+        }
+
+        .answer-button.wrong {
+            background: #fee2e2;
+            border-color: #dc2626;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .correct-feedback {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .wrong-feedback {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .submit-button,
+        .retry-button,
+        .back-button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-button {
+            background: #7c3aed;
+            color: white;
+        }
+
+        .retry-button {
+            background: #2563eb;
+            color: white;
+        }
+
+        .back-button {
+            background: #374151;
+            color: white;
+        }
+
+        #result {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-top: 25px;
+        }
+
+        #result h2 {
+            margin-top: 0;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 12px;
+            }
+
+            .quiz-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .question-card {
+                padding: 18px;
+            }
+
+            .answer-button {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+
+    <div class="quiz-header">
+
+        <h1>⚡ Physics Quiz</h1>
+
+        <p>
+            Test your Grade 10 Physics knowledge.
+        </p>
+
+        <div class="quiz-stats">
+
+            <div class="stat-card">
+                📊 Answered
+                <strong id="answeredCount">0/10</strong>
+            </div>
+
+            <div class="stat-card">
+                🏆 Score
+                <strong id="score">0/10</strong>
+            </div>
+
+            <div class="stat-card">
+                ⭐ XP
+                <strong id="xp">0</strong>
+            </div>
+
+        </div>
+
+        <div class="progress-container">
+            <div
+                class="progress-bar"
+                id="progressBar">
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 1 -->
+
+    <div class="question-card">
+
+        <h3>Question 1</h3>
+
+        <p>
+            What is the SI unit of force?
+        </p>
+
+        <button class="answer-button"
+            onclick="checkAnswer(1, this, false)">
+            A. Joule
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(1, this, true)">
+            B. Newton
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(1, this, false)">
+            C. Watt
+        </button>
+
+        <div id="feedback1" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question-card">
+
+        <h3>Question 2</h3>
+
+        <p>
+            Which quantity is measured in metres per second?
+        </p>
+
+        <button class="answer-button"
+            onclick="checkAnswer(2, this, true)">
+            A. Speed
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(2, this, false)">
+            B. Force
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(2, this, false)">
+            C. Mass
+        </button>
+
+        <div id="feedback2" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question-card">
+
+        <h3>Question 3</h3>
+
+        <p>
+            What force pulls objects towards the Earth?
+        </p>
+
+        <button class="answer-button"
+            onclick="checkAnswer(3, this, true)">
+            A. Gravity
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(3, this, false)">
+            B. Friction
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(3, this, false)">
+            C. Magnetism
+        </button>
+
+        <div id="feedback3" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="question-card">
+
+        <h3>Question 4</h3>
+
+        <p>
+            What is the formula for calculating speed?
+        </p>
+
+        <button class="answer-button"
+            onclick="checkAnswer(4, this, false)">
+            A. Speed = time ÷ distance
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(4, this, true)">
+            B. Speed = distance ÷ time
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(4, this, false)">
+            C. Speed = distance × time
+        </button>
+
+        <div id="feedback4" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 5 -->
+
+    <div class="question-card">
+
+        <h3>Question 5</h3>
+
+        <p>
+            Which form of energy is possessed by a moving object?
+        </p>
+
+        <button class="answer-button"
+            onclick="checkAnswer(5, this, true)">
+            A. Kinetic energy
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(5, this, false)">
+            B. Chemical energy
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(5, this, false)">
+            C. Nuclear energy
+        </button>
+
+        <div id="feedback5" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 6 -->
+
+    <div class="question-card">
+
+        <h3>Question 6</h3>
+
+        <p>
+            Which instrument is used to measure electric current?
+        </p>
+
+        <button class="answer-button"
+            onclick="checkAnswer(6, this, false)">
+            A. Voltmeter
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(6, this, true)">
+            B. Ammeter
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(6, this, false)">
+            C. Thermometer
+        </button>
+
+        <div id="feedback6" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 7 -->
+
+    <div class="question-card">
+
+        <h3>Question 7</h3>
+
+        <p>
+            What happens to pressure when the same force acts over a smaller area?
+        </p>
+
+        <button class="answer-button"
+            onclick="checkAnswer(7, this, true)">
+            A. Pressure increases
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(7, this, false)">
+            B. Pressure decreases
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(7, this, false)">
+            C. Pressure becomes zero
+        </button>
+
+        <div id="feedback7" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 8 -->
+
+    <div class="question-card">
+
+        <h3>Question 8</h3>
+
+        <p>
+            Which type of wave requires a medium to travel?
+        </p>
+
+        <button class="answer-button"
+            onclick="checkAnswer(8, this, true)">
+            A. Mechanical wave
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(8, this, false)">
+            B. Electromagnetic wave
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(8, this, false)">
+            C. Light wave only
+        </button>
+
+        <div id="feedback8" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 9 -->
+
+    <div class="question-card">
+
+        <h3>Question 9</h3>
+
+        <p>
+            What happens to the resistance of a wire when its length increases,
+            assuming other factors remain constant?
+        </p>
+
+        <button class="answer-button"
+            onclick="checkAnswer(9, this, true)">
+            A. It increases
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(9, this, false)">
+            B. It decreases
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(9, this, false)">
+            C. It becomes zero
+        </button>
+
+        <div id="feedback9" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 10 -->
+
+    <div class="question-card">
+
+        <h3>Question 10</h3>
+
+        <p>
+            Which energy does an object have because of its position or height?
+        </p>
+
+        <button class="answer-button"
+            onclick="checkAnswer(10, this, false)">
+            A. Kinetic energy
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(10, this, true)">
+            B. Potential energy
+        </button>
+
+        <button class="answer-button"
+            onclick="checkAnswer(10, this, false)">
+            C. Sound energy
+        </button>
+
+        <div id="feedback10" class="feedback"></div>
+
+    </div>
+
+
+    <button
+        class="submit-button"
+        onclick="submitQuiz()">
+
+        📊 Submit Quiz
+
+    </button>
+
+
+    <div id="result">
+
+        <h2>🎉 Physics Quiz Complete!</h2>
+
+        <h3 id="finalScore"></h3>
+
+        <p id="finalXP"></p>
+
+        <p id="message"></p>
+
+        <button
+            class="retry-button"
+            onclick="restartQuiz()">
+
+            🔄 Try Again
+
+        </button>
+
+    </div>
+
+
+    <button
+        class="back-button"
+        onclick="window.location='science.html'">
+
+        ⬅ Back to Science
+
+    </button>
+
+</div>
+
+
+<script>
+
+let score = 0;
+
+let answered = [];
+
+let quizSubmitted = false;
+
+const totalQuestions = 10;
+
+const xpPerCorrectAnswer = 20;
+
+
+/* ================================
+   CHECK ANSWER
+================================ */
+
+function checkAnswer(question, button, isCorrect) {
+
+    if (quizSubmitted) {
+        return;
+    }
+
+    if (answered.includes(question)) {
+
+        alert("⚠️ You already answered this question.");
+
+        return;
+    }
+
+    answered.push(question);
+
+    const buttons =
+        button.parentElement.querySelectorAll(".answer-button");
+
+    buttons.forEach(function(btn) {
+
+        btn.disabled = true;
+
+    });
+
+
+    const feedback =
+        document.getElementById("feedback" + question);
+
+
+    if (isCorrect) {
+
+        score++;
+
+        button.classList.add("correct");
+
+        feedback.innerText =
+            "✅ Correct! Great work.";
+
+        feedback.className =
+            "feedback correct-feedback";
+
+        feedback.style.display = "block";
+
+    } else {
+
+        button.classList.add("wrong");
+
+        feedback.innerText =
+            "❌ Not quite. Keep learning and try again.";
+
+        feedback.className =
+            "feedback wrong-feedback";
+
+        feedback.style.display = "block";
+
+    }
+
+
+    updateProgress();
+
+}
+
+
+/* ================================
+   UPDATE PROGRESS
+================================ */
+
+function updateProgress() {
+
+    document.getElementById("answeredCount").innerText =
+        answered.length + "/" + totalQuestions;
+
+    document.getElementById("score").innerText =
+        score + "/" + totalQuestions;
+
+    document.getElementById("xp").innerText =
+        score * xpPerCorrectAnswer;
+
+    document.getElementById("progressBar").style.width =
+        (answered.length / totalQuestions * 100) + "%";
+
+}
+
+
+/* ================================
+   SUBMIT QUIZ
+================================ */
+
+function submitQuiz() {
+
+    if (answered.length < totalQuestions) {
+
+        alert(
+            "⚠️ Please answer all 10 questions before submitting."
+        );
+
+        return;
+    }
+
+
+    if (quizSubmitted) {
+        return;
+    }
+
+    quizSubmitted = true;
+
+
+    const earnedXP =
+        score * xpPerCorrectAnswer;
+
+
+    document.getElementById("result").style.display =
+        "block";
+
+
+    document.getElementById("finalScore").innerText =
+        "Your Score: " + score + "/10";
+
+
+    document.getElementById("finalXP").innerText =
+        "⭐ XP Earned: " + earnedXP;
+
+
+    if (score >= 8) {
+
+        document.getElementById("message").innerText =
+            "🌟 Excellent Physics work!";
+
+    } else if (score >= 5) {
+
+        document.getElementById("message").innerText =
+            "👍 Good work! Keep practising Physics.";
+
+    } else {
+
+        document.getElementById("message").innerText =
+            "📚 Keep studying Physics. You can improve!";
+
+    }
+
+
+    /* SAVE QUIZ STATISTICS */
+
+    const previousCompleted =
+        Number(
+            localStorage.getItem("quizzesCompleted")
+        ) || 0;
+
+
+    const previousBest =
+        Number(
+            localStorage.getItem("bestQuizScore")
+        ) || 0;
+
+
+    const previousTotal =
+        Number(
+            localStorage.getItem("totalQuizScore")
+        ) || 0;
+
+
+    const newCompleted =
+        previousCompleted + 1;
+
+
+    const newTotal =
+        previousTotal + score;
+
+
+    const newBest =
+        Math.max(previousBest, score);
+
+
+    localStorage.setItem(
+        "quizzesCompleted",
+        newCompleted
+    );
+
+
+    localStorage.setItem(
+        "bestQuizScore",
+        newBest
+    );
+
+
+    localStorage.setItem(
+        "totalQuizScore",
+        newTotal
+    );
+
+
+    localStorage.setItem(
+        "averageQuizScore",
+        (newTotal / newCompleted).toFixed(1)
+    );
+
+
+    /* SAVE PHYSICS XP */
+
+    const previousPhysicsXP =
+        Number(
+            localStorage.getItem("physicsQuizXP")
+        ) || 0;
+
+
+    localStorage.setItem(
+        "physicsQuizXP",
+        previousPhysicsXP + earnedXP
+    );
+
+}
+
+
+/* ================================
+   RESTART
+================================ */
+
+function restartQuiz() {
+
+    location.reload();
+
+}
+
+</script>
+
+</body>
+</html>

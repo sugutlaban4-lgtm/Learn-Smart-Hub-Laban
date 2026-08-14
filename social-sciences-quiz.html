@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Learn Smart Hub - Social Sciences Quiz</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+
+            font-family: Arial, sans-serif;
+
+            background: #f4f7fb;
+
+            color: #222;
+        }
+
+        .quiz-container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .quiz-header {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+
+            margin-bottom: 25px;
+        }
+
+        .quiz-header h1 {
+            margin-top: 0;
+        }
+
+        .quiz-stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .stat-card {
+
+            background: #f4f7fb;
+
+            padding: 15px;
+
+            border-radius: 12px;
+        }
+
+        .stat-card strong {
+
+            display: block;
+
+            font-size: 21px;
+
+            margin-top: 6px;
+        }
+
+        .progress-container {
+
+            width: 100%;
+
+            height: 14px;
+
+            background: #e5e7eb;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+
+            width: 0%;
+
+            height: 100%;
+
+            background: #7c3aed;
+
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+
+            background: white;
+
+            padding: 25px;
+
+            margin-bottom: 20px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .question-number {
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            opacity: 0.65;
+        }
+
+        .question-card h3 {
+            margin-top: 8px;
+        }
+
+        .answer-button {
+
+            display: block;
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin: 10px 0;
+
+            border: 2px solid #dbe2ea;
+
+            border-radius: 12px;
+
+            background: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            transition: 0.2s;
+        }
+
+        .answer-button:hover {
+
+            border-color: #7c3aed;
+
+            transform: translateY(-1px);
+        }
+
+        .answer-button.correct {
+
+            background: #dcfce7;
+
+            border-color: #16a34a;
+        }
+
+        .answer-button.wrong {
+
+            background: #fee2e2;
+
+            border-color: #dc2626;
+        }
+
+        .answer-button:disabled {
+            cursor: default;
+        }
+
+        .feedback {
+
+            display: none;
+
+            margin-top: 12px;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            font-weight: 600;
+        }
+
+        .correct-feedback {
+
+            background: #dcfce7;
+
+            color: #166534;
+        }
+
+        .wrong-feedback {
+
+            background: #fee2e2;
+
+            color: #991b1b;
+        }
+
+        .main-button {
+
+            width: 100%;
+
+            padding: 16px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            margin-top: 10px;
+        }
+
+        .submit-button {
+
+            background: #7c3aed;
+
+            color: white;
+        }
+
+        .retry-button {
+
+            background: #16a34a;
+
+            color: white;
+        }
+
+        .back-button {
+
+            background: #374151;
+
+            color: white;
+        }
+
+        #result {
+
+            display: none;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+
+            margin-top: 25px;
+        }
+
+        #result h2 {
+            margin-top: 0;
+        }
+
+        .result-score {
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            margin: 15px 0;
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 12px;
+            }
+
+            .quiz-stats {
+
+                grid-template-columns: 1fr;
+            }
+
+            .question-card {
+                padding: 18px;
+            }
+
+            .answer-button {
+                font-size: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="quiz-container">
+
+
+    <!-- HEADER -->
+
+    <div class="quiz-header">
+
+        <h1>🌍 Social Sciences Challenge</h1>
+
+        <p>
+            Test your knowledge of Geography,
+            History, Government and Society.
+        </p>
+
+        <div class="quiz-stats">
+
+            <div class="stat-card">
+
+                📊 Answered
+
+                <strong id="answeredCount">
+                    0/30
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                🏆 Score
+
+                <strong id="score">
+                    0/30
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                ⭐ XP
+
+                <strong id="xp">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-container">
+
+            <div
+                class="progress-bar"
+                id="progressBar">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUESTION 1 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 1 OF 30
+        </div>
+
+        <h3>
+            What is the capital city of Kenya?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(1,this,false)">
+            A. Mombasa
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(1,this,true)">
+            B. Nairobi
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(1,this,false)">
+            C. Kisumu
+        </button>
+
+        <div id="feedback1" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 2 OF 30
+        </div>
+
+        <h3>
+            Which continent is Kenya located in?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(2,this,true)">
+            A. Africa
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(2,this,false)">
+            B. Asia
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(2,this,false)">
+            C. Europe
+        </button>
+
+        <div id="feedback2" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 3 OF 30
+        </div>
+
+        <h3>
+            Which is the largest ocean in the world?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(3,this,false)">
+            A. Atlantic Ocean
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(3,this,true)">
+            B. Pacific Ocean
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(3,this,false)">
+            C. Indian Ocean
+        </button>
+
+        <div id="feedback3" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 4 OF 30
+        </div>
+
+        <h3>
+            Which line divides the Earth into
+            Northern and Southern Hemispheres?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(4,this,true)">
+            A. Equator
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(4,this,false)">
+            B. Prime Meridian
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(4,this,false)">
+            C. Tropic of Capricorn
+        </button>
+
+        <div id="feedback4" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 5 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 5 OF 30
+        </div>
+
+        <h3>
+            Which is the longest river in Africa?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(5,this,true)">
+            A. Nile River
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(5,this,false)">
+            B. Congo River
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(5,this,false)">
+            C. Zambezi River
+        </button>
+
+        <div id="feedback5" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 6 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 6 OF 30
+        </div>
+
+        <h3>
+            What is a map?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(6,this,true)">
+            A. A representation of an area
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(6,this,false)">
+            B. A type of weather
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(6,this,false)">
+            C. A type of soil
+        </button>
+
+        <div id="feedback6" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 7 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 7 OF 30
+        </div>
+
+        <h3>
+            Which instrument is used to measure rainfall?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(7,this,false)">
+            A. Thermometer
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(7,this,true)">
+            B. Rain gauge
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(7,this,false)">
+            C. Barometer
+        </button>
+
+        <div id="feedback7" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 8 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 8 OF 30
+        </div>
+
+        <h3>
+            Which instrument measures temperature?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(8,this,true)">
+            A. Thermometer
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(8,this,false)">
+            B. Rain gauge
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(8,this,false)">
+            C. Wind vane
+        </button>
+
+        <div id="feedback8" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 9 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 9 OF 30
+        </div>
+
+        <h3>
+            Which direction does a compass needle
+            generally point toward?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(9,this,true)">
+            A. North
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(9,this,false)">
+            B. South only
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(9,this,false)">
+            C. West
+        </button>
+
+        <div id="feedback9" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 10 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 10 OF 30
+        </div>
+
+        <h3>
+            Which is a natural resource?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(10,this,true)">
+            A. Water
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(10,this,false)">
+            B. Plastic bottle
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(10,this,false)">
+            C. Television
+        </button>
+
+        <div id="feedback10" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 11 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 11 OF 30
+        </div>
+
+        <h3>
+            Which ancient civilization developed
+            along the Nile River?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(11,this,true)">
+            A. Ancient Egypt
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(11,this,false)">
+            B. Ancient Rome
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(11,this,false)">
+            C. Ancient Japan
+        </button>
+
+        <div id="feedback11" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 12 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 12 OF 30
+        </div>
+
+        <h3>
+            What is history?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(12,this,true)">
+            A. The study of past events
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(12,this,false)">
+            B. The study of stars only
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(12,this,false)">
+            C. The study of plants only
+        </button>
+
+        <div id="feedback12" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 13 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 13 OF 30
+        </div>
+
+        <h3>
+            Which source can provide information
+            about the past?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(13,this,false)">
+            A. Historical documents
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(13,this,true)">
+            B. Oral traditions
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(13,this,false)">
+            C. Both are impossible sources
+        </button>
+
+        <div id="feedback13" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 14 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 14 OF 30
+        </div>
+
+        <h3>
+            Which civilization built the pyramids
+            of Giza?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(14,this,true)">
+            A. Ancient Egyptians
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(14,this,false)">
+            B. Vikings
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(14,this,false)">
+            C. Aztecs
+        </button>
+
+        <div id="feedback14" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 15 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 15 OF 30
+        </div>
+
+        <h3>
+            What is archaeology?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(15,this,true)">
+            A. Study of past human life through remains
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(15,this,false)">
+            B. Study of weather
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(15,this,false)">
+            C. Study of oceans only
+        </button>
+
+        <div id="feedback15" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 16 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 16 OF 30
+        </div>
+
+        <h3>
+            What is government?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(16,this,true)">
+            A. A system used to organize and manage a country
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(16,this,false)">
+            B. A type of mountain
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(16,this,false)">
+            C. A weather instrument
+        </button>
+
+        <div id="feedback16" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 17 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 17 OF 30
+        </div>
+
+        <h3>
+            Which branch of government makes laws?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(17,this,true)">
+            A. Legislature
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(17,this,false)">
+            B. Judiciary
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(17,this,false)">
+            C. Meteorological department
+        </button>
+
+        <div id="feedback17" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 18 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 18 OF 30
+        </div>
+
+        <h3>
+            What is democracy?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(18,this,true)">
+            A. Government by the people
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(18,this,false)">
+            B. Government by animals
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(18,this,false)">
+            C. Government without citizens
+        </button>
+
+        <div id="feedback18" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 19 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 19 OF 30
+        </div>
+
+        <h3>
+            What is a citizen?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(19,this,true)">
+            A. A legally recognized member of a country
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(19,this,false)">
+            B. A type of river
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(19,this,false)">
+            C. A weather condition
+        </button>
+
+        <div id="feedback19" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 20 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 20 OF 30
+        </div>
+
+        <h3>
+            Which is a responsibility of citizens?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(20,this,true)">
+            A. Obeying the law
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(20,this,false)">
+            B. Destroying public property
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(20,this,false)">
+            C. Ignoring laws
+        </button>
+
+        <div id="feedback20" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 21 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 21 OF 30
+        </div>
+
+        <h3>
+            What is population?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(21,this,true)">
+            A. The number of people living in an area
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(21,this,false)">
+            B. The amount of rainfall
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(21,this,false)">
+            C. The height of a mountain
+        </button>
+
+        <div id="feedback21" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 22 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 22 OF 30
+        </div>
+
+        <h3>
+            What is migration?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(22,this,true)">
+            A. Movement of people from one place to another
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(22,this,false)">
+            B. Formation of clouds
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(22,this,false)">
+            C. Movement of ocean waves only
+        </button>
+
+        <div id="feedback22" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 23 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 23 OF 30
+        </div>
+
+        <h3>
+            What is urbanization?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(23,this,true)">
+            A. Growth of towns and cities
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(23,this,false)">
+            B. Growth of forests only
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(23,this,false)">
+            C. Formation of oceans
+        </button>
+
+        <div id="feedback23" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 24 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 24 OF 30
+        </div>
+
+        <h3>
+            Which activity is common in rural areas?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(24,this,true)">
+            A. Farming
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(24,this,false)">
+            B. Operating airports only
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(24,this,false)">
+            C. Running skyscrapers
+        </button>
+
+        <div id="feedback24" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 25 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 25 OF 30
+        </div>
+
+        <h3>
+            What is an economy?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(25,this,true)">
+            A. A system involving production, distribution and consumption
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(25,this,false)">
+            B. A type of climate
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(25,this,false)">
+            C. A type of rock
+        </button>
+
+        <div id="feedback25" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 26 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 26 OF 30
+        </div>
+
+        <h3>
+            Which activity involves growing crops?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(26,this,true)">
+            A. Agriculture
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(26,this,false)">
+            B. Mining
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(26,this,false)">
+            C. Banking
+        </button>
+
+        <div id="feedback26" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 27 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 27 OF 30
+        </div>
+
+        <h3>
+            Which activity involves extracting minerals
+            from the earth?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(27,this,false)">
+            A. Agriculture
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(27,this,true)">
+            B. Mining
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(27,this,false)">
+            C. Fishing
+        </button>
+
+        <div id="feedback27" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 28 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 28 OF 30
+        </div>
+
+        <h3>
+            Why is environmental conservation important?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(28,this,true)">
+            A. It helps protect natural resources
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(28,this,false)">
+            B. It increases pollution
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(28,this,false)">
+            C. It destroys forests
+        </button>
+
+        <div id="feedback28" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 29 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 29 OF 30
+        </div>
+
+        <h3>
+            Which is an example of renewable energy?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(29,this,true)">
+            A. Solar energy
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(29,this,false)">
+            B. Coal
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(29,this,false)">
+            C. Petroleum
+        </button>
+
+        <div id="feedback29" class="feedback"></div>
+
+    </div>
+
+
+    <!-- QUESTION 30 -->
+
+    <div class="question-card">
+
+        <div class="question-number">
+            QUESTION 30 OF 30
+        </div>
+
+        <h3>
+            Which action helps reduce pollution?
+        </h3>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(30,this,true)">
+            A. Recycling waste
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(30,this,false)">
+            B. Burning rubbish everywhere
+        </button>
+
+        <button
+            class="answer-button"
+            onclick="checkAnswer(30,this,false)">
+            C. Dumping waste into rivers
+        </button>
+
+        <div id="feedback30" class="feedback"></div>
+
+    </div>
+
+
+    <!-- SUBMIT -->
+
+    <button
+        class="main-button submit-button"
+        onclick="submitQuiz()">
+
+        📊 Submit 30-Question Challenge
+
+    </button>
+
+
+    <!-- RESULT -->
+
+    <div id="result">
+
+        <h2>
+            🎉 Challenge Complete!
+        </h2>
+
+        <div
+            id="finalScore"
+            class="result-score">
+        </div>
+
+        <p id="finalXP"></p>
+
+        <p id="message"></p>
+
+
+        <button
+            class="main-button retry-button"
+            onclick="restartQuiz()">
+
+            🔄 Try Again
+
+        </button>
+
+    </div>
+
+
+    <!-- BACK -->
+
+    <button
+        class="main-button back-button"
+        onclick="window.location='social-sciences.html'">
+
+        ⬅ Back to Social Sciences
+
+    </button>
+
+
+</div>
+
+
+<script>
+
+let score = 0;
+
+let answered = [];
+
+let quizSubmitted = false;
+
+const totalQuestions = 30;
+
+const xpPerCorrectAnswer = 20;
+
+
+/* ================================
+   CHECK ANSWER
+================================ */
+
+function checkAnswer(
+    question,
+    button,
+    isCorrect
+) {
+
+    if (quizSubmitted) {
+        return;
+    }
+
+
+    if (answered.includes(question)) {
+
+        alert(
+            "⚠️ You already answered this question."
+        );
+
+        return;
+    }
+
+
+    answered.push(question);
+
+
+    const buttons =
+        button
+            .parentElement
+            .querySelectorAll(".answer-button");
+
+
+    buttons.forEach(function(btn) {
+
+        btn.disabled = true;
+
+    });
+
+
+    const feedback =
+        document.getElementById(
+            "feedback" + question
+        );
+
+
+    if (isCorrect) {
+
+        score++;
+
+
+        button.classList.add(
+            "correct"
+        );
+
+
+        feedback.innerText =
+            "✅ Correct! Excellent work.";
+
+
+        feedback.className =
+            "feedback correct-feedback";
+
+
+        feedback.style.display =
+            "block";
+
+    }
+
+    else {
+
+        button.classList.add(
+            "wrong"
+        );
+
+
+        feedback.innerText =
+            "❌ Not correct. Keep learning!";
+
+
+        feedback.className =
+            "feedback wrong-feedback";
+
+
+        feedback.style.display =
+            "block";
+
+    }
+
+
+    updateProgress();
+
+}
+
+
+/* ================================
+   UPDATE PROGRESS
+================================ */
+
+function updateProgress() {
+
+    document.getElementById(
+        "answeredCount"
+    ).innerText =
+        answered.length +
+        "/" +
+        totalQuestions;
+
+
+    document.getElementById(
+        "score"
+    ).innerText =
+        score +
+        "/" +
+        totalQuestions;
+
+
+    document.getElementById(
+        "xp"
+    ).innerText =
+        score *
+        xpPerCorrectAnswer;
+
+
+    document.getElementById(
+        "progressBar"
+    ).style.width =
+        (
+            answered.length /
+            totalQuestions *
+            100
+        ) +
+        "%";
+
+}
+
+
+/* ================================
+   SUBMIT QUIZ
+================================ */
+
+function submitQuiz() {
+
+    if (
+        answered.length <
+        totalQuestions
+    ) {
+
+        alert(
+            "⚠️ Please answer all 30 questions before submitting."
+        );
+
+        return;
+    }
+
+
+    if (quizSubmitted) {
+        return;
+    }
+
+
+    quizSubmitted = true;
+
+
+    const earnedXP =
+        score *
+        xpPerCorrectAnswer;
+
+
+    document.getElementById(
+        "result"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "finalScore"
+    ).innerText =
+        "Your Score: " +
+        score +
+        "/" +
+        totalQuestions;
+
+
+    document.getElementById(
+        "finalXP"
+    ).innerText =
+        "⭐ XP Earned: " +
+        earnedXP;
+
+
+    if (score >= 27) {
+
+        document.getElementById(
+            "message"
+        ).innerText =
+            "🏆 Outstanding! You are a Social Sciences star!";
+
+    }
+
+    else if (score >= 21) {
+
+        document.getElementById(
+            "message"
+        ).innerText =
+            "🌟 Excellent work! Keep learning.";
+
+    }
+
+    else if (score >= 15) {
+
+        document.getElementById(
+            "message"
+        ).innerText =
+            "👍 Good work! More practice will make you stronger.";
+
+    }
+
+    else {
+
+        document.getElementById(
+            "message"
+        ).innerText =
+            "📚 Keep studying. You can improve your score!";
+
+    }
+
+
+    /* ================================
+       SAVE QUIZ STATISTICS
+    ================================= */
+
+    const previousCompleted =
+        Number(
+            localStorage.getItem(
+                "quizzesCompleted"
+            )
+        ) || 0;
+
+
+    const previousBest =
+        Number(
+            localStorage.getItem(
+                "bestQuizScore"
+            )
+        ) || 0;
+
+
+    const previousTotal =
+        Number(
+            localStorage.getItem(
+                "totalQuizScore"
+            )
+        ) || 0;
+
+
+    const newCompleted =
+        previousCompleted +
+        1;
+
+
+    const newTotal =
+        previousTotal +
+        score;
+
+
+    const newBest =
+        Math.max(
+            previousBest,
+            score
+        );
+
+
+    localStorage.setItem(
+        "quizzesCompleted",
+        newCompleted
+    );
+
+
+    localStorage.setItem(
+        "bestQuizScore",
+        newBest
+    );
+
+
+    localStorage.setItem(
+        "totalQuizScore",
+        newTotal
+    );
+
+
+    localStorage.setItem(
+        "averageQuizScore",
+        (
+            newTotal /
+            newCompleted
+        ).toFixed(1)
+    );
+
+
+    /* ================================
+       SAVE SOCIAL SCIENCES XP
+    ================================= */
+
+    const previousSocialXP =
+        Number(
+            localStorage.getItem(
+                "socialSciencesQuizXP"
+            )
+        ) || 0;
+
+
+    localStorage.setItem(
+        "socialSciencesQuizXP",
+        previousSocialXP +
+        earnedXP
+    );
+
+}
+
+
+/* ================================
+   RESTART
+================================ */
+
+function restartQuiz() {
+
+    location.reload();
+
+}
+
+</script>
+
+
+</body>
+
+</html>

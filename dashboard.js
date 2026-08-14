@@ -635,3 +635,113 @@ if (weeklyDays >= 7 && achievementWeekly) {
     );
 
 }
+/* ================================
+   STUDENT LEARNING OVERVIEW
+================================ */
+
+const overviewQuizzes =
+    document.getElementById("overviewQuizzes");
+
+const overviewBestScore =
+    document.getElementById("overviewBestScore");
+
+const overviewAverageScore =
+    document.getElementById("overviewAverageScore");
+
+const overviewStreak =
+    document.getElementById("overviewStreak");
+
+const overviewBadges =
+    document.getElementById("overviewBadges");
+
+const overviewStudyDays =
+    document.getElementById("overviewStudyDays");
+
+
+/* =================================
+   BADGES EARNED
+================================ */
+
+let badgesEarned = 0;
+
+
+if (studyDays >= 1) {
+    badgesEarned++;
+}
+
+if (currentStreak >= 3) {
+    badgesEarned++;
+}
+
+if (currentStreak >= 7) {
+    badgesEarned++;
+}
+
+if (studyDays >= 10) {
+    badgesEarned++;
+}
+
+if (quizzesCompleted >= 1) {
+    badgesEarned++;
+}
+
+if (quizzesCompleted >= 10) {
+    badgesEarned++;
+}
+
+if (weeklyDays >= 7) {
+    badgesEarned++;
+}
+
+
+/* =================================
+   DISPLAY OVERVIEW
+================================ */
+
+if (overviewQuizzes) {
+
+    overviewQuizzes.textContent =
+        quizzesCompleted;
+
+}
+
+
+if (overviewBestScore) {
+
+    overviewBestScore.textContent =
+        (bestQuizScore * 10) + "%";
+
+}
+
+
+if (overviewAverageScore) {
+
+    overviewAverageScore.textContent =
+        (averageQuizScore * 10)
+            .toFixed(0) + "%";
+
+}
+
+
+if (overviewStreak) {
+
+    overviewStreak.textContent =
+        currentStreak;
+
+}
+
+
+if (overviewBadges) {
+
+    overviewBadges.textContent =
+        badgesEarned;
+
+}
+
+
+if (overviewStudyDays) {
+
+    overviewStudyDays.textContent =
+        studyDays;
+
+}

@@ -361,3 +361,186 @@ if (averageElement) {
         "%";
 
 }
+/* ================================
+   STUDY PROGRESS + STREAK
+================================ */
+
+const today = new Date();
+const todayKey = today.toISOString().split("T")[0];
+
+const lastStudyDate =
+    localStorage.getItem("lastStudyDate");
+
+let currentStreak =
+    Number(localStorage.getItem("currentStreak")) || 0;
+
+let longestStreak =
+    Number(localStorage.getItem("longestStreak")) || 0;
+
+let studyDays =
+    Number(localStorage.getItem("studyDays")) || 0;
+
+
+/* =================================
+   UPDATE STUDY STREAK
+================================ */
+
+if (lastStudyDate !== todayKey) {
+
+    if (lastStudyDate) {
+
+        const previousDate =
+            new Date(lastStudyDate);
+
+        const difference =
+            Math.floor(
+                (today - previousDate) /
+                (1000 * 60 * 60 * 24)
+            );
+
+        if (difference === 1) {
+
+            currentStreak++;
+
+        } else {
+
+            currentStreak = 1;
+
+        }
+
+    } else {
+
+        currentStreak = 1;
+
+    }
+
+
+    studyDays++;
+
+
+    if (currentStreak > longestStreak) {
+
+        longestStreak =
+            currentStreak;
+
+    }
+
+
+    localStorage.setItem(
+        "lastStudyDate",
+        todayKey
+    );
+
+    localStorage.setItem(
+        "currentStreak",
+        currentStreak
+    );
+
+    localStorage.setItem(
+        "longestStreak",
+        longestStreak
+    );
+
+    localStorage.setItem(
+        "studyDays",
+        studyDays
+    );
+
+}
+
+
+/* =================================
+   DISPLAY STUDY PROGRESS
+================================ */
+
+const streakElement =
+    document.getElementById(
+        "currentStudyStreak"
+    );
+
+const longestStreakElement =
+    document.getElementById(
+        "longestStudyStreak"
+    );
+
+const studyDaysElement =
+    document.getElementById(
+        "studyDays"
+    );
+
+
+if (streakElement) {
+
+    streakElement.textContent =
+        currentStreak;
+
+}
+
+
+if (longestStreakElement) {
+
+    longestStreakElement.textContent =
+        longestStreak;
+
+}
+
+
+if (studyDaysElement) {
+
+    studyDaysElement.textContent =
+        studyDays;
+
+}/* ================================
+   WEEKLY STUDY GOAL
+================================ */
+
+const weeklyStudyDaysElement =
+    document.getElementById(
+        "weeklyStudyDays"
+    );
+
+const weeklyProgressFill =
+    document.getElementById(
+        "weeklyProgressFill"
+    );
+
+const weeklyProgressText =
+    document.getElementById(
+        "weeklyProgressText"
+    );
+
+
+const weeklyGoal = 7;
+
+const weeklyDays =
+    Math.min(studyDays, weeklyGoal);
+
+const weeklyPercentage =
+    Math.round(
+        (weeklyDays / weeklyGoal) * 100
+    );
+
+
+if (weeklyStudyDaysElement) {
+
+    weeklyStudyDaysElement.textContent =
+        weeklyDays;
+
+}
+
+
+if (weeklyProgressFill) {
+
+    weeklyProgressFill.style.width =
+        weeklyPercentage + "%";
+
+}
+
+
+if (weeklyProgressText) {
+
+    weeklyProgressText.textContent =
+        weeklyPercentage +
+        "% complete";
+
+}

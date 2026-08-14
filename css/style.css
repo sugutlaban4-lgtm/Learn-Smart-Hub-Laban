@@ -1,4 +1,4 @@
-```css
+
 /* ================================
    LEARN SMART HUB
    MODERN EDUCATION THEME
@@ -627,4 +627,63 @@ body > button:hover {
     .subject-card {
         min-height: 145px;
     }
+}/* =================================
+   STUDY PROGRESS + STREAKS
+================================= */
+
+.study-progress-section {
+    margin-top: 30px;
+}
+
+.study-progress-section h2 {
+    margin-bottom: 20px;
+}
+
+.study-progress-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.study-progress-section .progress-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.study-progress-section .progress-icon {
+    font-size: 32px;
+}
+
+.study-progress-section .progress-title {
+    font-weight: 600;
+}
+
+.study-progress-section .progress-card strong {
+    font-size: 30px;
+}
+
+.study-progress-section .progress-card small {
+    opacity: 0.7;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+
+    .study-progress-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
 }

@@ -745,3 +745,57 @@ if (overviewStudyDays) {
         studyDays;
 
 }
+/* ================================
+   CONTINUE LEARNING
+================================ */
+
+const continueLearningButton =
+    document.getElementById("continueLearningButton");
+
+const continueLearningTitle =
+    document.getElementById("continueLearningTitle");
+
+const continueLearningDescription =
+    document.getElementById("continueLearningDescription");
+
+
+/* Default learning area */
+
+const continueLearningPage =
+    localStorage.getItem("lastLearningPage") ||
+    "mathematics.html";
+
+const continueLearningName =
+    localStorage.getItem("lastLearningName") ||
+    "Mathematics";
+
+
+if (continueLearningTitle) {
+
+    continueLearningTitle.textContent =
+        continueLearningName;
+
+}
+
+
+if (continueLearningDescription) {
+
+    continueLearningDescription.textContent =
+        `Continue studying ${continueLearningName} and improve your skills.`;
+
+}
+
+
+if (continueLearningButton) {
+
+    continueLearningButton.addEventListener(
+        "click",
+        () => {
+
+            window.location =
+                continueLearningPage;
+
+        }
+    );
+
+}

@@ -817,3 +817,82 @@ body > button:hover {
     }
 
 }
+/* =================================
+   CONTINUE LEARNING
+================================= */
+
+.continue-learning-section {
+    margin-top: 30px;
+}
+
+.continue-learning-section h2 {
+    margin-bottom: 20px;
+}
+
+.continue-learning-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.continue-learning-icon {
+    font-size: 42px;
+    min-width: 55px;
+    text-align: center;
+}
+
+.continue-learning-content {
+    flex: 1;
+}
+
+.continue-learning-content h3 {
+    margin: 0 0 6px;
+}
+
+.continue-learning-content p {
+    margin: 0;
+    opacity: 0.75;
+}
+
+.continue-learning-button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.continue-learning-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* =================================
+   CONTINUE LEARNING MOBILE
+================================= */
+
+@media (max-width: 768px) {
+
+    .continue-learning-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .continue-learning-button {
+        width: 100%;
+    }
+
+}

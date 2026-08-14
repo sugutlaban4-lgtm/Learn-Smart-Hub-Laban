@@ -1,11 +1,15 @@
+```html
 <!DOCTYPE html>
 <html>
 
 <head>
 
-    <title>Learn Smart Hub - Mathematics Quiz</title>
+    <title>Learn Smart Hub - AI Mathematics Quiz</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <style>
 
@@ -15,269 +19,266 @@
 
         body {
             margin: 0;
-            padding: 20px;
-
+            padding: 15px;
             font-family: Arial, sans-serif;
-
             background: #f4f7fb;
-
             color: #222;
         }
 
-
         .quiz-container {
-            max-width: 800px;
+            max-width: 850px;
             margin: auto;
         }
 
-
         .quiz-header {
             background: white;
-
             padding: 25px;
-
-            border-radius: 18px;
-
+            border-radius: 20px;
             text-align: center;
-
-            box-shadow:
-                0 4px 15px rgba(0, 0, 0, 0.08);
-
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             margin-bottom: 25px;
         }
-
 
         .quiz-header h1 {
             margin-top: 0;
         }
 
+        .ai-banner {
+            margin-top: 18px;
+            padding: 15px;
+            border-radius: 15px;
+            background: #eef3ff;
+            border: 1px solid #d9e3ff;
+        }
+
+        .ai-banner strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
 
         .quiz-stats {
             display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 15px;
-
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
             margin-top: 20px;
         }
 
-
         .stat-card {
             background: #f4f7fb;
-
             padding: 15px;
-
-            border-radius: 12px;
+            border-radius: 14px;
         }
-
 
         .stat-card strong {
             display: block;
-
             font-size: 22px;
-
             margin-top: 5px;
         }
 
-
         .quiz-progress-container {
             width: 100%;
-
             height: 14px;
-
             background: #e9ecef;
-
             border-radius: 20px;
-
             overflow: hidden;
-
-            margin-top: 15px;
+            margin-top: 18px;
         }
-
 
         .quiz-progress-bar {
             width: 0%;
-
             height: 100%;
-
             border-radius: 20px;
-
-            transition:
-                width 0.3s ease;
+            transition: width 0.3s ease;
         }
-
 
         .question-card {
             background: white;
-
-            padding: 25px;
-
+            padding: 22px;
             border-radius: 18px;
-
             margin-bottom: 20px;
-
-            box-shadow:
-                0 4px 15px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
         }
-
 
         .question-number {
             font-weight: bold;
-
             opacity: 0.7;
-
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-
-        .question-card h3 {
-            margin-top: 0;
-        }
-
-
-        .answer-button {
-            width: 100%;
-
-            padding: 14px;
-
-            margin-top: 10px;
-
-            border: none;
-
-            border-radius: 10px;
-
-            background: #eef3ff;
-
-            cursor: pointer;
-
-            font-size: 16px;
-
-            transition:
-                transform 0.15s ease,
-                opacity 0.15s ease;
-        }
-
-
-        .answer-button:hover {
-            transform: translateY(-1px);
-
-            opacity: 0.9;
-        }
-
-
-        .feedback {
-            margin-top: 12px;
-
-            padding: 12px;
-
-            border-radius: 10px;
-
-            display: none;
-
-            font-weight: 600;
-        }
-
-
-        .correct-feedback {
-            background: #e8f7ed;
-        }
-
-
-        .wrong-feedback {
-            background: #fff0f0;
-        }
-
-
-        .quiz-actions {
-            text-align: center;
-
-            margin: 25px 0;
-        }
-
-
-        .main-button {
-            border: none;
-
-            border-radius: 12px;
-
-            padding: 14px 22px;
-
-            font-size: 16px;
-
+        .question {
+            font-size: 18px;
             font-weight: bold;
-
-            cursor: pointer;
-
-            margin: 5px;
+            margin-bottom: 18px;
         }
 
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 12px;
+            margin-bottom: 7px;
+        }
 
-        .submit-button {
+        textarea,
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccd3df;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        textarea:focus,
+        input:focus {
+            outline: none;
+            border-color: #5278ff;
+        }
+
+        .warning {
+            font-size: 14px;
+            opacity: 0.75;
+        }
+
+        .button-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            border: none;
+            border-radius: 11px;
+            padding: 13px 16px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .mark-button {
             background: #e8f0ff;
         }
 
+        .ai-button {
+            background: #f0e9ff;
+        }
+
+        .hint-button {
+            background: #fff5d9;
+        }
+
+        .working-button {
+            background: #e7f8ef;
+        }
+
+        button:hover {
+            opacity: 0.88;
+        }
+
+        button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .correct {
+            background: #e8f7ed;
+        }
+
+        .wrong {
+            background: #fff0f0;
+        }
+
+        .solution {
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 10px;
+            background: white;
+        }
+
+        .ai-panel {
+            display: none;
+            margin-top: 15px;
+            padding: 16px;
+            border-radius: 14px;
+            background: #f6f1ff;
+            border: 1px solid #dfd0ff;
+        }
+
+        .ai-panel h4 {
+            margin-top: 0;
+        }
+
+        .ai-loading {
+            opacity: 0.7;
+        }
+
+        .quiz-actions {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .main-button {
+            margin: 5px;
+            padding: 14px 22px;
+        }
+
+        .submit-button {
+            background: #dfeaff;
+        }
 
         .back-button {
             background: #eeeeee;
         }
 
-
         #result {
             display: none;
-
             background: white;
-
             margin: 25px 0;
-
             padding: 30px;
-
             border-radius: 18px;
-
             text-align: center;
-
-            box-shadow:
-                0 4px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
-
 
         #finalScore {
             font-size: 28px;
         }
 
-
         .xp-reward {
             font-size: 22px;
-
             font-weight: bold;
-
             margin: 15px 0;
         }
 
-
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
 
             body {
-                padding: 12px;
+                padding: 10px;
             }
-
 
             .quiz-header,
             .question-card {
                 padding: 18px;
             }
 
-
             .quiz-stats {
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
 
-
-            .answer-button {
-                font-size: 16px;
-
+            button {
                 min-height: 48px;
             }
 
@@ -287,53 +288,48 @@
 
 </head>
 
-
 <body>
-
 
 <div class="quiz-container">
 
-
-    <!-- QUIZ HEADER -->
-
     <div class="quiz-header">
 
-        <h1>
-            🧮 Mathematics Challenge
-        </h1>
+        <h1>🧮 Mathematics Challenge</h1>
 
         <p>
-            Test your Mathematics knowledge
-            and earn XP.
+            Solve the questions, show your workings,
+            earn XP and learn with AI Tutor.
         </p>
 
+        <div class="ai-banner">
 
-        <div class="quiz-stats">
+            <strong>🤖 AI Tutor</strong>
 
-
-            <div class="stat-card">
-
-                📊 Questions Answered
-
-                <strong id="quizProgress">
-                    0/10
-                </strong>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                ⭐ XP Earned
-
-                <strong id="quizXP">
-                    0
-                </strong>
-
-            </div>
+            <span>
+                Need help? Ask for a hint, an explanation,
+                or feedback on your working.
+            </span>
 
         </div>
 
+        <div class="quiz-stats">
+
+            <div class="stat-card">
+                📊 Questions Answered
+                <strong id="answeredCount">0/20</strong>
+            </div>
+
+            <div class="stat-card">
+                🏆 Score
+                <strong id="scoreDisplay">0/20</strong>
+            </div>
+
+            <div class="stat-card">
+                ⭐ XP
+                <strong id="xpDisplay">0</strong>
+            </div>
+
+        </div>
 
         <div class="quiz-progress-container">
 
@@ -346,501 +342,7 @@
 
     </div>
 
-
-
-    <!-- QUESTION 1 -->
-
-    <div class="question-card">
-
-        <div class="question-number">
-            Question 1 of 10
-        </div>
-
-        <h3>
-            What is 12 × 8?
-        </h3>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(1, 80, 96, this)">
-
-            80
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(1, 96, 96, this)">
-
-            96
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(1, 108, 96, this)">
-
-            108
-
-        </button>
-
-
-        <div
-            id="feedback1"
-            class="feedback">
-        </div>
-
-    </div>
-
-
-
-    <!-- QUESTION 2 -->
-
-    <div class="question-card">
-
-        <div class="question-number">
-            Question 2 of 10
-        </div>
-
-        <h3>
-            Solve: 25 + 15
-        </h3>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(2, 30, 40, this)">
-
-            30
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(2, 40, 40, this)">
-
-            40
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(2, 50, 40, this)">
-
-            50
-
-        </button>
-
-
-        <div
-            id="feedback2"
-            class="feedback">
-        </div>
-
-    </div>
-
-
-
-    <!-- QUESTION 3 -->
-
-    <div class="question-card">
-
-        <div class="question-number">
-            Question 3 of 10
-        </div>
-
-        <h3>
-            What is 15 × 4?
-        </h3>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(3, 50, 60, this)">
-
-            50
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(3, 60, 60, this)">
-
-            60
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(3, 70, 60, this)">
-
-            70
-
-        </button>
-
-
-        <div
-            id="feedback3"
-            class="feedback">
-        </div>
-
-    </div>
-
-
-
-    <!-- QUESTION 4 -->
-
-    <div class="question-card">
-
-        <div class="question-number">
-            Question 4 of 10
-        </div>
-
-        <h3>
-            What is 100 ÷ 5?
-        </h3>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(4, 10, 20, this)">
-
-            10
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(4, 20, 20, this)">
-
-            20
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(4, 25, 20, this)">
-
-            25
-
-        </button>
-
-
-        <div
-            id="feedback4"
-            class="feedback">
-        </div>
-
-    </div>
-
-
-
-    <!-- QUESTION 5 -->
-
-    <div class="question-card">
-
-        <div class="question-number">
-            Question 5 of 10
-        </div>
-
-        <h3>
-            What is 7²?
-        </h3>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(5, 14, 49, this)">
-
-            14
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(5, 42, 49, this)">
-
-            42
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(5, 49, 49, this)">
-
-            49
-
-        </button>
-
-
-        <div
-            id="feedback5"
-            class="feedback">
-        </div>
-
-    </div>
-
-
-
-    <!-- QUESTION 6 -->
-
-    <div class="question-card">
-
-        <div class="question-number">
-            Question 6 of 10
-        </div>
-
-        <h3>
-            Simplify: 3 + 5 × 2
-        </h3>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(6, 16, 13, this)">
-
-            16
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(6, 13, 13, this)">
-
-            13
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(6, 10, 13, this)">
-
-            10
-
-        </button>
-
-
-        <div
-            id="feedback6"
-            class="feedback">
-        </div>
-
-    </div>
-
-
-
-    <!-- QUESTION 7 -->
-
-    <div class="question-card">
-
-        <div class="question-number">
-            Question 7 of 10
-        </div>
-
-        <h3>
-            What is the perimeter of a square
-            with a side of 5 cm?
-        </h3>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(7, 10, 20, this)">
-
-            10 cm
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(7, 15, 20, this)">
-
-            15 cm
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(7, 20, 20, this)">
-
-            20 cm
-
-        </button>
-
-
-        <div
-            id="feedback7"
-            class="feedback">
-        </div>
-
-    </div>
-
-
-
-    <!-- QUESTION 8 -->
-
-    <div class="question-card">
-
-        <div class="question-number">
-            Question 8 of 10
-        </div>
-
-        <h3>
-            What is 3/4 as a decimal?
-        </h3>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(8, 0.25, 0.75, this)">
-
-            0.25
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(8, 0.75, 0.75, this)">
-
-            0.75
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(8, 1.25, 0.75, this)">
-
-            1.25
-
-        </button>
-
-
-        <div
-            id="feedback8"
-            class="feedback">
-        </div>
-
-    </div>
-
-
-
-    <!-- QUESTION 9 -->
-
-    <div class="question-card">
-
-        <div class="question-number">
-            Question 9 of 10
-        </div>
-
-        <h3>
-            Solve: x + 7 = 12
-        </h3>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(9, 3, 5, this)">
-
-            3
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(9, 5, 5, this)">
-
-            5
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(9, 7, 5, this)">
-
-            7
-
-        </button>
-
-
-        <div
-            id="feedback9"
-            class="feedback">
-        </div>
-
-    </div>
-
-
-
-    <!-- QUESTION 10 -->
-
-    <div class="question-card">
-
-        <div class="question-number">
-            Question 10 of 10
-        </div>
-
-        <h3>
-            What is the area of a rectangle
-            with length 8 cm and width 3 cm?
-        </h3>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(10, 11, 24, this)">
-
-            11 cm²
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(10, 24, 24, this)">
-
-            24 cm²
-
-        </button>
-
-
-        <button
-            class="answer-button"
-            onclick="checkAnswer(10, 32, 24, this)">
-
-            32 cm²
-
-        </button>
-
-
-        <div
-            id="feedback10"
-            class="feedback">
-        </div>
-
-    </div>
-
-
-
-    <!-- ACTIONS -->
+    <div id="questions"></div>
 
     <div class="quiz-actions">
 
@@ -854,27 +356,18 @@
 
     </div>
 
-
-
-    <!-- RESULTS -->
-
     <div id="result">
 
-        <h2>
-            🎉 Quiz Complete!
-        </h2>
+        <h2>🎉 Quiz Complete!</h2>
 
-        <h3 id="finalScore">
-        </h3>
+        <h3 id="finalScore"></h3>
 
         <div
             id="finalXP"
             class="xp-reward">
         </div>
 
-        <p id="message">
-        </p>
-
+        <p id="finalMessage"></p>
 
         <button
             class="main-button submit-button"
@@ -885,8 +378,6 @@
         </button>
 
     </div>
-
-
 
     <div class="quiz-actions">
 
@@ -900,155 +391,749 @@
 
     </div>
 
-
 </div>
-
 
 
 <script>
 
+const questions = [
+
+    {
+        question: "What is 12 × 8?",
+        answer: "96",
+        solution: "12 × 8 = 96"
+    },
+
+    {
+        question: "Solve: 25 + 15",
+        answer: "40",
+        solution: "25 + 15 = 40"
+    },
+
+    {
+        question: "What is 15 × 4?",
+        answer: "60",
+        solution: "15 × 4 = 60"
+    },
+
+    {
+        question: "What is 100 ÷ 5?",
+        answer: "20",
+        solution: "100 ÷ 5 = 20"
+    },
+
+    {
+        question: "What is 7²?",
+        answer: "49",
+        solution: "7² = 7 × 7 = 49"
+    },
+
+    {
+        question: "Simplify: 3 + 5 × 2",
+        answer: "13",
+        solution: "Multiplication comes first: 5 × 2 = 10. Then 3 + 10 = 13."
+    },
+
+    {
+        question: "What is the perimeter of a square with a side of 5 cm?",
+        answer: "20",
+        solution: "Perimeter = 4 × side = 4 × 5 = 20 cm."
+    },
+
+    {
+        question: "What is 3/4 as a decimal?",
+        answer: "0.75",
+        solution: "3 ÷ 4 = 0.75."
+    },
+
+    {
+        question: "Solve: x + 7 = 12",
+        answer: "5",
+        solution: "x = 12 − 7 = 5."
+    },
+
+    {
+        question: "What is the area of a rectangle with length 8 cm and width 3 cm?",
+        answer: "24",
+        solution: "Area = length × width = 8 × 3 = 24 cm²."
+    },
+
+    {
+        question: "Calculate: 3² + 4²",
+        answer: "25",
+        solution: "3² + 4² = 9 + 16 = 25."
+    },
+
+    {
+        question: "A triangle has angles 50° and 60°. Find the third angle.",
+        answer: "70",
+        solution: "Angles in a triangle total 180°. 180 − 50 − 60 = 70°."
+    },
+
+    {
+        question: "Simplify: 20 + 10 ÷ 2",
+        answer: "25",
+        solution: "10 ÷ 2 = 5. Then 20 + 5 = 25."
+    },
+
+    {
+        question: "Find the average of 10, 20 and 30.",
+        answer: "20",
+        solution: "Average = (10 + 20 + 30) ÷ 3 = 60 ÷ 3 = 20."
+    },
+
+    {
+        question: "Solve: 3x + 5 = 20",
+        answer: "5",
+        solution: "3x + 5 = 20. 3x = 15. x = 5."
+    },
+
+    {
+        question: "What is 9 × 7?",
+        answer: "63",
+        solution: "9 × 7 = 63."
+    },
+
+    {
+        question: "Solve: 50 − 18",
+        answer: "32",
+        solution: "50 − 18 = 32."
+    },
+
+    {
+        question: "What is 144 ÷ 12?",
+        answer: "12",
+        solution: "144 ÷ 12 = 12."
+    },
+
+    {
+        question: "Simplify: 6 + 4 × 3",
+        answer: "18",
+        solution: "4 × 3 = 12. Then 6 + 12 = 18."
+    },
+
+    {
+        question: "A rectangle has length 10 cm and width 4 cm. Find its area.",
+        answer: "40",
+        solution: "Area = length × width = 10 × 4 = 40 cm²."
+    }
+
+];
+
+
 let score = 0;
 
-let answered = [];
+let answered = 0;
+
+let xp = 0;
+
+let markedQuestions = [];
 
 let quizSubmitted = false;
 
 
-const totalQuestions = 10;
+const totalQuestions = questions.length;
 
-const xpPerCorrectAnswer = 20;
+const xpPerCorrectAnswer = 10;
 
 
+function normalizeAnswer(value) {
 
-/* =================================
-   CHECK ANSWER
-================================= */
+    return value
+        .trim()
+        .replace(/,/g, "")
+        .replace(/\s+/g, "")
+        .toLowerCase();
 
-function checkAnswer(
-    question,
-    selectedAnswer,
-    correctAnswer,
-    button
-) {
+}
 
-    if (answered.includes(question)) {
+
+/* ==========================================
+   CREATE QUESTIONS
+========================================== */
+
+function createQuestions() {
+
+    const container =
+        document.getElementById("questions");
+
+    questions.forEach((item, index) => {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "question-card";
+
+        card.innerHTML = `
+
+            <div class="question-number">
+
+                Question ${index + 1}
+                of ${totalQuestions}
+
+            </div>
+
+            <div class="question">
+
+                ${item.question}
+
+            </div>
+
+            <label for="working-${index}">
+
+                ✍️ Show your workings
+
+            </label>
+
+            <textarea
+                id="working-${index}"
+                placeholder="Write your steps here..."
+            ></textarea>
+
+            <label for="answer-${index}">
+
+                🔢 Final answer
+
+            </label>
+
+            <input
+                type="text"
+                id="answer-${index}"
+                placeholder="Enter your final answer"
+            >
+
+            <p class="warning">
+
+                💡 Show your working before
+                entering your final answer.
+
+            </p>
+
+            <div class="button-row">
+
+                <button
+                    class="mark-button"
+                    id="button-${index}"
+                    onclick="markQuestion(${index})">
+
+                    ✅ Mark Answer
+
+                </button>
+
+                <button
+                    class="ai-button"
+                    onclick="askAITutor(${index}, 'explain')">
+
+                    🤖 Explain This Question
+
+                </button>
+
+                <button
+                    class="hint-button"
+                    onclick="askAITutor(${index}, 'hint')">
+
+                    💡 Give Me a Hint
+
+                </button>
+
+                <button
+                    class="working-button"
+                    onclick="askAITutor(${index}, 'working')">
+
+                    ✍️ Check My Working
+
+                </button>
+
+            </div>
+
+            <div
+                id="feedback-${index}"
+                class="feedback">
+            </div>
+
+            <div
+                id="ai-${index}"
+                class="ai-panel">
+            </div>
+
+        `;
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* ==========================================
+   MARK QUESTION
+========================================== */
+
+function markQuestion(index) {
+
+    if (markedQuestions.includes(index)) {
+
+        return;
+
+    }
+
+    const answerInput =
+        document.getElementById(
+            "answer-" + index
+        );
+
+    const workingInput =
+        document.getElementById(
+            "working-" + index
+        );
+
+    const feedback =
+        document.getElementById(
+            "feedback-" + index
+        );
+
+    const button =
+        document.getElementById(
+            "button-" + index
+        );
+
+    const studentAnswer =
+        normalizeAnswer(
+            answerInput.value
+        );
+
+    const working =
+        workingInput.value.trim();
+
+
+    if (!working) {
 
         alert(
-            "⚠️ You already answered this question."
+            "✍️ Please show your workings before submitting your answer."
         );
+
+        workingInput.focus();
 
         return;
 
     }
 
 
-    answered.push(question);
+    if (!studentAnswer) {
+
+        alert(
+            "🔢 Please enter your final answer."
+        );
+
+        answerInput.focus();
+
+        return;
+
+    }
 
 
-    /* UPDATE QUESTION PROGRESS */
+    markedQuestions.push(index);
 
-    document.getElementById(
-        "quizProgress"
-    ).innerText =
-        "📊 Questions Answered: " +
-        answered.length +
-        "/" +
-        totalQuestions;
+    answered++;
 
 
-    /* UPDATE PROGRESS BAR */
-
-    const progressPercentage =
-        (answered.length / totalQuestions) * 100;
-
-
-    document.getElementById(
-        "quizProgressBar"
-    ).style.width =
-        progressPercentage + "%";
-
-
-    /* CHECK ANSWER */
-
-    const feedback =
-        document.getElementById(
-            "feedback" + question
+    const correctAnswer =
+        normalizeAnswer(
+            questions[index].answer
         );
 
 
     if (
-        selectedAnswer ===
+        studentAnswer ===
         correctAnswer
     ) {
 
         score++;
 
-
-        const currentXP =
-            score *
-            xpPerCorrectAnswer;
-
-
-        document.getElementById(
-            "quizXP"
-        ).innerText =
-            "⭐ XP Earned: " +
-            currentXP;
-
-
-        document.getElementById(
-            "score"
-        ).innerText =
-            "Score: " +
-            score +
-            "/" +
-            totalQuestions;
-
-
-        feedback.innerText =
-            "✅ Correct! Great work. +" +
-            xpPerCorrectAnswer +
-            " XP";
-
+        xp += xpPerCorrectAnswer;
 
         feedback.className =
-            "feedback correct-feedback";
+            "feedback correct";
 
+        feedback.innerHTML = `
 
-        feedback.style.display =
-            "block";
+            <strong>🎉 Correct!</strong>
 
+            <p>
+                Excellent work!
+            </p>
 
-        button.style.opacity =
-            "0.7";
+            <div class="solution">
 
+                <strong>💡 Solution:</strong>
+
+                <br>
+
+                ${questions[index].solution}
+
+            </div>
+
+        `;
 
     } else {
 
-        feedback.innerText =
-            "❌ Not quite. Keep practicing and try the next question!";
-
-
         feedback.className =
-            "feedback wrong-feedback";
+            "feedback wrong";
 
+        feedback.innerHTML = `
 
-        feedback.style.display =
-            "block";
+            <strong>❌ Not quite.</strong>
 
+            <p>
 
-        button.style.opacity =
-            "0.7";
+                Your final answer:
+                <strong>
+                    ${answerInput.value}
+                </strong>
+
+            </p>
+
+            <p>
+
+                Correct answer:
+                <strong>
+                    ${questions[index].answer}
+                </strong>
+
+            </p>
+
+            <div class="solution">
+
+                <strong>💡 Solution:</strong>
+
+                <br>
+
+                ${questions[index].solution}
+
+            </div>
+
+        `;
 
     }
+
+
+    feedback.style.display =
+        "block";
+
+
+    button.disabled =
+        true;
+
+    answerInput.disabled =
+        true;
+
+    workingInput.disabled =
+        true;
+
+
+    updateStats();
 
 }
 
 
+/* ==========================================
+   AI TUTOR
+========================================== */
 
-/* =================================
+function askAITutor(index, type) {
+
+    const panel =
+        document.getElementById(
+            "ai-" + index
+        );
+
+    const workingInput =
+        document.getElementById(
+            "working-" + index
+        );
+
+    const working =
+        workingInput.value.trim();
+
+    panel.style.display =
+        "block";
+
+    panel.innerHTML = `
+
+        <h4>🤖 AI Tutor</h4>
+
+        <p class="ai-loading">
+
+            Thinking about your question...
+
+        </p>
+
+    `;
+
+
+    setTimeout(function() {
+
+        let response = "";
+
+
+        if (type === "hint") {
+
+            response = getHint(index);
+
+        }
+
+        else if (type === "working") {
+
+            response =
+                checkStudentWorking(
+                    index,
+                    working
+                );
+
+        }
+
+        else {
+
+            response =
+                getExplanation(index);
+
+        }
+
+
+        panel.innerHTML = `
+
+            <h4>🤖 AI Tutor</h4>
+
+            ${response}
+
+            <p style="opacity:0.65;font-size:13px;">
+
+                💡 AI Tutor preview.
+                Real AI feedback will be connected
+                through the Learn Smart Hub backend.
+
+            </p>
+
+        `;
+
+    }, 500);
+
+}
+
+
+/* ==========================================
+   HINTS
+========================================== */
+
+function getHint(index) {
+
+    const hints = [
+
+        "Think about multiplying 12 by 8. You can break 12 into 10 + 2.",
+
+        "Add the two numbers carefully and check your place values.",
+
+        "Think of 15 groups of 4, or 10 × 4 plus 5 × 4.",
+
+        "Ask yourself: what number multiplied by 5 gives 100?",
+
+        "The square of a number means multiplying it by itself.",
+
+        "Remember the order of operations: multiplication before addition.",
+
+        "A square has four equal sides. Perimeter means adding all four sides.",
+
+        "Convert the fraction by dividing the numerator by the denominator.",
+
+        "You need to isolate x. What should you subtract from both sides?",
+
+        "For a rectangle, multiply length by width.",
+
+        "Calculate each square first, then add the two results.",
+
+        "The angles inside a triangle add up to a fixed total.",
+
+        "Division should be done before addition in this expression.",
+
+        "Add all the values first, then divide by how many values there are.",
+
+        "First remove the constant term, then divide by the coefficient of x.",
+
+        "Use your multiplication facts for 9 × 7.",
+
+        "Think about counting backwards from 50 by 18.",
+
+        "Ask which number multiplied by 12 gives 144.",
+
+        "Follow the order of operations carefully.",
+
+        "Use the rectangle area formula: length × width."
+
+    ];
+
+    return `
+        <p>
+            💡 <strong>Hint:</strong>
+            ${hints[index]}
+        </p>
+    `;
+
+}
+
+
+/* ==========================================
+   EXPLANATIONS
+========================================== */
+
+function getExplanation(index) {
+
+    return `
+
+        <p>
+            🧠 <strong>Let's break it down:</strong>
+        </p>
+
+        <div class="solution">
+
+            ${questions[index].solution}
+
+        </div>
+
+        <p>
+            Try the problem yourself before
+            looking at the final answer.
+        </p>
+
+    `;
+
+}
+
+
+/* ==========================================
+   CHECK WORKING
+========================================== */
+
+function checkStudentWorking(index, working) {
+
+    if (!working) {
+
+        return `
+
+            <p>
+                ✍️ Write your working in the box first.
+            </p>
+
+            <p>
+                The tutor can then give feedback
+                on your steps.
+            </p>
+
+        `;
+
+    }
+
+
+    const correct =
+        normalizeAnswer(
+            questions[index].answer
+        );
+
+
+    const studentAnswer =
+        normalizeAnswer(
+            document.getElementById(
+                "answer-" + index
+            ).value
+        );
+
+
+    if (studentAnswer === correct) {
+
+        return `
+
+            <p>
+                ✅ Your final answer matches the
+                expected answer.
+            </p>
+
+            <p>
+                Your working shows an attempt.
+                Compare your steps with the solution
+                after marking.
+            </p>
+
+        `;
+
+    }
+
+
+    return `
+
+        <p>
+            🔎 I can see that you've started working
+            on the problem.
+        </p>
+
+        <p>
+            Check each operation carefully and make
+            sure your final step gives an answer to
+            the original question.
+        </p>
+
+        <p>
+            💡 Tip: Don't rush to the final answer.
+            Check your calculation one step at a time.
+        </p>
+
+    `;
+
+}
+
+
+/* ==========================================
+   UPDATE STATS
+========================================== */
+
+function updateStats() {
+
+    document.getElementById(
+        "answeredCount"
+    ).innerText =
+        answered +
+        "/" +
+        totalQuestions;
+
+
+    document.getElementById(
+        "scoreDisplay"
+    ).innerText =
+        score +
+        "/" +
+        totalQuestions;
+
+
+    document.getElementById(
+        "xpDisplay"
+    ).innerText =
+        xp;
+
+
+    const percentage =
+        (answered / totalQuestions) * 100;
+
+
+    document.getElementById(
+        "quizProgressBar"
+    ).style.width =
+        percentage + "%";
+
+}
+
+
+/* ==========================================
    SUBMIT QUIZ
-================================= */
+========================================== */
 
 function submitQuiz() {
 
@@ -1059,65 +1144,38 @@ function submitQuiz() {
     }
 
 
-    quizSubmitted = true;
+    if (
+        answered <
+        totalQuestions
+    ) {
+
+        const remaining =
+            totalQuestions -
+            answered;
+
+        const continueQuiz =
+            confirm(
+
+                "You have " +
+                remaining +
+                " unanswered question(s).\n\n" +
+                "Do you want to finish anyway?"
+
+            );
 
 
-    document.getElementById(
-        "result"
-    ).style.display =
-        "block";
+        if (!continueQuiz) {
 
+            return;
 
-    document.getElementById(
-        "finalScore"
-    ).innerText =
-        "Your Score: " +
-        score +
-        "/" +
-        totalQuestions;
-
-
-    const finalXP =
-        score *
-        xpPerCorrectAnswer;
-
-
-    document.getElementById(
-        "finalXP"
-    ).innerText =
-        "⭐ You earned " +
-        finalXP +
-        " XP";
-
-
-    if (score >= 8) {
-
-        document.getElementById(
-            "message"
-        ).innerText =
-            "🌟 Excellent work! You are becoming a Mathematics champion!";
-
-    } else if (score >= 5) {
-
-        document.getElementById(
-            "message"
-        ).innerText =
-            "👍 Good work! Keep practicing and you will improve!";
-
-    } else {
-
-        document.getElementById(
-            "message"
-        ).innerText =
-            "📚 Keep practicing. Every attempt helps you learn!";
+        }
 
     }
 
 
+    quizSubmitted =
+        true;
 
-    /* =================================
-       SAVE QUIZ PROGRESS
-    ================================= */
 
     const previousCompleted =
         Number(
@@ -1143,6 +1201,14 @@ function submitQuiz() {
         ) || 0;
 
 
+    const previousXP =
+        Number(
+            localStorage.getItem(
+                "totalQuizXP"
+            )
+        ) || 0;
+
+
     const newCompleted =
         previousCompleted + 1;
 
@@ -1156,6 +1222,10 @@ function submitQuiz() {
             previousBest,
             score
         );
+
+
+    const newXP =
+        previousXP + xp;
 
 
     localStorage.setItem(
@@ -1184,13 +1254,94 @@ function submitQuiz() {
         ).toFixed(1)
     );
 
+
+    localStorage.setItem(
+        "totalQuizXP",
+        newXP
+    );
+
+
+    document.getElementById(
+        "result"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "finalScore"
+    ).innerText =
+        "Your Score: " +
+        score +
+        "/" +
+        totalQuestions;
+
+
+    document.getElementById(
+        "finalXP"
+    ).innerText =
+        "⭐ You earned " +
+        xp +
+        " XP";
+
+
+    let message = "";
+
+
+    if (
+        score >= 18
+    ) {
+
+        message =
+            "🏆 Outstanding! You have excellent Maths skills!";
+
+    }
+
+    else if (
+        score >= 15
+    ) {
+
+        message =
+            "🌟 Excellent work! Keep pushing yourself!";
+
+    }
+
+    else if (
+        score >= 10
+    ) {
+
+        message =
+            "👍 Good work! More practice will make you even stronger.";
+
+    }
+
+    else {
+
+        message =
+            "📚 Keep practicing. Every mistake is a chance to learn!";
+
+    }
+
+
+    document.getElementById(
+        "finalMessage"
+    ).innerText =
+        message;
+
+
+    document.getElementById(
+        "result"
+    ).scrollIntoView({
+
+        behavior: "smooth"
+
+    });
+
 }
 
 
-
-/* =================================
-   RESTART QUIZ
-================================= */
+/* ==========================================
+   RESTART
+========================================== */
 
 function restartQuiz() {
 
@@ -1198,9 +1349,18 @@ function restartQuiz() {
 
 }
 
-</script>
 
+/* ==========================================
+   START QUIZ
+========================================== */
+
+createQuestions();
+
+updateStats();
+
+</script>
 
 </body>
 
 </html>
+```

@@ -544,3 +544,94 @@ if (weeklyProgressText) {
         "% complete";
 
 }
+/* ================================
+   ACHIEVEMENTS + BADGES
+================================ */
+
+const achievementFirstStudy =
+    document.getElementById("achievementFirstStudy");
+
+const achievementThreeDay =
+    document.getElementById("achievementThreeDay");
+
+const achievementSevenDay =
+    document.getElementById("achievementSevenDay");
+
+const achievementTenDays =
+    document.getElementById("achievementTenDays");
+
+const achievementFirstQuiz =
+    document.getElementById("achievementFirstQuiz");
+
+const achievementQuizMaster =
+    document.getElementById("achievementQuizMaster");
+
+const achievementWeekly =
+    document.getElementById("achievementWeekly");
+
+
+/* ================================
+   UNLOCK ACHIEVEMENTS
+================================ */
+
+if (studyDays >= 1 && achievementFirstStudy) {
+
+    achievementFirstStudy.classList.add(
+        "achievement-unlocked"
+    );
+
+}
+
+
+if (currentStreak >= 3 && achievementThreeDay) {
+
+    achievementThreeDay.classList.add(
+        "achievement-unlocked"
+    );
+
+}
+
+
+if (currentStreak >= 7 && achievementSevenDay) {
+
+    achievementSevenDay.classList.add(
+        "achievement-unlocked"
+    );
+
+}
+
+
+if (studyDays >= 10 && achievementTenDays) {
+
+    achievementTenDays.classList.add(
+        "achievement-unlocked"
+    );
+
+}
+
+
+if (quizzesCompleted >= 1 && achievementFirstQuiz) {
+
+    achievementFirstQuiz.classList.add(
+        "achievement-unlocked"
+    );
+
+}
+
+
+if (quizzesCompleted >= 10 && achievementQuizMaster) {
+
+    achievementQuizMaster.classList.add(
+        "achievement-unlocked"
+    );
+
+}
+
+
+if (weeklyDays >= 7 && achievementWeekly) {
+
+    achievementWeekly.classList.add(
+        "achievement-unlocked"
+    );
+
+}

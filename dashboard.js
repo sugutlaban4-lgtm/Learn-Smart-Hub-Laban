@@ -798,4 +798,128 @@ if (continueLearningButton) {
         }
     );
 
+}/* ================================
+   XP + LEVEL SYSTEM
+================================ */
+
+const studentLevel =
+    document.getElementById("studentLevel");
+
+const studentXP =
+    document.getElementById("studentXP");
+
+const nextLevelXP =
+    document.getElementById("nextLevelXP");
+
+const xpBarFill =
+    document.getElementById("xpBarFill");
+
+const xpMessage =
+    document.getElementById("xpMessage");
+
+
+/* =================================
+   CALCULATE XP
+================================ */
+
+const studyXP =
+    studyDays * 10;
+
+const quizXP =
+    quizzesCompleted * 20;
+
+const totalXP =
+    studyXP + quizXP;
+
+
+/* =================================
+   CALCULATE LEVEL
+================================ */
+
+const level =
+    Math.floor(totalXP / 100) + 1;
+
+const currentLevelXP =
+    totalXP % 100;
+
+const requiredForNextLevel =
+    100;
+
+
+/* =================================
+   DISPLAY LEVEL
+================================ */
+
+if (studentLevel) {
+
+    studentLevel.textContent =
+        `Level ${level} — ${
+
+            level === 1
+                ? "Beginner"
+                : level === 2
+                    ? "Learner"
+                    : level === 3
+                        ? "Rising Scholar"
+                        : "Smart Scholar"
+
+        }`;
+
+}
+
+
+if (studentXP) {
+
+    studentXP.textContent =
+        currentLevelXP;
+
+}
+
+
+if (nextLevelXP) {
+
+    nextLevelXP.textContent =
+        requiredForNextLevel;
+
+}
+
+
+/* =================================
+   XP PROGRESS BAR
+================================ */
+
+const xpPercentage =
+    currentLevelXP;
+
+if (xpBarFill) {
+
+    xpBarFill.style.width =
+        `${xpPercentage}%`;
+
+}
+
+
+/* =================================
+   XP MESSAGE
+================================ */
+
+const xpRemaining =
+    requiredForNextLevel -
+    currentLevelXP;
+
+
+if (xpMessage) {
+
+    if (currentLevelXP === 0) {
+
+        xpMessage.textContent =
+            "Keep learning to reach the next level!";
+
+    } else {
+
+        xpMessage.textContent =
+            `${xpRemaining} XP until Level ${level + 1}`;
+
+    }
+
 }

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Learn Smart Hub</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body class="site">
+
+<header class="topbar">
+    <div class="wrap topbar-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+            <button class="btn btn-primary btn-sm" type="button" id="refreshButton">Refresh</button>
+        </div>
+    </div>
+</header>
+
+<main class="wrap" style="padding:28px 0 48px;">
+
+    <div class="section-head" style="margin-bottom:16px;">
+        <h2>Admin</h2>
+        <p id="adminWho">Checking your access...</p>
+    </div>
+
+    <p id="adminStatus" role="status" aria-live="polite"
+        style="font-size:0.92rem; color:#475569;"></p>
+
+    <div id="adminBody" hidden>
+
+        <div class="stats" style="padding:0 0 18px;">
+            <div class="stat">
+                <b id="statStudents">-</b>
+                <span>Students registered</span>
+            </div>
+            <div class="stat">
+                <b id="statPremium">-</b>
+                <span>Premium active</span>
+            </div>
+            <div class="stat">
+                <b id="statRevenue">-</b>
+                <span>Collected all time</span>
+            </div>
+            <div class="stat">
+                <b id="statMonth">-</b>
+                <span>Collected this month</span>
+            </div>
+        </div>
+
+        <div class="features" style="grid-template-columns:1fr; margin-bottom:22px;">
+            <article class="feature">
+                <h3>Payments</h3>
+                <p id="paymentSummary" style="margin-bottom:10px;"></p>
+                <div id="paymentList"></div>
+            </article>
+
+            <article class="feature">
+                <h3>Student messages</h3>
+                <p id="supportSummary" style="margin-bottom:10px;"></p>
+                <div id="supportList"></div>
+            </article>
+        </div>
+
+    </div>
+
+</main>
+
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+        </nav>
+    </div>
+</footer>
+
+<style>
+    .admin-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 11px 0;
+        border-top: 1px solid #e6eefb;
+        font-size: 0.9rem;
+    }
+
+    .admin-row:first-child {
+        border-top: 0;
+    }
+
+    .admin-row .who {
+        font-weight: 600;
+        color: #10213f;
+    }
+
+    .admin-row .meta {
+        color: #64748b;
+        font-size: 0.84rem;
+    }
+
+    .pill {
+        display: inline-block;
+        padding: 3px 9px;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+    }
+
+    .pill-paid,
+    .pill-resolved {
+        background: #e6f6ec;
+        color: #0f7a45;
+    }
+
+    .pill-pending,
+    .pill-open {
+        background: #fff4e0;
+        color: #8a5a00;
+    }
+
+    .pill-failed {
+        background: #fdeaea;
+        color: #a4262c;
+    }
+
+    .admin-message {
+        margin: 4px 0 0;
+        color: #334155;
+        font-size: 0.9rem;
+        white-space: pre-wrap;
+    }
+
+    .empty {
+        color: #64748b;
+        font-size: 0.9rem;
+        padding: 8px 0;
+    }
+
+    .done-button {
+        padding: 6px 12px;
+        font-size: 0.82rem;
+        border-radius: 9px;
+    }
+</style>
+
+<script type="module">
+
+    import { auth } from "./firebase.js";
+
+    import {
+        onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
+    const BACKEND =
+        "https://learn-smart-hub-backend.onrender.com";
+
+    const whoLine =
+        document.getElementById("adminWho");
+
+    const statusLine =
+        document.getElementById("adminStatus");
+
+    const body =
+        document.getElementById("adminBody");
+
+    const refreshButton =
+        document.getElementById("refreshButton");
+
+
+    let currentUser = null;
+
+
+    const money = value =>
+        "KSh " + Number(value || 0).toLocaleString("en-KE");
+
+
+    const when = iso => {
+
+        if (!iso) {
+            return "";
+        }
+
+        return new Date(iso).toLocaleString(
+            "en-KE",
+            {
+                day: "numeric",
+                month: "short",
+                hour: "2-digit",
+                minute: "2-digit"
+            }
+        );
+
+    };
+
+
+    function row(parts) {
+
+        const el = document.createElement("div");
+
+        el.className = "admin-row";
+
+        el.innerHTML = parts;
+
+        return el;
+
+    }
+
+
+    function pill(status) {
+
+        return `<span class="pill pill-${status}">${status}</span>`;
+
+    }
+
+
+    function paint(data) {
+
+        document.getElementById("statStudents").textContent =
+            data.students.total === null
+                ? "—"
+                : data.students.total;
+
+        document.getElementById("statPremium").textContent =
+            data.students.activePremium;
+
+        document.getElementById("statRevenue").textContent =
+            money(data.revenue.allTime);
+
+        document.getElementById("statMonth").textContent =
+            money(data.revenue.thisMonth);
+
+
+        document.getElementById("paymentSummary").textContent =
+            `${data.revenue.paidCount} paid, ` +
+            `${data.revenue.pendingCount} pending, ` +
+            `${data.revenue.failedCount} failed`;
+
+
+        const paymentList =
+            document.getElementById("paymentList");
+
+        paymentList.innerHTML = "";
+
+        if (!data.payments.length) {
+
+            paymentList.innerHTML =
+                '<p class="empty">No payments yet. The first one will appear here the moment someone pays.</p>';
+
+        } else {
+
+            data.payments.forEach(payment => {
+
+                paymentList.appendChild(
+                    row(
+                        `<span>
+                            <span class="who">${money(payment.amount)}</span>
+                            ${payment.plan ? " · " + payment.plan : ""}
+                            <div class="meta">
+                                ${payment.phoneNumber || "no number"} ·
+                                ${when(payment.createdAt)}
+                            </div>
+                        </span>
+                        <span>${pill(payment.status)}</span>`
+                    )
+                );
+
+            });
+
+        }
+
+
+        document.getElementById("supportSummary").textContent =
+            data.openSupport === 0
+                ? "Nothing waiting."
+                : `${data.openSupport} waiting for a reply`;
+
+
+        const supportList =
+            document.getElementById("supportList");
+
+        supportList.innerHTML = "";
+
+        if (!data.support.length) {
+
+            supportList.innerHTML =
+                '<p class="empty">No messages yet.</p>';
+
+        } else {
+
+            data.support.forEach(item => {
+
+                const wrap = document.createElement("div");
+
+                wrap.className = "admin-row";
+
+                wrap.style.alignItems = "flex-start";
+
+                wrap.innerHTML = `
+                    <div style="flex:1 1 240px;">
+                        <span class="who">${item.topic}</span>
+                        <span class="meta"> · ${item.email || "unknown"}</span>
+                        <span class="meta"> · ${when(item.createdAt)}</span>
+                        ${item.mpesaCode ? `<div class="meta">M-Pesa: ${item.mpesaCode}</div>` : ""}
+                        <p class="admin-message">${item.message}</p>
+                    </div>
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        ${pill(item.status)}
+                        ${item.status === "resolved"
+                            ? ""
+                            : `<button class="btn btn-ghost done-button" data-resolve="${item.id}" type="button">Mark handled</button>`}
+                    </div>
+                `;
+
+                supportList.appendChild(wrap);
+
+            });
+
+            supportList
+                .querySelectorAll("[data-resolve]")
+                .forEach(button => {
+
+                    button.addEventListener("click", async () => {
+
+                        button.disabled = true;
+
+                        try {
+
+                            const idToken =
+                                await currentUser.getIdToken();
+
+                            const response =
+                                await fetch(
+                                    `${BACKEND}/api/admin/support/${button.dataset.resolve}/resolve`,
+                                    {
+                                        method: "POST",
+                                        headers: {
+                                            Authorization: `Bearer ${idToken}`
+                                        }
+                                    }
+                                );
+
+                            if (!response.ok) {
+                                throw new Error("Failed");
+                            }
+
+                            await loadOverview();
+
+                        } catch (error) {
+
+                            console.error("Resolve error:", error);
+
+                            button.disabled = false;
+
+                            statusLine.textContent =
+                                "Could not mark that as handled. Try again.";
+
+                        }
+
+                    });
+
+                });
+
+        }
+
+        body.hidden = false;
+
+    }
+
+
+    async function loadOverview() {
+
+        if (!currentUser) {
+            return;
+        }
+
+        refreshButton.disabled = true;
+
+        statusLine.textContent = "Loading...";
+
+        try {
+
+            const idToken =
+                await currentUser.getIdToken();
+
+            const response =
+                await fetch(
+                    `${BACKEND}/api/admin/overview`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${idToken}`
+                        }
+                    }
+                );
+
+            const data =
+                await response.json();
+
+
+            if (response.status === 403) {
+
+                whoLine.textContent =
+                    "This page is for the site owner.";
+
+                statusLine.textContent =
+                    "Signed in as " +
+                    (currentUser.email || "your account") +
+                    ", which does not have admin access. Sign in with the owner account to see this.";
+
+                body.hidden = true;
+
+                return;
+
+            }
+
+
+            if (!response.ok || !data.success) {
+
+                throw new Error(
+                    data.message ||
+                    "Could not load"
+                );
+
+            }
+
+
+            whoLine.textContent =
+                "Signed in as " + (data.currentAdmin || currentUser.email);
+
+            statusLine.textContent = "";
+
+            paint(data);
+
+
+        } catch (error) {
+
+            console.error("Admin overview error:", error);
+
+            statusLine.textContent =
+                "Could not load the admin data just now. Check your connection and try Refresh.";
+
+        } finally {
+
+            refreshButton.disabled = false;
+
+        }
+
+    }
+
+
+    onAuthStateChanged(auth, user => {
+
+        currentUser = user;
+
+        if (!user) {
+
+            whoLine.textContent =
+                "Sign in to continue.";
+
+            statusLine.textContent =
+                "Log in with the owner account, then come back to this page.";
+
+            body.hidden = true;
+
+            return;
+
+        }
+
+        loadOverview();
+
+    });
+
+
+    refreshButton.addEventListener("click", loadOverview);
+
+</script>
+
+<script src="app.js"></script>
+
+</body>
+</html>

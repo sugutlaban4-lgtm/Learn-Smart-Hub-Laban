@@ -241,11 +241,13 @@ async function (plan, price) {
 
         await setDoc(
             premiumRef,
+            // status is deliberately NOT sent from the client. Firestore rules
+            // reject any client write to `status`; only the backend (Admin SDK)
+            // may set it after M-Pesa confirmation.
             {
                 userId: user.uid,
                 plan: plan,
-                price: price,
-                status: "inactive"
+                price: price
             },
             {
                 merge: true

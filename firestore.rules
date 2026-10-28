@@ -1,0 +1,64 @@
+rules_version = '2';
+
+// Learn Smart Hub - Firestore security rules
+// Model: a single collection, premium_access, one document per Firebase user,
+// keyed by the user's UID.
+//
+//   premium_access/{uid}
+//     userId: string   (== uid)
+//     plan:   "weekly" | "monthly" | "term"
+//     price:  number   (KSh)
+//     status: "inactive" | "active"   <-- written ONLY by the backend
+//
+// The client is allowed to read its own document and to record a plan choice.
+// It is NOT allowed to write `status`, so a student cannot grant themselves
+// Premium from the browser console. The Render backend writes `status` with the
+// Firebase Admin SDK, which bypasses these rules by design, after M-Pesa
+// confirmation.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    match /premium_access/{uid} {
+
+      // Read only your own record. No collection listing.
+      allow get: if isOwner(uid);
+
+      // First plan choice: created without a status field.
+      allow create: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(['userId', 'plan', 'price'])
+        && request.resource.data.userId == uid
+        && request.resource.data.plan in ['weekly', 'monthly', 'term']
+        && request.resource.data.price is number
+        && request.resource.data.price >= 0
+        && request.resource.data.price <= 100000;
+
+      // Later plan changes: same shape, and never touching status or userId.
+      allow update: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(['userId', 'plan', 'price'])
+        && request.resource.data.userId == uid
+        && request.resource.data.plan in ['weekly', 'monthly', 'term']
+        && request.resource.data.price is number
+        && request.resource.data.price >= 0
+        && request.resource.data.price <= 100000
+        && !request.resource.data.diff(resource.data).affectedKeys().hasAny(['status']);
+
+      // Payment records are never deleted from the client.
+      allow delete: if false;
+    }
+
+    // Everything else in the database is closed. The backend uses the Admin
+    // SDK and is unaffected by this rule.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

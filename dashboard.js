@@ -5,14 +5,10 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-import {
-    getFirestore,
-    doc,
-    getDoc
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
-
-const db = getFirestore();
+// Firestore is deliberately not read from the browser any more: Premium status
+// comes from the backend, so the database can stay closed to clients.
+const PREMIUM_BACKEND =
+    "https://learn-smart-hub-backend.onrender.com";
 
 
 /* ================================
@@ -37,71 +33,71 @@ onAuthStateChanged(auth, async (user) => {
             document.getElementById("dashboardPremiumPlan");
 
 
-        try {
+try {
 
-            const premiumRef =
-                doc(
-                    db,
-                    "premium_access",
-                    user.uid
+            const idToken =
+                await user.getIdToken();
+
+
+            const response =
+                await fetch(
+                    `${PREMIUM_BACKEND}/api/premium/status`,
+                    {
+                        headers: {
+                            Authorization:
+                                `Bearer ${idToken}`
+                        }
+                    }
                 );
 
 
-            const premiumSnap =
-                await getDoc(premiumRef);
+            const result =
+                await response.json();
 
 
-            if (premiumSnap.exists()) {
+            if (!response.ok || !result.success) {
 
-                const data =
-                    premiumSnap.data();
+                throw new Error(
+                    result.message ||
+                    "Premium status request failed"
+                );
 
-
-                const status =
-                    data.status || "inactive";
-
-
-                const plan =
-                    data.plan || "none";
+            }
 
 
-                if (status === "active") {
+            const status =
+                result.status || "inactive";
 
-                    premiumStatusElement.textContent =
-                        "⭐ Premium Status: Active";
-
-                } else {
-
-                    premiumStatusElement.textContent =
-                        "🔒 Premium Status: Inactive";
-
-                }
+            const plan =
+                result.plan || "none";
 
 
-                if (plan !== "none") {
+            if (status === "active") {
 
-                    const formattedPlan =
-                        plan.charAt(0).toUpperCase() +
-                        plan.slice(1);
-
-
-                    premiumPlanElement.textContent =
-                        "Plan: " +
-                        formattedPlan +
-                        " Premium";
-
-                } else {
-
-                    premiumPlanElement.textContent =
-                        "Plan: No Premium plan selected";
-
-                }
-
+                premiumStatusElement.textContent =
+                    "⭐ Premium Status: Active";
 
             } else {
 
                 premiumStatusElement.textContent =
                     "🔒 Premium Status: Inactive";
+
+            }
+
+
+            if (plan !== "none") {
+
+                const formattedPlan =
+                    plan.charAt(0).toUpperCase() +
+                    plan.slice(1);
+
+
+                premiumPlanElement.textContent =
+                    "Plan: " +
+                    formattedPlan +
+                    " Premium";
+
+            } else {
 
                 premiumPlanElement.textContent =
                     "Plan: No Premium plan selected";

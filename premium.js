@@ -4,16 +4,8 @@ import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
-import {
-    getFirestore,
-    doc,
-    getDoc,
-    setDoc
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
-
-const db = getFirestore();
-
+// Firestore is not touched from the browser any more: Premium status and plan
+// choice go through the backend, so the database stays closed to clients.
 
 // Render M-Pesa backend
 const MPESA_BACKEND =
@@ -69,73 +61,75 @@ onAuthStateChanged(auth, async (user) => {
 
     try {
 
-        const premiumRef =
-            doc(
-                db,
-                "premium_access",
-                user.uid
+        const idToken =
+            await user.getIdToken();
+
+
+        const response =
+            await fetch(
+                `${MPESA_BACKEND}/api/premium/status`,
+                {
+                    headers: {
+                        Authorization:
+                            `Bearer ${idToken}`
+                    }
+                }
             );
 
 
-        const premiumSnap =
-            await getDoc(premiumRef);
+        const result =
+            await response.json();
 
 
-        if (premiumSnap.exists()) {
+        if (!response.ok || !result.success) {
 
-            const data =
-                premiumSnap.data();
+            throw new Error(
+                result.message ||
+                "Premium status request failed"
+            );
 
-
-            const status =
-                data.status || "inactive";
-
-            const plan =
-                data.plan || "none";
+        }
 
 
-            if (status === "active") {
+        const status =
+            result.status || "inactive";
 
-                statusElement.textContent =
-                    "⭐ Premium Status: Active";
-
-            } else {
-
-                statusElement.textContent =
-                    "🔒 Premium Status: Inactive";
-
-            }
+        const plan =
+            result.plan || "none";
 
 
-            if (plan !== "none") {
+        if (status === "active") {
 
-                const formattedPlan =
-                    plan.charAt(0).toUpperCase() +
-                    plan.slice(1);
-
-
-                planElement.textContent =
-                    "Plan: " +
-                    formattedPlan +
-                    " Premium";
-
-            } else {
-
-                planElement.textContent =
-                    "Plan: None";
-
-            }
-
+            statusElement.textContent =
+                "⭐ Premium Status: Active";
 
         } else {
 
             statusElement.textContent =
                 "🔒 Premium Status: Inactive";
 
+        }
+
+
+        if (plan !== "none") {
+
+            const formattedPlan =
+                plan.charAt(0).toUpperCase() +
+                plan.slice(1);
+
+
+            planElement.textContent =
+                "Plan: " +
+                formattedPlan +
+                " Premium";
+
+        } else {
+
             planElement.textContent =
                 "Plan: None";
 
         }
+
 
 
     } catch (error) {
@@ -231,28 +225,43 @@ async function (plan, price) {
 
     try {
 
-        const premiumRef =
-            doc(
-                db,
-                "premium_access",
-                user.uid
+        const idToken =
+            await user.getIdToken();
+
+
+        const response =
+            await fetch(
+                `${MPESA_BACKEND}/api/premium/plan`,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json",
+
+                        Authorization:
+                            `Bearer ${idToken}`
+                    },
+
+                    body: JSON.stringify({
+                        plan: plan
+                    })
+                }
             );
 
 
-        await setDoc(
-            premiumRef,
-            // status is deliberately NOT sent from the client. Firestore rules
-            // reject any client write to `status`; only the backend (Admin SDK)
-            // may set it after M-Pesa confirmation.
-            {
-                userId: user.uid,
-                plan: plan,
-                price: price
-            },
-            {
-                merge: true
-            }
-        );
+        const result =
+            await response.json();
+
+
+        if (!response.ok || !result.success) {
+
+            throw new Error(
+                result.message ||
+                "Unable to save your plan"
+            );
+
+        }
 
 
         console.log(
@@ -464,19 +473,27 @@ async function (resource) {
 
     try {
 
-        const premiumRef =
-            doc(
-                db,
-                "premium_access",
-                user.uid
+        const idToken =
+            await user.getIdToken();
+
+        const statusResponse =
+            await fetch(
+                `${MPESA_BACKEND}/api/premium/status`,
+                {
+                    headers: {
+                        Authorization:
+                            `Bearer ${idToken}`
+                    }
+                }
             );
 
-        const premiumSnap =
-            await getDoc(premiumRef);
+        const statusResult =
+            await statusResponse.json();
 
         if (
-            !premiumSnap.exists() ||
-            premiumSnap.data().status !== "active"
+            !statusResponse.ok ||
+            !statusResult.success ||
+            statusResult.status !== "active"
         ) {
 
             alert(

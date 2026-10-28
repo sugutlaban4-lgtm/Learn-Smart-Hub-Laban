@@ -10,7 +10,7 @@
    - everything else: straight to the network.
 ================================================================ */
 
-const VERSION = "lsh-v3-2026-10-28";
+const VERSION = "lsh-v4-2026-10-28";
 
 const PRECACHE = [
     "./",
@@ -21,6 +21,8 @@ const PRECACHE = [
     "./manifest.json",
     "./css/site.css",
     "./css/style.css",
+    "./css/study.css",
+    "./js/study.js",
     "./icons/icon-192.png",
     "./icons/icon-512.png"
 ];

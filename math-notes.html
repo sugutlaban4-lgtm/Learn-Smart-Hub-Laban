@@ -1,28 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Mathematics Notes</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="manifest" href="manifest.json">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics notes - Learn Smart Hub</title>
+    <meta name="description" content="Topic by topic mathematics notes with worked examples for Kenyan students.">
     <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/study.css">
 </head>
-<body>
 
-<h1>📚 Mathematics Notes</h1>
+<body class="site" data-study="notes" data-subject="mathematics">
 
-<p>Welcome to the Mathematics Notes section.</p>
+<header class="topbar">
+    <div class="wrap topbar-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+            <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
+        </div>
+    </div>
+</header>
 
-<h2>Grade 10 Mathematics Notes</h2>
+<main class="wrap study-main">
 
-<p>Grade 10 notes will be added here.</p>
+    <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="mathematics.html">Mathematics</a>
+        <span aria-hidden="true">/</span>
+        <span>Notes</span>
+    </nav>
 
-<button onclick="window.location='mathematics.html'">
-⬅ Back to Mathematics
-</button>
+    <div class="study-head">
+        <h1>Mathematics notes</h1>
+        <p>Every topic below is written to be read on a phone in a few minutes, with a worked example where it helps.</p>
+    </div>
 
+    <div id="studyNotes">
+        <p class="loading-note">Loading notes...</p>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
+    </div>
+</footer>
+
+<script src="data/mathematics.js"></script>
+<script src="js/study.js"></script>
 <script src="app.js"></script>
+
 </body>
 </html>

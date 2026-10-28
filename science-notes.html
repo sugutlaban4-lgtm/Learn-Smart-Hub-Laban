@@ -1,45 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Learn Smart Hub - Science Notes</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="manifest" href="manifest.json">
+    <title>Science notes - Learn Smart Hub</title>
+    <meta name="description" content="Topic by topic science notes with worked examples for Kenyan students.">
     <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-    <link rel="stylesheet" href="css/bare.css">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/study.css">
 </head>
 
-<body>
+<body class="site" data-study="notes" data-subject="science">
 
-<h1>📚 Science Notes</h1>
+<header class="topbar">
+    <div class="wrap topbar-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+            <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
+        </div>
+    </div>
+</header>
 
-<p>Choose a Science topic to study.</p>
+<main class="wrap study-main">
 
-<hr>
+    <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="science.html">Science</a>
+        <span aria-hidden="true">/</span>
+        <span>Notes</span>
+    </nav>
 
-<h2>🧬 Biology</h2>
-<button onclick="window.open('Resources/sciences/biology/GRADE_10_biology_notes_term_1_2_and_3_kcserevision.com_.pdf', '_blank')">
-    📚 Open Biology Notes
-</button>
+    <div class="study-head">
+        <h1>Science notes</h1>
+        <p>Every topic below is written to be read on a phone in a few minutes, with a worked example where it helps.</p>
+    </div>
 
-<h2>⚗️ Chemistry</h2>
-<button onclick="window.open('Resources/sciences/chemistry/chemistry-notes.pdf', '_blank')">
-    ⚗️ Open Chemistry Notes
-</button>
+    <div class="paper-card" style="margin-bottom:18px;">
+        <h2 style="font-size:1rem;">Download the full Science notes</h2>
+        <p class="paper-note">Opens as a PDF in a new tab. It works offline once you have opened it.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <a class="btn btn-ghost btn-sm" href="Resources/sciences/biology/GRADE_10_biology_notes_term_1_2_and_3_kcserevision.com_.pdf" target="_blank" rel="noopener">Biology notes</a>
+            <a class="btn btn-ghost btn-sm" href="Resources/sciences/chemistry/chemistry-notes.pdf" target="_blank" rel="noopener">Chemistry notes</a>
+            <a class="btn btn-ghost btn-sm" href="Resources/sciences/physics/physics-papers.html/GRADE%2010%20PHYSICS%20NOTES%20TERM%201%202%20and%203.pdf" target="_blank" rel="noopener">Physics notes</a>
+        </div>
+    </div>
 
-<h2>⚡ Physics</h2>
-<button onclick="window.open('Resources/sciences/physics/physics-notes.pdf', '_blank')">
-    ⚡ Open Physics Notes
-</button>
+    <div id="studyNotes">
+        <p class="loading-note">Loading notes...</p>
+    </div>
 
-<br><br>
+</main>
 
-<button onclick="window.location='science.html'">
-    ⬅ Back to Science
-</button>
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
+    </div>
+</footer>
 
+<script src="data/science.js"></script>
+<script src="js/study.js"></script>
 <script src="app.js"></script>
+
 </body>
 </html>

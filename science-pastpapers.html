@@ -3,151 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Science Past Papers - Learn Smart Hub</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f8ff;
-            color: #1a237e;
-        }
-
-        header {
-            background: #1565c0;
-            color: white;
-            text-align: center;
-            padding: 25px 15px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-        }
-
-        header p {
-            margin: 8px 0 0;
-            font-size: 15px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .paper-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .paper-card h2 {
-            margin-top: 0;
-            color: #1565c0;
-        }
-
-        .paper-card p {
-            color: #555;
-        }
-
-        .paper-button {
-            display: inline-block;
-            background: #1565c0;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .paper-button:hover {
-            background: #0d47a1;
-        }
-
-        .back-button {
-            display: inline-block;
-            margin: 10px 0 25px;
-            color: #1565c0;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
-
-    <link rel="manifest" href="manifest.json">
+    <title>Science past papers - Learn Smart Hub</title>
+    <meta name="description" content="Practice science papers with answers you can check yourself.">
     <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/study.css">
 </head>
 
-<body>
+<body class="site" data-study="papers" data-subject="science">
 
-<header>
-    <h1>🔬 Science Past Papers</h1>
-    <p>Practice Biology, Chemistry and Physics</p>
+<header class="topbar">
+    <div class="wrap topbar-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+            <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
+        </div>
+    </div>
 </header>
 
-<div class="container">
+<main class="wrap study-main">
 
-    <a href="science.html" class="back-button">
-        ← Back to Science
-    </a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="science.html">Science</a>
+        <span aria-hidden="true">/</span>
+        <span>Past papers</span>
+    </nav>
 
-    <!-- BIOLOGY -->
-    <div class="paper-card">
-        <h2>🧬 Biology Past Papers</h2>
-
-        <p>
-            Practice Biology past examination papers
-            and improve your revision.
-        </p>
-
-        <button class="paper-button"
-            onclick="window.location.href='Resources/sciences/biology/biology-papers.html/2026-GRADE-10-BIOLOGY-T2-TEACHER.CO_.KE_ (1).docx'">
-            🧬 View Biology Papers
-        </button>
+    <div class="study-head">
+        <h1>Science past papers</h1>
+        <p>Sit the paper with a pen and paper first, then open the answers to mark yourself. Marks add up to a full paper.</p>
     </div>
 
-    <!-- CHEMISTRY -->
-    <div class="paper-card">
-        <h2>🧪 Chemistry Past Papers</h2>
-
-        <p>
-            Practice Chemistry past examination papers
-            and test your knowledge.
-        </p>
-
-        <button class="paper-button"
-            onclick="window.location.href='Resources/sciences/chemistry/2026-GRADE-10-CHEMISTRY-T2-TEACHER.CO_.KE_-Watermark-Watermark-Signed.pdf'">
-            🧪 View Chemistry Papers
-        </button>
+    <div class="paper-card" style="margin-bottom:18px;">
+        <h2 style="font-size:1rem;">Download the full Science papers</h2>
+        <p class="paper-note">Opens as a PDF in a new tab. It works offline once you have opened it.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <a class="btn btn-ghost btn-sm" href="Resources/sciences/chemistry/2026-GRADE-10-CHEMISTRY-T2-TEACHER.CO_.KE_-Watermark-Watermark-Signed.pdf" target="_blank" rel="noopener">Chemistry paper, Term 2</a>
+            <a class="btn btn-ghost btn-sm" href="Resources/sciences/biology-paper.docx" target="_blank" rel="noopener">Biology paper (Word)</a>
+        </div>
     </div>
 
-    <!-- PHYSICS -->
-    <div class="paper-card">
-        <h2>⚛️ Physics Past Papers</h2>
-
-        <p>
-            Practice Physics past examination papers
-            and prepare for your exams.
-        </p>
-
-        <button class="paper-button"
-            onclick="window.location.href='Resources/sciences/physics/physics-papers.html/GRADE 10 PHYSICS NOTES TERM 1 2 and 3.pdf'">
-            ⚛️ View Physics Papers
-        </button>
+    <div id="studyPapers">
+        <p class="loading-note">Loading papers...</p>
     </div>
 
-</div>
+</main>
 
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
+    </div>
+</footer>
+
+<script src="data/science.js"></script>
+<script src="js/study.js"></script>
 <script src="app.js"></script>
+
 </body>
 </html>

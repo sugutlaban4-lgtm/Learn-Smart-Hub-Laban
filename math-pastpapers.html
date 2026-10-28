@@ -1,132 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Mathematics Past Papers - Learn Smart Hub</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f8ff;
-            color: #1a237e;
-        }
-
-        header {
-            background: #1565c0;
-            color: white;
-            text-align: center;
-            padding: 25px 15px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .back {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #1565c0;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .card h2 {
-            color: #1565c0;
-        }
-
-        .button {
-            display: inline-block;
-            background: #1565c0;
-            color: white;
-            padding: 14px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .button:hover {
-            background: #0d47a1;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 15px;
-            }
-
-            header h1 {
-                font-size: 23px;
-            }
-
-            .card {
-                padding: 20px 15px;
-            }
-
-            .button {
-                width: 100%;
-            }
-        }
-    </style>
-
-    <link rel="manifest" href="manifest.json">
+    <title>Mathematics past papers - Learn Smart Hub</title>
+    <meta name="description" content="Practice mathematics papers with answers you can check yourself.">
     <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/study.css">
 </head>
 
-<body>
+<body class="site" data-study="papers" data-subject="mathematics">
 
-<header>
-    <h1>📄 Mathematics Past Papers</h1>
+<header class="topbar">
+    <div class="wrap topbar-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+            <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
+        </div>
+    </div>
 </header>
 
-<div class="container">
+<main class="wrap study-main">
 
-    <a href="mathematics.html" class="back">
-        ← Back to Mathematics
-    </a>
+    <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="mathematics.html">Mathematics</a>
+        <span aria-hidden="true">/</span>
+        <span>Past papers</span>
+    </nav>
 
-    <div class="card">
-        <h2>📄 2026 Grade 10 Core Mathematics</h2>
-        <p>Term 2 Mathematics Paper</p>
-
-        <a
-            href="Resources/Mathematics/2026-GRADE-10-CORE-MATHEMATICS-T2-TEACHER.CO_.KE_.pdf"
-            target="_blank"
-            class="button">
-            📖 Open Paper
-        </a>
+    <div class="study-head">
+        <h1>Mathematics past papers</h1>
+        <p>Sit the paper with a pen and paper first, then open the answers to mark yourself. Marks add up to a full paper.</p>
     </div>
 
-    <div class="card">
-        <h2>📚 More Papers Coming Soon</h2>
-        <p>More Mathematics past papers will be added here.</p>
+    <div class="paper-card" style="margin-bottom:18px;">
+        <h2 style="font-size:1rem;">Download the full Mathematics papers</h2>
+        <p class="paper-note">Opens as a PDF in a new tab. It works offline once you have opened it.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <a class="btn btn-ghost btn-sm" href="Resources/Mathematics/2026-GRADE-10-CORE-MATHEMATICS-T2-TEACHER.CO_.KE_.pdf" target="_blank" rel="noopener">Grade 10 paper, Term 2</a>
+            <a class="btn btn-ghost btn-sm" href="Resources/Mathematics/revision-papers/grade-9/Grade-9-Mathematics-Revision-Paper.pdf" target="_blank" rel="noopener">Grade 9 revision paper</a>
+        </div>
     </div>
 
-</div>
+    <div id="studyPapers">
+        <p class="loading-note">Loading papers...</p>
+    </div>
 
+</main>
+
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
+    </div>
+</footer>
+
+<script src="data/mathematics.js"></script>
+<script src="js/study.js"></script>
 <script src="app.js"></script>
+
 </body>
 </html>

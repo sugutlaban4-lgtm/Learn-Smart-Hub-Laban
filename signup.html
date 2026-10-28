@@ -1,33 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Learn Smart Hub Create Account</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create your account - Learn Smart Hub</title>
+    <meta name="description" content="Create a free Learn Smart Hub account and start revising with notes, papers and quizzes.">
+    <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/site.css">
 </head>
 
-<body>
+<body class="site">
 
-<h1>Create Student Account</h1>
+<main class="auth">
 
-<p>Join Learn Smart Hub and start learning</p>
+    <div class="auth-card">
 
+        <a class="brand" href="index.html" style="margin-bottom:16px;">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
 
+        <h1>Create your account</h1>
+        <p class="muted">
+            Free to join. Your notes, quizzes and progress stay in one place.
+        </p>
 
-<br><br>
-<input type="text" id="fullName" placeholder="Full Name">
-<input type="email" id="email" placeholder="Email">
+        <form id="signupForm" onsubmit="event.preventDefault(); createAccount();">
 
-<br><br>
+            <div class="field">
+                <label for="fullName">Full name</label>
+                <input id="fullName" name="fullName" type="text"
+                    autocomplete="name" placeholder="e.g. Laban Sugut" required>
+            </div>
 
-<input type="password" id="password" placeholder="Create Password">
+            <div class="field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email"
+                    autocomplete="email" placeholder="you@example.com" required>
+            </div>
 
-<br><br>
+            <div class="field">
+                <label for="password">Create a password</label>
+                <input id="password" name="password" type="password"
+                    autocomplete="new-password" placeholder="At least 6 characters"
+                    minlength="6" required>
+            </div>
 
-<button onclick="createAccount()">Create Account</button>
+            <button class="btn btn-primary" type="submit">Create account</button>
 
-<p>
-Already have an account?
-<a href="login.html">Login</a>
-</p>
+        </form>
 
-<script type="module" src="auth.js"></script></body>
+        <p class="auth-foot">
+            Already have an account?
+            <a href="login.html">Log in</a>
+        </p>
+
+        <p class="hint">
+            By creating an account you accept our
+            <a href="terms.html">terms</a> and
+            <a href="privacy.html">privacy policy</a>.
+        </p>
+
+    </div>
+
+</main>
+
+<script type="module" src="auth.js"></script>
+<script src="app.js"></script>
+
+</body>
 </html>

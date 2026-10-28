@@ -3,19 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Smart Hub - Student Login</title>
-</head><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<body>
+    <title>Learn Smart Hub - Notes, Past Papers and Quizzes for Kenyan Students</title>
+    <meta name="description" content="Revise Mathematics, Sciences, English, Kiswahili and Social Sciences with notes, past papers, video lessons and quizzes. Works offline, pay with M-Pesa.">
+    <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="stylesheet" href="css/site.css">
 
-    <h1>Learn Smart Hub</h1>
-    <p>Welcome to Learn Smart Hub</p>
-<a href="signup.html">
-<button>Create Account</button>
-</a>
-    <a href="login.html">
-<button>Student Login</button>
-</a>
-    
-<scrip src="app.js"></scrip>
+    <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+</head>
+
+<body class="site">
+
+<header class="topbar">
+    <div class="wrap topbar-inner">
+
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
+
+        <nav class="nav" aria-label="Main">
+            <a href="#subjects">Subjects</a>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="videos.html">Videos</a>
+            <a href="premium.html">Premium</a>
+        </nav>
+
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="login.html">Log in</a>
+            <a class="btn btn-primary btn-sm" href="signup.html">Start free</a>
+        </div>
+
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="wrap hero-grid">
+
+            <div>
+                <span class="eyebrow">Built for Kenyan students</span>
+
+                <h1>Revise smarter, <span>not longer</span>.</h1>
+
+                <p class="lead">
+                    Notes, past papers, video lessons and quizzes for Mathematics,
+                    the Sciences, English, Kiswahili and Social Sciences, all in one
+                    place. Light on data, and it still works when your network drops.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="signup.html">Create free account</a>
+                    <a class="btn btn-ghost" href="math-quiz.html">Try the maths quiz</a>
+                </div>
+
+                <div class="hero-note">
+                    <span><b class="tick">✓</b> Free to start</span>
+                    <span><b class="tick">✓</b> Install on your phone</span>
+                    <span><b class="tick">✓</b> Pay with M-Pesa</span>
+                </div>
+            </div>
+
+            <aside class="hero-card">
+                <h2>Inside Learn Smart Hub</h2>
+                <p class="small">Everything is organised by subject, so nothing gets lost.</p>
+
+                <div class="preview-row">
+                    <span class="preview-badge" aria-hidden="true">📘</span>
+                    <span>
+                        <strong>Topic notes</strong>
+                        <small>Clear summaries you can revise on the bus.</small>
+                    </span>
+                </div>
+
+                <div class="preview-row">
+                    <span class="preview-badge" aria-hidden="true">📝</span>
+                    <span>
+                        <strong>Past and revision papers</strong>
+                        <small>Practise with the real exam format.</small>
+                    </span>
+                </div>
+
+                <div class="preview-row">
+                    <span class="preview-badge" aria-hidden="true">🧠</span>
+                    <span>
+                        <strong>Quizzes with an AI tutor</strong>
+                        <small>Get an explanation the moment you miss one.</small>
+                    </span>
+                </div>
+
+                <div class="preview-row">
+                    <span class="preview-badge" aria-hidden="true">📶</span>
+                    <span>
+                        <strong>Offline mode</strong>
+                        <small>Pages you have opened stay available.</small>
+                    </span>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+    <div class="wrap">
+        <div class="stats">
+            <div class="stat"><b>6</b><span>Subjects covered</span></div>
+            <div class="stat"><b>20+</b><span>Resource packs</span></div>
+            <div class="stat"><b>8</b><span>Quizzes</span></div>
+            <div class="stat"><b>KSh 50</b><span>Premium from</span></div>
+        </div>
+    </div>
+
+    <section class="section" id="subjects">
+        <div class="wrap">
+
+            <div class="section-head">
+                <h2>Pick a subject and get going</h2>
+                <p>
+                    Every subject has the same four ways to revise: notes first,
+                    then papers, then a quiz to check yourself.
+                </p>
+            </div>
+
+            <div class="subjects">
+
+                <article class="subject">
+                    <div class="subject-head">
+                        <span class="subject-icon" aria-hidden="true">📐</span>
+                        <div>
+                            <h3><a href="mathematics.html">Mathematics</a></h3>
+                            <small>Formulas, worked examples, revision sets</small>
+                        </div>
+                    </div>
+                    <div class="chips">
+                        <a class="chip" href="math-notes.html">Notes</a>
+                        <a class="chip" href="math-pastpapers.html">Past papers</a>
+                        <a class="chip" href="math-revisionpapers.html">Revision papers</a>
+                        <a class="chip" href="math-quiz.html">Quiz + AI tutor</a>
+                        <a class="chip" href="math-videos.html">Videos</a>
+                    </div>
+                </article>
+
+                <article class="subject">
+                    <div class="subject-head">
+                        <span class="subject-icon" aria-hidden="true">🔬</span>
+                        <div>
+                            <h3><a href="science.html">Science</a></h3>
+                            <small>Biology, Chemistry and Physics</small>
+                        </div>
+                    </div>
+                    <div class="chips">
+                        <a class="chip" href="science-notes.html">Notes</a>
+                        <a class="chip" href="science-pastpapers.html">Past papers</a>
+                        <a class="chip" href="science-quiz.html">Quiz</a>
+                        <a class="chip" href="biology-quiz.html">Biology quiz</a>
+                        <a class="chip" href="chemistry-quiz.html">Chemistry quiz</a>
+                        <a class="chip" href="physics-quiz.html">Physics quiz</a>
+                        <a class="chip" href="science-videos.html">Videos</a>
+                    </div>
+                </article>
+
+                <article class="subject">
+                    <div class="subject-head">
+                        <span class="subject-icon" aria-hidden="true">📖</span>
+                        <div>
+                            <h3><a href="english.html">English</a></h3>
+                            <small>Comprehension, grammar and composition</small>
+                        </div>
+                    </div>
+                    <div class="chips">
+                        <a class="chip" href="english-notes.html">Notes</a>
+                        <a class="chip" href="english-pastpapers.html">Past papers</a>
+                        <a class="chip" href="english-quiz.html">Quiz</a>
+                        <a class="chip" href="english-videos.html">Videos</a>
+                    </div>
+                </article>
+
+                <article class="subject">
+                    <div class="subject-head">
+                        <span class="subject-icon" aria-hidden="true">🗣️</span>
+                        <div>
+                            <h3><a href="kiswahili.html">Kiswahili</a></h3>
+                            <small>Insha, sarufi na ufahamu</small>
+                        </div>
+                    </div>
+                    <div class="chips">
+                        <a class="chip" href="kiswahili-notes.html">Notes</a>
+                        <a class="chip" href="kiswahili-pastpapers.html">Past papers</a>
+                        <a class="chip" href="kiswahili-quiz.html">Quiz</a>
+                        <a class="chip" href="kiswahili-videos.html">Videos</a>
+                    </div>
+                </article>
+
+                <article class="subject">
+                    <div class="subject-head">
+                        <span class="subject-icon" aria-hidden="true">🌍</span>
+                        <div>
+                            <h3><a href="social-sciences.html">Social Sciences</a></h3>
+                            <small>History, Geography and Civics</small>
+                        </div>
+                    </div>
+                    <div class="chips">
+                        <a class="chip" href="social-sciences-notes.html">Notes</a>
+                        <a class="chip" href="social-sciences-pastpapers.html">Past papers</a>
+                        <a class="chip" href="social-sciences-quiz.html">Quiz</a>
+                        <a class="chip" href="social-sciences-videos.html">Videos</a>
+                    </div>
+                </article>
+
+                <article class="subject">
+                    <div class="subject-head">
+                        <span class="subject-icon" aria-hidden="true">🗂️</span>
+                        <div>
+                            <h3><a href="pastpapers.html">Everything else</a></h3>
+                            <small>Browse the whole library at once</small>
+                        </div>
+                    </div>
+                    <div class="chips">
+                        <a class="chip" href="notes.html">All notes</a>
+                        <a class="chip" href="pastpapers.html">All past papers</a>
+                        <a class="chip" href="quiz.html">All quizzes</a>
+                        <a class="chip" href="videos.html">All videos</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="wrap">
+
+            <div class="section-head">
+                <h2>Why students stay</h2>
+                <p>Small things that matter when you are revising on a phone.</p>
+            </div>
+
+            <div class="features">
+
+                <article class="feature">
+                    <span class="subject-icon" aria-hidden="true">📶</span>
+                    <h3>Works offline</h3>
+                    <p>
+                        Install Learn Smart Hub once and the pages you open stay
+                        readable, even when the data bundles run out.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <span class="subject-icon" aria-hidden="true">📱</span>
+                    <h3>Pay with M-Pesa</h3>
+                    <p>
+                        Premium unlocks with a payment prompt on your own phone.
+                        No cards, no bank details, no waiting for approval.
+                    </p>
+                </article>
+
+                <article class="feature">
+                    <span class="subject-icon" aria-hidden="true">🧠</span>
+                    <h3>An AI tutor, not just answers</h3>
+                    <p>
+                        Miss a maths question and the tutor explains the method,
+                        so the next one of its kind is easier.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="wrap">
+            <div class="premium">
+
+                <h2>Go Premium when the free pages are not enough</h2>
+                <p>
+                    Premium opens the full notes library, every past paper and
+                    all video lessons. Pay from your phone in under a minute.
+                </p>
+
+                <div class="plans">
+                    <div class="plan">
+                        <strong>KSh 50</strong>
+                        <span>per week</span>
+                    </div>
+                    <div class="plan">
+                        <strong>KSh 150</strong>
+                        <span>per month</span>
+                    </div>
+                    <div class="plan">
+                        <strong>KSh 400</strong>
+                        <span>per term</span>
+                    </div>
+                </div>
+
+                <p class="plans-note">
+                    Premium activates automatically once your M-Pesa payment is
+                    confirmed. No card needed.
+                </p>
+
+                <a class="btn btn-primary" href="premium.html">See Premium plans</a>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="wrap footer-inner">
+
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+            <p style="margin:10px 0 0; font-size:0.86rem;">
+                Study material for Kenyan students. Built to stay useful on a
+                slow connection.
+            </p>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="premium.html">Premium</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="refund.html">Refunds</a>
+            <a href="terms.html">Terms</a>
+        </nav>
+
+    </div>
+</footer>
+
+<script src="app.js"></script>
+
 </body>
 </html>

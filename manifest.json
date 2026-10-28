@@ -1,10 +1,50 @@
 {
   "name": "Learn Smart Hub",
   "short_name": "Learn Smart Hub",
-  "start_url": "index.html",
+  "description": "Notes, past papers, video lessons and quizzes for Kenyan students. Works offline and pays with M-Pesa.",
+  "lang": "en",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#ffffff",
-  "theme_color": "#1565c0",
-  "description": "Learning resources, notes, past papers, videos and quizzes.",
-  "icons": []
+  "theme_color": "#0d47a1",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Maths quiz",
+      "short_name": "Quiz",
+      "url": "./math-quiz.html"
+    },
+    {
+      "name": "Past papers",
+      "short_name": "Papers",
+      "url": "./pastpapers.html"
+    },
+    {
+      "name": "Premium",
+      "short_name": "Premium",
+      "url": "./premium.html"
+    }
+  ]
 }

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Learn Smart Hub</title>
+    <meta name="description" content="Message Learn Smart Hub about a payment, your account or the study material.">
+    <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/site.css">
+
+    <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+
+<body class="site">
+
+<header class="topbar">
+    <div class="wrap topbar-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="login.html">Log in</a>
+            <a class="btn btn-primary btn-sm" href="signup.html">Start free</a>
+        </div>
+    </div>
+</header>
+
+<div class="page-head">
+    <div class="wrap">
+        <span class="eyebrow">Support</span>
+        <h1>Contact us</h1>
+        <p>Payment not showing? Page not opening? Tell us here.</p>
+    </div>
+</div>
+
+<main class="wrap">
+
+    <div class="auth" style="min-height:auto; padding:28px 0 44px; background:none;">
+        <div class="auth-card">
+
+            <h1>Send a message</h1>
+            <p class="muted">
+                Sign in first so we can see your account and reply to your email.
+            </p>
+
+            <form id="supportForm" novalidate>
+
+                <div class="field">
+                    <label for="supportTopic">What is this about?</label>
+                    <select id="supportTopic" name="topic">
+                        <option value="payment">A payment or Premium</option>
+                        <option value="account">My account or login</option>
+                        <option value="content">Study material</option>
+                        <option value="privacy">Privacy or my data</option>
+                        <option value="general">Something else</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="supportCode">M-Pesa code (only for payment questions)</label>
+                    <input id="supportCode" name="mpesaCode" type="text" autocomplete="off" placeholder="e.g. SFJ7K2LMQ9">
+                </div>
+
+                <div class="field">
+                    <label for="supportMessage">Your message</label>
+                    <textarea id="supportMessage" name="message" rows="5" required
+                        style="width:100%; padding:12px 14px; font:inherit; font-size:0.95rem; color:#10213f; background:#fbfdff; border:1px solid #cfdef1; border-radius:11px; resize:vertical;"
+                        placeholder="Tell us what happened, and what you expected."></textarea>
+                </div>
+
+                <button class="btn btn-primary" type="submit" id="supportSend">Send message</button>
+
+            </form>
+
+            <p id="supportStatus" class="hint" role="status" aria-live="polite"></p>
+
+            <p class="auth-foot">
+                <a href="index.html">Back to home</a>
+            </p>
+
+        </div>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="premium.html">Premium</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="refund.html">Refunds</a>
+            <a href="terms.html">Terms</a>
+        </nav>
+    </div>
+</footer>
+
+<script type="module">
+
+    import { auth } from "./firebase.js";
+
+    import {
+        onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+
+    const BACKEND =
+        "https://learn-smart-hub-backend.onrender.com";
+
+    const form =
+        document.getElementById("supportForm");
+
+    const statusLine =
+        document.getElementById("supportStatus");
+
+    const sendButton =
+        document.getElementById("supportSend");
+
+
+    let currentUser = null;
+
+
+    onAuthStateChanged(auth, user => {
+
+        currentUser = user;
+
+        if (!user) {
+
+            statusLine.textContent =
+                "You are not signed in. Log in so we can reply to you.";
+
+            sendButton.disabled = true;
+
+        } else {
+
+            statusLine.textContent =
+                "Signed in as " + (user.email || "your account") + ".";
+
+            sendButton.disabled = false;
+
+        }
+
+    });
+
+
+    form.addEventListener("submit", async event => {
+
+        event.preventDefault();
+
+
+        if (!currentUser) {
+
+            statusLine.textContent =
+                "Please log in before sending a message.";
+
+            return;
+
+        }
+
+
+        const message =
+            document.getElementById("supportMessage")
+                .value.trim();
+
+
+        if (message.length < 5) {
+
+            statusLine.textContent =
+                "Please write a little more so we can help.";
+
+            return;
+
+        }
+
+
+        sendButton.disabled = true;
+
+        statusLine.textContent =
+            "Sending...";
+
+
+        try {
+
+            const idToken =
+                await currentUser.getIdToken();
+
+
+            const response =
+                await fetch(
+                    `${BACKEND}/api/support`,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json",
+
+                            Authorization:
+                                `Bearer ${idToken}`
+                        },
+
+                        body: JSON.stringify({
+                            topic:
+                                document.getElementById("supportTopic").value,
+
+                            mpesaCode:
+                                document.getElementById("supportCode").value,
+
+                            message: message
+                        })
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (!response.ok || !result.success) {
+
+                throw new Error(
+                    result.message ||
+                    "Message not sent"
+                );
+
+            }
+
+
+            form.reset();
+
+            statusLine.textContent =
+                "Message sent. We will reply to your email.";
+
+
+        } catch (error) {
+
+            console.error(
+                "Support send error:",
+                error
+            );
+
+            statusLine.textContent =
+                "Could not send that just now. Please try again.";
+
+        }
+
+
+        sendButton.disabled = false;
+
+    });
+
+</script>
+
+<script src="app.js"></script>
+</body>
+</html>

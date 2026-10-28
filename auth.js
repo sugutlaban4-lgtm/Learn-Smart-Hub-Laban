@@ -6,6 +6,16 @@ import {
   signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
+function nextTarget() {
+  const raw = new URLSearchParams(window.location.search).get("next") || "";
+  return /^[A-Za-z0-9._-]+\.html(\?[^#]*)?(#.*)?$/.test(raw) ? raw : "";
+}
+
+function loginUrl() {
+  const next = nextTarget();
+  return next ? "login.html?next=" + encodeURIComponent(next) : "login.html";
+}
+
 window.createAccount = function () {
   const name = document.getElementById("fullName").value;
   const email = document.getElementById("email").value;
@@ -19,7 +29,7 @@ window.createAccount = function () {
     })
     .then(() => {
       alert("Account created successfully!");
-      window.location = "login.html";
+      window.location = loginUrl();
     })
     .catch((error) => {
       alert(error.message);
@@ -33,7 +43,7 @@ window.loginUser = function () {
   signInWithEmailAndPassword(auth, email, password)
     .then(() => {
       alert("Login successful!");
-      window.location = "dashboard.html";
+      window.location = nextTarget() || "dashboard.html";
     })
     .catch((error) => {
       alert(error.message);

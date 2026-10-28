@@ -20,9 +20,32 @@
     <meta property="og:url" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/social-sciences-pastpapers.html">
     <meta property="og:image" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/icons/icon-512.png">
     <meta name="twitter:card" content="summary_large_image">
+    <style>
+        /* Login gate: keep the page hidden until gate.js confirms a session. */
+        body[data-gated]:not(.gate-ready) > *:not(.auth-veil) { display: none !important; }
+        .auth-veil { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center;
+            background: #f4f8ff; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+        body.gate-ready .auth-veil, html.gate-ready .auth-veil { display: none !important; }
+        .auth-veil-box { text-align: center; padding: 24px; }
+        .auth-veil-mark { display: inline-grid; place-items: center; width: 48px; height: 48px;
+            border-radius: 14px; background: #0d47a1; color: #fff; font-weight: 800; font-size: 1rem; }
+        .auth-veil-text { margin: 12px 0 0; font-size: 0.95rem; color: #41527a; }
+        .auth-veil a { color: #1565c0; font-weight: 600; }
+    </style>
+    <meta name="robots" content="noindex, nofollow">
 </head>
 
-<body class="site" data-study="papers" data-subject="social-sciences">
+<body class="site" data-study="papers" data-subject="social-sciences" data-gated="1">
+
+<div class="auth-veil" role="status" aria-live="polite">
+    <div class="auth-veil-box">
+        <span class="auth-veil-mark" aria-hidden="true">LS</span>
+        <p class="auth-veil-text">Checking your session&hellip;</p>
+        <noscript><p class="auth-veil-text">This page needs JavaScript on. <a href="login.html">Log in</a></p></noscript>
+    </div>
+</div>
+<script>setTimeout(function(){var t=document.querySelector(".auth-veil-text");if(t&&!document.body.classList.contains("gate-ready")){t.innerHTML='Could not check your session. <a href="login.html">Log in again</a>.';}},12000);</script>
+
 
 <header class="topbar">
     <div class="wrap topbar-inner">
@@ -82,5 +105,6 @@
 <script src="js/study.js"></script>
 <script src="app.js"></script>
 
+    <script type="module" src="gate.js"></script>
 </body>
 </html>

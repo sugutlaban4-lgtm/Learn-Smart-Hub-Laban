@@ -184,6 +184,35 @@
     const message = document.getElementById("message");
 
 
+    // Where to go after a successful login. Only a plain page on this site is
+    // accepted, so a crafted ?next= cannot send anyone off-site.
+    const params = new URLSearchParams(window.location.search);
+
+    const rawNext = params.get("next") || "";
+
+    const nextPage =
+        /^[A-Za-z0-9._-]+\.html(\?[^#]*)?(#.*)?$/.test(rawNext)
+            ? rawNext
+            : "dashboard.html";
+
+
+    if (params.get("reason") === "login-required") {
+
+        message.textContent = "Log in to open that page.";
+
+    }
+
+
+    const signupLink = document.querySelector(".signup a");
+
+    if (signupLink && rawNext) {
+
+        signupLink.href =
+            "signup.html?next=" + encodeURIComponent(rawNext);
+
+    }
+
+
     loginForm.addEventListener("submit", async (event) => {
 
         event.preventDefault();
@@ -209,8 +238,7 @@
             message.textContent =
                 "✅ Login successful!";
 
-            // Change this if your dashboard has another filename
-            window.location.href = "dashboard.html";
+            window.location.href = nextPage;
 
         } catch (error) {
 

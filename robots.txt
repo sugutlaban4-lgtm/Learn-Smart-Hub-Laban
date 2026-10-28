@@ -2,4 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
+# Study pages sit behind the login gate. They also carry noindex, so a crawler
+# that already knows them will drop them rather than report them as errors.
+
 Sitemap: https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/sitemap.xml

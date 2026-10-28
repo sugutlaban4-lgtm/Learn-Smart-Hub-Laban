@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+
+Sitemap: https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/sitemap.xml

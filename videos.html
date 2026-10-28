@@ -1,79 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Learn Smart Hub - Video Lessons</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="manifest" href="manifest.json">
+    <title>Video lessons - Learn Smart Hub</title>
+    <meta name="description" content="Video lessons for every Grade 10 subject, matched to the topics in the notes and papers.">
     <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/study.css">
 
     <link rel="canonical" href="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/videos.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Learn Smart Hub">
-    <meta property="og:title" content="Learn Smart Hub - Video Lessons">
-    <meta property="og:description" content="Notes, past papers, video lessons and quizzes for Kenyan secondary school students.">
+    <meta property="og:title" content="Video lessons - Learn Smart Hub">
+    <meta property="og:description" content="Video lessons for every Grade 10 subject, matched to the topics in the notes and papers.">
     <meta property="og:url" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/videos.html">
     <meta property="og:image" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/icons/icon-512.png">
     <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="subject-page">
+<body class="site">
 
-<div class="subject-container">
-
-    <header class="subject-header">
-        <div class="subject-icon">🎥</div>
-        <h1>Video Lessons</h1>
-        <p>Learn through engaging video lessons and visual explanations.</p>
-    </header>
-
-    <section class="subject-section">
-
-        <h2>🎬 Choose a Subject</h2>
-
-        <div class="subject-grid">
-
-            <button
-                class="subject-card"
-                onclick="window.location='math-videos.html'">
-
-                <span class="subject-card-icon">📘</span>
-                <span class="subject-card-title">Mathematics</span>
-                <span class="subject-card-description">
-                    Mathematics video lessons and tutorials
-                </span>
-
-            </button>
-
-            <button
-                class="subject-card"
-                onclick="window.location='science-videos.html'">
-
-                <span class="subject-card-icon">🔬</span>
-                <span class="subject-card-title">Science</span>
-                <span class="subject-card-description">
-                    Science video lessons and explanations
-                </span>
-
-            </button>
-
+<header class="topbar">
+    <div class="wrap topbar-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+            <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
         </div>
+    </div>
+</header>
 
-    </section>
+<main class="wrap study-main">
 
-    <button
-        class="back-button"
-        onclick="window.location='dashboard.html'">
+    <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>Video lessons</span>
+    </nav>
 
-        🏠 Back to Dashboard
+    <div class="study-head">
+        <h1>Video lessons</h1>
+        <p>Short lessons chosen to match each topic in the notes. Every link is checked before it goes up, and each page plays without leaving the site.</p>
+    </div>
 
-    </button>
+    <div class="hub-grid">
+            <a class="hub-card" href="english-videos.html">
+                <span class="hub-name">English</span>
+                <span class="hub-meta">12 video lessons</span>
+            </a>
+            <a class="hub-card" href="science-videos.html">
+                <span class="hub-name">Science</span>
+                <span class="hub-meta">14 video lessons</span>
+            </a>
+            <a class="hub-card" href="kiswahili-videos.html">
+                <span class="hub-name">Kiswahili</span>
+                <span class="hub-meta">12 video lessons</span>
+            </a>
+            <a class="hub-card" href="social-sciences-videos.html">
+                <span class="hub-name">Social Sciences</span>
+                <span class="hub-meta">13 video lessons</span>
+            </a>
+    </div>
 
-</div>
+    <p class="video-note">Lessons play through YouTube. A connection is needed to watch, unlike the notes and papers.</p>
+
+</main>
+
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="videos.html">Videos</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
+    </div>
+</footer>
 
 <script src="app.js"></script>
+
 </body>
 </html>

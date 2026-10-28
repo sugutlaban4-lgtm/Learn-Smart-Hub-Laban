@@ -468,3 +468,250 @@
         margin-left: 0;
     }
 }
+
+/* --- video lessons ------------------------ */
+
+.study-search {
+    flex: 1 1 200px;
+    min-width: 160px;
+    border: 1px solid #dbe6f7;
+    border-radius: 999px;
+    padding: 9px 16px;
+    font: inherit;
+    font-size: 0.9rem;
+    color: #10213f;
+    background: #fff;
+}
+
+.study-search:focus {
+    outline: 2px solid #1565c0;
+    outline-offset: 1px;
+}
+
+.study-count {
+    margin: 10px 0 14px;
+    font-size: 0.86rem;
+    color: #64748b;
+}
+
+.empty {
+    color: #64748b;
+    background: #f8fbff;
+    border: 1px dashed #d7e5f8;
+    border-radius: 14px;
+    padding: 18px;
+    margin: 0;
+}
+
+.video-grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+
+.video-card {
+    background: #fff;
+    border: 1px solid #e3ecf9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(16, 33, 63, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.video-thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: #0b1a33;
+    cursor: pointer;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.92;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.video-thumb:hover img,
+.video-thumb:focus-visible img {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+.video-play {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #fff;
+    pointer-events: none;
+}
+
+.video-play::before {
+    content: "";
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: rgba(13, 71, 161, 0.86);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.video-play::after {
+    content: "\25B6";
+    position: relative;
+    z-index: 2;
+    margin-left: 3px;
+}
+
+.video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-note {
+    margin: 8px 0 0;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.video-body {
+    padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.video-topic {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #1565c0;
+    background: #eef5ff;
+    border-radius: 999px;
+    padding: 3px 9px;
+}
+
+.video-title {
+    margin: 2px 0 0;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: #10213f;
+}
+
+.video-channel {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.video-why {
+    margin: 2px 0 0;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.video-link {
+    margin-top: 6px;
+    align-self: flex-start;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #1565c0;
+    text-decoration: none;
+}
+
+.video-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 560px) {
+    .video-thumb img {
+        height: 100%;
+    }
+}
+
+/* --- subject hub + next links ------------ */
+
+.hub-grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    margin: 18px 0 14px;
+}
+
+.hub-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #e3ecf9;
+    border-radius: 16px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(16, 33, 63, 0.05);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.hub-card:hover,
+.hub-card:focus-visible {
+    transform: translateY(-2px);
+    border-color: #bcd4f3;
+    box-shadow: 0 10px 24px rgba(16, 33, 63, 0.1);
+}
+
+.hub-name {
+    font-weight: 700;
+    color: #10213f;
+    font-size: 1.02rem;
+}
+
+.hub-meta {
+    font-size: 0.86rem;
+    color: #64748b;
+}
+
+.study-next {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.study-jump {
+    margin: 14px 0 0;
+    font-size: 0.92rem;
+}
+
+.study-jump a {
+    color: #1565c0;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #bcd4f3;
+}
+
+.study-jump a:hover {
+    border-bottom-color: #1565c0;
+}

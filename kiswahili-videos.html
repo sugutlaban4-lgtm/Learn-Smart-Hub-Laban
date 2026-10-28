@@ -1,88 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Learn Smart Hub - Kiswahili Video Lessons</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="manifest" href="manifest.json">
+    <title>Kiswahili video lessons - Learn Smart Hub</title>
+    <meta name="description" content="12 short Kiswahili video lessons matched to the topics in the notes, for Kenyan students.">
     <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/study.css">
 
     <link rel="canonical" href="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/kiswahili-videos.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Learn Smart Hub">
-    <meta property="og:title" content="Learn Smart Hub - Kiswahili Video Lessons">
-    <meta property="og:description" content="Notes, past papers, video lessons and quizzes for Kenyan secondary school students.">
+    <meta property="og:title" content="Kiswahili video lessons - Learn Smart Hub">
+    <meta property="og:description" content="12 short Kiswahili video lessons matched to the topics in the notes, for Kenyan students.">
     <meta property="og:url" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/kiswahili-videos.html">
     <meta property="og:image" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/icons/icon-512.png">
     <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body>
+<body class="site">
 
-<div class="dashboard-container">
-
-    <header class="dashboard-header">
-        <div class="brand-icon">🎥</div>
-        <h1>Kiswahili Video Lessons</h1>
-        <p class="tagline">Jifunze • Tazama • Ufaulu</p>
-    </header>
-
-    <section class="welcome-card">
-        <h2>🎥 Video za Kiswahili</h2>
-        <p>
-            Jifunze Kiswahili kupitia video za kielimu.
-        </p>
-    </section>
-
-    <section class="learning-section">
-
-        <h2>🎬 Masomo ya Video</h2>
-
-        <div class="learning-grid">
-
-            <button class="learning-card"
-                onclick="alert('Kiswahili video lessons will be added here.')">
-
-                <span class="card-icon">▶️</span>
-
-                <span class="card-title">
-                    Kiswahili Lessons
-                </span>
-
-                <span class="card-description">
-                    Video za kujifunza Kiswahili
-                </span>
-
-            </button>
-
+<header class="topbar">
+    <div class="wrap topbar-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+            <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
         </div>
+    </div>
+</header>
 
-    </section>
+<main class="wrap study-main">
 
-    <section class="account-section">
+    <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="kiswahili.html">Kiswahili</a>
+        <span aria-hidden="true">/</span>
+        <span>Video lessons</span>
+    </nav>
 
-        <button class="account-button"
-            onclick="window.location='kiswahili.html'">
-            ← Rudi kwa Kiswahili
-        </button>
+    <div class="study-head">
+        <h1>Kiswahili video lessons</h1>
+        <p>12 lessons covering 7 of the 7 topics in the notes. Tap a card to play it here; nothing loads until you do, so the page stays light on data.</p>
+    </div>
 
-        <button class="account-button"
-            onclick="window.location='dashboard.html'">
-            🏠 Dashboard
-        </button>
+    <div id="videoList"></div>
 
-    </section>
+    <div class="study-next">
+        <a class="btn btn-ghost btn-sm" href="kiswahili-notes.html">Read the notes</a>
+        <a class="btn btn-ghost btn-sm" href="kiswahili-pastpapers.html">Past papers</a>
+        <a class="btn btn-ghost btn-sm" href="kiswahili.html">&larr; Kiswahili</a>
+    </div>
 
-    <footer class="dashboard-footer">
-        <p>© 2026 Learn Smart Hub</p>
-        <p>Learn • Practice • Succeed</p>
-    </footer>
+</main>
 
-</div>
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="videos.html">Videos</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
+    </div>
+</footer>
 
+<script src="data/kiswahili-videos.js"></script>
+<script src="js/videos.js"></script>
 <script src="app.js"></script>
+
 </body>
 </html>

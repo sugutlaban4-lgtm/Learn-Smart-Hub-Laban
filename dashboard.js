@@ -22,8 +22,13 @@ onAuthStateChanged(auth, async (user) => {
         document.getElementById("studentEmail").textContent =
             user.email;
 
+        // Accounts made before the name was captured have no displayName,
+        // so fall back to the part of the email before the @.
+        const fallbackName =
+            (user.email || "Student").split("@")[0];
+
         document.getElementById("studentName").textContent =
-            user.displayName || "Student";
+            user.displayName || fallbackName;
 
 
         const premiumStatusElement =
@@ -75,12 +80,12 @@ try {
             if (status === "active") {
 
                 premiumStatusElement.textContent =
-                    "⭐ Premium Status: Active";
+                    "Active";
 
             } else {
 
                 premiumStatusElement.textContent =
-                    "🔒 Premium Status: Inactive";
+                    "Inactive";
 
             }
 
@@ -93,14 +98,13 @@ try {
 
 
                 premiumPlanElement.textContent =
-                    "Plan: " +
                     formattedPlan +
-                    " Premium";
+                    " plan";
 
             } else {
 
                 premiumPlanElement.textContent =
-                    "Plan: No Premium plan selected";
+                    "No plan selected yet";
 
             }
 
@@ -114,7 +118,7 @@ try {
 
 
             premiumStatusElement.textContent =
-                "Unable to check Premium status.";
+                "Could not check right now.";
 
 
             premiumPlanElement.textContent =

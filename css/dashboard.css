@@ -1,0 +1,270 @@
+/* ================================================================
+   LEARN SMART HUB - DASHBOARD
+   The signed-in home screen. Built on the same tokens as
+   css/site.css so it matches the landing page and the study pages.
+================================================================ */
+
+.dash-main {
+    padding-bottom: 48px;
+}
+
+/* ---------- greeting ------------------------------------------- */
+
+.dash-hero {
+    padding: 30px 0 6px;
+}
+
+.dash-hero h1 {
+    margin: 10px 0 4px;
+    font-size: clamp(1.6rem, 4.2vw, 2.1rem);
+    letter-spacing: -0.02em;
+    color: var(--brand-900);
+}
+
+.dash-hero p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+}
+
+/* ---------- panels --------------------------------------------- */
+
+.dash-panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.dash-panel h2 {
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    color: var(--brand-900);
+}
+
+.dash-panel p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+}
+
+.dash-split {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 760px) {
+    .dash-split {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ---------- premium strip -------------------------------------- */
+
+.dash-premium {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.dash-premium-status {
+    font-weight: 700;
+    color: var(--brand-900) !important;
+    font-size: 1rem !important;
+}
+
+.dash-premium-plan {
+    font-size: 0.86rem !important;
+}
+
+/* ---------- search --------------------------------------------- */
+
+.dash-search {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.dash-search input {
+    flex: 1 1 220px;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: #fff;
+}
+
+.dash-search input:focus {
+    outline: 2px solid var(--brand-300);
+    outline-offset: 1px;
+}
+
+.dash-search-message {
+    margin: 10px 0 0;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    min-height: 1.2em;
+}
+
+/* ---------- stat tiles ----------------------------------------- */
+
+.dash-stats {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 620px) {
+    .dash-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 940px) {
+    .dash-stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.dash-tile {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px 16px;
+}
+
+.dash-tile b {
+    display: block;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    color: var(--brand-900);
+    line-height: 1.2;
+}
+
+.dash-tile span {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+}
+
+/* ---------- bars ----------------------------------------------- */
+
+.dash-bar {
+    height: 8px;
+    margin: 12px 0 6px;
+    border-radius: 999px;
+    background: #e8f1ff;
+    overflow: hidden;
+}
+
+.dash-bar-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 999px;
+    background: var(--brand-500);
+    transition: width 0.35s ease;
+}
+
+.dash-bar-meta {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+}
+
+/* ---------- continue learning ---------------------------------- */
+
+.dash-continue {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    justify-content: space-between;
+}
+
+.dash-continue h3 {
+    margin: 0 0 2px;
+    font-size: 1rem;
+    color: var(--brand-900);
+}
+
+.dash-continue p {
+    margin: 0;
+}
+
+/* ---------- subject + library cards ---------------------------- */
+
+.dash-grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+    .dash-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1040px) {
+    .dash-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.chips a.chip {
+    text-decoration: none;
+}
+
+.chips a.chip:hover,
+.chips a.chip:focus-visible {
+    background: #e3efff;
+    border-color: #cfe0f7;
+}
+
+/* ---------- achievements --------------------------------------- */
+
+.dash-achievements {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.dash-achievement {
+    background: #f8fbff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px;
+    opacity: 0.62;
+    transition: opacity 0.2s ease, border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.dash-achievement strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--brand-900);
+}
+
+.dash-achievement small {
+    color: var(--ink-soft);
+    font-size: 0.76rem;
+}
+
+.dash-achievement.achievement-unlocked {
+    opacity: 1;
+    background: #eef5ff;
+    border-color: #bfd8f7;
+}
+
+/* ---------- account -------------------------------------------- */
+
+.dash-account {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}

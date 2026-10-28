@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-
-    <title>Learn Smart Hub - Dashboard</title>
-
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/style.css">
-
-
-    <link rel="manifest" href="manifest.json">
+    <title>Dashboard - Learn Smart Hub</title>
+    <meta name="description" content="Your Learn Smart Hub dashboard: premium status, study progress and every subject in one place.">
     <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 
     <link rel="canonical" href="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/dashboard.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Learn Smart Hub">
-    <meta property="og:title" content="Learn Smart Hub - Dashboard">
-    <meta property="og:description" content="Notes, past papers, video lessons and quizzes for Kenyan secondary school students.">
+    <meta property="og:title" content="Dashboard - Learn Smart Hub">
+    <meta property="og:description" content="Your Learn Smart Hub dashboard: premium status, study progress and every subject in one place.">
     <meta property="og:url" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/dashboard.html">
     <meta property="og:image" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/icons/icon-512.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -38,7 +36,7 @@
     <meta name="robots" content="noindex, nofollow">
 </head>
 
-<body data-gated="1">
+<body class="site" data-gated="1">
 
 <div class="auth-veil" role="status" aria-live="polite">
     <div class="auth-veil-box">
@@ -49,686 +47,311 @@
 </div>
 <script>setTimeout(function(){var t=document.querySelector(".auth-veil-text");if(t&&!document.body.classList.contains("gate-ready")){t.innerHTML='Could not check your session. <a href="login.html">Log in again</a>.';}},12000);</script>
 
+<header class="topbar">
+    <div class="wrap topbar-inner">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="profile.html">Profile</a>
+            <a class="btn btn-primary btn-sm" href="premium.html">Premium</a>
+        </div>
+    </div>
+</header>
 
-<div class="dashboard-container">
+<main class="wrap dash-main">
 
-    <!-- HEADER -->
-    <header class="dashboard-header">
-
-        <div class="brand-icon">🎓</div>
-
-        <h1>Learn Smart Hub</h1>
-
-        <p class="tagline">
-            Your smart learning centre
-        </p>
-
-    </header>
-
-
-    <!-- WELCOME -->
-    <section class="welcome-card">
-
-        <h2>
-            👋 Welcome, <span id="studentName">Student</span>
-        </h2>
-
-        <p>
-            <strong>Email:</strong>
-            <span id="studentEmail"></span>
-        </p>
-
-        <p class="welcome-text">
-            Choose a learning area below and start studying.
-        </p>
-
+    <section class="dash-hero">
+        <span class="eyebrow">Dashboard</span>
+        <h1>Karibu, <span id="studentName">Student</span></h1>
+        <p id="studentEmail">&nbsp;</p>
     </section>
 
-<section class="premium-status-section">
-
-    <h2>⭐ Premium Status</h2>
-
-    <div class="premium-status-card">
-
-        <p id="dashboardPremiumStatus">
-            Checking Premium status...
-        </p>
-
-        <p id="dashboardPremiumPlan">
-            Checking your plan...
-        </p>
-
-        <button
-            class="account-button"
-            onclick="window.location='premium.html'">
-
-            ⭐ Manage Premium
-
-        </button>
-
-    </div>
-
-</section>
-
-
+    <!-- PREMIUM -->
+    <section class="dash-panel">
+        <div class="dash-premium">
+            <div>
+                <h2>Premium status</h2>
+                <p id="dashboardPremiumStatus" class="dash-premium-status">Checking Premium status...</p>
+                <p id="dashboardPremiumPlan" class="dash-premium-plan">Checking your plan...</p>
+            </div>
+            <a class="btn btn-primary" href="premium.html">Manage Premium</a>
+        </div>
+    </section>
 
     <!-- SEARCH -->
-    <section class="search-section">
-
-        <h2>🔎 Search Learn Smart Hub</h2>
-
-        <div class="search-box">
-
+    <section class="dash-panel" style="margin-top:14px">
+        <h2>Find something to study</h2>
+        <p>Notes, past papers, video lessons or a quiz.</p>
+        <div class="dash-search">
+            <label for="resourceSearch" class="hint" style="position:absolute;left:-9999px">Search resources</label>
             <input
                 type="text"
                 id="resourceSearch"
                 placeholder="Search notes, papers, videos..."
                 autocomplete="off"
             >
-
-            <button id="searchButton">
-                Search
-            </button>
-
+            <button id="searchButton" class="btn btn-primary">Search</button>
         </div>
-
-        <p id="searchMessage" class="search-message"></p>
-
+        <p id="searchMessage" class="dash-search-message"></p>
     </section>
 
-
-    <!-- LEARNING -->
-    <section class="learning-section">
-
-        <h2>📚 My Learning</h2>
-
-        <div class="learning-grid">
-            <button
-                class="learning-card"
-                onclick="window.location='english.html'">
-
-                <span class="card-icon">🇬🇧</span>
-
-                <span class="card-title">
-                    English
-                </span>
-
-                <span class="card-description">
-                    Notes, papers and video lessons
-                </span>
-
-            </button>
-
-
-
-            <button
-                class="learning-card"
-                onclick="window.location='kiswahili.html'">
-
-                <span class="card-icon">🇰🇪</span>
-
-                <span class="card-title">
-                    Kiswahili
-                </span>
-
-                <span class="card-description">
-                    Notes, papers and video lessons
-                </span>
-
-            </button>
-
-
-
-            <button
-                class="learning-card"
-                onclick="window.location='social-sciences.html'">
-
-                <span class="card-icon">🌍</span>
-
-                <span class="card-title">
-                    Social Sciences
-                </span>
-
-                <span class="card-description">
-                    Geography, History and more
-                </span>
-
-            </button>
-            <button
-                class="learning-card"
-
-                onclick="window.location='mathematics.html'">
-
-                <span class="card-icon">📘</span>
-
-                <span class="card-title">
-                    Mathematics
-                </span>
-
-                <span class="card-description">
-                    Notes, papers, videos and quizzes
-                </span>
-
-            </button>
-
-
-            <button
-                class="learning-card"
-                onclick="window.location='science.html'">
-
-                <span class="card-icon">🔬</span>
-
-                <span class="card-title">
-                    Science
-                </span>
-
-                <span class="card-description">
-                    Biology, Chemistry and Physics
-                </span>
-
-            </button>
-
-
-            <button
-                class="learning-card"
-                onclick="window.location='pastpapers.html'">
-
-                <span class="card-icon">📄</span>
-
-                <span class="card-title">
-                    Past Papers
-                </span>
-
-                <span class="card-description">
-                    Practice examination papers
-                </span>
-
-            </button>
-
-
-            <button
-                class="learning-card"
-                onclick="window.location='notes.html'">
-
-                <span class="card-icon">📚</span>
-
-                <span class="card-title">
-                    Study Notes
-                </span>
-
-                <span class="card-description">
-                    Revision notes and resources
-                </span>
-
-            </button>
-
-
-            <button
-                class="learning-card"
-                onclick="window.location='videos.html'">
-
-                <span class="card-icon">🎥</span>
-
-                <span class="card-title">
-                    Video Lessons
-                </span>
-
-                <span class="card-description">
-                    Learn through video lessons
-                </span>
-
-            </button>
-                        <button
-                class="learning-card"
-                onclick="window.location='quiz.html'">
-
-                <span class="card-icon">📝</span>
-
-                <span class="card-title">
-                    Quizzes
-                </span>
-
-                <span class="card-description">
-                    Test your knowledge and improve your skills
-                </span>
-
-            </button>
-
-
-            <button
-                class="learning-card"
-                onclick="window.location='premium.html'">
-
-                <span class="card-icon">⭐</span>
-
-                <span class="card-title">
-                    Premium Resources
-                </span>
-
-                <span class="card-description">
-                    Unlock premium learning materials
-                </span>
-
-            </button>
-
+    <!-- PROGRESS -->
+    <section class="dash-panel" style="margin-top:14px">
+        <h2>Your progress</h2>
+        <p>Saved on this device as you study.</p>
+        <div class="dash-stats" style="margin-top:14px">
+            <div class="dash-tile">
+                <b id="quizzesCompleted">0</b>
+                <span>Quizzes completed</span>
+            </div>
+            <div class="dash-tile">
+                <b id="bestQuizScore">0%</b>
+                <span>Best score</span>
+            </div>
+            <div class="dash-tile">
+                <b id="averageQuizScore">0%</b>
+                <span>Average score</span>
+            </div>
+            <div class="dash-tile">
+                <b id="currentStudyStreak">0</b>
+                <span>Current streak, days</span>
+            </div>
+            <div class="dash-tile">
+                <b id="longestStudyStreak">0</b>
+                <span>Longest streak, days</span>
+            </div>
+            <div class="dash-tile">
+                <b id="studyDays">0</b>
+                <span>Study days</span>
+            </div>
+            <div class="dash-tile">
+                <b id="overviewBadges">0</b>
+                <span>Badges earned</span>
+            </div>
         </div>
-
     </section>
 
-
-    <!-- QUIZ PROGRESS -->
-    <section class="quiz-progress-section">
-
-        <h2>📊 Your Quiz Progress</h2>
-
-        <div class="quiz-progress-grid">
-
-            <div class="progress-card">
-
-                <span class="progress-icon">📝</span>
-
-                <span class="progress-title">
-                    Quizzes Completed
-                </span>
-
-                <strong id="quizzesCompleted">
-                    0
-                </strong>
-
+    <!-- GOAL + LEVEL -->
+    <div class="dash-split" style="margin-top:14px">
+        <section class="dash-panel">
+            <h2>Weekly goal</h2>
+            <p><span id="weeklyStudyDays">0</span> of 7 study days</p>
+            <div class="dash-bar">
+                <div id="weeklyProgressFill" class="dash-bar-fill"></div>
             </div>
+            <small id="weeklyProgressText" class="dash-bar-meta">0% complete</small>
+        </section>
 
-
-            <div class="progress-card">
-
-                <span class="progress-icon">🏆</span>
-
-                <span class="progress-title">
-                    Best Score
-                </span>
-
-                <strong id="bestQuizScore">
-                    0%
-                </strong>
-
+        <section class="dash-panel">
+            <h2 id="studentLevel">Level 1, Beginner</h2>
+            <p><span id="studentXP">0</span> / <span id="nextLevelXP">100</span> XP</p>
+            <div class="dash-bar">
+                <div id="xpBarFill" class="dash-bar-fill"></div>
             </div>
-
-
-            <div class="progress-card">
-
-                <span class="progress-icon">🎯</span>
-
-                <span class="progress-title">
-                    Average Score
-                </span>
-
-                <strong id="averageQuizScore">
-                    0%
-                </strong>
-
-            </div>
-
-        </div>
-
-    </section>
-<!-- STUDY PROGRESS + STREAKS -->
-<section class="study-progress-section">
-
-    <h2>🔥 Study Progress</h2>
-
-    <div class="study-progress-grid">
-
-        <div class="progress-card">
-
-            <span class="progress-icon">🔥</span>
-
-            <span class="progress-title">
-                Current Streak
-            </span>
-
-            <strong id="currentStudyStreak">
-                0
-            </strong>
-
-            <small>
-                days
-            </small>
-
-        </div>
-
-
-        <div class="progress-card">
-
-            <span class="progress-icon">🏆</span>
-
-            <span class="progress-title">
-                Longest Streak
-            </span>
-
-            <strong id="longestStudyStreak">
-                0
-            </strong>
-
-            <small>
-                days
-            </small>
-
-        </div>
-
-
-        <div class="progress-card">
-
-            <span class="progress-icon">📚</span>
-
-            <span class="progress-title">
-                Study Days
-            </span>
-
-            <strong id="studyDays">
-                0
-            </strong>
-
-            <small>
-                days studied
-            </small>
-
-        </div>
-
+            <small id="xpMessage" class="dash-bar-meta">Keep learning to reach the next level.</small>
+        </section>
     </div>
-        <div class="weekly-goal-card">
 
-            <div class="weekly-goal-header">
-
-                <span>🎯</span>
-
-                <strong>
-                    Weekly Study Goal
-                </strong>
-
+    <!-- CONTINUE -->
+    <section class="dash-panel" style="margin-top:14px">
+        <div class="dash-continue">
+            <div>
+                <h3 id="continueLearningTitle">Mathematics</h3>
+                <p id="continueLearningDescription">Pick up where you left off.</p>
             </div>
+            <button id="continueLearningButton" class="btn btn-primary">Continue</button>
+        </div>
+    </section>
 
-            <p>
-                <span id="weeklyStudyDays">0</span>
-                / 7 study days
-            </p>
+    <!-- SUBJECTS -->
+    <section class="section" style="padding-bottom:0">
+        <div class="section-head">
+            <h2>My learning</h2>
+            <p>Every subject works the same way: notes first, then papers, then a quiz to check yourself.</p>
+        </div>
 
-            <div class="weekly-progress-bar">
+        <div class="dash-grid">
 
-                <div
-                    id="weeklyProgressFill"
-                    class="weekly-progress-fill">
+            <article class="subject">
+                <div class="subject-head">
+                    <span class="subject-icon" aria-hidden="true">📐</span>
+                    <div>
+                        <h3><a href="mathematics.html">Mathematics</a></h3>
+                        <small>Formulas, worked examples, revision sets</small>
+                    </div>
                 </div>
-
-            </div>
-
-            <small id="weeklyProgressText">
-                0% complete
-            </small>
-
-        </div>
-</section>
-<!-- XP + LEVEL -->
-<section class="xp-level-section">
-
-    <h2>🎖️ Your Learning Level</h2>
-
-    <div class="xp-level-card">
-
-        <div class="level-icon">
-            🌟
-        </div>
-
-        <div class="level-content">
-
-            <h3 id="studentLevel">
-                Level 1 — Beginner
-            </h3>
-
-            <p>
-                <span id="studentXP">0</span>
-                /
-                <span id="nextLevelXP">100</span>
-                XP
-            </p>
-
-            <div class="xp-bar">
-
-                <div
-                    class="xp-bar-fill"
-                    id="xpBarFill">
+                <div class="chips">
+                    <a class="chip" href="math-notes.html">Notes</a>
+                    <a class="chip" href="math-pastpapers.html">Past papers</a>
+                    <a class="chip" href="math-revisionpapers.html">Revision papers</a>
+                    <a class="chip" href="math-quiz.html">Quiz</a>
+                    <a class="chip" href="math-videos.html">Videos</a>
                 </div>
+            </article>
 
+            <article class="subject">
+                <div class="subject-head">
+                    <span class="subject-icon" aria-hidden="true">🔬</span>
+                    <div>
+                        <h3><a href="science.html">Science</a></h3>
+                        <small>Biology, Chemistry and Physics</small>
+                    </div>
+                </div>
+                <div class="chips">
+                    <a class="chip" href="science-notes.html">Notes</a>
+                    <a class="chip" href="science-pastpapers.html">Past papers</a>
+                    <a class="chip" href="science-quiz.html">Quiz</a>
+                    <a class="chip" href="biology-quiz.html">Biology quiz</a>
+                    <a class="chip" href="chemistry-quiz.html">Chemistry quiz</a>
+                    <a class="chip" href="physics-quiz.html">Physics quiz</a>
+                    <a class="chip" href="science-videos.html">Videos</a>
+                </div>
+            </article>
+
+            <article class="subject">
+                <div class="subject-head">
+                    <span class="subject-icon" aria-hidden="true">📖</span>
+                    <div>
+                        <h3><a href="english.html">English</a></h3>
+                        <small>Comprehension, grammar and composition</small>
+                    </div>
+                </div>
+                <div class="chips">
+                    <a class="chip" href="english-notes.html">Notes</a>
+                    <a class="chip" href="english-pastpapers.html">Past papers</a>
+                    <a class="chip" href="english-quiz.html">Quiz</a>
+                    <a class="chip" href="english-videos.html">Videos</a>
+                </div>
+            </article>
+
+            <article class="subject">
+                <div class="subject-head">
+                    <span class="subject-icon" aria-hidden="true">🗣️</span>
+                    <div>
+                        <h3><a href="kiswahili.html">Kiswahili</a></h3>
+                        <small>Insha, sarufi na ufahamu</small>
+                    </div>
+                </div>
+                <div class="chips">
+                    <a class="chip" href="kiswahili-notes.html">Notes</a>
+                    <a class="chip" href="kiswahili-pastpapers.html">Past papers</a>
+                    <a class="chip" href="kiswahili-quiz.html">Quiz</a>
+                    <a class="chip" href="kiswahili-videos.html">Videos</a>
+                </div>
+            </article>
+
+            <article class="subject">
+                <div class="subject-head">
+                    <span class="subject-icon" aria-hidden="true">🌍</span>
+                    <div>
+                        <h3><a href="social-sciences.html">Social Sciences</a></h3>
+                        <small>History, Geography and Civics</small>
+                    </div>
+                </div>
+                <div class="chips">
+                    <a class="chip" href="social-sciences-notes.html">Notes</a>
+                    <a class="chip" href="social-sciences-pastpapers.html">Past papers</a>
+                    <a class="chip" href="social-sciences-quiz.html">Quiz</a>
+                    <a class="chip" href="social-sciences-videos.html">Videos</a>
+                </div>
+            </article>
+
+            <article class="subject">
+                <div class="subject-head">
+                    <span class="subject-icon" aria-hidden="true">🗂️</span>
+                    <div>
+                        <h3>Everything else</h3>
+                        <small>The whole library at once</small>
+                    </div>
+                </div>
+                <div class="chips">
+                    <a class="chip" href="notes.html">All notes</a>
+                    <a class="chip" href="pastpapers.html">All past papers</a>
+                    <a class="chip" href="quiz.html">All quizzes</a>
+                    <a class="chip" href="videos.html">All videos</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="section" style="padding-bottom:0">
+        <div class="section-head">
+            <h2>Achievements</h2>
+            <p>They unlock as you study. Nothing to claim.</p>
+        </div>
+
+        <div class="dash-achievements">
+            <div class="dash-achievement" id="achievementFirstStudy">
+                <strong>First study day</strong>
+                <small>Study for one day</small>
             </div>
-
-            <small id="xpMessage">
-                Keep learning to reach the next level!
-            </small>
-
+            <div class="dash-achievement" id="achievementThreeDay">
+                <strong>3-day streak</strong>
+                <small>Three days in a row</small>
+            </div>
+            <div class="dash-achievement" id="achievementSevenDay">
+                <strong>7-day streak</strong>
+                <small>A full week in a row</small>
+            </div>
+            <div class="dash-achievement" id="achievementTenDays">
+                <strong>10 study days</strong>
+                <small>Ten different days</small>
+            </div>
+            <div class="dash-achievement" id="achievementFirstQuiz">
+                <strong>First quiz</strong>
+                <small>Finish your first quiz</small>
+            </div>
+            <div class="dash-achievement" id="achievementQuizMaster">
+                <strong>Quiz master</strong>
+                <small>Ten quizzes finished</small>
+            </div>
+            <div class="dash-achievement" id="achievementWeekly">
+                <strong>Weekly champion</strong>
+                <small>Seven study days</small>
+            </div>
         </div>
+    </section>
 
-    </div>
-
-</section>
-<!-- CONTINUE LEARNING -->
-<section class="continue-learning-section">
-
-    <h2>▶️ Continue Learning</h2>
-
-    <div class="continue-learning-card">
-
-        <div class="continue-learning-icon">
-            📚
-        </div>
-
-        <div class="continue-learning-content">
-
-            <h3 id="continueLearningTitle">
-                Mathematics
-            </h3>
-
-            <p id="continueLearningDescription">
-                Continue studying Mathematics and improve your skills.
-            </p>
-
-        </div>
-
-        <button
-            class="continue-learning-button"
-            id="continueLearningButton">
-
-            Continue →
-
-        </button>
-
-    </div>
-
-</section>
-<!-- STUDENT LEARNING OVERVIEW -->
-<section class="learning-overview-section">
-
-    <h2>📊 Learning Overview</h2>
-
-    <div class="learning-overview-grid">
-
-        <div class="overview-card">
-            <span class="overview-icon">📝</span>
-
-            <span class="overview-title">
-                Quizzes Completed
-            </span>
-
-            <strong id="overviewQuizzes">
-                0
-            </strong>
-        </div>
-
-
-        <div class="overview-card">
-            <span class="overview-icon">🏆</span>
-
-            <span class="overview-title">
-                Best Quiz Score
-            </span>
-
-            <strong id="overviewBestScore">
-                0%
-            </strong>
-        </div>
-
-
-        <div class="overview-card">
-            <span class="overview-icon">🎯</span>
-
-            <span class="overview-title">
-                Average Score
-            </span>
-
-            <strong id="overviewAverageScore">
-                0%
-            </strong>
-        </div>
-
-
-        <div class="overview-card">
-            <span class="overview-icon">🔥</span>
-
-            <span class="overview-title">
-                Current Streak
-            </span>
-
-            <strong id="overviewStreak">
-                0
-            </strong>
-
-            <small>days</small>
-        </div>
-
-
-        <div class="overview-card">
-            <span class="overview-icon">🏅</span>
-
-            <span class="overview-title">
-                Badges Earned
-            </span>
-
-            <strong id="overviewBadges">
-                0
-            </strong>
-        </div>
-
-
-        <div class="overview-card">
-            <span class="overview-icon">📚</span>
-
-            <span class="overview-title">
-                Study Days
-            </span>
-
-            <strong id="overviewStudyDays">
-                0
-            </strong>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section class="achievements-section">
-
-    <h2>🏅 Achievements</h2>
-
-    <div class="achievements-grid">
-
-        <div class="achievement-card" id="achievementFirstStudy">
-            <span class="achievement-icon">🌱</span>
-            <strong>First Study Day</strong>
-            <small>Study for 1 day</small>
-        </div>
-
-        <div class="achievement-card" id="achievementThreeDay">
-            <span class="achievement-icon">🔥</span>
-            <strong>3-Day Streak</strong>
-            <small>Reach a 3-day streak</small>
-        </div>
-
-        <div class="achievement-card" id="achievementSevenDay">
-            <span class="achievement-icon">🔥</span>
-            <strong>7-Day Streak</strong>
-            <small>Reach a 7-day streak</small>
-        </div>
-
-        <div class="achievement-card" id="achievementTenDays">
-            <span class="achievement-icon">📚</span>
-            <strong>10 Study Days</strong>
-            <small>Study on 10 different days</small>
-        </div>
-
-        <div class="achievement-card" id="achievementFirstQuiz">
-            <span class="achievement-icon">📝</span>
-            <strong>First Quiz</strong>
-            <small>Complete your first quiz</small>
-        </div>
-
-        <div class="achievement-card" id="achievementQuizMaster">
-            <span class="achievement-icon">🏆</span>
-            <strong>Quiz Master</strong>
-            <small>Complete 10 quizzes</small>
-        </div>
-
-        <div class="achievement-card" id="achievementWeekly">
-            <span class="achievement-icon">🎯</span>
-            <strong>Weekly Champion</strong>
-            <small>Complete 7 study days</small>
-        </div>
-
-    </div>
-
-</section>
     <!-- ACCOUNT -->
-    <section class="account-section">
-
-        <h2>👤 My Account</h2>
-
-        <button
-            class="account-button"
-            onclick="window.location='profile.html'">
-
-            👤 My Profile
-
-        </button>
-
-
-        <button
-            class="logout-button"
-            onclick="window.location='login.html'">
-
-            🚪 Logout
-
-        </button>
-
+    <section class="section" style="padding-bottom:0">
+        <div class="section-head">
+            <h2>Account</h2>
+        </div>
+        <div class="dash-account">
+            <a class="btn btn-ghost" href="profile.html">My profile</a>
+            <a class="btn btn-ghost" href="premium.html">Premium plans</a>
+            <a class="btn btn-ghost" href="login.html">Log out</a>
+        </div>
     </section>
 
+</main>
 
-    <!-- FOOTER -->
-    <footer class="dashboard-footer">
-
-        <p>
-            © 2026 Learn Smart Hub
-        </p>
-
-        <p>
-            Learn • Practice • Succeed
-        </p>
-
-    </footer>
-
-</div>
-
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="videos.html">Videos</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
+    </div>
+</footer>
 
 <script type="module" src="dashboard.js"></script>
-
 <script src="app.js"></script>
-    <script type="module" src="gate.js"></script>
+<script type="module" src="gate.js"></script>
 </body>
-
 </html>

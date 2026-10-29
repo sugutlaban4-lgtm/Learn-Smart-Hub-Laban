@@ -80,6 +80,33 @@
         </div>
     </section>
 
+    <!-- PREMIUM LIBRARY -->
+    <section class="dash-panel" style="margin-top:14px">
+        <div class="dash-premium-head">
+            <div>
+                <h2>Premium library</h2>
+                <p id="pmPanelStatus" class="dash-premium-status">Checking your Premium shelf...</p>
+            </div>
+            <a class="btn btn-primary btn-sm" href="premium-materials.html">Open library</a>
+        </div>
+
+        <div id="pmPanelSubjects" class="pm-panel-grid"></div>
+
+        <p id="pmPanelFoot" class="dash-premium-plan">&nbsp;</p>
+    </section>
+
+    <style>
+        .dash-premium-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+        .dash-premium-head h2 { margin: 0 0 4px; }
+        .pm-panel-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); margin-top: 12px; }
+        .pm-panel-tile { display: flex; flex-direction: column; gap: 3px; padding: 12px 13px;
+            border: 1px solid var(--line); border-radius: 12px; background: #fff; text-decoration: none; }
+        .pm-panel-tile:hover { border-color: var(--brand-300); background: var(--brand-50); }
+        .pm-panel-tile strong { font-size: 0.94rem; color: var(--ink); }
+        .pm-panel-tile span { font-size: 0.76rem; color: #7c8aa3; }
+        .pm-panel-tile.is-locked strong::after { content: " · locked"; color: #b06b00; font-weight: 600; }
+    </style>
+
     <!-- SEARCH -->
     <section class="dash-panel" style="margin-top:14px">
         <h2>Find something to study</h2>
@@ -351,6 +378,7 @@
 </footer>
 
 <script type="module" src="dashboard.js"></script>
+<script type="module" src="dashboard-premium-panel.js"></script>
 <script src="app.js"></script>
 <script type="module" src="gate.js"></script>
 </body>

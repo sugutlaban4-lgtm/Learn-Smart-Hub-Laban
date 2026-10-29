@@ -23,11 +23,11 @@
         return;
     }
 
-    var videos = data.videos.slice();
+    var FREE_VIDEOS = 2;
+
+    var videos = [];
+    var gatedOut = 0;
     var topicOrder = [];
-    videos.forEach(function (v) {
-        if (topicOrder.indexOf(v.topic) === -1) topicOrder.push(v.topic);
-    });
 
     var activeTopic = "all";
     var query = "";
@@ -165,9 +165,38 @@
         renderGrid();
     });
 
-    renderChips();
     mount.appendChild(toolbar);
     mount.appendChild(count);
     mount.appendChild(grid);
-    renderGrid();
+    count.textContent = "Loading lessons…";
+
+    /* How much opens depends on the plan, so the first paint waits for the
+       access check. Signed out or unreachable backend resolves to free. */
+    (window.LSH_ACCESS || Promise.resolve({ premium: false })).then(function (access) {
+
+        videos = access.premium
+            ? data.videos.slice()
+            : data.videos.slice(0, FREE_VIDEOS);
+
+        gatedOut = data.videos.length - videos.length;
+
+        videos.forEach(function (v) {
+            if (topicOrder.indexOf(v.topic) === -1) topicOrder.push(v.topic);
+        });
+
+        renderChips();
+        renderGrid();
+
+        if (gatedOut > 0) {
+            var lock = el("div", "topic-card lock-card");
+            lock.innerHTML =
+                '<span class="lock-badge">Premium</span>' +
+                "<h2>" + gatedOut + " more lessons are Premium</h2>" +
+                '<p class="lock-copy">The lessons above are free. Premium opens all ' +
+                data.videos.length + " for this subject.</p>" +
+                '<a class="btn btn-primary" href="premium.html">Unlock every lesson</a>';
+            mount.appendChild(lock);
+        }
+
+    });
 })();

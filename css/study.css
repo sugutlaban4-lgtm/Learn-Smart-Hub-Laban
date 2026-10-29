@@ -1018,3 +1018,67 @@ button.hub-card {
     max-width: 560px;
     border-radius: 16px;
 }
+
+/* ------------------------------
+   PREMIUM LOCK
+   Used by the notes, paper, quiz and video renderers when a student has no
+   active plan: the item stays visible as a title so the value is clear, and
+   the body waits behind premium.html.
+------------------------------ */
+
+.tier-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 0 16px;
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-row);
+    background: var(--card);
+}
+
+.tier-banner p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+}
+
+.tier-banner strong {
+    color: var(--ink);
+}
+
+.lock-card {
+    border-style: dashed;
+    background: var(--card);
+}
+
+.lock-badge {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+.lock-card h2 {
+    margin: 0 0 6px;
+    font-size: 1.02rem;
+}
+
+.lock-copy {
+    margin: 0 0 12px;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.lock-card .btn {
+    align-self: flex-start;
+}

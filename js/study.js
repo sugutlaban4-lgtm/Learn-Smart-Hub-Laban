@@ -51,10 +51,48 @@
 
 
     /* -------------------------------
+       WHAT IS FREE
+       Everything opens for a student with an active plan. Without one the
+       first item of each kind stays open so the page can still be judged.
+    ------------------------------- */
+
+    const FREE_NOTES = 1;
+
+    const FREE_PAPERS = 1;
+
+    const FREE_QUIZ_QUESTIONS = 5;
+
+    function lockedCard(title, level, copy, cta) {
+
+        return (
+            '<article class="topic-card lock-card" data-level="' + esc(level || "Notes") + '">' +
+            '<span class="lock-badge">Premium</span>' +
+            "<h2>" + esc(title) + "</h2>" +
+            '<p class="lock-copy">' + esc(copy) + "</p>" +
+            '<a class="btn btn-primary" href="premium.html">' + esc(cta) + "</a>" +
+            "</article>"
+        );
+
+    }
+
+    function tierBanner(free, total, unit) {
+
+        return (
+            '<div class="tier-banner">' +
+            "<p><strong>Free preview.</strong> " + free + " of " + total + " " + unit +
+            " are open. Premium opens the rest, with no limit on revisits.</p>" +
+            '<a class="btn btn-ghost" href="premium.html">See Premium</a>' +
+            "</div>"
+        );
+
+    }
+
+
+    /* -------------------------------
        NOTES
     ------------------------------- */
 
-    function renderNotes() {
+    function renderNotes(access) {
 
         const target = document.getElementById("studyNotes");
 
@@ -97,7 +135,26 @@
                 : "";
 
 
+        const isPremium = !!(access && access.premium);
+
+        const freeNotes = isPremium
+            ? subject.notes.length
+            : Math.min(FREE_NOTES, subject.notes.length);
+
+
         const cards = subject.notes.map((topic, index) => {
+
+            if (index >= freeNotes) {
+
+                return lockedCard(
+                    (index + 1) + ". " + topic.topic,
+                    topic.level || "Notes",
+                    (topic.summary || "This topic is part of Premium.") +
+                        " Premium opens the full notes, formula and worked example.",
+                    "Unlock all " + subject.notes.length + " topics"
+                );
+
+            }
 
             const points = (topic.points || [])
                 .map(point => "<li>" + esc(point) + "</li>")
@@ -130,6 +187,9 @@
 
 
         target.innerHTML =
+            (isPremium
+                ? ""
+                : tierBanner(freeNotes, subject.notes.length, "topics")) +
             toolbar +
             '<div class="topic-grid" id="topicGrid">' + cards + "</div>";
 
@@ -170,7 +230,7 @@
        PAST PAPERS
     ------------------------------- */
 
-    function renderPapers() {
+    function renderPapers(access) {
 
         const target = document.getElementById("studyPapers");
 
@@ -270,9 +330,40 @@
                 : "";
 
 
+        const isPremium = !!(access && access.premium);
+
+        const freePapers = isPremium
+            ? subject.papers.length
+            : Math.min(FREE_PAPERS, subject.papers.length);
+
+
+        function paperView(index) {
+
+            if (index >= freePapers) {
+
+                const paper = subject.papers[index];
+
+                return lockedCard(
+                    paper.title,
+                    "Paper " + (index + 1),
+                    (paper.meta ? paper.meta + ". " : "") +
+                        "This paper is part of Premium. The first paper stays free.",
+                    "Unlock every paper"
+                );
+
+            }
+
+            return paperHtml(subject.papers[index]);
+
+        }
+
+
         target.innerHTML =
+            (isPremium
+                ? ""
+                : tierBanner(freePapers, subject.papers.length, "papers")) +
             switcher +
-            '<div id="paperHolder">' + paperHtml(subject.papers[0]) + "</div>";
+            '<div id="paperHolder">' + paperView(0) + "</div>";
 
 
         target.querySelectorAll("[data-paper]").forEach(chip => {
@@ -291,7 +382,7 @@
                 });
 
                 document.getElementById("paperHolder").innerHTML =
-                    paperHtml(subject.papers[index]);
+                    paperView(index);
 
                 window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -306,7 +397,7 @@
        QUIZ
     ------------------------------- */
 
-    function renderQuiz() {
+    function renderQuiz(access) {
 
         const target = document.getElementById("quizApp");
 
@@ -330,7 +421,11 @@
         }
 
 
-        const questions = bank.questions;
+        const isPremium = !!(access && access.premium);
+
+        const questions = isPremium
+            ? bank.questions
+            : bank.questions.slice(0, FREE_QUIZ_QUESTIONS);
 
         const storageKey = "lsh-best-" + (subjectId || "quiz") + "-" + (quizId || "quiz");
 
@@ -383,6 +478,15 @@
             '<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>' +
             "</div>" +
             questionsHtml +
+            (!isPremium && bank.questions.length > questions.length
+                ? lockedCard(
+                    "Questions " + (questions.length + 1) + " to " + bank.questions.length,
+                    "Quiz",
+                    "The rest of this quiz is part of Premium, with the full " +
+                        bank.questions.length + " questions and the same instant answers.",
+                    "Unlock the full quiz"
+                )
+                : "") +
             '<div class="quiz-panel">' +
             '<div class="quiz-actions">' +
             '<button class="btn btn-primary" id="submitQuiz" type="button">Finish quiz</button>' +
@@ -579,13 +683,19 @@
 
     function start() {
 
-        if (mode === "notes") {
-            renderNotes();
-        } else if (mode === "papers") {
-            renderPapers();
-        } else if (mode === "quiz") {
-            renderQuiz();
-        }
+        const access = window.LSH_ACCESS || Promise.resolve({ premium: false, plan: "none" });
+
+        access.then(result => {
+
+            if (mode === "notes") {
+                renderNotes(result);
+            } else if (mode === "papers") {
+                renderPapers(result);
+            } else if (mode === "quiz") {
+                renderQuiz(result);
+            }
+
+        });
 
     }
 

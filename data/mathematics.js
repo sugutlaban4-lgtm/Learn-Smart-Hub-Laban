@@ -138,6 +138,176 @@ window.LSH_SUBJECT = {
         question: "Simplify (2^5 * 2^3) / 2^4.",
         solution: "Step 1: Apply the multiplication law in the numerator: 2^(5+3) = 2^8. Step 2: Apply the division law: 2^8 / 2^4 = 2^(8-4) = 2^4. Step 3: Evaluate 2^4 = 16. Final answer: 16."
       }
+    },
+    {
+      topic: "Statistics and grouped data",
+      level: "Grade 10",
+      summary: "This topic covers calculating measures of central tendency including mean, median, and mode for both discrete data sets and continuous grouped data distributions.",
+      points: [
+        "The mean of a data set is calculated by dividing the sum of all values by the total number of observations.",
+        "The median represents the middle value when data is arranged in ascending order of magnitude.",
+        "The mode is the data value or class interval that appears with the highest frequency.",
+        "For grouped data, the estimated mean is calculated using class midpoints multiplied by their respective frequency values.",
+        "Cumulative frequency curves or ogives are used to estimate medians and quartiles for grouped distributions."
+      ],
+      formula: "Mean = sum(f * x) / sum(f)",
+      example: {
+        question: "A Kenyan farmer recorded the daily milk yield in litres from 5 cows: 12, 15, 14, 15, and 19. Calculate the mean and mode of the milk yields.",
+        solution: "Step 1: Calculate the sum of all milk yields: 12 + 15 + 14 + 15 + 19 = 75. Step 2: Divide the total by the number of cows to find the mean: 75 / 5 = 15 litres. Step 3: Identify the yield with the highest frequency: 15 litres appears twice, so the mode is 15 litres. Final answer: Mean = 15 litres, Mode = 15 litres."
+      }
+    },
+    {
+      topic: "Commercial arithmetic",
+      level: "Grade 10",
+      summary: "This topic explains financial calculations involving simple interest, compound interest, profit and loss percentages, discounts, commission, and hire purchase transactions.",
+      points: [
+        "Profit or loss is calculated by taking the difference between selling price and buying price.",
+        "Percentage profit or loss is expressed as a ratio over the original cost price multiplied by 100.",
+        "Simple interest is earned strictly on the initial principal amount over a specified period.",
+        "Compound interest accumulates on both the principal amount and interest earned in previous compounding periods.",
+        "Hire purchase allows buyers to pay a deposit followed by equal monthly instalments over an agreed timeframe."
+      ],
+      formula: "A = P * (1 + r/100)^n, I = (P * R * T) / 100",
+      example: {
+        question: "A trader in Nairobi buys a sack of maize for 3000 Kenyan shillings and sells it for 3600 Kenyan shillings. Calculate the percentage profit.",
+        solution: "Step 1: Calculate the profit made by subtracting the cost price from the selling price: 3600 - 3000 = 600 shillings. Step 2: Divide the profit by the cost price: 600 / 3000 = 0.2. Step 3: Multiply by 100 to convert to percentage: 0.2 * 100 = 20 percent. Final answer: 20 percent."
+      }
+    },
+    {
+      topic: "Probability",
+      level: "Grade 10",
+      summary: "This topic focuses on determining the likelihood of events occurring using theoretical probability formulas, outcome spaces, tree diagrams, and combined probability rules.",
+      points: [
+        "Probability is a measure of likelihood expressed as a number between 0 and 1 inclusive.",
+        "An event with a probability of 0 is impossible, while an event with a probability of 1 is certain.",
+        "The sum of probabilities for all mutually exclusive and exhaustive outcomes equals 1.",
+        "For independent events, the probability of both events occurring is found by multiplying their individual probabilities.",
+        "Tree diagrams help visualize outcomes and calculate probabilities for sequential multi-stage experiments."
+      ],
+      formula: "P(A) = n(A) / n(S), P(A or B) = P(A) + P(B)",
+      example: {
+        question: "A bag contains 5 red balls and 3 blue balls. A ball is drawn at random. What is the probability of drawing a red ball?",
+        solution: "Step 1: Find the total number of balls in the bag: 5 + 3 = 8. Step 2: Identify the number of favourable outcomes for red balls, which is 5. Step 3: Divide favourable outcomes by total outcomes: P(red) = 5 / 8. Final answer: 5/8."
+      }
+    },
+    {
+      topic: "Matrices",
+      level: "Grade 11",
+      summary: "This topic covers matrix operations including addition, scalar multiplication, matrix multiplication, determinant calculation, and finding inverses for solving simultaneous equations.",
+      points: [
+        "A matrix is a rectangular array of numbers arranged in rows and columns.",
+        "Matrices can only be added or subtracted if they have identical dimensions.",
+        "Matrix multiplication requires the number of columns in the first matrix to match the rows in the second matrix.",
+        "The determinant of a 2x2 matrix with elements [a, b; c, d] is calculated as a*d - b*c.",
+        "A matrix is non-singular and has an inverse if its determinant is not equal to zero."
+      ],
+      formula: "det(A) = a*d - b*c, A^(-1) = (1 / (a*d - b*c)) * [d, -b; -c, a]",
+      example: {
+        question: "Find the determinant of the 2x2 matrix A = [4, 2; 3, 5].",
+        solution: "Step 1: Identify matrix entries: a = 4, b = 2, c = 3, and d = 5. Step 2: Multiply the main diagonal entries: 4 * 5 = 20. Step 3: Multiply the off-diagonal entries and subtract from main product: 20 - (2 * 3) = 20 - 6 = 14. Final answer: 14."
+      }
+    },
+    {
+      topic: "Circle geometry",
+      level: "Grade 11",
+      summary: "This topic covers geometric properties of circles including angle theorems, chord properties, cyclic quadrilaterals, tangents, and alternate segment angle theorems.",
+      points: [
+        "The angle subtended by an arc at the centre is twice the angle subtended at the circumference.",
+        "Angles subtended by the same arc in the same segment of a circle are equal.",
+        "The angle subtended at the circumference by a diameter is always a right angle of 90 degrees.",
+        "Opposite angles of a cyclic quadrilateral add up to 180 degrees.",
+        "A tangent to a circle is perpendicular to the radius drawn to the point of contact."
+      ],
+      formula: "Angle at centre = 2 * Angle at circumference",
+      example: {
+        question: "In a circle with centre O, an arc AB subtends an angle of 70 degrees at the circumference. Calculate the angle subtended by arc AB at the centre O.",
+        solution: "Step 1: Recall the angle theorem stating that the central angle is twice the angle at the circumference. Step 2: Multiply the circumference angle by 2: 2 * 70 degrees = 140 degrees. Step 3: State the resulting angle value. Final answer: 140 degrees."
+      }
+    },
+    {
+      topic: "Coordinate geometry and straight lines",
+      level: "Grade 10",
+      summary: "This topic covers finding midpoints, line segment lengths, gradients, parallel and perpendicular slopes, and equations of straight lines in coordinate planes.",
+      points: [
+        "The gradient of a line passing through points (x1, y1) and (x2, y2) is (y2 - y1) / (x2 - x1).",
+        "Parallel lines have equal gradients while perpendicular lines have gradients whose product is -1.",
+        "The equation of a straight line is commonly written in gradient-intercept form as y = m*x + c.",
+        "The distance between two points (x1, y1) and (x2, y2) is sqrt((x2 - x1)^2 + (y2 - y1)^2).",
+        "The midpoint of a line segment joining two points is ((x1 + x2)/2, (y1 + y2)/2)."
+      ],
+      formula: "m = (y2 - y1) / (x2 - x1), y - y1 = m * (x - x1)",
+      example: {
+        question: "Find the gradient of the straight line passing through points A(2, 3) and B(6, 11).",
+        solution: "Step 1: Identify coordinates x1 = 2, y1 = 3, x2 = 6, and y2 = 11. Step 2: Apply the gradient formula m = (y2 - y1) / (x2 - x1). Step 3: Substitute and simplify: m = (11 - 3) / (6 - 2) = 8 / 4 = 2. Final answer: 2."
+      }
+    },
+    {
+      topic: "Sequences and series",
+      level: "Grade 11",
+      summary: "This topic explores arithmetic and geometric progressions, determining general terms, common differences or ratios, and calculating sum of terms for finite series.",
+      points: [
+        "An arithmetic progression has a constant common difference added between consecutive terms.",
+        "The n-th term of an arithmetic progression is given by T_n = a + (n - 1)*d.",
+        "A geometric progression has a constant common ratio multiplied between consecutive terms.",
+        "The n-th term of a geometric progression is given by T_n = a * r^(n - 1).",
+        "The sum of the first n terms of an arithmetic progression is S_n = (n / 2) * (2*a + (n - 1)*d)."
+      ],
+      formula: "T_n = a + (n - 1)*d, S_n = (n / 2) * (2*a + (n - 1)*d), T_n = a * r^(n - 1)",
+      example: {
+        question: "Find the 10th term of an arithmetic progression with first term a = 4 and common difference d = 3.",
+        solution: "Step 1: Identify given values: a = 4, d = 3, and n = 10. Step 2: Use the n-th term formula T_n = a + (n - 1)*d. Step 3: Substitute values: T_10 = 4 + (10 - 1) * 3 = 4 + 9 * 3 = 4 + 27 = 31. Final answer: 31."
+      }
+    },
+    {
+      topic: "Bearings and scale drawing",
+      level: "Grade 10",
+      summary: "This topic explains representing directions as three-figure bearings measured clockwise from true north and using scale drawings to determine distances and positions.",
+      points: [
+        "Bearings are angles measured clockwise from true north and expressed using three digits.",
+        "A direction pointing directly East corresponds to a three-figure bearing of 090 degrees.",
+        "Back bearing is the opposite direction found by adding or subtracting 180 degrees from the forward bearing.",
+        "Scale drawing uses a fixed ratio to represent actual physical distances accurately on paper.",
+        "Trigonometry and sine or cosine rules can be used to calculate actual distances from bearing diagrams."
+      ],
+      formula: "Back bearing = Forward bearing +- 180 deg",
+      example: {
+        question: "A town B is on a bearing of 065 degrees from town A. Calculate the back bearing of town A from town B.",
+        solution: "Step 1: Check if the forward bearing is less than 180 degrees: 65 degrees is less than 180 degrees. Step 2: Add 180 degrees to find the back bearing: 65 + 180 = 245 degrees. Step 3: Express the result as a three-figure bearing: 245 degrees. Final answer: 245 deg."
+      }
+    },
+    {
+      topic: "Linear programming",
+      level: "Grade 11",
+      summary: "This topic details formulating linear inequalities from practical contextual constraints, graphing feasible regions, and optimizing objective functions to find maximum or minimum values.",
+      points: [
+        "Linear programming optimizes a linear function subject to linear inequality constraints.",
+        "Decision variables represent quantities being determined, such as numbers of products to produce.",
+        "Inequality constraints are plotted as straight boundary lines on Cartesian axes.",
+        "The feasible region is the shaded area containing all coordinate points satisfying all constraints simultaneously.",
+        "Optimal values occur at corner vertices of the feasible region polygon."
+      ],
+      formula: "Objective function Z = a*x + b*y",
+      example: {
+        question: "A matatu driver transports x adults and y children. The total capacity is at most 14 passengers. Express this constraint as an inequality.",
+        solution: "Step 1: Identify the variables representing passengers: x for adults and y for children. Step 2: Combine the variables to represent total passengers: x + y. Step 3: Apply the maximum limit condition of 14: x + y <= 14. Final answer: x + y <= 14."
+      }
+    },
+    {
+      topic: "Distance, speed, and time",
+      level: "Grade 10",
+      summary: "This topic covers calculating average speed, travel distance, motion time, relative speeds of approaching or overtaking objects, and interpreting travel graphs.",
+      points: [
+        "Speed is defined as the rate of change of distance with respect to time.",
+        "Average speed is calculated by dividing total distance travelled by total time taken.",
+        "When two vehicles travel towards each other, their relative speed is the sum of their individual speeds.",
+        "When one vehicle chases another in the same direction, their relative speed is the difference between their speeds.",
+        "The gradient of a distance-time graph represents the speed of the moving object."
+      ],
+      formula: "Speed = Distance / Time, Distance = Speed * Time, Time = Distance / Speed",
+      example: {
+        question: "A matatu travels a distance of 180 kilometres from Nairobi to Nakuru in 3 hours. Calculate its average speed in kilometres per hour.",
+        solution: "Step 1: Identify the given distance d = 180 km and time t = 3 hours. Step 2: Apply the speed formula: Speed = Distance / Time. Step 3: Divide distance by time: 180 / 3 = 60 km/h. Final answer: 60 km/h."
+      }
     }
   ],
   papers: [

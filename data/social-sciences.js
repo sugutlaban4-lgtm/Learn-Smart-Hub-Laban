@@ -138,6 +138,142 @@ window.LSH_SUBJECT = {
         question: "Identify two challenges facing agricultural production in Kenya.",
         solution: "First, frequent droughts caused by climate variability reduce crop yields. Second, high costs of agricultural inputs such as fertilisers lower farmer profits."
       }
+    },
+    {
+      topic: "The Three Arms of Government",
+      level: "Grade 10",
+      summary: "This topic covers the executive, legislature, and judiciary in Kenya, detailing their respective roles, independence, and the system of checks and balances that ensures good governance.",
+      points: [
+        "The Legislature consists of the National Assembly and the Senate, which enact national legislation and oversight public revenue.",
+        "The Executive comprises the President, Deputy President, and Cabinet, responsible for executing laws and national policy.",
+        "The Judiciary consists of courts of law, led by the Chief Justice, responsible for interpreting laws and resolving disputes.",
+        "Separation of powers prevents any single arm of government from usurping total authority over state functions.",
+        "Checks and balances allow each arm to monitor and limit the powers exercised by the other arms."
+      ],
+      formula: "Separation of Powers = Executive + Legislature + Judiciary",
+      example: {
+        question: "Explain how the principle of separation of powers applies to the three arms of government in Kenya.",
+        solution: "Step 1: Identify the three distinct arms of government as the Executive, Legislature, and Judiciary. Step 2: Examine how functions are divided so that the Legislature makes laws, the Executive implements laws, and the Judiciary interprets laws. Step 3: Analyse how checks and balances prevent concentration of power by allowing each arm to oversee the others. Final answer: Separation of powers allocates distinct legislative, executive, and judicial responsibilities to separate institutions to preserve rule of law and prevent abuse of authority."
+      }
+    },
+    {
+      topic: "Citizenship and Nationality",
+      level: "Grade 10",
+      summary: "This topic covers the legal concepts of citizenship and nationality in Kenya, examining acquisition pathways, duties of citizens, and grounds for revocation of citizenship.",
+      points: [
+        "Kenyan citizenship can be acquired through birth or through registration according to constitutional provisions.",
+        "A person born of at least one parent who is a Kenyan citizen becomes a citizen by birth automatically.",
+        "Citizenship by registration is available to lawful residents, spouses of citizens, and adopted children upon application.",
+        "Dual citizenship is permitted under the Constitution of Kenya for citizens by birth.",
+        "Citizenship by registration may be revoked if acquired through fraud, false representation, or deceit."
+      ],
+      formula: "Types of Citizenship = Birth + Registration",
+      example: {
+        question: "Describe two ways through which a person can become a citizen of Kenya.",
+        solution: "Step 1: Define citizenship by birth, which is granted automatically if either parent is a Kenyan citizen at the time of birth. Step 2: Define citizenship by registration, which requires an eligible foreign national to apply after satisfying legal residence requirements. Step 3: Compare both methods to show that birth is automatic while registration involves an official application process. Final answer: A person becomes a Kenyan citizen either automatically by birth to a Kenyan parent or by formal registration after fulfilling statutory criteria."
+      }
+    },
+    {
+      topic: "County Governments and Revenue Allocation",
+      level: "Grade 11",
+      summary: "This topic covers county government financial structures, revenue sources, national revenue sharing, and the role of the Commission on Revenue Allocation in devolution.",
+      points: [
+        "County governments generate internal revenue through property rates, entertainment taxes, and business licence fees.",
+        "The national government shares raised revenue equitably between national and county levels of governance.",
+        "The Constitution stipulates that county governments receive at least 15 percent of revenue collected by the national government.",
+        "The Commission on Revenue Allocation recommends equitable share formulas based on population, poverty levels, and land area.",
+        "Equalisation Fund allocations assist marginalised counties in improving basic infrastructure such as water, roads, and health facilities."
+      ],
+      formula: "Revenue share: counties minimum 15 percent of equitable national revenue",
+      example: {
+        question: "Calculate the minimum allocation for county governments if the total raised national revenue is 2,000 billion Kenyan shillings.",
+        solution: "Step 1: Identify the constitutional minimum share for county governments, which is 15 percent of total national revenue. Step 2: Multiply the total national revenue of 2,000 billion Kenyan shillings by 0.15. Step 3: Perform the calculation: 2,000 billion x 0.15 = 300 billion Kenyan shillings. Final answer: The minimum total allocation for county governments is 300 billion Kenyan shillings."
+      }
+    },
+    {
+      topic: "Colonial Administration in Kenya",
+      level: "Grade 11",
+      summary: "This topic covers British colonial administration systems in Kenya, examining direct rule, indirect rule, land alienation, and the taxation policies imposed on Africans.",
+      points: [
+        "The British administration used direct rule in settler highlands and indirect rule through appointed chiefs in rural reserves.",
+        "Colonial authorities introduced land alienation to reserve fertile volcanic soil in the White Highlands for European settlers.",
+        "Hut and poll taxes forced African men to enter the wage labour market to earn money for tax payments.",
+        "The Kipande system was introduced as an identity pass to control African labour movement and enforce work contracts.",
+        "Africans were prohibited from growing lucrative cash crops such as coffee and tea to prevent competition with settlers."
+      ],
+      formula: null,
+      example: {
+        question: "Explain two methods used by colonial authorities to secure cheap African labour for European farms.",
+        solution: "Step 1: Identify taxation as a primary method, noting that hut and poll taxes required cash which forced Africans to seek wage employment. Step 2: Identify the Kipande system as a movement control measure that monitored workers and prevented desertion from farms. Step 3: Synthesise how these economic and administrative measures combined to compel African participation in settler farm labour. Final answer: Colonial authorities secured cheap labour by imposing mandatory cash taxes and using the Kipande system to restrict worker movement."
+      }
+    },
+    {
+      topic: "The Mau Mau Movement",
+      level: "Grade 11",
+      summary: "This topic covers the origins, strategies, key leadership, and impact of the Mau Mau liberation struggle against British colonial rule in Kenya.",
+      points: [
+        "The Mau Mau movement emerged in the late 1940s as an armed resistance against colonial land alienation and political oppression.",
+        "Oaths of unity and secrecy were administered to instil commitment and discipline among freedom fighters.",
+        "Guerrilla warfare was waged from forests such as Aberdares and Mount Kenya under leaders like Dedan Kimathi.",
+        "The British colonial government declared a State of Emergency in 1952, arresting political leaders and detaining thousands of suspects.",
+        "Although military suppression occurred, the uprising accelerated political constitutional reforms leading directly to independence."
+      ],
+      formula: null,
+      example: {
+        question: "Explain two factors that contributed to the rise of the Mau Mau movement in Kenya.",
+        solution: "Step 1: Identify land alienation in the White Highlands, which left many Africans landless and forced into squatter labour. Step 2: Identify political frustration resulting from restricted African representation in the Legislative Council despite peaceful petitions. Step 3: Connect these economic and political grievances to the decision by radical leaders to adopt armed resistance. Final answer: The Mau Mau movement arose due to severe African landlessness from colonial alienation and deep frustration with peaceful political reforms."
+      }
+    },
+    {
+      topic: "Mining, Fishing and Forestry in East Africa",
+      level: "Grade 10",
+      summary: "This topic covers the extraction of natural resources in East Africa, highlighting mining techniques, major fishing grounds, forestry management, and environmental conservation.",
+      points: [
+        "Major minerals in East Africa include soda ash at Lake Magadi, titanium at Kwale, and gold in western Tanzania.",
+        "Open-cast mining and shaft mining are the principal methods used for extracting mineral deposits.",
+        "Inland fishing takes place on Lake Victoria, Lake Tanganyika, and Lake Naivasha, yielding species like Nile perch and tilapia.",
+        "Forests provide timber, fuelwood, medicinal herbs, and water catchment protection across high altitude regions.",
+        "Over-exploitation, deforestation, and water pollution threaten the sustainability of these primary resource sectors."
+      ],
+      formula: null,
+      example: {
+        question: "Explain two challenges facing the fishing industry in Lake Victoria.",
+        solution: "Step 1: Identify overfishing caused by illegal fishing gear and unmonitored harvesting of young fish. Step 2: Identify environmental degradation, particularly infestation by water hyacinth weeds which choke oxygen and impede boat navigation. Step 3: Relate these factors to declining fish stocks and reduced income for local fishing communities. Final answer: The Lake Victoria fishing industry faces serious challenges from overfishing with improper nets and water hyacinth infestation obstructing navigation."
+      }
+    },
+    {
+      topic: "Agriculture in Kenya",
+      level: "Grade 10",
+      summary: "This topic covers crop farming and livestock production in Kenya, analysing cash crops, food security crops, farming systems, and agricultural improvement strategies.",
+      points: [
+        "Cash crop farming focuses on export commodities including tea, coffee, pyrethrum, and horticultural produce.",
+        "Maize, wheat, beans, and cassava are key food crops essential for maintaining domestic food security.",
+        "High-altitude volcanic highlands provide cool temperatures and fertile soils suitable for tea and coffee cultivation.",
+        "Irrigation schemes such as Mwea Rice Scheme enable crop cultivation in dry and semi-arid regions.",
+        "Agricultural challenges include unreliable rainfall patterns, pest infestation, high cost of inputs, and land fragmentation."
+      ],
+      formula: null,
+      example: {
+        question: "Describe three physical factors that favour tea growing in the Kenyan highlands.",
+        solution: "Step 1: Identify high altitude, usually between 1,500 and 2,200 metres, which provides cool temperatures for steady leaf growth. Step 2: Identify high, well-distributed rainfall exceeding 1,200 millimetres annually to maintain moisture. Step 3: Identify deep, well-drained, acidic volcanic soils that support healthy tea root systems. Final answer: Tea growing is favoured by high altitude temperatures, abundant well-distributed rainfall, and deep, acidic volcanic soils."
+      }
+    },
+    {
+      topic: "Soils and Soil Erosion",
+      level: "Grade 10",
+      summary: "This topic covers soil composition, soil profile development, agents and types of soil erosion, and soil conservation measures applied in East Africa.",
+      points: [
+        "Soil consists of weathered mineral particles, organic matter, water, air, and living micro-organisms.",
+        "A soil profile displays horizontal layers called horizons, designated from top to bottom as O, A, B, and C.",
+        "Agents of soil erosion include running water, wind, ice, and wave action across exposed land surfaces.",
+        "Major types of soil erosion are splash erosion, sheet erosion, rill erosion, and gully erosion.",
+        "Soil conservation methods include terracing, contour ploughing, afforestation, cover cropping, and building gabions."
+      ],
+      formula: "Soil pH scale: 0 to 14, where pH less than 7 indicates acidic soil",
+      example: {
+        question: "Differentiate between sheet erosion and gully erosion.",
+        solution: "Step 1: Define sheet erosion as the uniform removal of a thin top layer of soil over a wide flat area by surface runoff. Step 2: Define gully erosion as the deep cutting of wide channels into land by heavy, concentrated water flow. Step 3: Contrast their visual appearance and severity, noting that gully erosion creates permanent deep trenches while sheet erosion is subtle. Final answer: Sheet erosion evenly strips away thin surface soil, whereas gully erosion carves deep, wide channels into the landscape."
+      }
     }
   ],
   papers: [

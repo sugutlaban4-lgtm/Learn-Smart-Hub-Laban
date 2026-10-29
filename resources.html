@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free resources - Learn Smart Hub</title>
+    <meta name="description" content="Free mathematics, science, English, Kiswahili and social science resources for Kenyan secondary school students, all checked and grouped by subject.">
+    <meta name="theme-color" content="#0d47a1">
+    <meta name="color-scheme" content="light">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Learn-Smart-Hub-Laban">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+    
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/study.css">
+
+    <link rel="canonical" href="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/resources.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Learn Smart Hub">
+    <meta property="og:title" content="Mathematics - Learn Smart Hub">
+    <meta property="og:description" content="Free mathematics, science, English, Kiswahili and social science resources for Kenyan secondary school students, all checked and grouped by subject.">
+    <meta property="og:url" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/resources.html">
+    <meta property="og:image" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/icons/icon-512.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        /* Login gate: keep the page hidden until gate.js confirms a session. */
+        body[data-gated]:not(.gate-ready) > *:not(.auth-veil) { display: none !important; }
+        .auth-veil { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center;
+            background: #f4f8ff; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+        body.gate-ready .auth-veil, html.gate-ready .auth-veil { display: none !important; }
+        .auth-veil-box { text-align: center; padding: 24px; }
+        .auth-veil-mark { display: inline-grid; place-items: center; width: 48px; height: 48px;
+            border-radius: 14px; background: #0d47a1; color: #fff; font-weight: 800; font-size: 1rem; }
+        .auth-veil-text { margin: 12px 0 0; font-size: 0.95rem; color: #41527a; }
+        .auth-veil a { color: #1565c0; font-weight: 600; }
+    </style>
+    <meta name="robots" content="noindex, nofollow">
+</head>
+
+<body class="site" data-gated="1">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="auth-veil" role="status" aria-live="polite">
+    <div class="auth-veil-box">
+        <span class="auth-veil-mark" aria-hidden="true">LS</span>
+        <p class="auth-veil-text">Checking your session&hellip;</p>
+        <noscript><p class="auth-veil-text">This page needs JavaScript on. <a href="login.html">Log in</a></p></noscript>
+    </div>
+</div>
+<script>setTimeout(function(){var t=document.querySelector(".auth-veil-text");if(t&&!document.body.classList.contains("gate-ready")){t.innerHTML='Could not check your session. <a href="login.html">Log in again</a>.';}},12000);</script>
+
+<header class="topbar">
+    <div class="wrap topbar-inner">
+
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
+
+        <nav class="nav" aria-label="Main">
+            <a href="index.html#subjects">Subjects</a>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="videos.html">Videos</a>
+            <a href="resources.html" aria-current="page">Resources</a>
+            <a href="premium.html">Premium</a>
+        </nav>
+
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
+        </div>
+
+    </div>
+</header>
+
+<main id="main" class="wrap study-main">
+
+    <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Free resources</span>
+    </nav>
+
+    <div class="study-head">
+        <h1>Free resources</h1>
+        <p id="resourceCount">Free sites worth your time, grouped by subject.</p>
+        <p class="res-intro">These are sites built by other people: textbooks, simulations, dictionaries and past paper archives. They are all free to open, and each one has been checked so the link works. Use them alongside the notes and papers here, not instead of them.</p>
+    </div>
+
+    <div class="res-chips" id="resourceChips" aria-label="Jump to a subject"></div>
+
+    <div id="resourceGroups">
+        <p class="loading-note">Loading resources...</p>
+    </div>
+
+    <div class="back-row">
+        <a class="btn btn-ghost btn-sm" href="dashboard.html">Back to dashboard</a>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <div class="wrap footer-grid">
+
+        <div class="footer-brand">
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+            <p>Notes, past papers, video lessons and quizzes for Kenyan secondary school students, built to stay useful on a slow connection.</p>
+            <p class="footer-badge">Works offline once installed</p>
+        </div>
+
+        <div class="footer-col">
+            <p class="footer-title">Study</p>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="videos.html">Video lessons</a>
+            <a href="resources.html">Free resources</a>
+        </div>
+
+        <div class="footer-col">
+            <p class="footer-title">Subjects</p>
+            <a href="mathematics.html">Mathematics</a>
+            <a href="english.html">English</a>
+            <a href="kiswahili.html">Kiswahili</a>
+            <a href="science.html">Science</a>
+            <a href="social-sciences.html">Social sciences</a>
+        </div>
+
+        <div class="footer-col">
+            <p class="footer-title">Account</p>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="premium.html">Premium</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+        </div>
+
+    </div>
+
+    <div class="wrap footer-base">
+        <span>&copy; 2026 Learn Smart Hub. All rights reserved.</span>
+        <span>Made for Kenyan students</span>
+    </div>
+</footer>
+
+<script src="data/resources.js"></script>
+<script src="js/resources.js"></script>
+<script src="app.js"></script>
+    <script type="module" src="gate.js"></script>
+</body>
+</html>

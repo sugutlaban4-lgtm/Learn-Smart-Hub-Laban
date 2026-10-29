@@ -10,7 +10,7 @@
    - everything else: straight to the network.
 ================================================================ */
 
-const VERSION = "lsh-v17-2026-10-29";
+const VERSION = "lsh-v18-2026-10-29";
 
 // Long-lived cache for the versioned Firebase modules the session gate imports.
 const VENDOR = "lsh-vendor";
@@ -29,6 +29,7 @@ const PRECACHE = [
     "./css/site.css",
     "./css/study.css",
     "./js/study.js",
+    "./js/resources.js",
     "./dashboard-premium-panel.js",
     "./css/dashboard.css",
     "./css/admin.css",

@@ -128,6 +128,7 @@ if (logoutButton) {
         try {
 
             await signOut(auth);
+        try { localStorage.removeItem("lsh.signed-in"); } catch (e) {}
 
             window.location = "index.html";
 

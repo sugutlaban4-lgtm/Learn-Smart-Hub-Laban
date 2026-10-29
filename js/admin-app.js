@@ -918,6 +918,7 @@ function wire() {
 
     $("signOutButton")?.addEventListener("click", async () => {
         await signOut(auth);
+        try { localStorage.removeItem("lsh.signed-in"); } catch (e) {}
         location.replace("login.html");
     });
 

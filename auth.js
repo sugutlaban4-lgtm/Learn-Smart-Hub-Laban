@@ -42,6 +42,7 @@ window.loginUser = function () {
 
   signInWithEmailAndPassword(auth, email, password)
     .then(() => {
+      try { localStorage.setItem("lsh.signed-in", String(Date.now())); } catch (e) {}
       alert("Login successful!");
       window.location = nextTarget() || "dashboard.html";
     })

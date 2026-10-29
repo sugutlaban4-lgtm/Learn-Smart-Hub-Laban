@@ -10,7 +10,10 @@
    - everything else: straight to the network.
 ================================================================ */
 
-const VERSION = "lsh-v11-2026-10-29";
+const VERSION = "lsh-v12-2026-10-29";
+
+// Long-lived cache for the versioned Firebase modules the session gate imports.
+const VENDOR = "lsh-vendor";
 
 const PRECACHE = [
     "./gate.js",
@@ -21,10 +24,11 @@ const PRECACHE = [
     "./signup.html",
     "./manifest.json",
     "./css/site.css",
-    "./css/style.css",
     "./css/study.css",
     "./js/study.js",
     "./dashboard-premium-panel.js",
+    "./css/dashboard.css",
+    "./css/admin.css",
     "./icons/icon-192.png",
     "./icons/icon-512.png"
 ];
@@ -32,6 +36,17 @@ const PRECACHE = [
 const ASSET_PATTERN =
     /\.(?:css|js|png|jpe?g|gif|svg|webp|woff2?|ttf|ico)$/i;
 
+
+/* Versioned Firebase modules from gstatic. These never change for a given
+ * version, so they are cached on first use and served from cache afterwards.
+ * Keeping them locally is what lets a signed-in student open notes with no
+ * network at all. */
+const VENDOR_HOST = "www.gstatic.com";
+const VENDOR_PREFIX = "/firebasejs/";
+
+function isVendorRequest(url) {
+    return url.hostname === VENDOR_HOST && url.pathname.startsWith(VENDOR_PREFIX);
+}
 
 self.addEventListener("install", event => {
 
@@ -62,7 +77,7 @@ self.addEventListener("activate", event => {
 
         await Promise.all(
             keys
-                .filter(key => key !== VERSION)
+                .filter(key => key !== VERSION && key !== VENDOR)
                 .map(key => caches.delete(key))
         );
 
@@ -82,6 +97,32 @@ self.addEventListener("fetch", event => {
     }
 
     const url = new URL(request.url);
+
+    // Firebase modules: cache first, then remember them for next time.
+    if (isVendorRequest(url)) {
+
+        event.respondWith((async () => {
+
+            const cache = await caches.open(VENDOR);
+
+            const cached = await cache.match(request);
+
+            if (cached) return cached;
+
+            const response = await fetch(request);
+
+            // Only keep responses the browser can actually execute later;
+            // an opaque or failed response would break the import next time.
+            if (response && response.ok && response.type !== "opaque") {
+                cache.put(request, response.clone());
+            }
+
+            return response;
+
+        })());
+
+        return;
+    }
 
     if (url.origin !== self.location.origin) {
         return;

@@ -1,25 +1,66 @@
 {
-    "name": "Learn Smart Hub Admin",
-    "short_name": "LSH Admin",
-    "description": "Owner dashboard for Learn Smart Hub: launch progress, payments, students, support and content.",
-    "start_url": "admin.html",
-    "scope": "./",
-    "display": "standalone",
-    "orientation": "portrait-primary",
-    "background_color": "#f4f8ff",
-    "theme_color": "#0b2b5e",
-    "icons": [
-        {
-            "src": "icons/icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "icons/icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any"
-        }
+  "id": "./admin.html",
+  "name": "Learn Smart Hub Admin",
+  "short_name": "LSH Admin",
+  "description": "Owner dashboard for Learn Smart Hub: launch progress, M-Pesa revenue, students, support and content coverage.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./admin.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "background_color": "#f4f8ff",
+  "theme_color": "#0b2b5e",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "prefer_related_applications": false,
+  "launch_handler": {
+    "client_mode": [
+      "navigate-existing",
+      "auto"
     ]
+  },
+  "icons": [
+    {
+      "src": "icons/admin-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/admin-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/admin-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Revenue",
+      "short_name": "Revenue",
+      "url": "./admin.html#revenue"
+    },
+    {
+      "name": "Support",
+      "short_name": "Support",
+      "url": "./admin.html#support"
+    },
+    {
+      "name": "Students",
+      "short_name": "Students",
+      "url": "./admin.html#students"
+    }
+  ]
 }

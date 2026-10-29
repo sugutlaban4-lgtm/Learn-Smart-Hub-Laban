@@ -935,6 +935,41 @@ function wire() {
     window.addEventListener("hashchange", () => {
         setView(location.hash.replace("#", ""), false);
     });
+
+    wireInstall();
+}
+
+/* ------------------------------------------------------- install on a phone */
+
+let installPrompt = null;
+
+function wireInstall() {
+    const button = $("installApp");
+    if (!button) return;
+
+    window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        installPrompt = event;
+        button.style.display = "";
+    });
+
+    button.addEventListener("click", async () => {
+        if (!installPrompt) return;
+        installPrompt.prompt();
+        try {
+            await installPrompt.userChoice;
+        } catch (error) {
+            console.error("Install prompt failed:", error);
+        }
+        installPrompt = null;
+        button.style.display = "none";
+    });
+
+    window.addEventListener("appinstalled", () => {
+        installPrompt = null;
+        button.style.display = "none";
+        toast("Admin app installed");
+    });
 }
 
 function start() {
@@ -961,6 +996,52 @@ function start() {
         if (who) who.textContent = user.email || "Owner";
 
         loadOverview();
+    });
+
+    /* Some browsers block the storage handshake Firebase uses to read a session
+       back, and then this callback never arrives: the app would sit on the
+       skeletons. After a few seconds use a user we already have, or offer a
+       fresh sign-in. */
+    setTimeout(function () {
+        if (state.user || state.loadedAt) return;
+
+        if (auth.currentUser) {
+            state.user = auth.currentUser;
+            const who = $("whoAmI");
+            if (who) who.textContent = auth.currentUser.email || "Owner";
+            loadOverview();
+            return;
+        }
+
+        $("whoAmI").textContent = "Not signed in";
+
+        if (!navigator.onLine) {
+            main.innerHTML = `
+                <section class="a-card">
+                    <h2>You are offline</h2>
+                    <p class="a-lead">The admin app opens from this device, but today's numbers come from the server. It will load by itself when the connection is back.</p>
+                    <div class="a-actions">
+                        <button class="btn btn-primary btn-sm" type="button" id="retryNow">Try again</button>
+                    </div>
+                </section>`;
+            const retry = $("retryNow");
+            if (retry) retry.addEventListener("click", () => location.reload());
+            return;
+        }
+
+        main.innerHTML = `
+            <section class="a-card">
+                <h2>Could not confirm your session</h2>
+                <p class="a-lead">This device did not get an answer from the sign-in service. Sign in again to open the owner dashboard.</p>
+                <div class="a-actions">
+                    <a class="btn btn-primary btn-sm" href="login.html?next=admin.html">Sign in again</a>
+                </div>
+            </section>`;
+    }, 6000);
+
+    // Coming back onto a network should pick the numbers up on its own.
+    window.addEventListener("online", function () {
+        if (state.user && !state.loadedAt) loadOverview();
     });
 }
 

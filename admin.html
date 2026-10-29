@@ -9,11 +9,11 @@
     <meta name="description" content="Owner dashboard for Learn Smart Hub: launch progress, payments, students, support and content coverage.">
     <link rel="manifest" href="manifest-admin.json">
     <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
-    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="icons/admin-apple-touch.png">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="LSH Admin">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="css/site.css">
     <link rel="stylesheet" href="css/admin.css">
 </head>
@@ -24,7 +24,7 @@
 
     <!-- ------------------------------------------------------------ sidebar -->
     <aside class="admin-side">
-        <a class="admin-brand" href="dashboard.html">
+        <a class="admin-brand" href="#progress">
             <span class="brand-mark" aria-hidden="true">LS</span>
             <span>
                 Learn Smart Hub
@@ -56,7 +56,10 @@
                 <strong id="whoAmI">Checking your access...</strong>
                 Owner view
             </div>
-            <a href="#" id="signOutButton">Sign out</a>
+            <span class="foot-links">
+                <a href="dashboard.html">Student site</a>
+                <a href="#" id="signOutButton">Sign out</a>
+            </span>
         </div>
     </aside>
 
@@ -70,6 +73,9 @@
             </div>
 
             <div class="admin-top-actions">
+                <button class="btn btn-primary btn-sm" type="button" id="installApp" style="display:none">
+                    Install app
+                </button>
                 <span id="lastUpdated" class="small muted"></span>
                 <button class="btn btn-ghost btn-sm" type="button" id="copySummary">Copy summary</button>
                 <button class="btn btn-primary btn-sm" type="button" id="refreshButton">Refresh</button>
@@ -92,6 +98,17 @@
 <div id="adminToast" class="a-toast" role="status" aria-live="polite"></div>
 
 <script src="data/premium-materials.js"></script>
+<script>
+    /* The admin app installs on its own home-screen icon, so it registers the
+       service worker here as well and opens offline from the cache. */
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker.register("service-worker.js").catch(function (error) {
+                console.error("Admin service worker registration failed:", error);
+            });
+        });
+    }
+</script>
 <script type="module" src="js/admin-app.js"></script>
 <script>
     /* If the app script never boots - blocked, stale cache, offline - say so

@@ -64,7 +64,7 @@ const CHECKLIST = [
     {
         id: "premium-library",
         title: "Premium library published",
-        note: "25 resources across five subjects, with the dashboard shelf.",
+        note: "Premium shelf across five subjects and Grades 7 to 12, with the dashboard shelf.",
         state: "done",
         weight: 8
     },

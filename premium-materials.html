@@ -169,7 +169,7 @@
     <section class="pm-hero">
         <span class="eyebrow">Premium library</span>
         <h1>Everything that unlocks with Premium</h1>
-        <p><strong id="studentName">Student</strong>, this is everything that unlocks with Premium: marking-scheme workbooks, topic packs and masterclass lessons, sorted by subject. Free notes stay where they are, this shelf is the extra depth.</p>
+        <p><strong id="studentName">Student</strong>, this is everything that unlocks with Premium: marking-scheme workbooks, topic packs, quiz banks and masterclass lessons, sorted by subject and class level. Free notes stay where they are, this shelf is the extra depth.</p>
 
         <div class="pm-status-row">
             <span id="premiumPill" class="pm-pill" data-state="out">Checking Premium...</span>
@@ -177,8 +177,9 @@
         </div>
 
         <div class="pm-stats">
-            <span class="pm-stat">5 subjects</span>
-            <span class="pm-stat">25 premium resources</span>
+            <span id="statSubjects" class="pm-stat">5 subjects</span>
+            <span id="statLevels" class="pm-stat">Class levels</span>
+            <span id="statResources" class="pm-stat">Premium resources</span>
             <span class="pm-stat">Marking schemes included</span>
             <span class="pm-stat">Updated weekly</span>
         </div>
@@ -190,6 +191,8 @@
                 <label for="premiumSearch" class="hint" style="position:absolute;left:-9999px">Search premium resources</label>
                 <input type="text" id="premiumSearch" placeholder="Search packs, papers, lessons..." autocomplete="off">
             </div>
+            <label for="levelFilter" class="hint" style="position:absolute;left:-9999px">Class level</label>
+            <select id="levelFilter" class="pm-select"></select>
             <label for="typeFilter" class="hint" style="position:absolute;left:-9999px">Resource type</label>
             <select id="typeFilter" class="pm-select"></select>
         </div>
@@ -243,7 +246,7 @@
             <h2 id="paywallTitle">Premium opens this shelf</h2>
             <p><strong id="paywallMaterial">This material</strong> sits in the Premium library. Unlock it with M-Pesa and every pack on the shelf opens at once.</p>
             <ul class="pm-perks">
-                <li>All 25 premium resources, all subjects</li>
+                <li id="paywallCount">All premium resources, every subject and class level</li>
                 <li>Marking schemes beside every past paper</li>
                 <li>Masterclass video lessons</li>
                 <li>Quiz banks with progress tracking</li>

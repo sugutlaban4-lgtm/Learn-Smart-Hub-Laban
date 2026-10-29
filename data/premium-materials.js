@@ -637,3 +637,3259 @@ window.PREMIUM_MATERIALS = [
         `
     }
 ];
+
+/* ============================================================
+ * Class-level shelf: every subject, every class level.
+ * Added 2026-10-29. Four resource types per subject and level so
+ * the library filters cleanly by level as well as by subject.
+ * ============================================================ */
+
+/* Entries written before the class-level field existed were Grade 10. */
+window.PREMIUM_MATERIALS.forEach((material) => {
+    if (!material.level) material.level = "Grade 10";
+});
+
+window.PREMIUM_MATERIALS.push(
+    ...[
+        {
+            id: "mathematics-grade7-notes",
+            subject: "Mathematics",
+            level: "Grade 7",
+            type: "Notes pack",
+            title: "Grade 7 Mathematics: complete notes pack, all strands",
+            summary: "Every Grade 7 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "48 pages · 12 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>12 strands, in the order the Grade 7 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Whole numbers and place value</li><li>Factors, multiples, GCD and LCM</li><li>Fractions, decimals and percentages</li><li>Squares, square roots, cubes and cube roots</li><li>Algebraic expressions</li><li>Linear equations</li><li>Measurement: perimeter, area and volume</li><li>Money, profit, loss and simple interest</li><li>Angles and plane figures</li><li>Coordinates and simple graphs</li><li>Statistics: tables, bar charts and pie charts</li><li>Probability of simple events</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li><li>Round only at the end and state the degree of accuracy.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade7-papers",
+            subject: "Mathematics",
+            level: "Grade 7",
+            type: "Past papers",
+            title: "Grade 7 Mathematics: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 7 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 7 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If whole numbers and place value is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Whole numbers and place value; Factors, multiples, GCD and LCM</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Fractions, decimals and percentages; Squares, square roots, cubes and cube roots</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Algebraic expressions; Linear equations</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "mathematics-grade7-quizzes",
+            subject: "Mathematics",
+            level: "Grade 7",
+            type: "Quiz banks",
+            title: "Grade 7 Mathematics: quiz bank, one quiz per strand",
+            summary: "12 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "12 quizzes · 168 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 12 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Whole numbers and place value</li><li>Factors, multiples, GCD and LCM</li><li>Fractions, decimals and percentages</li><li>Squares, square roots, cubes and cube roots</li><li>Algebraic expressions</li><li>Linear equations</li><li>Measurement: perimeter, area and volume</li><li>Money, profit, loss and simple interest</li><li>Angles and plane figures</li><li>Coordinates and simple graphs</li><li>Statistics: tables, bar charts and pie charts</li><li>Probability of simple events</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 7 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade7-videos",
+            subject: "Mathematics",
+            level: "Grade 7",
+            type: "Video lessons",
+            title: "Grade 7 Mathematics: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 7, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Whole numbers and place value</li><li>Factors, multiples, GCD and LCM</li><li>Fractions, decimals and percentages</li><li>Squares, square roots, cubes and cube roots</li><li>Algebraic expressions</li><li>Linear equations</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 7 Mathematics notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade8-notes",
+            subject: "Mathematics",
+            level: "Grade 8",
+            type: "Notes pack",
+            title: "Grade 8 Mathematics: complete notes pack, all strands",
+            summary: "Every Grade 8 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "48 pages · 12 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>12 strands, in the order the Grade 8 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Integers and order of operations</li><li>Fractions, decimals and recurring decimals</li><li>Ratio, rate and proportion</li><li>Algebraic expressions and factorisation</li><li>Linear equations and inequalities</li><li>Circles: circumference and area</li><li>Area of polygons and composite shapes</li><li>Volume and surface area of prisms and cylinders</li><li>Travel graphs and conversion graphs</li><li>Statistics: mean, median, mode and range</li><li>Probability of combined events</li><li>Scale drawing and bearings</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li><li>Round only at the end and state the degree of accuracy.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade8-papers",
+            subject: "Mathematics",
+            level: "Grade 8",
+            type: "Past papers",
+            title: "Grade 8 Mathematics: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 8 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 8 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If integers and order of operations is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Integers and order of operations; Fractions, decimals and recurring decimals</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Ratio, rate and proportion; Algebraic expressions and factorisation</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Linear equations and inequalities; Circles: circumference and area</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "mathematics-grade8-quizzes",
+            subject: "Mathematics",
+            level: "Grade 8",
+            type: "Quiz banks",
+            title: "Grade 8 Mathematics: quiz bank, one quiz per strand",
+            summary: "12 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "12 quizzes · 168 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 12 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Integers and order of operations</li><li>Fractions, decimals and recurring decimals</li><li>Ratio, rate and proportion</li><li>Algebraic expressions and factorisation</li><li>Linear equations and inequalities</li><li>Circles: circumference and area</li><li>Area of polygons and composite shapes</li><li>Volume and surface area of prisms and cylinders</li><li>Travel graphs and conversion graphs</li><li>Statistics: mean, median, mode and range</li><li>Probability of combined events</li><li>Scale drawing and bearings</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 8 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade8-videos",
+            subject: "Mathematics",
+            level: "Grade 8",
+            type: "Video lessons",
+            title: "Grade 8 Mathematics: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 8, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Integers and order of operations</li><li>Fractions, decimals and recurring decimals</li><li>Ratio, rate and proportion</li><li>Algebraic expressions and factorisation</li><li>Linear equations and inequalities</li><li>Circles: circumference and area</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 8 Mathematics notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade9-notes",
+            subject: "Mathematics",
+            level: "Grade 9",
+            type: "Notes pack",
+            title: "Grade 9 Mathematics: complete notes pack, all strands",
+            summary: "Every Grade 9 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "48 pages · 12 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>12 strands, in the order the Grade 9 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Real numbers and surds</li><li>Indices and their laws</li><li>Algebraic fractions</li><li>Simultaneous equations</li><li>Quadratic expressions and factorisation</li><li>Pythagoras theorem and similar figures</li><li>Trigonometric ratios: sine, cosine and tangent</li><li>Circles: chords, arcs and tangents</li><li>Vectors and transformations</li><li>Matrices and their applications</li><li>Statistics: grouped data</li><li>Probability and revision of number work</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li><li>Round only at the end and state the degree of accuracy.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade9-papers",
+            subject: "Mathematics",
+            level: "Grade 9",
+            type: "Past papers",
+            title: "Grade 9 Mathematics: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 9 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 9 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If real numbers and surds is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Real numbers and surds; Indices and their laws</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Algebraic fractions; Simultaneous equations</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Quadratic expressions and factorisation; Pythagoras theorem and similar figures</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "mathematics-grade9-quizzes",
+            subject: "Mathematics",
+            level: "Grade 9",
+            type: "Quiz banks",
+            title: "Grade 9 Mathematics: quiz bank, one quiz per strand",
+            summary: "12 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "12 quizzes · 168 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 12 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Real numbers and surds</li><li>Indices and their laws</li><li>Algebraic fractions</li><li>Simultaneous equations</li><li>Quadratic expressions and factorisation</li><li>Pythagoras theorem and similar figures</li><li>Trigonometric ratios: sine, cosine and tangent</li><li>Circles: chords, arcs and tangents</li><li>Vectors and transformations</li><li>Matrices and their applications</li><li>Statistics: grouped data</li><li>Probability and revision of number work</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 9 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade9-videos",
+            subject: "Mathematics",
+            level: "Grade 9",
+            type: "Video lessons",
+            title: "Grade 9 Mathematics: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 9, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Real numbers and surds</li><li>Indices and their laws</li><li>Algebraic fractions</li><li>Simultaneous equations</li><li>Quadratic expressions and factorisation</li><li>Pythagoras theorem and similar figures</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 9 Mathematics notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade10-notes",
+            subject: "Mathematics",
+            level: "Grade 10",
+            type: "Notes pack",
+            title: "Grade 10 Mathematics: complete notes pack, all strands",
+            summary: "Every Grade 10 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "48 pages · 12 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>12 strands, in the order the Grade 10 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Algebraic expressions and equations</li><li>Inequalities and number lines</li><li>Functions and relations</li><li>Sequences and series</li><li>Binomial expansion</li><li>Trigonometric ratios and identities</li><li>Coordinate geometry of straight lines</li><li>Matrices and transformations</li><li>Statistics: measures of dispersion</li><li>Probability</li><li>Three dimensional geometry</li><li>Commercial arithmetic: hire purchase and taxation</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li><li>Round only at the end and state the degree of accuracy.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade10-papers",
+            subject: "Mathematics",
+            level: "Grade 10",
+            type: "Past papers",
+            title: "Grade 10 Mathematics: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 10 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 10 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If algebraic expressions and equations is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Algebraic expressions and equations; Inequalities and number lines</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Functions and relations; Sequences and series</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Binomial expansion; Trigonometric ratios and identities</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "mathematics-grade10-quizzes",
+            subject: "Mathematics",
+            level: "Grade 10",
+            type: "Quiz banks",
+            title: "Grade 10 Mathematics: quiz bank, one quiz per strand",
+            summary: "12 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "12 quizzes · 168 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 12 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Algebraic expressions and equations</li><li>Inequalities and number lines</li><li>Functions and relations</li><li>Sequences and series</li><li>Binomial expansion</li><li>Trigonometric ratios and identities</li><li>Coordinate geometry of straight lines</li><li>Matrices and transformations</li><li>Statistics: measures of dispersion</li><li>Probability</li><li>Three dimensional geometry</li><li>Commercial arithmetic: hire purchase and taxation</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 10 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade10-videos",
+            subject: "Mathematics",
+            level: "Grade 10",
+            type: "Video lessons",
+            title: "Grade 10 Mathematics: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 10, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Algebraic expressions and equations</li><li>Inequalities and number lines</li><li>Functions and relations</li><li>Sequences and series</li><li>Binomial expansion</li><li>Trigonometric ratios and identities</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 10 Mathematics notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade11-notes",
+            subject: "Mathematics",
+            level: "Grade 11",
+            type: "Notes pack",
+            title: "Grade 11 Mathematics: complete notes pack, all strands",
+            summary: "Every Grade 11 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "48 pages · 12 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>12 strands, in the order the Grade 11 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Surds, indices and logarithms</li><li>Quadratic equations and their graphs</li><li>Remainder and factor theorem</li><li>Polynomials</li><li>Sequences and series</li><li>Permutations and combinations</li><li>Trigonometry: compound angles and wave graphs</li><li>Coordinate geometry: circles</li><li>Vectors in two and three dimensions</li><li>Matrices and determinants</li><li>Differentiation</li><li>Integration</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li><li>Round only at the end and state the degree of accuracy.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade11-papers",
+            subject: "Mathematics",
+            level: "Grade 11",
+            type: "Past papers",
+            title: "Grade 11 Mathematics: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 11 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 11 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If surds, indices and logarithms is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Surds, indices and logarithms; Quadratic equations and their graphs</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Remainder and factor theorem; Polynomials</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Sequences and series; Permutations and combinations</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "mathematics-grade11-quizzes",
+            subject: "Mathematics",
+            level: "Grade 11",
+            type: "Quiz banks",
+            title: "Grade 11 Mathematics: quiz bank, one quiz per strand",
+            summary: "12 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "12 quizzes · 168 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 12 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Surds, indices and logarithms</li><li>Quadratic equations and their graphs</li><li>Remainder and factor theorem</li><li>Polynomials</li><li>Sequences and series</li><li>Permutations and combinations</li><li>Trigonometry: compound angles and wave graphs</li><li>Coordinate geometry: circles</li><li>Vectors in two and three dimensions</li><li>Matrices and determinants</li><li>Differentiation</li><li>Integration</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 11 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade11-videos",
+            subject: "Mathematics",
+            level: "Grade 11",
+            type: "Video lessons",
+            title: "Grade 11 Mathematics: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 11, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Surds, indices and logarithms</li><li>Quadratic equations and their graphs</li><li>Remainder and factor theorem</li><li>Polynomials</li><li>Sequences and series</li><li>Permutations and combinations</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 11 Mathematics notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade12-notes",
+            subject: "Mathematics",
+            level: "Grade 12",
+            type: "Notes pack",
+            title: "Grade 12 Mathematics: complete notes pack, all strands",
+            summary: "Every Grade 12 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "48 pages · 12 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>12 strands, in the order the Grade 12 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Differentiation and its applications</li><li>Integration and area under curves</li><li>Trigonometric equations and identities</li><li>Three dimensional geometry</li><li>Vectors and relative velocity</li><li>Linear programming</li><li>Loci</li><li>Matrices and transformations</li><li>Statistics: cumulative frequency and quartiles</li><li>Probability distributions</li><li>Sequences and series revision</li><li>KCSE paper technique</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li><li>Round only at the end and state the degree of accuracy.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade12-papers",
+            subject: "Mathematics",
+            level: "Grade 12",
+            type: "Past papers",
+            title: "Grade 12 Mathematics: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 12 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 12 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If differentiation and its applications is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Differentiation and its applications; Integration and area under curves</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Trigonometric equations and identities; Three dimensional geometry</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Vectors and relative velocity; Linear programming</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Show the formula line before substituting; the method mark is separate from the answer mark.</li><li>Carry units through every step in measurement and money questions.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "mathematics-grade12-quizzes",
+            subject: "Mathematics",
+            level: "Grade 12",
+            type: "Quiz banks",
+            title: "Grade 12 Mathematics: quiz bank, one quiz per strand",
+            summary: "12 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "12 quizzes · 168 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 12 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Differentiation and its applications</li><li>Integration and area under curves</li><li>Trigonometric equations and identities</li><li>Three dimensional geometry</li><li>Vectors and relative velocity</li><li>Linear programming</li><li>Loci</li><li>Matrices and transformations</li><li>Statistics: cumulative frequency and quartiles</li><li>Probability distributions</li><li>Sequences and series revision</li><li>KCSE paper technique</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 12 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "mathematics-grade12-videos",
+            subject: "Mathematics",
+            level: "Grade 12",
+            type: "Video lessons",
+            title: "Grade 12 Mathematics: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 12, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Differentiation and its applications</li><li>Integration and area under curves</li><li>Trigonometric equations and identities</li><li>Three dimensional geometry</li><li>Vectors and relative velocity</li><li>Linear programming</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 12 Mathematics notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "english-grade7-notes",
+            subject: "English",
+            level: "Grade 7",
+            type: "Notes pack",
+            title: "Grade 7 English: complete notes pack, all strands",
+            summary: "Every Grade 7 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 7 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Listening and speaking: pronunciation and oral presentation</li><li>Reading comprehension and intensive reading</li><li>Grammar: nouns, pronouns and adjectives</li><li>Functional writing: friendly letters and notices</li><li>Creative writing: narrative composition</li><li>Class reader and oral literature</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li><li>Grammar questions reward the exact term, so name the tense or the part of speech.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "english-grade7-papers",
+            subject: "English",
+            level: "Grade 7",
+            type: "Past papers",
+            title: "Grade 7 English: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 7 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 7 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If listening and speaking: pronunciation and oral presentation is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Listening and speaking: pronunciation and oral presentation; Reading comprehension and intensive reading</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Grammar: nouns, pronouns and adjectives; Functional writing: friendly letters and notices</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Creative writing: narrative composition; Class reader and oral literature</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "english-grade7-quizzes",
+            subject: "English",
+            level: "Grade 7",
+            type: "Quiz banks",
+            title: "Grade 7 English: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Listening and speaking: pronunciation and oral presentation</li><li>Reading comprehension and intensive reading</li><li>Grammar: nouns, pronouns and adjectives</li><li>Functional writing: friendly letters and notices</li><li>Creative writing: narrative composition</li><li>Class reader and oral literature</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 7 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "english-grade7-videos",
+            subject: "English",
+            level: "Grade 7",
+            type: "Video lessons",
+            title: "Grade 7 English: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 7, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Listening and speaking: pronunciation and oral presentation</li><li>Reading comprehension and intensive reading</li><li>Grammar: nouns, pronouns and adjectives</li><li>Functional writing: friendly letters and notices</li><li>Creative writing: narrative composition</li><li>Class reader and oral literature</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 7 English notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "english-grade8-notes",
+            subject: "English",
+            level: "Grade 8",
+            type: "Notes pack",
+            title: "Grade 8 English: complete notes pack, all strands",
+            summary: "Every Grade 8 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 8 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Listening and speaking: debate and group discussion</li><li>Reading: comprehension, summary and vocabulary</li><li>Grammar: verbs, tenses and direct speech</li><li>Functional writing: formal letters, emails and reports</li><li>Creative writing: descriptive and argumentative composition</li><li>Poetry and oral literature</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li><li>Grammar questions reward the exact term, so name the tense or the part of speech.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "english-grade8-papers",
+            subject: "English",
+            level: "Grade 8",
+            type: "Past papers",
+            title: "Grade 8 English: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 8 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 8 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If listening and speaking: debate and group discussion is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Listening and speaking: debate and group discussion; Reading: comprehension, summary and vocabulary</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Grammar: verbs, tenses and direct speech; Functional writing: formal letters, emails and reports</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Creative writing: descriptive and argumentative composition; Poetry and oral literature</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "english-grade8-quizzes",
+            subject: "English",
+            level: "Grade 8",
+            type: "Quiz banks",
+            title: "Grade 8 English: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Listening and speaking: debate and group discussion</li><li>Reading: comprehension, summary and vocabulary</li><li>Grammar: verbs, tenses and direct speech</li><li>Functional writing: formal letters, emails and reports</li><li>Creative writing: descriptive and argumentative composition</li><li>Poetry and oral literature</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 8 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "english-grade8-videos",
+            subject: "English",
+            level: "Grade 8",
+            type: "Video lessons",
+            title: "Grade 8 English: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 8, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Listening and speaking: debate and group discussion</li><li>Reading: comprehension, summary and vocabulary</li><li>Grammar: verbs, tenses and direct speech</li><li>Functional writing: formal letters, emails and reports</li><li>Creative writing: descriptive and argumentative composition</li><li>Poetry and oral literature</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 8 English notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "english-grade9-notes",
+            subject: "English",
+            level: "Grade 9",
+            type: "Notes pack",
+            title: "Grade 9 English: complete notes pack, all strands",
+            summary: "Every Grade 9 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 9 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Listening and speaking: interviews and public speaking</li><li>Reading: comprehension, summary and inference</li><li>Grammar: clauses, punctuation and the passive voice</li><li>Functional writing: minutes, curriculum vitae and application letters</li><li>Creative writing: expository and persuasive essays</li><li>Set book and short stories</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li><li>Grammar questions reward the exact term, so name the tense or the part of speech.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "english-grade9-papers",
+            subject: "English",
+            level: "Grade 9",
+            type: "Past papers",
+            title: "Grade 9 English: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 9 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 9 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If listening and speaking: interviews and public speaking is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Listening and speaking: interviews and public speaking; Reading: comprehension, summary and inference</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Grammar: clauses, punctuation and the passive voice; Functional writing: minutes, curriculum vitae and application letters</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Creative writing: expository and persuasive essays; Set book and short stories</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "english-grade9-quizzes",
+            subject: "English",
+            level: "Grade 9",
+            type: "Quiz banks",
+            title: "Grade 9 English: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Listening and speaking: interviews and public speaking</li><li>Reading: comprehension, summary and inference</li><li>Grammar: clauses, punctuation and the passive voice</li><li>Functional writing: minutes, curriculum vitae and application letters</li><li>Creative writing: expository and persuasive essays</li><li>Set book and short stories</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 9 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "english-grade9-videos",
+            subject: "English",
+            level: "Grade 9",
+            type: "Video lessons",
+            title: "Grade 9 English: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 9, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Listening and speaking: interviews and public speaking</li><li>Reading: comprehension, summary and inference</li><li>Grammar: clauses, punctuation and the passive voice</li><li>Functional writing: minutes, curriculum vitae and application letters</li><li>Creative writing: expository and persuasive essays</li><li>Set book and short stories</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 9 English notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "english-grade10-notes",
+            subject: "English",
+            level: "Grade 10",
+            type: "Notes pack",
+            title: "Grade 10 English: complete notes pack, all strands",
+            summary: "Every Grade 10 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 10 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Comprehension and summary skills</li><li>Grammar: parts of speech, tenses and concord</li><li>Functional writing: letters, reports and notices</li><li>Creative writing: narrative and descriptive essays</li><li>Oral skills: listening, pronunciation and oral literature</li><li>Introduction to literature: prose, poetry and drama</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li><li>Grammar questions reward the exact term, so name the tense or the part of speech.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "english-grade10-papers",
+            subject: "English",
+            level: "Grade 10",
+            type: "Past papers",
+            title: "Grade 10 English: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 10 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 10 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If comprehension and summary skills is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Comprehension and summary skills; Grammar: parts of speech, tenses and concord</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Functional writing: letters, reports and notices; Creative writing: narrative and descriptive essays</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Oral skills: listening, pronunciation and oral literature; Introduction to literature: prose, poetry and drama</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "english-grade10-quizzes",
+            subject: "English",
+            level: "Grade 10",
+            type: "Quiz banks",
+            title: "Grade 10 English: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Comprehension and summary skills</li><li>Grammar: parts of speech, tenses and concord</li><li>Functional writing: letters, reports and notices</li><li>Creative writing: narrative and descriptive essays</li><li>Oral skills: listening, pronunciation and oral literature</li><li>Introduction to literature: prose, poetry and drama</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 10 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "english-grade10-videos",
+            subject: "English",
+            level: "Grade 10",
+            type: "Video lessons",
+            title: "Grade 10 English: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 10, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Comprehension and summary skills</li><li>Grammar: parts of speech, tenses and concord</li><li>Functional writing: letters, reports and notices</li><li>Creative writing: narrative and descriptive essays</li><li>Oral skills: listening, pronunciation and oral literature</li><li>Introduction to literature: prose, poetry and drama</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 10 English notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "english-grade11-notes",
+            subject: "English",
+            level: "Grade 11",
+            type: "Notes pack",
+            title: "Grade 11 English: complete notes pack, all strands",
+            summary: "Every Grade 11 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 11 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Comprehension, summary and inference</li><li>Grammar: clauses, conditionals and reported speech</li><li>Functional writing: minutes, memos, speeches and CVs</li><li>Creative writing: argumentative and expository essays</li><li>Poetry and oral literature analysis</li><li>Set texts: drama and prose</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li><li>Grammar questions reward the exact term, so name the tense or the part of speech.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "english-grade11-papers",
+            subject: "English",
+            level: "Grade 11",
+            type: "Past papers",
+            title: "Grade 11 English: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 11 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 11 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If comprehension, summary and inference is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Comprehension, summary and inference; Grammar: clauses, conditionals and reported speech</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Functional writing: minutes, memos, speeches and CVs; Creative writing: argumentative and expository essays</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Poetry and oral literature analysis; Set texts: drama and prose</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "english-grade11-quizzes",
+            subject: "English",
+            level: "Grade 11",
+            type: "Quiz banks",
+            title: "Grade 11 English: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Comprehension, summary and inference</li><li>Grammar: clauses, conditionals and reported speech</li><li>Functional writing: minutes, memos, speeches and CVs</li><li>Creative writing: argumentative and expository essays</li><li>Poetry and oral literature analysis</li><li>Set texts: drama and prose</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 11 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "english-grade11-videos",
+            subject: "English",
+            level: "Grade 11",
+            type: "Video lessons",
+            title: "Grade 11 English: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 11, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Comprehension, summary and inference</li><li>Grammar: clauses, conditionals and reported speech</li><li>Functional writing: minutes, memos, speeches and CVs</li><li>Creative writing: argumentative and expository essays</li><li>Poetry and oral literature analysis</li><li>Set texts: drama and prose</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 11 English notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "english-grade12-notes",
+            subject: "English",
+            level: "Grade 12",
+            type: "Notes pack",
+            title: "Grade 12 English: complete notes pack, all strands",
+            summary: "Every Grade 12 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 12 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>KCSE comprehension and summary revision</li><li>Grammar and punctuation revision</li><li>Functional writing across all formats</li><li>Essay writing: the four tested categories</li><li>Literature: set book, poetry and drama essays</li><li>Oral skills and exam technique</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li><li>Grammar questions reward the exact term, so name the tense or the part of speech.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "english-grade12-papers",
+            subject: "English",
+            level: "Grade 12",
+            type: "Past papers",
+            title: "Grade 12 English: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 12 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 12 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If kcse comprehension and summary revision is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>KCSE comprehension and summary revision; Grammar and punctuation revision</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Functional writing across all formats; Essay writing: the four tested categories</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Literature: set book, poetry and drama essays; Oral skills and exam technique</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Every functional writing task is marked on format, content and language separately.</li><li>Summary answers are scored for points, not for length; keep to the sentence limit.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "english-grade12-quizzes",
+            subject: "English",
+            level: "Grade 12",
+            type: "Quiz banks",
+            title: "Grade 12 English: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>KCSE comprehension and summary revision</li><li>Grammar and punctuation revision</li><li>Functional writing across all formats</li><li>Essay writing: the four tested categories</li><li>Literature: set book, poetry and drama essays</li><li>Oral skills and exam technique</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 12 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "english-grade12-videos",
+            subject: "English",
+            level: "Grade 12",
+            type: "Video lessons",
+            title: "Grade 12 English: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 12, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>KCSE comprehension and summary revision</li><li>Grammar and punctuation revision</li><li>Functional writing across all formats</li><li>Essay writing: the four tested categories</li><li>Literature: set book, poetry and drama essays</li><li>Oral skills and exam technique</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 12 English notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade7-notes",
+            subject: "Kiswahili",
+            level: "Grade 7",
+            type: "Notes pack",
+            title: "Grade 7 Kiswahili: complete notes pack, all strands",
+            summary: "Every Grade 7 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 7 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Kusikiliza na kuzungumza</li><li>Ufahamu</li><li>Sarufi: nomino, viwakilishi na vivumishi</li><li>Insha: barua za kirafiki na taarifa</li><li>Utungaji: insha za masimulizi</li><li>Fasihi: hadithi fupi na mashairi</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li><li>Sarufi hupimwa kwa jina kamili la neno au nyakati, si kwa mfano pekee.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade7-papers",
+            subject: "Kiswahili",
+            level: "Grade 7",
+            type: "Past papers",
+            title: "Grade 7 Kiswahili: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 7 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 7 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If kusikiliza na kuzungumza is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Kusikiliza na kuzungumza; Ufahamu</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Sarufi: nomino, viwakilishi na vivumishi; Insha: barua za kirafiki na taarifa</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Utungaji: insha za masimulizi; Fasihi: hadithi fupi na mashairi</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade7-quizzes",
+            subject: "Kiswahili",
+            level: "Grade 7",
+            type: "Quiz banks",
+            title: "Grade 7 Kiswahili: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Kusikiliza na kuzungumza</li><li>Ufahamu</li><li>Sarufi: nomino, viwakilishi na vivumishi</li><li>Insha: barua za kirafiki na taarifa</li><li>Utungaji: insha za masimulizi</li><li>Fasihi: hadithi fupi na mashairi</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 7 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade7-videos",
+            subject: "Kiswahili",
+            level: "Grade 7",
+            type: "Video lessons",
+            title: "Grade 7 Kiswahili: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 7, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Kusikiliza na kuzungumza</li><li>Ufahamu</li><li>Sarufi: nomino, viwakilishi na vivumishi</li><li>Insha: barua za kirafiki na taarifa</li><li>Utungaji: insha za masimulizi</li><li>Fasihi: hadithi fupi na mashairi</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 7 Kiswahili notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade8-notes",
+            subject: "Kiswahili",
+            level: "Grade 8",
+            type: "Notes pack",
+            title: "Grade 8 Kiswahili: complete notes pack, all strands",
+            summary: "Every Grade 8 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 8 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Ufahamu na ufupisho</li><li>Sarufi: vitenzi, nyakati na hali</li><li>Insha: barua rasmi na kumbukumbu</li><li>Utungaji: insha za maelezo</li><li>Methali, nahau na misemo</li><li>Fasihi andishi: riwaya na tamthilia</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li><li>Sarufi hupimwa kwa jina kamili la neno au nyakati, si kwa mfano pekee.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade8-papers",
+            subject: "Kiswahili",
+            level: "Grade 8",
+            type: "Past papers",
+            title: "Grade 8 Kiswahili: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 8 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 8 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If ufahamu na ufupisho is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Ufahamu na ufupisho; Sarufi: vitenzi, nyakati na hali</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Insha: barua rasmi na kumbukumbu; Utungaji: insha za maelezo</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Methali, nahau na misemo; Fasihi andishi: riwaya na tamthilia</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade8-quizzes",
+            subject: "Kiswahili",
+            level: "Grade 8",
+            type: "Quiz banks",
+            title: "Grade 8 Kiswahili: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Ufahamu na ufupisho</li><li>Sarufi: vitenzi, nyakati na hali</li><li>Insha: barua rasmi na kumbukumbu</li><li>Utungaji: insha za maelezo</li><li>Methali, nahau na misemo</li><li>Fasihi andishi: riwaya na tamthilia</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 8 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade8-videos",
+            subject: "Kiswahili",
+            level: "Grade 8",
+            type: "Video lessons",
+            title: "Grade 8 Kiswahili: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 8, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Ufahamu na ufupisho</li><li>Sarufi: vitenzi, nyakati na hali</li><li>Insha: barua rasmi na kumbukumbu</li><li>Utungaji: insha za maelezo</li><li>Methali, nahau na misemo</li><li>Fasihi andishi: riwaya na tamthilia</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 8 Kiswahili notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade9-notes",
+            subject: "Kiswahili",
+            level: "Grade 9",
+            type: "Notes pack",
+            title: "Grade 9 Kiswahili: complete notes pack, all strands",
+            summary: "Every Grade 9 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 9 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Ufahamu, ufupisho na msamiati</li><li>Sarufi: sentensi, ukanusho na vitenzi vya ujenzi</li><li>Insha: insha za kueleza na kujadili</li><li>Utungaji: insha za kubuni</li><li>Fasihi: riwaya, tamthilia na mashairi</li><li>Methali na nahau katika mazungumzo</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li><li>Sarufi hupimwa kwa jina kamili la neno au nyakati, si kwa mfano pekee.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade9-papers",
+            subject: "Kiswahili",
+            level: "Grade 9",
+            type: "Past papers",
+            title: "Grade 9 Kiswahili: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 9 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 9 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If ufahamu, ufupisho na msamiati is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Ufahamu, ufupisho na msamiati; Sarufi: sentensi, ukanusho na vitenzi vya ujenzi</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Insha: insha za kueleza na kujadili; Utungaji: insha za kubuni</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Fasihi: riwaya, tamthilia na mashairi; Methali na nahau katika mazungumzo</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade9-quizzes",
+            subject: "Kiswahili",
+            level: "Grade 9",
+            type: "Quiz banks",
+            title: "Grade 9 Kiswahili: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Ufahamu, ufupisho na msamiati</li><li>Sarufi: sentensi, ukanusho na vitenzi vya ujenzi</li><li>Insha: insha za kueleza na kujadili</li><li>Utungaji: insha za kubuni</li><li>Fasihi: riwaya, tamthilia na mashairi</li><li>Methali na nahau katika mazungumzo</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 9 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade9-videos",
+            subject: "Kiswahili",
+            level: "Grade 9",
+            type: "Video lessons",
+            title: "Grade 9 Kiswahili: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 9, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Ufahamu, ufupisho na msamiati</li><li>Sarufi: sentensi, ukanusho na vitenzi vya ujenzi</li><li>Insha: insha za kueleza na kujadili</li><li>Utungaji: insha za kubuni</li><li>Fasihi: riwaya, tamthilia na mashairi</li><li>Methali na nahau katika mazungumzo</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 9 Kiswahili notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade10-notes",
+            subject: "Kiswahili",
+            level: "Grade 10",
+            type: "Notes pack",
+            title: "Grade 10 Kiswahili: complete notes pack, all strands",
+            summary: "Every Grade 10 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 10 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Ufahamu na ufupisho</li><li>Sarufi: aina za maneno</li><li>Insha: barua, ripoti na kumbukumbu</li><li>Utungaji: insha za maelezo na masimulizi</li><li>Fasihi: hadithi fupi, mashairi na tamthilia</li><li>Matumizi ya lugha: methali na nahau</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li><li>Sarufi hupimwa kwa jina kamili la neno au nyakati, si kwa mfano pekee.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade10-papers",
+            subject: "Kiswahili",
+            level: "Grade 10",
+            type: "Past papers",
+            title: "Grade 10 Kiswahili: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 10 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 10 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If ufahamu na ufupisho is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Ufahamu na ufupisho; Sarufi: aina za maneno</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Insha: barua, ripoti na kumbukumbu; Utungaji: insha za maelezo na masimulizi</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Fasihi: hadithi fupi, mashairi na tamthilia; Matumizi ya lugha: methali na nahau</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade10-quizzes",
+            subject: "Kiswahili",
+            level: "Grade 10",
+            type: "Quiz banks",
+            title: "Grade 10 Kiswahili: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Ufahamu na ufupisho</li><li>Sarufi: aina za maneno</li><li>Insha: barua, ripoti na kumbukumbu</li><li>Utungaji: insha za maelezo na masimulizi</li><li>Fasihi: hadithi fupi, mashairi na tamthilia</li><li>Matumizi ya lugha: methali na nahau</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 10 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade10-videos",
+            subject: "Kiswahili",
+            level: "Grade 10",
+            type: "Video lessons",
+            title: "Grade 10 Kiswahili: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 10, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Ufahamu na ufupisho</li><li>Sarufi: aina za maneno</li><li>Insha: barua, ripoti na kumbukumbu</li><li>Utungaji: insha za maelezo na masimulizi</li><li>Fasihi: hadithi fupi, mashairi na tamthilia</li><li>Matumizi ya lugha: methali na nahau</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 10 Kiswahili notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade11-notes",
+            subject: "Kiswahili",
+            level: "Grade 11",
+            type: "Notes pack",
+            title: "Grade 11 Kiswahili: complete notes pack, all strands",
+            summary: "Every Grade 11 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 11 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Ufahamu wa kina na ufupisho</li><li>Sarufi: sentensi changamano na nyakati</li><li>Insha: insha za kujadili na kuhoji</li><li>Utungaji: insha za kueleza msimamo</li><li>Fasihi andishi: riwaya na tamthilia</li><li>Fasihi simulizi: ngano, vitendawili na nyimbo</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li><li>Sarufi hupimwa kwa jina kamili la neno au nyakati, si kwa mfano pekee.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade11-papers",
+            subject: "Kiswahili",
+            level: "Grade 11",
+            type: "Past papers",
+            title: "Grade 11 Kiswahili: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 11 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 11 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If ufahamu wa kina na ufupisho is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Ufahamu wa kina na ufupisho; Sarufi: sentensi changamano na nyakati</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Insha: insha za kujadili na kuhoji; Utungaji: insha za kueleza msimamo</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Fasihi andishi: riwaya na tamthilia; Fasihi simulizi: ngano, vitendawili na nyimbo</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade11-quizzes",
+            subject: "Kiswahili",
+            level: "Grade 11",
+            type: "Quiz banks",
+            title: "Grade 11 Kiswahili: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Ufahamu wa kina na ufupisho</li><li>Sarufi: sentensi changamano na nyakati</li><li>Insha: insha za kujadili na kuhoji</li><li>Utungaji: insha za kueleza msimamo</li><li>Fasihi andishi: riwaya na tamthilia</li><li>Fasihi simulizi: ngano, vitendawili na nyimbo</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 11 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade11-videos",
+            subject: "Kiswahili",
+            level: "Grade 11",
+            type: "Video lessons",
+            title: "Grade 11 Kiswahili: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 11, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Ufahamu wa kina na ufupisho</li><li>Sarufi: sentensi changamano na nyakati</li><li>Insha: insha za kujadili na kuhoji</li><li>Utungaji: insha za kueleza msimamo</li><li>Fasihi andishi: riwaya na tamthilia</li><li>Fasihi simulizi: ngano, vitendawili na nyimbo</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 11 Kiswahili notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade12-notes",
+            subject: "Kiswahili",
+            level: "Grade 12",
+            type: "Notes pack",
+            title: "Grade 12 Kiswahili: complete notes pack, all strands",
+            summary: "Every Grade 12 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "28 pages · 6 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>6 strands, in the order the Grade 12 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Marudio: ufahamu na ufupisho</li><li>Sarufi na matumizi ya lugha</li><li>Insha za aina zote</li><li>Fasihi: riwaya, tamthilia na mashairi</li><li>Methali, nahau na misemo</li><li>Mbinu za kukabiliana na mtihani</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li><li>Sarufi hupimwa kwa jina kamili la neno au nyakati, si kwa mfano pekee.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade12-papers",
+            subject: "Kiswahili",
+            level: "Grade 12",
+            type: "Past papers",
+            title: "Grade 12 Kiswahili: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 12 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 12 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If marudio: ufahamu na ufupisho is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Marudio: ufahamu na ufupisho; Sarufi na matumizi ya lugha</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Insha za aina zote; Fasihi: riwaya, tamthilia na mashairi</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Methali, nahau na misemo; Mbinu za kukabiliana na mtihani</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Insha hupimwa kwa umbo, maudhui na lugha kama sehemu tatu tofauti.</li><li>Ufupisho hupimwa kwa hoja, si kwa urefu wa sentensi.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade12-quizzes",
+            subject: "Kiswahili",
+            level: "Grade 12",
+            type: "Quiz banks",
+            title: "Grade 12 Kiswahili: quiz bank, one quiz per strand",
+            summary: "6 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "6 quizzes · 84 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 6 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Marudio: ufahamu na ufupisho</li><li>Sarufi na matumizi ya lugha</li><li>Insha za aina zote</li><li>Fasihi: riwaya, tamthilia na mashairi</li><li>Methali, nahau na misemo</li><li>Mbinu za kukabiliana na mtihani</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 12 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "kiswahili-grade12-videos",
+            subject: "Kiswahili",
+            level: "Grade 12",
+            type: "Video lessons",
+            title: "Grade 12 Kiswahili: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 12, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Marudio: ufahamu na ufupisho</li><li>Sarufi na matumizi ya lugha</li><li>Insha za aina zote</li><li>Fasihi: riwaya, tamthilia na mashairi</li><li>Methali, nahau na misemo</li><li>Mbinu za kukabiliana na mtihani</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 12 Kiswahili notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "science-grade7-notes",
+            subject: "Science",
+            level: "Grade 7",
+            type: "Notes pack",
+            title: "Grade 7 Science: complete notes pack, all strands",
+            summary: "Every Grade 7 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "52 pages · 12 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>12 strands, in the order the Grade 7 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Living things and their environment</li><li>Human body systems: digestion, circulation and respiration</li><li>Plants: transport and photosynthesis</li><li>Mixtures, elements and compounds</li><li>Acids, bases and indicators</li><li>Air, water and soil</li><li>Force and pressure</li><li>Energy: forms, transfer and conservation</li><li>Simple machines</li><li>Magnetism</li><li>Electricity: simple circuits</li><li>Health education</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li><li>Practical questions reward observation, then inference, in that order.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "science-grade7-papers",
+            subject: "Science",
+            level: "Grade 7",
+            type: "Past papers",
+            title: "Grade 7 Science: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 7 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 7 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If living things and their environment is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Living things and their environment; Human body systems: digestion, circulation and respiration</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Plants: transport and photosynthesis; Mixtures, elements and compounds</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Acids, bases and indicators; Air, water and soil</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "science-grade7-quizzes",
+            subject: "Science",
+            level: "Grade 7",
+            type: "Quiz banks",
+            title: "Grade 7 Science: quiz bank, one quiz per strand",
+            summary: "12 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "12 quizzes · 168 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 12 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Living things and their environment</li><li>Human body systems: digestion, circulation and respiration</li><li>Plants: transport and photosynthesis</li><li>Mixtures, elements and compounds</li><li>Acids, bases and indicators</li><li>Air, water and soil</li><li>Force and pressure</li><li>Energy: forms, transfer and conservation</li><li>Simple machines</li><li>Magnetism</li><li>Electricity: simple circuits</li><li>Health education</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 7 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "science-grade7-videos",
+            subject: "Science",
+            level: "Grade 7",
+            type: "Video lessons",
+            title: "Grade 7 Science: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 7, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Living things and their environment</li><li>Human body systems: digestion, circulation and respiration</li><li>Plants: transport and photosynthesis</li><li>Mixtures, elements and compounds</li><li>Acids, bases and indicators</li><li>Air, water and soil</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 7 Science notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "science-grade8-notes",
+            subject: "Science",
+            level: "Grade 8",
+            type: "Notes pack",
+            title: "Grade 8 Science: complete notes pack, all strands",
+            summary: "Every Grade 8 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "52 pages · 12 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>12 strands, in the order the Grade 8 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Cell structure and organisation</li><li>Human reproduction and growth</li><li>Nutrition and diet</li><li>Ecosystems and food chains</li><li>States of matter and changes of state</li><li>Separation techniques</li><li>Chemical reactions and equations</li><li>Metals and non-metals</li><li>Measurement: length, mass, volume and density</li><li>Heat transfer and temperature</li><li>Light: reflection and refraction</li><li>Sound</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li><li>Practical questions reward observation, then inference, in that order.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "science-grade8-papers",
+            subject: "Science",
+            level: "Grade 8",
+            type: "Past papers",
+            title: "Grade 8 Science: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 8 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 8 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If cell structure and organisation is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Cell structure and organisation; Human reproduction and growth</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Nutrition and diet; Ecosystems and food chains</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>States of matter and changes of state; Separation techniques</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "science-grade8-quizzes",
+            subject: "Science",
+            level: "Grade 8",
+            type: "Quiz banks",
+            title: "Grade 8 Science: quiz bank, one quiz per strand",
+            summary: "12 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "12 quizzes · 168 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 12 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Cell structure and organisation</li><li>Human reproduction and growth</li><li>Nutrition and diet</li><li>Ecosystems and food chains</li><li>States of matter and changes of state</li><li>Separation techniques</li><li>Chemical reactions and equations</li><li>Metals and non-metals</li><li>Measurement: length, mass, volume and density</li><li>Heat transfer and temperature</li><li>Light: reflection and refraction</li><li>Sound</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 8 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "science-grade8-videos",
+            subject: "Science",
+            level: "Grade 8",
+            type: "Video lessons",
+            title: "Grade 8 Science: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 8, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Cell structure and organisation</li><li>Human reproduction and growth</li><li>Nutrition and diet</li><li>Ecosystems and food chains</li><li>States of matter and changes of state</li><li>Separation techniques</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 8 Science notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "science-grade9-notes",
+            subject: "Science",
+            level: "Grade 9",
+            type: "Notes pack",
+            title: "Grade 9 Science: complete notes pack, all strands",
+            summary: "Every Grade 9 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "52 pages · 12 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>12 strands, in the order the Grade 9 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Classification of living organisms</li><li>Genetics and heredity</li><li>Excretion, coordination and homeostasis</li><li>Disease and immunity</li><li>Atomic structure and the periodic table</li><li>Acids, bases and salts</li><li>Carbon and its compounds</li><li>Electricity: current, voltage and resistance</li><li>Force and motion</li><li>Work, energy and power</li><li>Waves</li><li>Earth and space</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li><li>Practical questions reward observation, then inference, in that order.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "science-grade9-papers",
+            subject: "Science",
+            level: "Grade 9",
+            type: "Past papers",
+            title: "Grade 9 Science: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 9 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 9 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If classification of living organisms is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Classification of living organisms; Genetics and heredity</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Excretion, coordination and homeostasis; Disease and immunity</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Atomic structure and the periodic table; Acids, bases and salts</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "science-grade9-quizzes",
+            subject: "Science",
+            level: "Grade 9",
+            type: "Quiz banks",
+            title: "Grade 9 Science: quiz bank, one quiz per strand",
+            summary: "12 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "12 quizzes · 168 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 12 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Classification of living organisms</li><li>Genetics and heredity</li><li>Excretion, coordination and homeostasis</li><li>Disease and immunity</li><li>Atomic structure and the periodic table</li><li>Acids, bases and salts</li><li>Carbon and its compounds</li><li>Electricity: current, voltage and resistance</li><li>Force and motion</li><li>Work, energy and power</li><li>Waves</li><li>Earth and space</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 9 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "science-grade9-videos",
+            subject: "Science",
+            level: "Grade 9",
+            type: "Video lessons",
+            title: "Grade 9 Science: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 9, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Classification of living organisms</li><li>Genetics and heredity</li><li>Excretion, coordination and homeostasis</li><li>Disease and immunity</li><li>Atomic structure and the periodic table</li><li>Acids, bases and salts</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 9 Science notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "science-grade10-notes",
+            subject: "Science",
+            level: "Grade 10",
+            type: "Notes pack",
+            title: "Grade 10 Science: complete notes pack, all strands",
+            summary: "Every Grade 10 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "38 pages · 8 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>8 strands, in the order the Grade 10 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Biology: cell biology and transport</li><li>Biology: respiration, nutrition and gaseous exchange</li><li>Chemistry: matter and atomic structure</li><li>Chemistry: the periodic table and chemical families</li><li>Chemistry: the mole concept</li><li>Physics: measurement and kinematics</li><li>Physics: dynamics and pressure</li><li>Physics: heat, waves and practical skills</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li><li>Practical questions reward observation, then inference, in that order.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "science-grade10-papers",
+            subject: "Science",
+            level: "Grade 10",
+            type: "Past papers",
+            title: "Grade 10 Science: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 10 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 10 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If biology: cell biology and transport is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Biology: cell biology and transport; Biology: respiration, nutrition and gaseous exchange</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Chemistry: matter and atomic structure; Chemistry: the periodic table and chemical families</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Chemistry: the mole concept; Physics: measurement and kinematics</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "science-grade10-quizzes",
+            subject: "Science",
+            level: "Grade 10",
+            type: "Quiz banks",
+            title: "Grade 10 Science: quiz bank, one quiz per strand",
+            summary: "8 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "8 quizzes · 112 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 8 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Biology: cell biology and transport</li><li>Biology: respiration, nutrition and gaseous exchange</li><li>Chemistry: matter and atomic structure</li><li>Chemistry: the periodic table and chemical families</li><li>Chemistry: the mole concept</li><li>Physics: measurement and kinematics</li><li>Physics: dynamics and pressure</li><li>Physics: heat, waves and practical skills</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 10 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "science-grade10-videos",
+            subject: "Science",
+            level: "Grade 10",
+            type: "Video lessons",
+            title: "Grade 10 Science: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 10, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Biology: cell biology and transport</li><li>Biology: respiration, nutrition and gaseous exchange</li><li>Chemistry: matter and atomic structure</li><li>Chemistry: the periodic table and chemical families</li><li>Chemistry: the mole concept</li><li>Physics: measurement and kinematics</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 10 Science notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "science-grade11-notes",
+            subject: "Science",
+            level: "Grade 11",
+            type: "Notes pack",
+            title: "Grade 11 Science: complete notes pack, all strands",
+            summary: "Every Grade 11 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "38 pages · 8 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>8 strands, in the order the Grade 11 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Biology: excretion, coordination and reproduction</li><li>Biology: growth, genetics and ecology</li><li>Chemistry: moles, stoichiometry and energetics</li><li>Chemistry: acids, bases, salts and electrochemistry</li><li>Chemistry: organic chemistry</li><li>Physics: electricity and magnetism</li><li>Physics: optics and fluids</li><li>Physics: work, energy, power and waves</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li><li>Practical questions reward observation, then inference, in that order.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "science-grade11-papers",
+            subject: "Science",
+            level: "Grade 11",
+            type: "Past papers",
+            title: "Grade 11 Science: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 11 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 11 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If biology: excretion, coordination and reproduction is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Biology: excretion, coordination and reproduction; Biology: growth, genetics and ecology</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Chemistry: moles, stoichiometry and energetics; Chemistry: acids, bases, salts and electrochemistry</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Chemistry: organic chemistry; Physics: electricity and magnetism</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "science-grade11-quizzes",
+            subject: "Science",
+            level: "Grade 11",
+            type: "Quiz banks",
+            title: "Grade 11 Science: quiz bank, one quiz per strand",
+            summary: "8 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "8 quizzes · 112 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 8 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Biology: excretion, coordination and reproduction</li><li>Biology: growth, genetics and ecology</li><li>Chemistry: moles, stoichiometry and energetics</li><li>Chemistry: acids, bases, salts and electrochemistry</li><li>Chemistry: organic chemistry</li><li>Physics: electricity and magnetism</li><li>Physics: optics and fluids</li><li>Physics: work, energy, power and waves</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 11 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "science-grade11-videos",
+            subject: "Science",
+            level: "Grade 11",
+            type: "Video lessons",
+            title: "Grade 11 Science: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 11, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Biology: excretion, coordination and reproduction</li><li>Biology: growth, genetics and ecology</li><li>Chemistry: moles, stoichiometry and energetics</li><li>Chemistry: acids, bases, salts and electrochemistry</li><li>Chemistry: organic chemistry</li><li>Physics: electricity and magnetism</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 11 Science notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "science-grade12-notes",
+            subject: "Science",
+            level: "Grade 12",
+            type: "Notes pack",
+            title: "Grade 12 Science: complete notes pack, all strands",
+            summary: "Every Grade 12 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "38 pages · 8 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>8 strands, in the order the Grade 12 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Biology: evolution, genetics and biotechnology</li><li>Biology: ecology and human health</li><li>Chemistry: organic chemistry and polymers</li><li>Chemistry: qualitative and quantitative analysis</li><li>Chemistry: environmental chemistry</li><li>Physics: electronics and radioactivity</li><li>Physics: fields and alternating current</li><li>KCSE revision across Biology, Chemistry and Physics</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li><li>Practical questions reward observation, then inference, in that order.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "science-grade12-papers",
+            subject: "Science",
+            level: "Grade 12",
+            type: "Past papers",
+            title: "Grade 12 Science: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 12 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 12 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If biology: evolution, genetics and biotechnology is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Biology: evolution, genetics and biotechnology; Biology: ecology and human health</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Chemistry: organic chemistry and polymers; Chemistry: qualitative and quantitative analysis</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Chemistry: environmental chemistry; Physics: electronics and radioactivity</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Definitions carry marks on their own; write them before the example.</li><li>In calculations, convert to SI units first and show the substitution line.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "science-grade12-quizzes",
+            subject: "Science",
+            level: "Grade 12",
+            type: "Quiz banks",
+            title: "Grade 12 Science: quiz bank, one quiz per strand",
+            summary: "8 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "8 quizzes · 112 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 8 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Biology: evolution, genetics and biotechnology</li><li>Biology: ecology and human health</li><li>Chemistry: organic chemistry and polymers</li><li>Chemistry: qualitative and quantitative analysis</li><li>Chemistry: environmental chemistry</li><li>Physics: electronics and radioactivity</li><li>Physics: fields and alternating current</li><li>KCSE revision across Biology, Chemistry and Physics</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 12 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "science-grade12-videos",
+            subject: "Science",
+            level: "Grade 12",
+            type: "Video lessons",
+            title: "Grade 12 Science: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 12, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Biology: evolution, genetics and biotechnology</li><li>Biology: ecology and human health</li><li>Chemistry: organic chemistry and polymers</li><li>Chemistry: qualitative and quantitative analysis</li><li>Chemistry: environmental chemistry</li><li>Physics: electronics and radioactivity</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 12 Science notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade7-notes",
+            subject: "Social Sciences",
+            level: "Grade 7",
+            type: "Notes pack",
+            title: "Grade 7 Social Sciences: complete notes pack, all strands",
+            summary: "Every Grade 7 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "34 pages · 7 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>7 strands, in the order the Grade 7 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Citizenship and human rights</li><li>Kenya: maps and map reading</li><li>Physical features and climate</li><li>Economic activities in Kenya</li><li>The East African Community</li><li>Business basics: needs, wants and resources</li><li>History: pre-colonial communities in Kenya</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li><li>Map and graph work loses marks for missing titles, keys and units.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade7-papers",
+            subject: "Social Sciences",
+            level: "Grade 7",
+            type: "Past papers",
+            title: "Grade 7 Social Sciences: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 7 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 7 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If citizenship and human rights is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Citizenship and human rights; Kenya: maps and map reading</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Physical features and climate; Economic activities in Kenya</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>The East African Community; Business basics: needs, wants and resources</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade7-quizzes",
+            subject: "Social Sciences",
+            level: "Grade 7",
+            type: "Quiz banks",
+            title: "Grade 7 Social Sciences: quiz bank, one quiz per strand",
+            summary: "7 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "7 quizzes · 98 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 7 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Citizenship and human rights</li><li>Kenya: maps and map reading</li><li>Physical features and climate</li><li>Economic activities in Kenya</li><li>The East African Community</li><li>Business basics: needs, wants and resources</li><li>History: pre-colonial communities in Kenya</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 7 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade7-videos",
+            subject: "Social Sciences",
+            level: "Grade 7",
+            type: "Video lessons",
+            title: "Grade 7 Social Sciences: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 7, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Citizenship and human rights</li><li>Kenya: maps and map reading</li><li>Physical features and climate</li><li>Economic activities in Kenya</li><li>The East African Community</li><li>Business basics: needs, wants and resources</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 7 Social Sciences notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade8-notes",
+            subject: "Social Sciences",
+            level: "Grade 8",
+            type: "Notes pack",
+            title: "Grade 8 Social Sciences: complete notes pack, all strands",
+            summary: "Every Grade 8 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "34 pages · 7 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>7 strands, in the order the Grade 8 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Map reading and fieldwork</li><li>Climate and vegetation</li><li>Population and settlement</li><li>Mining, industry and trade</li><li>Regional cooperation in Africa</li><li>Colonial rule and the struggle for independence</li><li>Governance and the rule of law</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li><li>Map and graph work loses marks for missing titles, keys and units.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade8-papers",
+            subject: "Social Sciences",
+            level: "Grade 8",
+            type: "Past papers",
+            title: "Grade 8 Social Sciences: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 8 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 8 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If map reading and fieldwork is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Map reading and fieldwork; Climate and vegetation</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Population and settlement; Mining, industry and trade</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Regional cooperation in Africa; Colonial rule and the struggle for independence</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade8-quizzes",
+            subject: "Social Sciences",
+            level: "Grade 8",
+            type: "Quiz banks",
+            title: "Grade 8 Social Sciences: quiz bank, one quiz per strand",
+            summary: "7 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "7 quizzes · 98 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 7 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Map reading and fieldwork</li><li>Climate and vegetation</li><li>Population and settlement</li><li>Mining, industry and trade</li><li>Regional cooperation in Africa</li><li>Colonial rule and the struggle for independence</li><li>Governance and the rule of law</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 8 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade8-videos",
+            subject: "Social Sciences",
+            level: "Grade 8",
+            type: "Video lessons",
+            title: "Grade 8 Social Sciences: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 8, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Map reading and fieldwork</li><li>Climate and vegetation</li><li>Population and settlement</li><li>Mining, industry and trade</li><li>Regional cooperation in Africa</li><li>Colonial rule and the struggle for independence</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 8 Social Sciences notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade9-notes",
+            subject: "Social Sciences",
+            level: "Grade 9",
+            type: "Notes pack",
+            title: "Grade 9 Social Sciences: complete notes pack, all strands",
+            summary: "Every Grade 9 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "34 pages · 7 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>7 strands, in the order the Grade 9 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Landforms, rivers and lakes</li><li>Agriculture and food security</li><li>Transport and communication</li><li>Urbanisation and its challenges</li><li>African independence movements</li><li>Government and the constitution</li><li>Economic development and budgeting</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li><li>Map and graph work loses marks for missing titles, keys and units.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade9-papers",
+            subject: "Social Sciences",
+            level: "Grade 9",
+            type: "Past papers",
+            title: "Grade 9 Social Sciences: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 9 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 9 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If landforms, rivers and lakes is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Landforms, rivers and lakes; Agriculture and food security</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Transport and communication; Urbanisation and its challenges</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>African independence movements; Government and the constitution</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade9-quizzes",
+            subject: "Social Sciences",
+            level: "Grade 9",
+            type: "Quiz banks",
+            title: "Grade 9 Social Sciences: quiz bank, one quiz per strand",
+            summary: "7 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "7 quizzes · 98 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 7 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Landforms, rivers and lakes</li><li>Agriculture and food security</li><li>Transport and communication</li><li>Urbanisation and its challenges</li><li>African independence movements</li><li>Government and the constitution</li><li>Economic development and budgeting</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 9 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade9-videos",
+            subject: "Social Sciences",
+            level: "Grade 9",
+            type: "Video lessons",
+            title: "Grade 9 Social Sciences: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 9, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Landforms, rivers and lakes</li><li>Agriculture and food security</li><li>Transport and communication</li><li>Urbanisation and its challenges</li><li>African independence movements</li><li>Government and the constitution</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 9 Social Sciences notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade10-notes",
+            subject: "Social Sciences",
+            level: "Grade 10",
+            type: "Notes pack",
+            title: "Grade 10 Social Sciences: complete notes pack, all strands",
+            summary: "Every Grade 10 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "34 pages · 7 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>7 strands, in the order the Grade 10 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Geography: the earth's structure and weather</li><li>Geography: climate, vegetation and soils</li><li>Geography: agriculture and industry</li><li>History: nationalism and independence in East Africa</li><li>Citizenship: devolution and public participation</li><li>Business: business units and entrepreneurship</li><li>Business: accounting basics</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li><li>Map and graph work loses marks for missing titles, keys and units.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade10-papers",
+            subject: "Social Sciences",
+            level: "Grade 10",
+            type: "Past papers",
+            title: "Grade 10 Social Sciences: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 10 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 10 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If geography: the earth's structure and weather is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Geography: the earth's structure and weather; Geography: climate, vegetation and soils</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Geography: agriculture and industry; History: nationalism and independence in East Africa</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Citizenship: devolution and public participation; Business: business units and entrepreneurship</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade10-quizzes",
+            subject: "Social Sciences",
+            level: "Grade 10",
+            type: "Quiz banks",
+            title: "Grade 10 Social Sciences: quiz bank, one quiz per strand",
+            summary: "7 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "7 quizzes · 98 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 7 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Geography: the earth's structure and weather</li><li>Geography: climate, vegetation and soils</li><li>Geography: agriculture and industry</li><li>History: nationalism and independence in East Africa</li><li>Citizenship: devolution and public participation</li><li>Business: business units and entrepreneurship</li><li>Business: accounting basics</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 10 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade10-videos",
+            subject: "Social Sciences",
+            level: "Grade 10",
+            type: "Video lessons",
+            title: "Grade 10 Social Sciences: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 10, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Geography: the earth's structure and weather</li><li>Geography: climate, vegetation and soils</li><li>Geography: agriculture and industry</li><li>History: nationalism and independence in East Africa</li><li>Citizenship: devolution and public participation</li><li>Business: business units and entrepreneurship</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 10 Social Sciences notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade11-notes",
+            subject: "Social Sciences",
+            level: "Grade 11",
+            type: "Notes pack",
+            title: "Grade 11 Social Sciences: complete notes pack, all strands",
+            summary: "Every Grade 11 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "34 pages · 7 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>7 strands, in the order the Grade 11 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Geography: hydrology, glaciation and deserts</li><li>Geography: population, settlement and mining</li><li>Geography: industry and regional development</li><li>History: the world wars and the Cold War</li><li>History: decolonisation in Africa</li><li>Business: demand, supply and market structures</li><li>Business: government and the economy</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li><li>Map and graph work loses marks for missing titles, keys and units.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade11-papers",
+            subject: "Social Sciences",
+            level: "Grade 11",
+            type: "Past papers",
+            title: "Grade 11 Social Sciences: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 11 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 11 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If geography: hydrology, glaciation and deserts is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Geography: hydrology, glaciation and deserts; Geography: population, settlement and mining</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>Geography: industry and regional development; History: the world wars and the Cold War</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>History: decolonisation in Africa; Business: demand, supply and market structures</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade11-quizzes",
+            subject: "Social Sciences",
+            level: "Grade 11",
+            type: "Quiz banks",
+            title: "Grade 11 Social Sciences: quiz bank, one quiz per strand",
+            summary: "7 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "7 quizzes · 98 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 7 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Geography: hydrology, glaciation and deserts</li><li>Geography: population, settlement and mining</li><li>Geography: industry and regional development</li><li>History: the world wars and the Cold War</li><li>History: decolonisation in Africa</li><li>Business: demand, supply and market structures</li><li>Business: government and the economy</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 11 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade11-videos",
+            subject: "Social Sciences",
+            level: "Grade 11",
+            type: "Video lessons",
+            title: "Grade 11 Social Sciences: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 11, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Geography: hydrology, glaciation and deserts</li><li>Geography: population, settlement and mining</li><li>Geography: industry and regional development</li><li>History: the world wars and the Cold War</li><li>History: decolonisation in Africa</li><li>Business: demand, supply and market structures</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 11 Social Sciences notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade12-notes",
+            subject: "Social Sciences",
+            level: "Grade 12",
+            type: "Notes pack",
+            title: "Grade 12 Social Sciences: complete notes pack, all strands",
+            summary: "Every Grade 12 strand in one pack, written for revision without a teacher: definitions, worked examples and the traps that cost marks.",
+            meta: "34 pages · 7 strands",
+            updated: "2026-10-29",
+            body: `
+            <h3>What this pack covers</h3>
+            <p>7 strands, in the order the Grade 12 syllabus teaches them. Each strand opens with the definitions, then worked examples, then a short self-check so you know whether to move on.</p>
+            <ol>
+                <li>Geography: fieldwork, maps and statistics</li><li>Geography: environmental management</li><li>History: post-independence Kenya and African unity</li><li>History: global organisations and cooperation</li><li>Business: national income and inflation</li><li>Business: international trade</li><li>Revision and paper technique</li>
+            </ol>
+            <h3>How the notes are written</h3>
+            <p>Every strand is laid out the same way: a plain-language explanation, one worked example written the way an examiner expects to see it, and the three mistakes that cost the most marks in that strand. Nothing here is copied from a textbook; the wording is aimed at a student revising without a teacher in the room.</p>
+            <h3>Where the marks sit</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li><li>Map and graph work loses marks for missing titles, keys and units.</li>
+            </ul>
+            <h3>How to work through it</h3>
+            <p>Take one strand a sitting. Read it, close the notes, then write the worked example out from memory. If you cannot, the strand goes on your repeat list instead of the finished list. The last section is a one-page summary you can use the night before a paper.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade12-papers",
+            subject: "Social Sciences",
+            level: "Grade 12",
+            type: "Past papers",
+            title: "Grade 12 Social Sciences: end-term and mock papers with marking schemes",
+            summary: "Terms 1 to 3 plus two mock papers in the Grade 12 format, each with a marking scheme that shows where every mark is earned.",
+            meta: "5 papers · full schemes",
+            updated: "2026-10-29",
+            body: `
+            <h3>What is inside</h3>
+            <p>End-of-term papers for Terms 1, 2 and 3, plus two full mock papers written to the Grade 12 format. Every question comes with a marking scheme that shows where each mark is earned, not just the final answer.</p>
+            <h3>How the papers are arranged</h3>
+            <p>The papers are grouped by topic, not by term. If geography: fieldwork, maps and statistics is your weak point, you revise that section instead of a calendar page. Each section opens with a coverage table showing how often the topic appears and what it is usually worth.</p>
+            <table>
+                <thead><tr><th>Section</th><th>Strands covered</th><th>Typical marks</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>Geography: fieldwork, maps and statistics; Geography: environmental management</td><td>4 - 8</td></tr>
+                    <tr><td>B</td><td>History: post-independence Kenya and African unity; History: global organisations and cooperation</td><td>6 - 10</td></tr>
+                    <tr><td>C</td><td>Business: national income and inflation; Business: international trade</td><td>8 - 12</td></tr>
+                </tbody>
+            </table>
+            <h3>How to mark yourself</h3>
+            <p>Do the paper with the scheme closed, then mark line by line. A scheme mark lives on a method line, not only on the answer. If you reached the right answer by a route the scheme does not show, write your method beside it, because in the real paper you would still earn those method marks.</p>
+            <h3>What the schemes reward</h3>
+            <ul>
+                <li>Data-response questions want the trend described, then the reason, then the example.</li><li>History essays are marked on the points, the evidence and the structure.</li>
+                <li>Accuracy statements: units, rounding, and the final sentence the question asked for.</li>
+            </ul>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade12-quizzes",
+            subject: "Social Sciences",
+            level: "Grade 12",
+            type: "Quiz banks",
+            title: "Grade 12 Social Sciences: quiz bank, one quiz per strand",
+            summary: "7 auto-marked quizzes, one per strand, with per-strand scores so you revise the weak strand and not the whole subject.",
+            meta: "7 quizzes · 98 questions",
+            updated: "2026-10-29",
+            body: `
+            <h3>How the quiz banks work</h3>
+            <p>One quiz per strand, 7 quizzes in total, each between 10 and 20 questions. Questions are marked the moment you answer, with a one-line reason for every correction, and your score per strand is kept so you can see which strand is genuinely weak rather than which one felt hard.</p>
+            <h3>Strands tested</h3>
+            <ul>
+                <li>Geography: fieldwork, maps and statistics</li><li>Geography: environmental management</li><li>History: post-independence Kenya and African unity</li><li>History: global organisations and cooperation</li><li>Business: national income and inflation</li><li>Business: international trade</li><li>Revision and paper technique</li>
+            </ul>
+            <h3>Question styles</h3>
+            <ol>
+                <li>Recall questions that check the definitions and terms.</li>
+                <li>Short application questions in the Grade 12 exam style.</li>
+                <li>Mixed-topic sets at the end of every four quizzes, so the strands stop being separate boxes.</li>
+            </ol>
+            <h3>How to use the scores</h3>
+            <p>Anything under 70 per cent on a strand sends you back to the matching section of the notes pack, then a retake 24 hours later. Retakes give a fresh set of questions, so the second score is a real measure and not a memory of the first.</p>
+    
+            `
+        },
+        {
+            id: "social-sciences-grade12-videos",
+            subject: "Social Sciences",
+            level: "Grade 12",
+            type: "Video lessons",
+            title: "Grade 12 Social Sciences: video lessons for the core strands",
+            summary: "Short lessons on the six strands that carry the most marks at Grade 12, each paired with notes and a quiz.",
+            meta: "6 lessons · 66 min",
+            updated: "2026-10-29",
+            body: `
+            <h3>Lessons</h3>
+            <ol>
+                <li>Geography: fieldwork, maps and statistics</li><li>Geography: environmental management</li><li>History: post-independence Kenya and African unity</li><li>History: global organisations and cooperation</li><li>Business: national income and inflation</li><li>Business: international trade</li>
+            </ol>
+            <h3>How each lesson is built</h3>
+            <p>Seven to thirteen minutes, one idea at a time. The lesson states the idea, works one exam-style example slowly, then sets one question to pause on. No lesson depends on the one before it, so you can jump straight to the strand you need.</p>
+            <h3>How to watch for exams</h3>
+            <p>Watch once with a pen and no pausing, then again with the pause button. The second viewing is where the learning happens: attempt the example before the solution appears. Lesson notes and the worked example sit under every video so you are not copying from the screen.</p>
+            <h3>What it pairs with</h3>
+            <p>Each lesson points to the matching strand in the Grade 12 Social Sciences notes pack and to one quiz in the quiz bank, so a video never leaves you with the feeling of having understood without having practised.</p>
+    
+            `
+        },
+    ]
+);

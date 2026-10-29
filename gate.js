@@ -112,11 +112,22 @@ try {
     if (!revealed) toLogin();
 }
 
-// If Firebase never answers, say so instead of leaving the veil up for ever.
+/* Firebase reads a session back from storage through a hidden iframe. Some
+ * browsers restrict that handshake, and then the answer never arrives and the
+ * veil would sit there for ever. Give it a few seconds, then fall back to what
+ * this device already knows: a student who was here recently keeps reading,
+ * everyone else goes to login. */
 setTimeout(function () {
+    if (decided) return;
+
+    // Already showing the page on a remembered session: do not interrupt.
     if (revealed) return;
-    const text = document.querySelector(".auth-veil-text");
-    if (text) {
-        text.innerHTML = 'Still checking your session. <a href="login.html">Log in again</a> if this stays.';
+
+    if (auth.currentUser) {
+        remember();
+        unlock();
+        return;
     }
-}, 9000);
+
+    toLogin();
+}, 5000);

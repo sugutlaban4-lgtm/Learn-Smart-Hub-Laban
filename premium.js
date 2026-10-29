@@ -29,6 +29,30 @@ const paymentButton =
 const phoneInput =
     document.getElementById("mpesaPhone");
 
+const pochiForm =
+    document.getElementById("pochiForm");
+
+const pochiCodeInput =
+    document.getElementById("pochiCode");
+
+const pochiSubmit =
+    document.getElementById("pochiSubmit");
+
+const pochiMessage =
+    document.getElementById("pochiMessage");
+
+const pochiAmount =
+    document.getElementById("pochiAmount");
+
+const pochiNumber =
+    document.getElementById("pochiNumber");
+
+
+// The Pochi wallet number lives on the backend so it can change without a
+// website deploy. The page still works if the call fails: it keeps the number
+// already in the markup.
+const POCHI_FALLBACK_NUMBER = "0710 974 423";
+
 
 // ================================
 // AUTHENTICATION + PREMIUM STATUS
@@ -195,6 +219,21 @@ async function (plan, price) {
 
 
     paymentButton.disabled = false;
+
+
+    if (pochiAmount) {
+
+        pochiAmount.textContent =
+            "KSh " + price;
+
+    }
+
+
+    if (pochiMessage) {
+
+        pochiMessage.textContent = "";
+
+    }
 
 
     // Highlight selected plan
@@ -548,3 +587,188 @@ async function (resource) {
     }
 
 };
+
+// ================================
+// POCHI LA BIASHARA PAYMENT
+// ================================
+
+// Pochi has no API to confirm a payment, so the student sends the M-Pesa code
+// and the backend holds it for approval. Premium opens when it is approved,
+// which is the same premium_access record the STK callback writes.
+
+async function loadPochiDetails() {
+
+    if (!pochiNumber) {
+        return;
+    }
+
+
+    pochiNumber.textContent =
+        POCHI_FALLBACK_NUMBER;
+
+
+    try {
+
+        const response =
+            await fetch(`${MPESA_BACKEND}/api/mpesa/pochi`);
+
+        const result =
+            await response.json();
+
+
+        if (result?.success && result.number) {
+
+            // 0710974423 reads better as 0710 974 423
+            const digits =
+                String(result.number).replace(/\D/g, "");
+
+            pochiNumber.textContent =
+                digits.length === 10
+                    ? `${digits.slice(0, 4)} ${digits.slice(4, 7)} ${digits.slice(7)}`
+                    : String(result.number);
+
+        }
+
+    } catch (error) {
+
+        // The markup already shows the number, so this is not worth a message.
+
+        console.warn(
+            "Pochi details could not be refreshed:",
+            error
+        );
+
+    }
+
+}
+
+
+if (pochiForm) {
+
+    loadPochiDetails();
+
+
+    pochiForm.addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+
+            const user =
+                auth.currentUser;
+
+
+            if (!user) {
+
+                pochiMessage.textContent =
+                    "Please log in before sending a payment code.";
+
+                return;
+
+            }
+
+
+            if (!selectedPlanName || !selectedPlanPrice) {
+
+                pochiMessage.textContent =
+                    "Choose a plan above first, so the amount is right.";
+
+                return;
+
+            }
+
+
+            const code =
+                (pochiCodeInput.value || "")
+                    .replace(/[^A-Za-z0-9]/g, "")
+                    .toUpperCase();
+
+
+            if (code.length < 8) {
+
+                pochiMessage.textContent =
+                    "Enter the code from the M-Pesa SMS, for example TG45KD9XQ2.";
+
+                pochiCodeInput.focus();
+
+                return;
+
+            }
+
+
+            pochiSubmit.disabled = true;
+
+            pochiSubmit.textContent =
+                "Sending...";
+
+
+            try {
+
+                const idToken =
+                    await user.getIdToken();
+
+
+                const response =
+                    await fetch(
+                        `${MPESA_BACKEND}/api/mpesa/pochi/claim`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json",
+
+                                Authorization: `Bearer ${idToken}`
+                            },
+
+                            body: JSON.stringify({
+                                plan: selectedPlanName,
+                                code: code
+                            })
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (result.success) {
+
+                    pochiMessage.textContent =
+                        result.alreadyOpen
+                            ? "That code is already with us. Premium opens as soon as it is checked."
+                            : "Code received. Premium opens as soon as the payment shows in the Pochi wallet.";
+
+                    pochiCodeInput.value = "";
+
+                } else {
+
+                    pochiMessage.textContent =
+                        result.message ||
+                        "That code could not be sent. Check it and try again.";
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Pochi claim error:",
+                    error
+                );
+
+                pochiMessage.textContent =
+                    "Could not reach the payment service. Check your connection and try again.";
+
+            }
+
+
+            pochiSubmit.disabled = false;
+
+            pochiSubmit.textContent =
+                "Send code for checking";
+
+        }
+    );
+
+}

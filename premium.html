@@ -175,6 +175,39 @@
         </div>
     </section>
 
+    <section class="section">
+        <div class="section-head">
+            <h2>Or pay with Pochi la Biashara</h2>
+            <p>Send the money from your phone, then give us the code from the M-Pesa SMS so Premium can be switched on.</p>
+        </div>
+
+        <div class="pay-panel pochi-panel">
+            <div class="pochi-number">
+                <span class="label">Pochi la Biashara number</span>
+                <strong id="pochiNumber">0710 974 423</strong>
+                <span class="hint" id="pochiName">Learn Smart Hub</span>
+            </div>
+
+            <ol class="pochi-steps">
+                <li>Open M-Pesa on your phone.</li>
+                <li>Choose Lipa na M-Pesa, then Pochi la Biashara.</li>
+                <li>Enter the number above and the amount for your plan: <strong id="pochiAmount">choose a plan first</strong>.</li>
+                <li>Send it, then copy the M-Pesa code from the confirmation SMS into the box below.</li>
+            </ol>
+
+            <form id="pochiForm" novalidate>
+                <div class="field">
+                    <label for="pochiCode">M-Pesa confirmation code</label>
+                    <input id="pochiCode" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. TG45KD9XQ2">
+                </div>
+
+                <button class="btn btn-primary" type="submit" id="pochiSubmit">Send code for checking</button>
+            </form>
+
+            <p class="hint" id="pochiMessage" role="status" aria-live="polite"></p>
+        </div>
+    </section>
+
     <div class="back-row">
         <a class="btn btn-ghost btn-sm" href="dashboard.html">Back to dashboard</a>
     </div>

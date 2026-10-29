@@ -30,6 +30,7 @@ const VIEWS = {
     progress: { title: "Progress", sub: "Where Learn Smart Hub stands today" },
     revenue: { title: "Revenue", sub: "M-Pesa payments, all time and this month" },
     students: { title: "Students", sub: "Registration and upgrade numbers" },
+    payments: { title: "Payments", sub: "Pochi la Biashara codes waiting to be checked" },
     support: { title: "Support", sub: "Messages from students and parents" },
     content: { title: "Content", sub: "What each subject has, free and premium" }
 };
@@ -74,6 +75,13 @@ const CHECKLIST = [
         note: "Still sandbox, so a checkout will not charge a real number.",
         state: "blocked",
         weight: 26
+    },
+    {
+        id: "pochi",
+        title: "Pochi la Biashara taking payments",
+        note: "Wallet 0710 974 423 is live; approve the code in Payments to open Premium.",
+        state: "done",
+        weight: 12
     },
     {
         id: "paywall",
@@ -615,10 +623,78 @@ function viewContent() {
     `;
 }
 
+function viewPayments() {
+    const d = state.data;
+    const claims = d.claims || [];
+    const pending = claims.filter((c) => c.status === "pending");
+    const approved = claims.filter((c) => c.status === "approved");
+    const value = pending.reduce((sum, c) => sum + Number(c.amount || 0), 0);
+
+    return `
+        <div class="a-grid">
+            <div class="a-kpi ${pending.length ? "is-warn" : "is-good"}">
+                <p class="label">Waiting to check</p>
+                <p class="value">${pending.length}</p>
+                <p class="note">Pochi codes sent by students</p>
+            </div>
+            <div class="a-kpi">
+                <p class="label">Value waiting</p>
+                <p class="value">KSh ${value}</p>
+                <p class="note">Approve only once it shows in the wallet</p>
+            </div>
+            <div class="a-kpi">
+                <p class="label">Approved</p>
+                <p class="value">${approved.length}</p>
+                <p class="note">Premium opened by hand</p>
+            </div>
+        </div>
+
+        <section class="a-card" style="margin-top:14px">
+            <h2>Pochi la Biashara codes</h2>
+            <p class="a-lead">
+                A code only proves a payment once it appears in the M-Pesa statement for the
+                Pochi wallet. Approving opens Premium for that student straight away.
+            </p>
+
+            ${pending.length
+                ? pending.map((item) => `
+                    <div class="a-message">
+                        <div class="body">
+                            <span class="topic">KSh ${esc(String(item.amount ?? "?"))} · ${esc(item.plan || "plan")}</span>
+                            <span class="meta"> · ${esc(item.email || "unknown student")} · ${esc(when(item.createdAt))}</span>
+                            <div class="meta">M-Pesa code: <strong>${esc(item.code || "")}</strong></div>
+                        </div>
+                        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+                            <button class="btn btn-primary btn-sm" type="button" data-approve="${esc(item.id)}">Approve</button>
+                            <button class="btn btn-ghost btn-sm" type="button" data-reject="${esc(item.id)}">Reject</button>
+                        </div>
+                    </div>
+                `).join("")
+                : `<p class="a-empty">Nothing waiting. Codes sent from premium.html appear here.</p>`}
+        </section>
+
+        ${approved.length
+            ? `<section class="a-card" style="margin-top:14px">
+                <h2>Recently approved</h2>
+                ${approved.slice(0, 10).map((item) => `
+                    <div class="a-message">
+                        <div class="body">
+                            <span class="topic">KSh ${esc(String(item.amount ?? "?"))} · ${esc(item.plan || "plan")}</span>
+                            <span class="meta"> · ${esc(item.email || "unknown student")} · ${esc(item.code || "")}</span>
+                        </div>
+                        ${pill("approved")}
+                    </div>
+                `).join("")}
+            </section>`
+            : ""}
+    `;
+}
+
 const RENDERERS = {
     progress: viewProgress,
     revenue: viewRevenue,
     students: viewStudents,
+    payments: viewPayments,
     support: viewSupport,
     content: viewContent
 };
@@ -643,6 +719,13 @@ function paintChrome() {
         const open = state.data ? Number(state.data.openSupport || 0) : 0;
         openDot.textContent = open > 0 ? String(open) : "";
         openDot.className = open > 0 ? "a-pill open" : "";
+    }
+
+    const claimDot = $("navDotPayments");
+    if (claimDot) {
+        const waiting = state.data ? Number(state.data.openClaims || 0) : 0;
+        claimDot.textContent = waiting > 0 ? String(waiting) : "";
+        claimDot.className = waiting > 0 ? "a-pill open" : "";
     }
 
     const stamp = $("lastUpdated");
@@ -699,6 +782,14 @@ function paint() {
 
     main.querySelectorAll("[data-resolve]").forEach((button) => {
         button.addEventListener("click", () => resolveSupport(button));
+    });
+
+    main.querySelectorAll("[data-approve]").forEach((button) => {
+        button.addEventListener("click", () => settleClaim(button, "approve"));
+    });
+
+    main.querySelectorAll("[data-reject]").forEach((button) => {
+        button.addEventListener("click", () => settleClaim(button, "reject"));
     });
 }
 
@@ -854,6 +945,34 @@ async function resolveSupport(button) {
         console.error("Resolve error:", error);
         button.disabled = false;
         toast("Could not mark that one. Try again.");
+    }
+}
+
+async function settleClaim(button, action) {
+    const id = action === "approve" ? button.dataset.approve : button.dataset.reject;
+
+    if (!id) return;
+
+    button.disabled = true;
+
+    try {
+        const idToken = await state.user.getIdToken();
+
+        const response = await fetch(`${BACKEND}/api/admin/claims/${id}/${action}`, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${idToken}` }
+        });
+
+        const body = await response.json().catch(() => ({}));
+
+        if (!response.ok) throw new Error(body.message || "Failed");
+
+        toast(action === "approve" ? "Premium opened for that student" : "Code rejected");
+        await loadOverview();
+    } catch (error) {
+        console.error("Claim action error:", error);
+        button.disabled = false;
+        toast("Could not save that. Try again.");
     }
 }
 

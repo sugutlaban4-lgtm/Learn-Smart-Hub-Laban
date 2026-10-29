@@ -1461,3 +1461,164 @@ body.has-install-bar {
     .person-card { padding: 18px; }
     .owner-avatar { width: 48px; height: 48px; font-size: 1.15rem; }
 }
+
+/* December crash course page */
+.crash-hero { padding-top: 32px; }
+
+.crash-badge {
+    display: inline-block;
+    margin: 0 0 12px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--brand-50);
+    color: var(--brand-700);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.crash-hero h1 {
+    margin: 0 0 12px;
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+    line-height: 1.15;
+    color: var(--ink);
+}
+
+.crash-lede { margin: 0 0 18px; font-size: 1rem; line-height: 1.55; color: var(--ink-soft); }
+.crash-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.crash-small { margin: 0; font-size: 0.85rem; color: #647a96; }
+
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+
+.timeline li {
+    position: relative;
+    padding: 16px 16px 16px 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--brand-500);
+    border-radius: 12px;
+}
+
+.timeline strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: 0.98rem; }
+.timeline p { margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--ink-soft); }
+
+.price-grid { display: grid; gap: 14px; }
+
+.price-card {
+    position: relative;
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+.price-card h3 { margin: 0 0 6px; font-size: 1.1rem; color: var(--ink); }
+.price-card-best { border-color: var(--brand-300); background: #f7fbff; }
+
+.price-tag {
+    position: absolute;
+    top: -11px;
+    left: 20px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--ok);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.price { margin: 0; font-size: 1.6rem; font-weight: 700; color: var(--brand-700); }
+.price-sub { margin: 0 0 12px; font-size: 0.82rem; color: #647a96; }
+.price-list { margin: 0; padding-left: 18px; font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft); }
+.price-copy { margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--ink-soft); }
+
+.crash-form {
+    display: grid;
+    gap: 14px;
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+.field { display: grid; gap: 6px; margin: 0; padding: 0; border: 0; }
+.field > span, .field > legend { font-size: 0.85rem; font-weight: 600; color: var(--ink); padding: 0; }
+
+.field input[type="text"],
+.field input[type="tel"] {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 1rem;
+    color: var(--ink);
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+.field input:focus { outline: 2px solid var(--brand-300); outline-offset: 1px; }
+.pick { display: flex; gap: 8px; align-items: center; font-size: 0.95rem; color: var(--ink-soft); }
+
+.form-note { margin: 0; font-size: 0.88rem; color: var(--brand-700); font-weight: 600; }
+.form-note.is-error { color: #b3261e; }
+.form-fine { margin: 0; font-size: 0.8rem; color: #647a96; }
+
+.pay-card {
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+.pay-label { margin: 0; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #647a96; }
+.pay-number { margin: 4px 0 2px; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.02em; color: var(--ink); }
+.pay-name { margin: 0 0 14px; font-size: 0.85rem; color: #647a96; }
+.pay-steps { margin: 0 0 16px; padding-left: 18px; font-size: 0.92rem; line-height: 1.6; color: var(--ink-soft); }
+
+.faq { display: grid; gap: 10px; }
+
+.faq details {
+    padding: 14px 16px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
+
+.faq summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--ink); }
+.faq summary::marker { color: var(--brand-500); }
+.faq p { margin: 10px 0 0; font-size: 0.92rem; line-height: 1.55; color: var(--ink-soft); }
+
+@media (min-width: 720px) {
+    .price-grid { grid-template-columns: repeat(3, 1fr); }
+    .crash-form { padding: 26px; }
+}
+
+.promo-strip {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 14px 16px;
+    background: var(--brand-50);
+    border: 1px solid var(--brand-300);
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.promo-tag {
+    display: inline-block;
+    margin-bottom: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--brand-700);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.promo-text { flex: 1 1 auto; min-width: 0; font-size: 0.9rem; line-height: 1.45; color: var(--ink-soft); }
+.promo-text strong { display: block; color: var(--ink); font-size: 0.95rem; }
+.promo-arrow { flex: 0 0 auto; color: var(--brand-700); font-weight: 700; }

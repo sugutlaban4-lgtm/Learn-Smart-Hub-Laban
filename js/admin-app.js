@@ -29,6 +29,7 @@ const MATERIALS = window.PREMIUM_MATERIALS || [];
 const VIEWS = {
     progress: { title: "Progress", sub: "Where Learn Smart Hub stands today" },
     revenue: { title: "Revenue", sub: "M-Pesa payments, all time and this month" },
+    wallet: { title: "Wallet", sub: "Business money, kept apart from the M-Pesa balance" },
     students: { title: "Students", sub: "Registration and upgrade numbers" },
     payments: { title: "Payments", sub: "Pochi la Biashara codes waiting to be checked" },
     support: { title: "Support", sub: "Messages from students and parents" },
@@ -152,6 +153,8 @@ const state = {
     error: null,
     view: "progress",
     paymentFilter: "all",
+    wallet: null,
+    walletBusy: false,
     denied: false
 };
 
@@ -623,6 +626,194 @@ function viewContent() {
     `;
 }
 
+/* ------------------------------------------------------------------ wallet */
+
+function viewWallet() {
+    const w = state.wallet;
+
+    if (!w) {
+        return `
+            <section class="a-card">
+                <h2>Wallet</h2>
+                <p class="a-empty">Loading the wallet…</p>
+            </section>`;
+    }
+
+    const rows = (w.entries || []).map((item) => `
+        <div class="a-message">
+            <div class="body">
+                <span class="topic">${item.type === "in" ? "+" : "−"} ${money(item.amount)} · ${esc(item.label)}</span>
+                <span class="meta"> · ${esc(item.code || item.note || "")}${item.createdAt ? " · " + esc(when(item.createdAt)) : ""}</span>
+            </div>
+            ${item.source === "manual"
+                ? `<button class="btn btn-ghost btn-sm" type="button" data-wallet-del="${esc(item.id)}">Remove</button>`
+                : pill("paid")}
+        </div>
+    `).join("");
+
+    return `
+        <div class="a-grid">
+            <div class="a-kpi is-good">
+                <p class="label">Wallet balance</p>
+                <p class="value">${money(w.balance)}</p>
+                <p class="note">The business share of everything that has come in</p>
+            </div>
+            <div class="a-kpi">
+                <p class="label">Money in</p>
+                <p class="value">${money(w.totalIn)}</p>
+                <p class="note">${money(w.claimTotal)} from Premium codes</p>
+            </div>
+            <div class="a-kpi">
+                <p class="label">Money out</p>
+                <p class="value">${money(w.totalOut)}</p>
+                <p class="note">Taken out or spent</p>
+            </div>
+            <div class="a-kpi">
+                <p class="label">This month</p>
+                <p class="value">${money(w.monthIn - w.monthOut)}</p>
+                <p class="note">${money(w.monthIn)} in, ${money(w.monthOut)} out</p>
+            </div>
+        </div>
+
+        <section class="a-card" style="margin-top:14px">
+            <h2>Move money</h2>
+            <p class="a-lead">
+                The shillings stay in M-Pesa. Book what you took out of the Pochi
+                wallet, or a cost the business paid, so the two stay separate.
+            </p>
+            <form id="walletForm" class="wallet-form">
+                <select id="walletType" aria-label="Money in or out">
+                    <option value="out">Money out</option>
+                    <option value="in">Money in</option>
+                </select>
+                <input id="walletAmount" type="number" min="1" step="1" inputmode="numeric"
+                       placeholder="Amount" aria-label="Amount" required>
+                <input id="walletNote" type="text" maxlength="120"
+                       placeholder="What it was for" aria-label="What it was for">
+                <button class="btn btn-primary" type="submit"${state.walletBusy ? " disabled" : ""}>${state.walletBusy ? "Saving…" : "Add"}</button>
+            </form>
+        </section>
+
+        <section class="a-card" style="margin-top:14px">
+            <h2>Every movement</h2>
+            ${rows || `<p class="a-empty">Nothing yet. Approved Premium codes appear here on their own.</p>`}
+        </section>
+    `;
+}
+
+function wireWallet() {
+    const form = $("walletForm");
+    if (form) {
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            addWalletEntry();
+        });
+    }
+
+    main.querySelectorAll("[data-wallet-del]").forEach((button) => {
+        button.addEventListener("click", () => removeWalletEntry(button.dataset.walletDel));
+    });
+}
+
+async function loadWallet() {
+    if (!state.user || state.walletBusy) return;
+
+    state.walletBusy = true;
+
+    try {
+        const idToken = await state.user.getIdToken();
+
+        const response = await fetch(`${BACKEND}/api/admin/wallet`, {
+            headers: { Authorization: `Bearer ${idToken}` }
+        });
+
+        const body = await response.json().catch(() => ({}));
+
+        if (!response.ok || !body.success) {
+            throw new Error(body.message || `the wallet route returned ${response.status}`);
+        }
+
+        state.wallet = body.wallet;
+    } catch (error) {
+        console.error("Wallet error:", error);
+        toast("Could not load the wallet");
+    } finally {
+        state.walletBusy = false;
+    }
+
+    paint();
+}
+
+async function addWalletEntry() {
+    const type = $("walletType").value === "in" ? "in" : "out";
+    const amount = Number($("walletAmount").value);
+    const note = ($("walletNote").value || "").trim();
+
+    if (!Number.isFinite(amount) || amount <= 0) {
+        toast("Enter an amount first");
+        return;
+    }
+
+    state.walletBusy = true;
+    paint();
+
+    try {
+        const idToken = await state.user.getIdToken();
+
+        const response = await fetch(`${BACKEND}/api/admin/wallet/entry`, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${idToken}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ type, amount, note })
+        });
+
+        const body = await response.json().catch(() => ({}));
+
+        if (!response.ok || !body.success) {
+            throw new Error(body.message || "the wallet route refused that");
+        }
+
+        state.wallet = body.wallet;
+        state.walletBusy = false;
+        paint();
+        toast(type === "in" ? "Added to the wallet" : "Booked as money out");
+    } catch (error) {
+        state.walletBusy = false;
+        console.error("Wallet add error:", error);
+        paint();
+        toast("Could not save that");
+    }
+}
+
+async function removeWalletEntry(id) {
+    if (!id) return;
+    if (!window.confirm("Remove this movement from the wallet?")) return;
+
+    try {
+        const idToken = await state.user.getIdToken();
+
+        const response = await fetch(`${BACKEND}/api/admin/wallet/entry/${encodeURIComponent(id)}`, {
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${idToken}` }
+        });
+
+        const body = await response.json().catch(() => ({}));
+
+        if (!response.ok || !body.success) {
+            throw new Error(body.message || "the wallet route refused that");
+        }
+
+        state.wallet = body.wallet;
+        paint();
+        toast("Movement removed");
+    } catch (error) {
+        console.error("Wallet delete error:", error);
+        toast("Could not remove that");
+    }
+}
+
 function viewPayments() {
     const d = state.data;
     const claims = d.claims || [];
@@ -693,6 +884,7 @@ function viewPayments() {
 const RENDERERS = {
     progress: viewProgress,
     revenue: viewRevenue,
+    wallet: viewWallet,
     students: viewStudents,
     payments: viewPayments,
     support: viewSupport,
@@ -775,6 +967,13 @@ function paint() {
                 paint();
             });
         });
+        return;
+    }
+
+    if (state.view === "wallet") {
+        main.innerHTML = viewWallet();
+        wireWallet();
+        if (!state.wallet) loadWallet();
         return;
     }
 

@@ -503,3 +503,98 @@ window.LSH_SUBJECT = {
     }
   }
 };
+
+/* ------------------------------------------------------------------ *
+ * Learn Smart Hub practice papers.
+ *
+ * Written by us, in the shape and length of a real KCSE paper, with every
+ * answer worked out step by step. These are practice, not past KNEC papers,
+ * so nothing here is presented as an official examination. They sit at the
+ * end of the papers list on purpose: the free sample stays the first paper,
+ * and everything added here is part of Premium.
+ * ------------------------------------------------------------------ */
+
+window.LSH_SUBJECT.papers.push(
+    {
+        title: "Practice Paper 1",
+        meta: "Learn Smart Hub practice · 1 hour 30 minutes · 40 marks",
+        instructions: "Answer all questions. Show your working. This is our own practice paper, not a KNEC past paper.",
+        sections: [
+            {
+                heading: "Section A: short answers (2 marks each)",
+                questions: [
+                    { q: "Simplify 5(2x - 3) - 4(x - 2).", marks: 2,
+                      answer: "Expand both brackets: 10x - 15 - 4x + 8. Then collect like terms: 6x - 7. Final answer: 6x - 7." },
+                    { q: "Solve 4x - 7 = 2x + 11.", marks: 2,
+                      answer: "Subtract 2x from both sides: 2x - 7 = 11. Add 7 to both sides: 2x = 18. Divide by 2: x = 9. Check: 4(9) - 7 = 29 and 2(9) + 11 = 29." },
+                    { q: "Evaluate 2^(-3) x 2^5.", marks: 2,
+                      answer: "Add the indices: 2^(-3 + 5) = 2^2 = 4." },
+                    { q: "Factorise x^2 - 7x + 12.", marks: 2,
+                      answer: "Two numbers multiplying to 12 and adding to -7 are -3 and -4. So x^2 - 7x + 12 = (x - 3)(x - 4)." },
+                    { q: "Find the gradient of the line passing through (2, 5) and (6, 13).", marks: 2,
+                      answer: "Gradient = (13 - 5) / (6 - 2) = 8 / 4 = 2." },
+                    { q: "A shirt costs KSh 1,200 after a 25% discount. Find the price before the discount.", marks: 2,
+                      answer: "The KSh 1,200 is 75% of the original. Original = 1200 / 0.75 = KSh 1,600." },
+                    { q: "Find the size of one interior angle of a regular octagon.", marks: 2,
+                      answer: "Interior angle = (8 - 2) x 180 / 8 = 1080 / 8 = 135 degrees." },
+                    { q: "Find the median of 4, 9, 2, 7, 11, 5.", marks: 2,
+                      answer: "Arrange in order: 2, 4, 5, 7, 9, 11. There are six values, so take the mean of the two middle ones: (5 + 7) / 2 = 6." }
+                ]
+            },
+            {
+                heading: "Section B: show your working (6 marks each)",
+                questions: [
+                    { q: "Solve the simultaneous equations 3x + 2y = 16 and x - y = 2.", marks: 6,
+                      answer: "From the second equation x = y + 2. Substitute into the first: 3(y + 2) + 2y = 16, so 3y + 6 + 2y = 16, 5y = 10, y = 2. Then x = 2 + 2 = 4. Check: 3(4) + 2(2) = 16. Answer: x = 4, y = 2." },
+                    { q: "A cylinder has radius 7 cm and height 10 cm. Use pi = 22/7 to find (a) its volume and (b) its total surface area.", marks: 6,
+                      answer: "(a) Volume = pi r^2 h = (22/7) x 49 x 10 = 1,540 cm^3. (b) Total surface area = 2 pi r (r + h) = 2 x (22/7) x 7 x 17 = 44 x 17 = 748 cm^2." },
+                    { q: "The sum of three consecutive even numbers is 78. Find the three numbers.", marks: 6,
+                      answer: "Let the numbers be n, n + 2 and n + 4. Then 3n + 6 = 78, so 3n = 72 and n = 24. The numbers are 24, 26 and 28. Check: 24 + 26 + 28 = 78." },
+                    { q: "A matatu covers 180 km in 2 hours 30 minutes. (a) Find its average speed in km/h. (b) How long will it take to cover 252 km at the same speed?", marks: 6,
+                      answer: "(a) 2 hours 30 minutes = 2.5 hours, so speed = 180 / 2.5 = 72 km/h. (b) Time = 252 / 72 = 3.5 hours, which is 3 hours 30 minutes." }
+                ]
+            }
+        ]
+    },
+    {
+        title: "Practice Paper 2",
+        meta: "Learn Smart Hub practice · 1 hour 30 minutes · 40 marks",
+        instructions: "Answer all questions. Show your working. This is our own practice paper, not a KNEC past paper.",
+        sections: [
+            {
+                heading: "Section A: short answers (2 marks each)",
+                questions: [
+                    { q: "Expand (x + 3)(x - 5).", marks: 2,
+                      answer: "x(x - 5) + 3(x - 5) = x^2 - 5x + 3x - 15 = x^2 - 2x - 15." },
+                    { q: "Solve the inequality 5 - 2x < 11.", marks: 2,
+                      answer: "Subtract 5 from both sides: -2x < 6. Divide by -2 and reverse the sign: x > -3." },
+                    { q: "Express 0.375 as a fraction in its lowest terms.", marks: 2,
+                      answer: "0.375 = 375/1000. Divide top and bottom by 125: 3/8." },
+                    { q: "Find the area of a triangle with base 12 cm and height 9 cm.", marks: 2,
+                      answer: "Area = 1/2 x base x height = 1/2 x 12 x 9 = 54 cm^2." },
+                    { q: "Simplify sqrt(50) + sqrt(18), leaving your answer in surd form.", marks: 2,
+                      answer: "sqrt(50) = 5 sqrt(2) and sqrt(18) = 3 sqrt(2). Adding: 8 sqrt(2), which is about 11.31." },
+                    { q: "y varies directly as x. If y = 15 when x = 6, find y when x = 10.", marks: 2,
+                      answer: "y = kx, so 15 = 6k and k = 2.5. When x = 10, y = 2.5 x 10 = 25." },
+                    { q: "Find the mean of 12, 15, 9, 18 and 6.", marks: 2,
+                      answer: "Sum = 60 and there are 5 values, so mean = 60 / 5 = 12." },
+                    { q: "A trader buys an item for KSh 400 and sells it for KSh 460. Find the percentage profit.", marks: 2,
+                      answer: "Profit = 460 - 400 = 60. Percentage profit = 60 / 400 x 100 = 15%." }
+                ]
+            },
+            {
+                heading: "Section B: show your working (6 marks each)",
+                questions: [
+                    { q: "A ladder 5 m long leans against a vertical wall with its foot 3 m from the wall. (a) How high up the wall does it reach? (b) Find the angle the ladder makes with the ground.", marks: 6,
+                      answer: "(a) By Pythagoras, height = sqrt(5^2 - 3^2) = sqrt(16) = 4 m. (b) cos (angle) = 3/5 = 0.6, so the angle = 53.1 degrees to one decimal place." },
+                    { q: "KSh 20,000 is invested at 10% per year compound interest. Find the amount after 2 years and the interest earned.", marks: 6,
+                      answer: "Amount = 20,000 x 1.1^2 = 20,000 x 1.21 = KSh 24,200. Interest = 24,200 - 20,000 = KSh 4,200." },
+                    { q: "Solve the quadratic equation x^2 - 5x + 6 = 0 by factorising.", marks: 6,
+                      answer: "Two numbers multiplying to 6 and adding to -5 are -2 and -3, so (x - 2)(x - 3) = 0. Therefore x = 2 or x = 3. Check: 2^2 - 5(2) + 6 = 0 and 3^2 - 5(3) + 6 = 0." },
+                    { q: "A sector of a circle of radius 14 cm subtends 90 degrees at the centre. Use pi = 22/7 to find (a) the arc length and (b) the area of the sector.", marks: 6,
+                      answer: "(a) Arc length = (90/360) x 2 x (22/7) x 14 = 1/4 x 88 = 22 cm. (b) Area = (90/360) x (22/7) x 14^2 = 1/4 x 616 = 154 cm^2." }
+                ]
+            }
+        ]
+    }
+);

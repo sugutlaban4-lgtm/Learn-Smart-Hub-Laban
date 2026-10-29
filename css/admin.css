@@ -534,3 +534,50 @@
     .admin-side, .admin-top-actions, .a-toast { display: none !important; }
     .admin-shell { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Buttons and action rows used by the error and access cards */
+.a-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.a-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.a-btn:hover {
+    background: #eef5ff;
+    border-color: #c9dcf7;
+}
+
+.a-btn-primary {
+    background: var(--brand-700);
+    border-color: var(--brand-700);
+    color: #fff;
+}
+
+.a-btn-primary:hover {
+    background: var(--brand-900);
+    border-color: var(--brand-900);
+}
+
+.a-btn:disabled {
+    opacity: 0.55;
+    cursor: default;
+}

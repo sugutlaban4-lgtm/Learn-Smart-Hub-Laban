@@ -662,7 +662,7 @@ function paint() {
     }
 
     if (state.error) {
-        main.innerHTML = `<div class="a-error">${esc(state.error)}</div>`;
+        paintError();
         return;
     }
 
@@ -710,23 +710,35 @@ async function loadOverview() {
     const refresh = $("refreshButton");
     if (refresh) refresh.disabled = true;
 
+    state.serverMessage = "";
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 25000);
+
     try {
         const idToken = await state.user.getIdToken();
 
         const response = await fetch(`${BACKEND}/api/admin/overview`, {
-            headers: { Authorization: `Bearer ${idToken}` }
+            headers: { Authorization: `Bearer ${idToken}` },
+            signal: controller.signal
         });
 
         if (response.status === 403) {
+            const body = await response.json().catch(() => ({}));
+            state.serverMessage = body.message || "";
             state.error = null;
+            state.data = null;
             state.denied = true;
             return;
+        }
+
+        if (response.status === 401) {
+            throw new Error("SESSION_EXPIRED");
         }
 
         const data = await response.json();
 
         if (!response.ok || !data.success) {
-            throw new Error(data.message || "Could not load the overview");
+            throw new Error(data.message || `the overview route returned ${response.status}`);
         }
 
         state.data = data;
@@ -741,11 +753,61 @@ async function loadOverview() {
         if (who) who.textContent = data.currentAdmin || state.user.email || "Owner";
     } catch (error) {
         console.error("Admin overview error:", error);
-        state.error = "Could not load the overview from the backend. Check your connection and refresh.";
+
+        if (error.name === "AbortError") {
+            state.error = "TIMEOUT";
+        } else if (error.message === "SESSION_EXPIRED") {
+            state.error = "SESSION_EXPIRED";
+        } else if (error instanceof TypeError) {
+            state.error = "NETWORK";
+        } else {
+            state.error = "SERVER";
+            state.serverMessage = error.message;
+        }
     } finally {
+        clearTimeout(timer);
         if (refresh) refresh.disabled = false;
         paint();
     }
+}
+
+function errorCopy() {
+    if (state.error === "TIMEOUT") {
+        return "The backend did not answer within 25 seconds. The Render free instance sleeps when nobody visits, and the first visit back can take a minute.";
+    }
+    if (state.error === "SESSION_EXPIRED") {
+        return "Your sign-in has expired. Sign in again and the numbers will load.";
+    }
+    if (state.error === "NETWORK") {
+        return "The page could not reach the backend at all. Check the connection on this device, then try again.";
+    }
+    if (state.serverMessage) {
+        return `The backend answered: ${state.serverMessage}`;
+    }
+    return "The backend answered, but the numbers could not be read from the response.";
+}
+
+function paintError() {
+    main.innerHTML = `
+        <section class="a-card">
+            <h2>Could not load the overview</h2>
+            <p class="a-lead">${esc(errorCopy())}</p>
+            <div class="a-actions">
+                <button class="a-btn a-btn-primary" type="button" data-retry>Try again</button>
+                <a class="a-btn" href="login.html?next=admin.html">Sign in again</a>
+                <a class="a-btn" href="dashboard.html">Back to the site</a>
+            </div>
+            <p class="a-hint">Signed in as ${esc(state.user?.email || "unknown")}.</p>
+        </section>`;
+
+    main.querySelectorAll("[data-retry]").forEach((button) => {
+        button.addEventListener("click", () => {
+            state.error = null;
+            state.loading = true;
+            paint();
+            loadOverview();
+        });
+    });
 }
 
 function paintDenied() {
@@ -754,12 +816,19 @@ function paintDenied() {
 
     main.innerHTML = `
         <section class="a-card">
-            <h2>This page is for the site owner</h2>
+            <h2>The backend did not accept this account as admin</h2>
             <p class="a-lead">
-                You are signed in as ${esc(state.user?.email || "your account")}, which the backend
-                does not treat as admin. Sign in with the owner account to see progress and payments.
+                You are signed in as ${esc(state.user?.email || "your account")}. The backend refused
+                the request for that account${state.serverMessage ? `: ${esc(state.serverMessage)}` : ""}.
             </p>
-            <a class="btn btn-ghost btn-sm" href="login.html">Switch account</a>
+            <div class="a-actions">
+                <a class="a-btn a-btn-primary" href="login.html?next=admin.html">Sign in as the owner</a>
+                <a class="a-btn" href="dashboard.html">Back to the site</a>
+            </div>
+            <p class="a-hint">
+                If that email is the right one, the Render service still has a different admin
+                email in its environment settings, so the fix is on the backend, not here.
+            </p>
         </section>`;
 }
 
@@ -868,6 +937,7 @@ function wire() {
 }
 
 function start() {
+    document.body.classList.add("admin-ready");
     wire();
     setView(location.hash.replace("#", "") || "progress", false);
     paint();

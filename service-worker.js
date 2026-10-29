@@ -10,7 +10,7 @@
    - everything else: straight to the network.
 ================================================================ */
 
-const VERSION = "lsh-v8-2026-10-29";
+const VERSION = "lsh-v9-2026-10-29";
 
 const PRECACHE = [
     "./gate.js",

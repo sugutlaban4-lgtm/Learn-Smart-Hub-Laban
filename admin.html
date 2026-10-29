@@ -75,7 +75,14 @@
             </div>
         </header>
 
-        <main class="admin-view" id="adminView" role="main" aria-live="polite"></main>
+        <main class="admin-view" id="adminView" role="main" aria-live="polite">
+                <section class="a-card">
+                    <h2>Opening the admin app</h2>
+                    <p class="a-lead">Checking your session and fetching today's numbers.</p>
+                    <div class="a-skeleton" style="width:60%"></div>
+                    <div class="a-skeleton" style="width:85%;margin-top:10px"></div>
+                </section>
+            </main>
 
     </div>
 
@@ -85,5 +92,23 @@
 
 <script src="data/premium-materials.js"></script>
 <script type="module" src="js/admin-app.js"></script>
+<script>
+    /* If the app script never boots - blocked, stale cache, offline - say so
+       instead of leaving an empty page that looks broken. */
+    setTimeout(function () {
+        if (document.body.classList.contains("admin-ready")) return;
+        var main = document.getElementById("adminView");
+        if (!main) return;
+        main.innerHTML =
+            '<section class="a-card">' +
+            '<h2>The admin app did not start</h2>' +
+            '<p class="a-lead">The page loaded but its script did not run. That usually means ' +
+            'an old copy is cached on this device, or the connection dropped while loading.</p>' +
+            '<div class="a-actions">' +
+            '<a class="a-btn a-btn-primary" href="admin.html?fresh=' + Date.now() + '">Reload the app</a>' +
+            '<a class="a-btn" href="login.html?next=admin.html">Sign in again</a>' +
+            '</div></section>';
+    }, 8000);
+</script>
 </body>
 </html>

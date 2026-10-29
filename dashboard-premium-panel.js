@@ -47,9 +47,64 @@ function paintSubjects(panel, premium) {
     }).join("");
 }
 
+/* The dashboard's Pochi card. It stays hidden until the backend confirms the
+ * student is on the free shelf, so nobody paying already sees a "pay here"
+ * banner, and it shows anyway if the check fails (free is the safe guess). */
+function togglePayCard(show) {
+    const card = document.getElementById("dashPayPanel");
+    if (card) card.hidden = !show;
+}
+
+function wirePayCopy() {
+    const button = document.getElementById("dashPayCopy");
+    const note = document.getElementById("dashPayNote");
+    if (!button || button.dataset.wired) return;
+
+    button.dataset.wired = "1";
+
+    const number = "0710974423";
+
+    const say = (text) => {
+        if (note) note.textContent = text;
+    };
+
+    button.addEventListener("click", async () => {
+        let copied = false;
+
+        try {
+            await navigator.clipboard.writeText(number);
+            copied = true;
+        } catch (error) {
+            try {
+                const area = document.createElement("textarea");
+                area.value = number;
+                area.setAttribute("readonly", "");
+                area.style.position = "fixed";
+                area.style.opacity = "0";
+                document.body.appendChild(area);
+                area.select();
+                copied = document.execCommand("copy");
+                area.remove();
+            } catch (fallbackError) {
+                copied = false;
+            }
+        }
+
+        say(copied
+            ? "Number copied. Paste it in M-Pesa."
+            : "Copying is blocked here. The number is 0710 974 423.");
+
+        const label = button.textContent;
+        button.textContent = copied ? "Copied" : "0710 974 423";
+        setTimeout(() => { button.textContent = label; }, 2500);
+    });
+}
+
 async function run() {
     const panel = await findPanel();
     if (!panel) return;
+
+    wirePayCopy();
 
     const statusLine = document.getElementById("pmPanelStatus");
     const footLine = document.getElementById("pmPanelFoot");
@@ -95,12 +150,14 @@ async function run() {
             }
 
             paintSubjects(panel, active);
+            togglePayCard(!active);
         } catch (error) {
             console.error("Premium panel error:", error);
             if (statusLine) {
                 statusLine.textContent = "Could not check your Premium shelf right now.";
             }
             paintSubjects(panel, false);
+            togglePayCard(true);
         }
     });
 }

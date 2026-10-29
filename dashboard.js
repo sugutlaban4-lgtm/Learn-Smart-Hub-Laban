@@ -15,6 +15,95 @@ const PREMIUM_BACKEND =
    AUTHENTICATION + PREMIUM STATUS
 ================================ */
 
+
+/* ================================
+   PROFILE PHOTO
+================================ */
+
+const PHOTO_BACKEND =
+    "https://learn-smart-hub-backend.onrender.com";
+
+
+function paintHeroPhoto(dataUrl) {
+
+    const wrap =
+        document.getElementById("dashAvatar");
+
+    const image =
+        document.getElementById("dashAvatarImage");
+
+    if (!wrap || !image) {
+        return;
+    }
+
+    if (dataUrl) {
+
+        image.src = dataUrl;
+        wrap.hidden = false;
+
+    } else {
+
+        image.removeAttribute("src");
+        wrap.hidden = true;
+
+    }
+
+}
+
+
+function showProfilePhoto(user) {
+
+    try {
+
+        const cached =
+            localStorage.getItem(`lsh.photo.${user.uid}`);
+
+        if (cached) {
+            paintHeroPhoto(cached);
+        }
+
+    } catch (error) {
+        /* private mode: the server copy still arrives below */
+    }
+
+    user.getIdToken()
+        .then((idToken) =>
+            fetch(
+                `${PHOTO_BACKEND}/api/profile`,
+                { headers: { Authorization: `Bearer ${idToken}` } }
+            )
+        )
+        .then((response) => (response.ok ? response.json() : null))
+        .then((result) => {
+
+            if (!result) {
+                return;
+            }
+
+            const photo =
+                result?.profile?.photo || null;
+
+            paintHeroPhoto(photo);
+
+            try {
+
+                if (photo) {
+                    localStorage.setItem(`lsh.photo.${user.uid}`, photo);
+                } else {
+                    localStorage.removeItem(`lsh.photo.${user.uid}`);
+                }
+
+            } catch (error) {
+                /* ignore */
+            }
+
+        })
+        .catch((error) => {
+            console.error("Profile photo load error:", error);
+        });
+
+}
+
 onAuthStateChanged(auth, async (user) => {
 
     if (user) {
@@ -29,6 +118,10 @@ onAuthStateChanged(auth, async (user) => {
 
         document.getElementById("studentName").textContent =
             user.displayName || fallbackName;
+
+        // The profile photo is mirrored in this browser so it is on screen
+        // before the network answers, then refreshed from the server.
+        showProfilePhoto(user);
 
 
         const premiumStatusElement =

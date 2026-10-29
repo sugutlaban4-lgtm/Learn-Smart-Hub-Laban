@@ -963,3 +963,81 @@ body.has-install-bar {
     .install-bar-copy span { display: none; }
     .install-bar { gap: 10px; }
 }
+
+/* Permanent install card on the dashboard: the bar can be dismissed, this
+   stays, and it disappears once the app is on the home screen. */
+.install-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 20px 22px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+}
+
+.install-card-copy {
+    flex: 1 1 260px;
+    min-width: 0;
+}
+
+.install-card-copy h2 {
+    font-size: 1.02rem;
+    margin-bottom: 4px;
+}
+
+.install-card-copy p {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+}
+
+.install-card .btn { flex: 0 0 auto; }
+
+@media (max-width: 520px) {
+    .install-card { gap: 14px; padding: 18px; }
+    .install-card .btn { width: 100%; }
+}
+
+/* Small phones: the top bar carries up to three buttons next to the brand,
+   which used to push past the right edge on a 360-375px screen. Tighten the
+   buttons and let the bar wrap rather than scroll sideways. */
+@media (max-width: 560px) {
+
+    .topbar-inner {
+        flex-wrap: wrap;
+        row-gap: 8px;
+    }
+
+    .topbar-cta {
+        gap: 6px;
+    }
+
+    .topbar-cta .btn-sm {
+        padding: 8px 10px;
+        font-size: 0.78rem;
+    }
+
+    .brand {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 0.98rem;
+        gap: 8px;
+    }
+
+    .brand-mark {
+        width: 30px;
+        height: 30px;
+        font-size: 0.72rem;
+    }
+}
+
+/* A hidden element must not reserve space. Several buttons are hidden with the
+   attribute and their display rule would otherwise keep them in the layout. */
+[hidden] {
+    display: none !important;
+}

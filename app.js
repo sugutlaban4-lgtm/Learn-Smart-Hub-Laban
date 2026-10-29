@@ -12,10 +12,13 @@ if ("serviceWorker" in navigator) {
 
 /* ------------------------------------------------------------------- install
  *
- * Students can keep Learn-Smart-Hub-Laban on their home screen. Android and
- * desktop Chrome hand us a prompt we can fire from the bar; iPhone has no such
- * event, so there the bar explains the Share sheet instead. One bar, shown on
- * every page this file runs on, dismissed for a month when a student says no.
+ * Students can keep Learn-Smart-Hub-Laban on their home screen. The offer must
+ * not wait for the browser's install event: Chrome only fires that once, and
+ * never again on a phone where the app already sits on the home screen, so the
+ * dashboard looked as if installing was impossible. Instead the bar and the
+ * dashboard card show on every visit until the app is installed or the student
+ * says no, and the button falls back to step-by-step instructions when the
+ * browser has a prompt to give.
  */
 (function () {
     const DISMISS_KEY = "lsh.install-dismissed";
@@ -24,8 +27,6 @@ if ("serviceWorker" in navigator) {
     const standalone =
         window.matchMedia("(display-mode: standalone)").matches ||
         window.navigator.standalone === true;
-
-    if (standalone) return;
 
     const agent = navigator.userAgent;
     const ios = /iPad|iPhone|iPod/.test(agent) ||
@@ -38,7 +39,7 @@ if ("serviceWorker" in navigator) {
     function dismissed() {
         try {
             const when = Number(localStorage.getItem(DISMISS_KEY) || 0);
-            return when && (Date.now() - when) < DISMISS_DAYS * 24 * 60 * 60 * 1000;
+            return Boolean(when) && (Date.now() - when) < DISMISS_DAYS * 24 * 60 * 60 * 1000;
         } catch (error) {
             return false;
         }
@@ -48,20 +49,19 @@ if ("serviceWorker" in navigator) {
         try {
             localStorage.setItem(DISMISS_KEY, String(Date.now()));
         } catch (error) {
-            /* private mode: just hide it for this visit */
+            /* private mode: hide it for this visit only */
         }
-        hide();
+        hideBar();
     }
 
-    function hide() {
+    function hideBar() {
         if (bar) bar.remove();
         bar = null;
         document.body.classList.remove("has-install-bar");
     }
 
-    function show() {
-        if (bar || dismissed()) return;
-        if (!document.body) return;
+    function showBar() {
+        if (standalone || bar || dismissed() || !document.body) return;
 
         bar = document.createElement("div");
         bar.id = "installBar";
@@ -85,6 +85,26 @@ if ("serviceWorker" in navigator) {
         bar.querySelector("#installBarClose").addEventListener("click", dismiss);
     }
 
+    /* The dashboard keeps a permanent card, so installing is still obvious
+       after the bar has been dismissed. It is pointless once installed. */
+    function wireCards() {
+        const cards = document.querySelectorAll("[data-install-block]");
+
+        cards.forEach((card) => {
+            if (standalone) {
+                card.remove();
+                return;
+            }
+            card.hidden = false;
+        });
+
+        document.querySelectorAll("[data-install]").forEach((button) => {
+            if (button.dataset.installWired) return;
+            button.dataset.installWired = "1";
+            button.addEventListener("click", ask);
+        });
+    }
+
     async function ask() {
         if (promptEvent && typeof promptEvent.prompt === "function") {
             promptEvent.prompt();
@@ -94,7 +114,7 @@ if ("serviceWorker" in navigator) {
                 console.error("Install prompt failed:", error);
             }
             promptEvent = null;
-            hide();
+            hideBar();
             return;
         }
 
@@ -148,20 +168,22 @@ if ("serviceWorker" in navigator) {
     window.addEventListener("beforeinstallprompt", (event) => {
         event.preventDefault();
         promptEvent = event;
-        show();
     });
 
     window.addEventListener("appinstalled", () => {
         promptEvent = null;
-        hide();
+        hideBar();
+        document.querySelectorAll("[data-install-block]").forEach((card) => card.remove());
     });
 
-    // iPhone never fires beforeinstallprompt, so offer the Share sheet route.
-    if (iosSafari) {
-        if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", show);
-        } else {
-            show();
-        }
+    function start() {
+        wireCards();
+        showBar();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", start);
+    } else {
+        start();
     }
 })();

@@ -47,6 +47,12 @@ const pochiAmount =
 const pochiNumber =
     document.getElementById("pochiNumber");
 
+const pochiHeading =
+    document.getElementById("pochiHeading");
+
+const stkSection =
+    document.getElementById("stkSection");
+
 
 // The Pochi wallet number lives on the backend so it can change without a
 // website deploy. The page still works if the call fails: it keeps the number
@@ -614,6 +620,19 @@ async function loadPochiDetails() {
 
         const result =
             await response.json();
+
+
+        // The STK card only earns its place when the backend has live Daraja
+        // credentials. On sandbox it stays hidden and Pochi carries payments.
+        if (result && result.stkLive === true && stkSection) {
+
+            stkSection.hidden = false;
+
+            if (pochiHeading) {
+                pochiHeading.textContent = "Or pay with Pochi la Biashara";
+            }
+
+        }
 
 
         if (result?.success && result.number) {

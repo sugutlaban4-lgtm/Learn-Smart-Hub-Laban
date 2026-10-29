@@ -581,3 +581,31 @@
     opacity: 0.55;
     cursor: default;
 }
+
+/* Two quiet links in the sidebar footer, kept side by side on every size. */
+.foot-links {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.foot-links a { margin-top: 8px; }
+
+@media (max-width: 860px) {
+    .foot-links { margin-left: auto; }
+    .foot-links a { margin-top: 0; }
+}
+
+/* Installed admin app: the status bar and gesture bar sit on top of the
+   layout on phones, so keep the header and the last card clear of them. */
+@media (display-mode: standalone) {
+    .admin-side { padding-top: calc(12px + env(safe-area-inset-top)); }
+    .admin-main { padding-bottom: env(safe-area-inset-bottom); }
+    .admin-top { padding-top: calc(12px + env(safe-area-inset-top)); }
+
+    @media (max-width: 860px) {
+        .admin-side { padding-top: calc(12px + env(safe-area-inset-top)); }
+        .admin-top { padding-top: 12px; }
+    }
+}

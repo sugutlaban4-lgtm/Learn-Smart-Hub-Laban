@@ -101,6 +101,39 @@
         </div>
     </section>
 
+    <!-- PAY WITH POCHI -->
+    <section class="dash-panel dash-pay" id="dashPayPanel" hidden>
+        <div class="dash-pay-head">
+            <div>
+                <p class="dash-pay-eyebrow">Pay with M-Pesa</p>
+                <h2>Unlock everything from KSh 50</h2>
+                <p class="dash-pay-lead">
+                    Send to the Pochi la Biashara number, then type the M-Pesa code on the
+                    Premium page. Approval usually lands the same day.
+                </p>
+            </div>
+        </div>
+
+        <div class="dash-pay-number">
+            <span class="label">Pochi la Biashara number</span>
+            <strong>0710 974 423</strong>
+            <span class="hint">Learn Smart Hub</span>
+        </div>
+
+        <ol class="dash-pay-steps">
+            <li>Open M-Pesa, choose <strong>Lipa na M-Pesa</strong>, then <strong>Pochi la Biashara</strong>.</li>
+            <li>Enter the number above and your amount: KSh 50 weekly, KSh 150 monthly, KSh 400 a term.</li>
+            <li>Copy the M-Pesa code from the SMS and send it on the Premium page.</li>
+        </ol>
+
+        <div class="dash-pay-actions">
+            <button type="button" class="btn btn-primary" id="dashPayCopy">Copy number</button>
+            <a class="btn btn-ghost" href="premium.html">I have paid · enter code</a>
+        </div>
+
+        <p class="dash-pay-note" id="dashPayNote" role="status" aria-live="polite"></p>
+    </section>
+
     <!-- PREMIUM LIBRARY -->
     <section class="dash-panel" style="margin-top:14px">
         <div class="dash-premium-head">
@@ -126,6 +159,29 @@
         .pm-panel-tile strong { font-size: 0.94rem; color: var(--ink); }
         .pm-panel-tile span { font-size: 0.76rem; color: #7c8aa3; }
         .pm-panel-tile.is-locked strong::after { content: " · locked"; color: #b06b00; font-weight: 600; }
+
+        /* Pay with Pochi: the one card a free student should not have to hunt for. */
+        .dash-pay { border: 1px solid var(--brand-300); background: linear-gradient(180deg, var(--brand-50), #ffffff 60%); }
+        .dash-pay-eyebrow { margin: 0 0 6px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--brand-700); }
+        .dash-pay h2 { margin: 0 0 6px; }
+        .dash-pay-lead { margin: 0; color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55; }
+        .dash-pay-number { display: grid; gap: 2px; margin: 14px 0 4px; padding: 14px 16px;
+            border: 1px dashed var(--brand-300); border-radius: 12px; background: #fff; }
+        .dash-pay-number .label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--brand-700); }
+        .dash-pay-number strong { font-size: 1.5rem; letter-spacing: 0.02em; color: var(--ink);
+            font-variant-numeric: tabular-nums; }
+        .dash-pay-number .hint { font-size: 0.8rem; color: var(--ink-soft); }
+        .dash-pay-steps { margin: 12px 0 0; padding-left: 20px; display: grid; gap: 7px;
+            font-size: 0.9rem; line-height: 1.5; color: var(--ink-soft); }
+        .dash-pay-steps strong { color: var(--ink); }
+        .dash-pay-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+        .dash-pay-note { margin: 10px 0 0; min-height: 1em; font-size: 0.84rem; color: var(--brand-700); }
+        @media (max-width: 420px) {
+            .dash-pay-number strong { font-size: 1.35rem; }
+            .dash-pay-actions .btn { flex: 1 1 auto; justify-content: center; }
+        }
     </style>
 
     <!-- SEARCH -->

@@ -438,6 +438,12 @@
         }
 
 
+        // A saved best can be higher than the questions on offer when the rest
+        // of the quiz sits behind Premium, so never show a score out of less
+        // than the student actually answered.
+        best = Math.max(0, Math.min(best, questions.length));
+
+
         const state = {
             answered: 0,
             score: 0,

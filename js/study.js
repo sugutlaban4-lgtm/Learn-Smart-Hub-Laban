@@ -80,7 +80,8 @@
         return (
             '<div class="tier-banner">' +
             "<p><strong>Free preview.</strong> " + free + " of " + total + " " + unit +
-            " are open. Premium opens the rest, with no limit on revisits.</p>" +
+            (free === 1 ? " is open." : " are open.") +
+            " Premium opens the rest, with no limit on revisits.</p>" +
             '<a class="btn btn-ghost" href="premium.html">See Premium</a>' +
             "</div>"
         );

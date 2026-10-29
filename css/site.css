@@ -834,3 +834,132 @@ body.site .footer {
         overscroll-behavior-y: contain;
     }
 }
+
+/* Install hint: only appears on iPhone, where the browser has no install
+   prompt and the Share sheet is the way in. */
+.install-help {
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(6, 20, 45, 0.55);
+}
+
+.install-help-card {
+    width: 100%;
+    max-width: 400px;
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 16px;
+    padding: 22px 20px 18px;
+    box-shadow: 0 24px 60px rgba(6, 20, 45, 0.28);
+}
+
+.install-help-card h2 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+.install-help-card p {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.install-help-card ol {
+    margin: 0 0 16px 18px;
+    padding: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--ink);
+}
+
+.install-help-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Install bar: one quiet offer to keep the app, dismissed for a month at a
+   time. It sits above the bottom safe area so nothing hides under the
+   gesture bar on a phone. */
+.install-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 110;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+    background: var(--card);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -12px 30px rgba(6, 20, 45, 0.10);
+}
+
+.install-bar-mark {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--brand-700);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.install-bar-copy {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    line-height: 1.35;
+}
+
+.install-bar-copy strong {
+    display: block;
+    font-size: 0.86rem;
+    color: var(--ink);
+}
+
+.install-bar-copy span {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+}
+
+.install-bar .btn {
+    flex: 0 0 auto;
+}
+
+.install-bar-close {
+    flex: 0 0 auto;
+    border: 0;
+    background: transparent;
+    color: var(--ink-soft);
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: 6px 6px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.install-bar-close:hover {
+    background: var(--brand-50);
+    color: var(--ink);
+}
+
+/* Keep the end of the page reachable while the bar is up. */
+body.has-install-bar {
+    padding-bottom: calc(74px + env(safe-area-inset-bottom));
+}
+
+@media (max-width: 480px) {
+    .install-bar-copy span { display: none; }
+    .install-bar { gap: 10px; }
+}

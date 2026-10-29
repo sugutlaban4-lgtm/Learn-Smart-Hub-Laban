@@ -609,3 +609,38 @@
         .admin-top { padding-top: 12px; }
     }
 }
+
+/* ------------------------------
+   WALLET
+   Money in / money out form on the Wallet view. Selects and inputs follow the
+   same control height as the rest of the admin area so it is thumb-sized.
+------------------------------ */
+
+.wallet-form {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+    margin-top: 12px;
+}
+
+.wallet-form input,
+.wallet-form select {
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-control);
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+}
+
+.wallet-form button {
+    min-height: 44px;
+}
+
+@media (min-width: 640px) {
+    .wallet-form {
+        grid-template-columns: 170px 150px 1fr auto;
+        align-items: center;
+    }
+}

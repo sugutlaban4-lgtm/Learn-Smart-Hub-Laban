@@ -360,6 +360,7 @@ function wire() {
 
     el("logoutButton")?.addEventListener("click", async () => {
         await signOut(auth);
+        try { localStorage.removeItem("lsh.signed-in"); } catch (e) {}
         location.replace("login.html");
     });
 

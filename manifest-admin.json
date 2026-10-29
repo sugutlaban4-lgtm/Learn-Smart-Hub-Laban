@@ -1,0 +1,25 @@
+{
+    "name": "Learn Smart Hub Admin",
+    "short_name": "LSH Admin",
+    "description": "Owner dashboard for Learn Smart Hub: launch progress, payments, students, support and content.",
+    "start_url": "admin.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#f4f8ff",
+    "theme_color": "#0b2b5e",
+    "icons": [
+        {
+            "src": "icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}

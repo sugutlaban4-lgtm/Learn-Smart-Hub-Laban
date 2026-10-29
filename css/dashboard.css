@@ -268,3 +268,29 @@
     flex-wrap: wrap;
     gap: 10px;
 }
+
+/* Who to talk to: the owner's own support line, shown on the dashboard. */
+.owner-card { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+
+.owner-avatar {
+    flex: 0 0 auto;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1565c0, #38bdf8);
+}
+
+.owner-body { flex: 1 1 240px; min-width: 0; }
+.owner-name { margin: 0; font-weight: 700; font-size: 1.1rem; color: #10213f; }
+.owner-role { margin: 2px 0 10px; font-size: 0.9rem; color: #647a96; }
+.owner-copy { margin: 0 0 14px; font-size: 0.95rem; color: #33465f; }
+.owner-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+@media (max-width: 420px) {
+    .owner-avatar { width: 48px; height: 48px; font-size: 1.15rem; }
+}

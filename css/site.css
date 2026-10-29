@@ -1041,3 +1041,14 @@ body.has-install-bar {
 [hidden] {
     display: none !important;
 }
+
+/* Install button at the top of the dashboard: the first thing a student sees,
+   and only while the app is not yet on their phone. */
+.dash-install-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 14px;
+}
+
+.dash-install-btn svg { flex: 0 0 auto; }

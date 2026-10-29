@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Learn Smart Hub",
-  "short_name": "Learn Smart Hub",
-  "description": "Notes, past papers, video lessons and quizzes for Kenyan students. Works offline and pays with M-Pesa.",
+  "name": "Learn-Smart-Hub-Laban",
+  "short_name": "Learn-Smart-Hub-Laban",
+  "description": "Notes, past papers, video lessons and quizzes for Kenyan students. Install it once and study offline, with M-Pesa for Premium.",
   "lang": "en",
   "dir": "ltr",
   "start_url": "./index.html",

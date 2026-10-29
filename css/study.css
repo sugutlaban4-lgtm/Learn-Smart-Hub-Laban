@@ -715,3 +715,121 @@
 .study-jump a:hover {
     border-bottom-color: #1565c0;
 }
+
+/* ================================================================
+   HUB CARDS WITH ICONS / BADGES
+   Used by the subject hubs and the notes, papers and quiz choosers.
+================================================================ */
+
+.hub-icon,
+.hub-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 8px;
+    flex: none;
+}
+
+.hub-icon {
+    background: #eef5ff;
+    color: var(--brand-700);
+}
+
+.hub-icon svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.hub-badge {
+    background: var(--brand-700);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.hub-card[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button.hub-card {
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.footer-note {
+    margin: 10px 0 0;
+    font-size: 0.86rem;
+    max-width: 34ch;
+}
+
+.back-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+/* ================================================================
+   PREMIUM PAGE
+================================================================ */
+
+.status-row {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    margin-bottom: 8px;
+}
+
+.plan-card {
+    cursor: pointer;
+    width: 100%;
+    font: inherit;
+    text-align: left;
+}
+
+.plan-card.is-selected {
+    border-color: var(--brand-500);
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.18);
+}
+
+.plan-price {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--brand-900);
+    letter-spacing: -0.02em;
+}
+
+.pay-panel {
+    max-width: 420px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.pay-panel .btn {
+    width: 100%;
+}
+
+.premium-plan-card.selected,
+.premium-plan-card.is-selected {
+    border-color: var(--brand-500);
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.18);
+}
+
+.premium-plan-card.selected .hub-name::after {
+    content: "  Selected";
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--brand-700);
+    background: #e8f1ff;
+    border-radius: 999px;
+    padding: 2px 8px;
+    margin-left: 6px;
+}

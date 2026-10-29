@@ -155,6 +155,176 @@ window.LSH_SUBJECT = {
         "question": "A resistor of 12 ohms is connected across a 24 V battery. Calculate the current flowing through the resistor.",
         "solution": "Current I = V / R = 24 V / 12 ohms = 2 A."
       }
+    },
+    {
+      topic: "Respiration (aerobic and anaerobic)",
+      level: "Grade 10",
+      summary: "This topic covers how living organisms release usable chemical energy from glucose through oxygen-dependent aerobic processes and oxygen-independent anaerobic fermentation pathways inside cellular structures.",
+      points: [
+        "Aerobic respiration requires oxygen to completely break down glucose into carbon dioxide, water, and a large amount of ATP.",
+        "Anaerobic respiration occurs in the absence of oxygen, yielding lactic acid in human muscles or ethanol and carbon dioxide in yeast.",
+        "Mitochondria serve as the cellular organelles where the majority of aerobic respiration reactions take place.",
+        "An oxygen debt builds up during intense physical activity when lactic acid accumulates in muscle tissues.",
+        "Industrial yeast fermentation is widely utilized across Kenya in bread baking and local beverage production."
+      ],
+      formula: "C6H12O6 + 6O2 -> 6CO2 + 6H2O + Energy",
+      example: {
+        question: "An athlete during a sprint generates 1800 J of energy through anaerobic respiration yielding 2 ATP per glucose, whereas aerobic respiration yields 38 ATP per glucose. Calculate how much energy would be released from the same amount of glucose if fully respired aerobically.",
+        solution: "Step 1: Determine the ratio of ATP production between aerobic and anaerobic respiration, which is 38 / 2 = 19. Step 2: Multiply the energy generated anaerobically by this ratio, giving 1800 J * 19. Step 3: Compute the product: 1800 * 19 = 34200 J (or 34.2 kJ). Final answer: 34200 J (or 34.2 kJ)."
+      }
+    },
+    {
+      topic: "Photosynthesis",
+      level: "Grade 10",
+      summary: "This topic covers how green plants synthesize organic nutrients from carbon dioxide and water using light energy absorbed by chlorophyll pigments within plant leaf chloroplasts.",
+      points: [
+        "Chlorophyll in chloroplasts absorbs light energy and converts it into chemical energy stored in glucose.",
+        "The light-dependent stage splits water molecules into hydrogen ions and releases oxygen gas as a byproduct.",
+        "The light-independent stage reduces carbon dioxide using hydrogen ions and ATP to form glucose molecules.",
+        "Factors limiting the rate of photosynthesis include light intensity, carbon dioxide concentration, and ambient temperature.",
+        "Maize crops grown in the Kenyan Rift Valley rely on adequate sunlight and soil moisture for high photosynthetic yield."
+      ],
+      formula: "6CO2 + 6H2O -> C6H12O6 + 6O2",
+      example: {
+        question: "An aquatic plant produces 120 cm^3 of oxygen gas over a period of 40 minutes under a bright light source. Calculate the average rate of oxygen production in cm^3 per minute.",
+        solution: "Step 1: Identify the total volume of oxygen gas produced, which is 120 cm^3. Step 2: Identify the total time taken in minutes, which is 40 minutes. Step 3: Divide the volume of oxygen by the time taken: 120 cm^3 / 40 min = 3 cm^3/min. Final answer: 3 cm^3/min."
+      }
+    },
+    {
+      topic: "Genetics and inheritance basics",
+      level: "Grade 11",
+      summary: "This topic covers the transmission of hereditary characteristics from parents to offspring through genes, alleles, monohybrid crosses, and chromosomes located inside cell nuclei.",
+      points: [
+        "Genes are specific segments of DNA located on chromosomes that determine inherited traits.",
+        "Alleles are alternative forms of a gene that can be dominant or recessive.",
+        "A homozygous individual possesses two identical alleles, while a heterozygous individual has two different alleles.",
+        "Monohybrid crosses between two heterozygous parents for a dominant trait produce a 3 to 1 phenotypic ratio.",
+        "Phenotype represents the observable physical traits of an organism, whereas genotype refers to its genetic makeup."
+      ],
+      formula: null,
+      example: {
+        question: "In pea plants, tallness (T) is dominant over dwarfness (t). Predict the expected genotypic and phenotypic ratios among the offspring of a cross between two heterozygous tall plants (Tt).",
+        solution: "Step 1: Construct a Punnett square crossing Tt with Tt, yielding genotypes TT, Tt, Tt, and tt. Step 2: Count the proportion of each genotype to get 1 TT : 2 Tt : 1 tt (genotypic ratio 1:2:1). Step 3: Determine the phenotypic appearance for each genotype where TT and Tt are tall and tt is dwarf, giving 3 tall : 1 dwarf (phenotypic ratio 3:1). Final answer: Genotypic ratio is 1 TT : 2 Tt : 1 tt and phenotypic ratio is 3 tall : 1 dwarf."
+      }
+    },
+    {
+      topic: "Excretion and the kidney",
+      level: "Grade 11",
+      summary: "This topic covers the removal of metabolic waste products from living organisms and the filtration and osmoregulation functions performed by the human nephron system.",
+      points: [
+        "Excretion removes toxic metabolic waste products such as urea, carbon dioxide, and excess salts from the body.",
+        "The kidney contains microscopic functional units called nephrons that filter blood under high pressure.",
+        "Ultrafiltration occurs in the glomerulus, forcing small molecules like glucose, urea, water, and salts into Bowman's capsule.",
+        "Selective reabsorption takes place in the renal tubule, returning all glucose and useful ions back into blood capillaries.",
+        "Antidiuretic hormone (ADH) controls water reabsorption in the collecting duct to maintain body fluid balance."
+      ],
+      formula: null,
+      example: {
+        question: "During a kidney study, 180 litres of fluid are filtered by the glomeruli per day, but only 1.8 litres are excreted as urine. Calculate the percentage of filtered fluid reabsorbed by the nephron tubules.",
+        solution: "Step 1: Calculate the volume of fluid reabsorbed by subtracting urine volume from total filtered volume: 180 L - 1.8 L = 178.2 L. Step 2: Divide the reabsorbed volume by the total filtered volume: 178.2 / 180 = 0.99. Step 3: Multiply by 100 to obtain the percentage: 0.99 * 100 = 99 percent. Final answer: 99 percent."
+      }
+    },
+    {
+      topic: "Chemical bonding (ionic and covalent)",
+      level: "Grade 10",
+      summary: "This topic covers how atoms form chemical bonds by transferring or sharing electrons to achieve stable electronic configurations resembling noble gas structures.",
+      points: [
+        "Ionic bonding occurs when metal atoms transfer valence electrons to non-metal atoms, forming oppositely charged ions.",
+        "Strong electrostatic forces of attraction between cations and anions hold giant ionic lattices together.",
+        "Covalent bonding involves the sharing of pairs of valence electrons between non-metal atoms.",
+        "Ionic compounds generally have high melting points and conduct electricity when molten or dissolved in water.",
+        "Simple covalent molecules have lower melting points due to weak intermolecular forces between neutral molecules."
+      ],
+      formula: "Na -> Na+ + e-",
+      example: {
+        question: "Explain why solid sodium chloride does not conduct electricity, whereas aqueous sodium chloride solution is an effective electrical conductor.",
+        solution: "Step 1: Note that in solid sodium chloride, ions are locked in fixed positions within a rigid lattice and cannot move. Step 2: Recognize that when sodium chloride dissolves in water, the lattice breaks down and ions become free to move. Step 3: Identify that mobile sodium and chloride ions carry electric charge through the solution when a voltage is applied. Final answer: Solid NaCl has immobile ions in a lattice, while aqueous NaCl contains mobile ions that conduct electrical current."
+      }
+    },
+    {
+      topic: "The mole concept and molar mass",
+      level: "Grade 11",
+      summary: "This topic covers quantifying chemical substances using Avogadro's constant, relative formula masses, stoichiometric ratios, and conversions between mass and moles.",
+      points: [
+        "One mole of any substance contains Avogadro's constant of particles, which is 6.02 * 10^23 entities.",
+        "Molar mass is the mass in grams of one mole of a substance and equals its relative atomic or molecular mass.",
+        "The number of moles in a sample is calculated by dividing mass in grams by molar mass in grams per mole.",
+        "Molar volume of any ideal gas at standard temperature and pressure (STP) is 22.4 cubic decimetres per mole.",
+        "Balanced chemical equations provide stoichiometric molar ratios used to calculate yields in chemical reactions."
+      ],
+      formula: "moles = mass / molar mass",
+      example: {
+        question: "Calculate the mass of calcium carbonate (CaCO3) required to produce 0.25 moles of carbon dioxide gas, given relative atomic masses Ca = 40, C = 12, O = 16.",
+        solution: "Step 1: Calculate the molar mass of CaCO3: 40 + 12 + (3 * 16) = 100 g/mol. Step 2: Use the reaction ratio CaCO3 -> CaO + CO2, showing 1 mole of CaCO3 produces 1 mole of CO2, so 0.25 moles of CaCO3 are needed. Step 3: Calculate mass using mass = moles * molar mass = 0.25 mol * 100 g/mol = 25 g. Final answer: 25 g."
+      }
+    },
+    {
+      topic: "Organic chemistry (alkanes and alkenes)",
+      level: "Grade 11",
+      summary: "This topic covers the structures, nomenclature, physical properties, and chemical reactions of saturated hydrocarbons called alkanes and unsaturated hydrocarbons called alkenes.",
+      points: [
+        "Alkanes are saturated hydrocarbons containing single carbon-carbon bonds with general formula CnH2n+2.",
+        "Alkenes are unsaturated hydrocarbons containing at least one carbon-carbon double bond with general formula CnH2n.",
+        "Alkanes undergo substitution reactions with halogens in the presence of ultraviolet light.",
+        "Alkenes undergo addition reactions across double bonds, decolourising bromine water from brown to colourless.",
+        "Cracking long-chain alkanes obtained from crude oil produces shorter alkanes and commercially valuable alkenes."
+      ],
+      formula: "CnH2n+2 (alkanes) and CnH2n (alkenes)",
+      example: {
+        question: "Determine the molecular formula and molar mass of an alkene containing 4 carbon atoms, given relative atomic masses C = 12 and H = 1.",
+        solution: "Step 1: Apply the alkene general formula CnH2n with n = 4 to find the molecular formula C4H8. Step 2: Calculate mass from carbon atoms: 4 * 12 = 48 g/mol. Step 3: Calculate mass from hydrogen atoms and sum them: 8 * 1 = 8 g/mol, giving total molar mass = 48 + 8 = 56 g/mol. Final answer: Molecular formula is C4H8 and molar mass is 56 g/mol."
+      }
+    },
+    {
+      topic: "Work, energy, power and machines",
+      level: "Grade 10",
+      summary: "This topic covers mechanical energy transformations, work done by forces, power expenditure, and the mechanical advantage and efficiency of simple machines.",
+      points: [
+        "Work is done when a force moves an object through a distance in the direction of the force.",
+        "Kinetic energy is energy due to motion, while gravitational potential energy depends on mass, gravity, and height.",
+        "Power is the rate at which work is done or energy is transferred, measured in watts.",
+        "Mechanical advantage of a machine is the ratio of load force overcome to effort force applied.",
+        "Machine efficiency is calculated as the ratio of useful work output to total energy input expressed as a percentage."
+      ],
+      formula: "P = W / t",
+      example: {
+        question: "An electric pump lifts 200 kg of water through a vertical height of 15 metres in 10 seconds. Calculate the useful power output of the pump, taking g = 10 N/kg.",
+        solution: "Step 1: Calculate the work done in lifting water: W = m * g * h = 200 kg * 10 N/kg * 15 m = 30000 J. Step 2: Identify the time taken, which is 10 seconds. Step 3: Calculate power output: P = W / t = 30000 J / 10 s = 3000 W (or 3 kW). Final answer: 3000 W (or 3 kW)."
+      }
+    },
+    {
+      topic: "Waves, sound and light",
+      level: "Grade 11",
+      summary: "This topic covers wave properties including wavelength, frequency, reflection, refraction, sound propagation in media, and the electromagnetic spectrum of light.",
+      points: [
+        "Waves transfer energy from one location to another without transferring matter.",
+        "Transverse waves oscillate perpendicular to energy flow, whereas longitudinal waves oscillate parallel to energy flow.",
+        "Wave speed equals frequency multiplied by wavelength in any given medium.",
+        "Sound waves are longitudinal mechanical waves requiring a material medium for propagation.",
+        "Refraction occurs when light changes speed and direction upon entering a medium of different optical density."
+      ],
+      formula: "v = f * lambda",
+      example: {
+        question: "A radio station in Nairobi broadcasts electromagnetic waves at a frequency of 100 MHz (10^8 Hz). If the speed of radio waves in air is 3.0 * 10^8 m/s, calculate the wavelength.",
+        solution: "Step 1: Identify wave speed v = 3.0 * 10^8 m/s and frequency f = 10^8 Hz. Step 2: Rearrange the wave equation v = f * lambda to solve for wavelength: lambda = v / f. Step 3: Compute wavelength: (3.0 * 10^8) / (10^8) = 3.0 metres. Final answer: 3.0 metres."
+      }
+    },
+    {
+      topic: "Magnetism and electromagnetism",
+      level: "Grade 10",
+      summary: "This topic covers magnetic fields, permanent and temporary magnets, electromagnetic induction, electric motor principles, and transformer step-up and step-down operations.",
+      points: [
+        "Like magnetic poles repel each other while unlike magnetic poles attract each other.",
+        "Magnetic field lines extend from the north pole to the south pole of a magnet.",
+        "An electric current flowing through a conductor produces a magnetic field around the conductor.",
+        "Electromagnets consist of a current-carrying coil wound around a soft iron core.",
+        "Transformers step up or step down alternating voltage using electromagnetic induction between primary and secondary coils."
+      ],
+      formula: "Vp / Vs = Np / Ns",
+      example: {
+        question: "A step-down transformer has 400 turns on its primary coil and 20 turns on its secondary coil. If the primary voltage is 240 V, calculate the secondary voltage.",
+        solution: "Step 1: Identify given values: Np = 400, Ns = 20, Vp = 240 V. Step 2: Use the transformer equation Vp / Vs = Np / Ns, giving 240 / Vs = 400 / 20 = 20. Step 3: Solve for Vs: Vs = 240 / 20 = 12 V. Final answer: 12 V."
+      }
     }
   ],
   "papers": [

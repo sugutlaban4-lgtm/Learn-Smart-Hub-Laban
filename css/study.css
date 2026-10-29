@@ -833,3 +833,183 @@ button.hub-card {
     padding: 2px 8px;
     margin-left: 6px;
 }
+
+/* ---- Free resources ---- */
+
+.res-intro {
+    margin-top: 10px !important;
+    max-width: 62ch;
+}
+
+.res-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0 6px;
+}
+
+.res-chips .chip {
+    text-decoration: none;
+}
+
+.res-group {
+    margin: 30px 0 0;
+    scroll-margin-top: 84px;
+}
+
+.res-head h2 {
+    margin: 0 0 4px;
+    font-size: 1.15rem;
+    color: var(--ink);
+}
+
+.res-head p {
+    margin: 0 0 12px;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    max-width: 62ch;
+}
+
+.res-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.res-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px 15px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+    box-shadow: 0 1px 2px rgba(16, 33, 63, 0.04);
+}
+
+.res-link {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+.res-link:hover .res-name,
+.res-link:focus-visible .res-name {
+    text-decoration: underline;
+}
+
+.res-name {
+    display: block;
+    font-weight: 600;
+    font-size: 0.97rem;
+    color: var(--brand-700);
+}
+
+.res-meta {
+    display: block;
+    margin-top: 3px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: var(--ink-soft);
+}
+
+.res-tag {
+    flex: 0 0 auto;
+    align-self: center;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--brand-50);
+    color: var(--brand-700);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.res-note {
+    margin: 8px 0 0;
+    font-size: 0.78rem;
+    color: #7b8aa3;
+}
+
+@media (max-width: 420px) {
+    .res-item { padding: 12px 13px; gap: 9px; }
+    .res-tag { font-size: 0.68rem; padding: 3px 7px; }
+}
+
+/* ---- Printing notes and papers ---- */
+
+@media print {
+    .topbar,
+    .footer,
+    .skip-link,
+    .auth-veil,
+    .crumbs,
+    .req-actions,
+    .back-row,
+    .chip,
+    .chips,
+    .install-bar,
+    #installBar,
+    .btn {
+        display: none !important;
+    }
+
+    .site,
+    body.site {
+        background: #fff !important;
+        color: #000;
+    }
+
+    .wrap {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+    }
+
+    .topic-card,
+    .paper-card,
+    .hub-card,
+    .res-item {
+        border: 1px solid #bbb !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .study-head h1 {
+        font-size: 1.5rem;
+    }
+
+    a::after {
+        content: "";
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.75em;
+        color: #444;
+        word-break: break-all;
+    }
+}
+
+/* ---- Matching radius and chip scale with the public pages ---- */
+.hub-card,
+.topic-card,
+.paper-card {
+    border-radius: 16px;
+}
+
+.res-item {
+    border-radius: 12px;
+}
+
+.study-toolbar .chip,
+.res-chips .chip {
+    padding: 7px 12px;
+    font-size: 0.85rem;
+    line-height: 1.35;
+}

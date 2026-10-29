@@ -3,191 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Login - Learn Smart Hub</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            background: #f4f8ff;
-        }
-
-        .login-box {
-            width: 100%;
-            max-width: 400px;
-            background: white;
-            padding: 30px 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
-        }
-
-        h1 {
-            text-align: center;
-            color: #1565c0;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 7px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        input {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        button {
-            width: 100%;
-            margin-top: 25px;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            background: #1565c0;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #0d47a1;
-        }
-
-        #message {
-            margin-top: 15px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .signup {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .signup a {
-            color: #1565c0;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
-
-    <link rel="manifest" href="manifest.json">
+    <title>Log in - Learn Smart Hub</title>
+    <meta name="description" content="Log in to Learn Smart Hub to open notes, past papers, video lessons and quizzes.">
     <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/site.css">
 
     <link rel="canonical" href="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/login.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Learn Smart Hub">
-    <meta property="og:title" content="Login - Learn Smart Hub">
-    <meta property="og:description" content="Notes, past papers, video lessons and quizzes for Kenyan secondary school students.">
+    <meta property="og:title" content="Log in - Learn Smart Hub">
+    <meta property="og:description" content="Log in to Learn Smart Hub to open notes, past papers, video lessons and quizzes.">
     <meta property="og:url" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/login.html">
     <meta property="og:image" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/icons/icon-512.png">
     <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body>
+<body class="site">
 
-<div class="login-box">
+<main class="auth">
 
-    <h1>📚 Learn Smart Hub</h1>
+    <div class="auth-card">
 
-    <p class="subtitle">Login to continue learning</p>
+        <a class="brand" href="index.html" style="margin-bottom:16px;">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
 
-    <form id="loginForm">
+        <h1>Welcome back</h1>
+        <p class="muted">Log in to continue with your notes, papers and quizzes.</p>
 
-        <label for="email">Email</label>
-        <input
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-            required
-        >
+        <form id="loginForm">
 
-        <label for="password">Password</label>
-        <input
-            type="password"
-            id="password"
-            placeholder="Enter your password"
-            required
-        >
+            <div class="field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email"
+                    autocomplete="email" placeholder="you@example.com" required>
+            </div>
 
-        <button type="submit">🔐 Login</button>
+            <div class="field">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password"
+                    autocomplete="current-password" placeholder="Your password" required>
+            </div>
 
-    </form>
+            <button class="btn btn-primary" type="submit">Log in</button>
 
-    <p id="message"></p>
+            <p class="hint" id="message" role="status" aria-live="polite"></p>
 
-    <div class="signup">
-        Don't have an account?
-        <a href="signup.html">Create Account</a>
+        </form>
+
+        <p class="auth-foot">
+            Don't have an account?
+            <a href="signup.html">Create one</a>
+        </p>
+
     </div>
 
-</div>
+</main>
 
-<!-- Firebase -->
 <script type="module">
 
-    import { initializeApp } from
-    "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { auth } from "./firebase.js";
 
     import {
-        getAuth,
         signInWithEmailAndPassword
-    } from
-    "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-
-    // YOUR FIREBASE CONFIGURATION
-    const firebaseConfig = {
-
-        apiKey: "AIzaSyCTRqYqGMzqq6zvCiDijNSYdRwhqxVlXPo",
-        authDomain: "learn-smart-hub-laban.firebaseapp.com",
-        projectId:"learn-smart-hub-laban",
-        storageBucket: "learn-smart-hub-laban.firebasestorage.app",
-        messagingSenderId: "707789494610",
-        appId: "1:707789494610:web:ee7f3f9a6fddbc913e028b" 
-
-    };
-
-
-    const app = initializeApp(firebaseConfig);
-
-    const auth = getAuth(app);
-
+    } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
     const loginForm = document.getElementById("loginForm");
-
     const message = document.getElementById("message");
-
 
     // Where to go after a successful login. Only a plain page on this site is
     // accepted, so a crafted ?next= cannot send anyone off-site.
     const params = new URLSearchParams(window.location.search);
-
     const rawNext = params.get("next") || "";
 
     const nextPage =
@@ -195,48 +85,29 @@
             ? rawNext
             : "dashboard.html";
 
-
     if (params.get("reason") === "login-required") {
-
         message.textContent = "Log in to open that page.";
-
     }
 
-
-    const signupLink = document.querySelector(".signup a");
-
+    const signupLink = document.querySelector(".auth-foot a");
     if (signupLink && rawNext) {
-
-        signupLink.href =
-            "signup.html?next=" + encodeURIComponent(rawNext);
-
+        signupLink.href = "signup.html?next=" + encodeURIComponent(rawNext);
     }
-
 
     loginForm.addEventListener("submit", async (event) => {
 
         event.preventDefault();
 
-        const email =
-            document.getElementById("email").value.trim();
-
-        const password =
-            document.getElementById("password").value;
-
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
 
         message.textContent = "Logging in...";
 
-
         try {
 
-            await signInWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+            await signInWithEmailAndPassword(auth, email, password);
 
-            message.textContent =
-                "✅ Login successful!";
+            message.textContent = "Logged in. Opening your dashboard...";
 
             window.location.href = nextPage;
 
@@ -244,8 +115,7 @@
 
             console.error(error);
 
-            message.textContent =
-                "❌ Login failed: " + error.message;
+            message.textContent = "Login failed: " + error.message;
 
         }
 

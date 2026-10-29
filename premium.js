@@ -46,7 +46,7 @@ onAuthStateChanged(auth, async (user) => {
     if (!user) {
 
         statusElement.textContent =
-            "🔒 Premium Status: Not logged in";
+            "Not logged in";
 
         planElement.textContent =
             "Please log in to use Premium.";
@@ -101,12 +101,12 @@ onAuthStateChanged(auth, async (user) => {
         if (status === "active") {
 
             statusElement.textContent =
-                "⭐ Premium Status: Active";
+                "Active";
 
         } else {
 
             statusElement.textContent =
-                "🔒 Premium Status: Inactive";
+                "Inactive";
 
         }
 
@@ -119,14 +119,13 @@ onAuthStateChanged(auth, async (user) => {
 
 
             planElement.textContent =
-                "Plan: " +
                 formattedPlan +
-                " Premium";
+                " premium";
 
         } else {
 
             planElement.textContent =
-                "Plan: None";
+                "None";
 
         }
 
@@ -168,7 +167,7 @@ async function (plan, price) {
             "Please log in before selecting a Premium plan.";
 
         paymentMessage.textContent =
-            "🔒 Please log in first.";
+            "Please log in first.";
 
         return;
     }
@@ -186,14 +185,13 @@ async function (plan, price) {
     selectedPlanElement.textContent =
         "Selected: " +
         formattedPlan +
-        " Premium — KSh " +
+        " premium, KSh " +
         price;
 
 
     paymentMessage.textContent =
-        "✅ " +
         formattedPlan +
-        " Premium selected. Enter your M-Pesa number.";
+        " premium selected. Enter your M-Pesa number.";
 
 
     paymentButton.disabled = false;
@@ -304,7 +302,7 @@ if (paymentButton) {
             if (!user) {
 
                 paymentMessage.textContent =
-                    "🔒 Please log in before making a payment.";
+                    "Please log in before making a payment.";
 
                 return;
 
@@ -329,7 +327,7 @@ if (paymentButton) {
             if (!phone) {
 
                 paymentMessage.textContent =
-                    "📱 Enter your M-Pesa phone number.";
+                    "Enter your M-Pesa phone number.";
 
                 phoneInput.focus();
 
@@ -350,7 +348,7 @@ if (paymentButton) {
             if (!phonePattern.test(phone)) {
 
                 paymentMessage.textContent =
-                    "❌ Enter a valid Kenyan M-Pesa number.";
+                    "Enter a valid Kenyan M-Pesa number.";
 
                 phoneInput.focus();
 
@@ -362,11 +360,11 @@ if (paymentButton) {
             paymentButton.disabled = true;
 
             paymentButton.textContent =
-                "⏳ Sending payment request...";
+                "Sending payment request...";
 
 
             paymentMessage.textContent =
-                "📱 Connecting to M-Pesa...";
+                "Connecting to M-Pesa...";
 
 
             try {
@@ -411,12 +409,12 @@ if (paymentButton) {
                 if (result.success) {
 
                     paymentMessage.textContent =
-                        "📱 M-Pesa prompt sent. Check your phone and complete the payment.";
+                        "M-Pesa prompt sent. Check your phone and complete the payment.";
 
                 } else {
 
                     paymentMessage.textContent =
-                        "❌ M-Pesa request failed: " +
+                        "M-Pesa request failed: " +
                         (
                             result.error?.errorMessage ||
                             result.message ||
@@ -435,7 +433,7 @@ if (paymentButton) {
 
 
                 paymentMessage.textContent =
-                    "❌ Unable to connect to the M-Pesa payment service.";
+                    "Unable to connect to the M-Pesa payment service.";
 
             }
 
@@ -443,7 +441,7 @@ if (paymentButton) {
             paymentButton.disabled = false;
 
             paymentButton.textContent =
-                "💳 Continue to Payment";
+                "Pay with M-Pesa";
 
         }
     );
@@ -497,7 +495,7 @@ async function (resource) {
         ) {
 
             alert(
-                "🔒 This Premium resource is locked. Complete your Premium payment first."
+                "This Premium resource is locked. Complete your Premium payment first."
             );
 
             return;

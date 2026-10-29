@@ -1,21 +1,22 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Learn Smart Hub - Quiz</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="manifest" href="manifest.json">
+    <title>Quizzes - Learn Smart Hub</title>
+    <meta name="description" content="Choose a subject and test yourself with instantly marked quizzes.">
     <meta name="theme-color" content="#0d47a1">
+    <link rel="manifest" href="manifest.json">
     <link rel="icon" href="icons/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/study.css">
 
     <link rel="canonical" href="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/quiz.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Learn Smart Hub">
-    <meta property="og:title" content="Learn Smart Hub - Quiz">
-    <meta property="og:description" content="Notes, past papers, video lessons and quizzes for Kenyan secondary school students.">
+    <meta property="og:title" content="Quizzes - Learn Smart Hub">
+    <meta property="og:description" content="Choose a subject and test yourself with instantly marked quizzes.">
     <meta property="og:url" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/quiz.html">
     <meta property="og:image" content="https://sugutlaban4-lgtm.github.io/Learn-Smart-Hub-Laban/icons/icon-512.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -34,7 +35,7 @@
     <meta name="robots" content="noindex, nofollow">
 </head>
 
-<body class="subject-page" data-gated="1">
+<body class="site" data-gated="1">
 
 <div class="auth-veil" role="status" aria-live="polite">
     <div class="auth-veil-box">
@@ -45,58 +46,97 @@
 </div>
 <script>setTimeout(function(){var t=document.querySelector(".auth-veil-text");if(t&&!document.body.classList.contains("gate-ready")){t.innerHTML='Could not check your session. <a href="login.html">Log in again</a>.';}},12000);</script>
 
+<header class="topbar">
+    <div class="wrap topbar-inner">
 
-<div class="subject-container">
+        <a class="brand" href="index.html">
+            <span class="brand-mark" aria-hidden="true">LS</span>
+            Learn Smart Hub
+        </a>
 
-    <header class="subject-header">
-        <div class="subject-icon">📝</div>
-        <h1>Quizzes</h1>
-        <p>Test your knowledge and track your learning progress.</p>
-    </header>
+        <nav class="nav" aria-label="Main">
+            <a href="index.html#subjects">Subjects</a>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="videos.html">Videos</a>
+            <a href="premium.html">Premium</a>
+        </nav>
 
-    <section class="subject-section">
-
-        <h2>🎯 Choose a Subject</h2>
-
-        <div class="subject-grid">
-
-            <button
-                class="subject-card"
-                onclick="window.location='math-quiz.html'">
-
-                <span class="subject-card-icon">📐</span>
-                <span class="subject-card-title">Mathematics Quiz</span>
-                <span class="subject-card-description">
-                    Test your Mathematics knowledge
-                </span>
-
-            </button>
-
-            <button
-                class="subject-card"
-                onclick="window.location='science-quiz.html'">
-
-                <span class="subject-card-icon">🔬</span>
-                <span class="subject-card-title">Science Quiz</span>
-                <span class="subject-card-description">
-                    Test your Science knowledge
-                </span>
-
-            </button>
-
+        <div class="topbar-cta">
+            <a class="btn btn-ghost btn-sm" href="dashboard.html">Dashboard</a>
         </div>
 
-    </section>
+    </div>
+</header>
 
-    <button
-        class="back-button"
-        onclick="window.location='dashboard.html'">
+<main class="wrap study-main">
 
-        🏠 Back to Dashboard
+    <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Quizzes</span>
+    </nav>
 
-    </button>
+    <div class="study-head">
+        <h1>Quizzes</h1>
+        <p>Choose a subject and test yourself. Every quiz is marked instantly, with the reason shown for each answer.</p>
+    </div>
 
-</div>
+    <div class="hub-grid">
+            <a class="hub-card" href="math-quiz.html">
+                <span class="hub-badge" aria-hidden="true">M</span>
+                <span class="hub-name">Mathematics</span>
+                <span class="hub-meta">Instant marking and score</span>
+            </a>
+            <a class="hub-card" href="english-quiz.html">
+                <span class="hub-badge" aria-hidden="true">E</span>
+                <span class="hub-name">English</span>
+                <span class="hub-meta">Instant marking and score</span>
+            </a>
+            <a class="hub-card" href="kiswahili-quiz.html">
+                <span class="hub-badge" aria-hidden="true">K</span>
+                <span class="hub-name">Kiswahili</span>
+                <span class="hub-meta">Instant marking and score</span>
+            </a>
+            <a class="hub-card" href="science-quiz.html">
+                <span class="hub-badge" aria-hidden="true">S</span>
+                <span class="hub-name">Science</span>
+                <span class="hub-meta">Instant marking and score</span>
+            </a>
+            <a class="hub-card" href="social-sciences-quiz.html">
+                <span class="hub-badge" aria-hidden="true">SS</span>
+                <span class="hub-name">Social Sciences</span>
+                <span class="hub-meta">Instant marking and score</span>
+            </a>
+    </div>
+
+    <div class="back-row">
+        <a class="btn btn-ghost btn-sm" href="dashboard.html">Back to dashboard</a>
+    </div>
+
+</main>
+
+<footer class="footer">
+    <div class="wrap footer-inner">
+        <div>
+            <a class="brand" href="index.html">
+                <span class="brand-mark" aria-hidden="true">LS</span>
+                Learn Smart Hub
+            </a>
+            <p class="footer-note">Study material for Kenyan students, built to stay useful on a slow connection.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+            <a href="index.html">Home</a>
+            <a href="notes.html">Notes</a>
+            <a href="pastpapers.html">Past papers</a>
+            <a href="videos.html">Videos</a>
+            <a href="quiz.html">Quizzes</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+        </nav>
+    </div>
+</footer>
 
 <script src="app.js"></script>
     <script type="module" src="gate.js"></script>
